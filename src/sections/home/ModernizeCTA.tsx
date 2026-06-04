@@ -62,7 +62,8 @@ export default function ModernizeCTA() {
               <Button
                 variant="outline"
                 href="#about"
-                id="cta-btn-learn"
+                id="cta-btn-learn" 
+                className="text-white"
               >
                 Learn More
               </Button>
