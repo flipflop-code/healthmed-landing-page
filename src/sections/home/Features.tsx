@@ -5,6 +5,8 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
+import { Badge } from '../../components/ui/Badge';
+import { Heading } from '../../components/ui/Heading';
 import { 
   Users, 
   Sparkle, 
@@ -55,19 +57,19 @@ export default function Features() {
   ];
 
   return (
-    <section className="bg-[#0070f0] text-white py-20 md:py-28 border-b border-brand-blue-600 overflow-hidden" id="features">
+    <section className="bg-brand-blue-accent text-white py-20 md:py-28 border-b border-brand-blue-600 overflow-hidden" id="features">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header content and Badges */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
           <div className="flex justify-center mb-5">
-            <span className="px-4 py-1.5 border border-white/20 bg-white/10 text-white text-[11px] font-sans font-semibold uppercase tracking-wider rounded-lg shadow-sm">
+            <Badge variant="glass">
               Features
-            </span>
+            </Badge>
           </div>
-          <h2 className="text-4xl md:text-[50px] font-serif leading-[1.12] tracking-tighter text-white" id="features-heading">
+          <Heading level={2} id="features-heading" className="text-white">
             <span className="italic font-normal">Built for Smarter</span> Healthcare Management
-          </h2>
+          </Heading>
         </div>
 
         {/* 3-Column Chessboard/Staggered Responsive Grid */}

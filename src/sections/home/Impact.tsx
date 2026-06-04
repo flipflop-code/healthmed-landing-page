@@ -30,7 +30,7 @@ export default function Impact() {
           <h2 className="text-4xl md:text-5xl font-serif text-brand-black leading-tight tracking-tight">
             Delivering Measurable Healthcare Impact
           </h2>
-          <p className="mt-4 text-brand-gray-600 text-[15px] leading-relaxed">
+          <p className="mt-4 text-brand-gray-600 text-body-lg leading-relaxed">
             HealthMed helps healthcare organizations improve operational efficiency, reduce manual work, and accelerate patient workflows.
           </p>
         </div>
@@ -59,7 +59,7 @@ export default function Impact() {
                 </span>
                 
                 {/* Technical support tagline for pixel perfect realism */}
-                <span className="text-[11px] font-medium text-brand-gray-400 uppercase tracking-widest mt-1">
+                <span className="text-body-xs font-medium text-brand-gray-400 uppercase tracking-widest mt-1">
                   Verified Metric
                 </span>
               </div>

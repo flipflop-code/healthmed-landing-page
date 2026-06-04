@@ -5,45 +5,19 @@
 
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+// @ts-expect-error - image asset type declaration may be missing
+import logoImg from '../../assets/images/logo.png';
 
 export function Logo({ isDark = false }: { isDark?: boolean }) {
-  const primaryColorClass = isDark ? "text-[#3a86ff]" : "text-[#2271e8]";
-  const secondaryColorClass = "text-[#72c043]";
-  const sloganColorClass = isDark ? "text-gray-400" : "text-[#6c757d]";
-
   return (
-    <div className="flex items-center gap-2" id="nav-logo">
-      {/* Complete Vector Logo matching design tokens and aesthetics */}
-      <div className="flex flex-col gap-0.5 select-none animate-fade-in">
-        <div className="flex items-center gap-2.5">
-          {/* Cloud outline with "Hm" inside and heartbeat pulse */}
-          <div className="relative flex items-center justify-center w-10 h-10 overflow-visible">
-            {/* Cloud path */}
-            <svg viewBox="0 0 100 80" className={`absolute inset-0 w-full h-full fill-none ${isDark ? 'stroke-white/70' : 'stroke-gray-400'} stroke-[6] stroke-linecap-round stroke-linejoin-round`} aria-hidden="true">
-              <path d="M25,50 C10,50 10,35 25,35 C20,15 45,10 55,25 C65,10 90,15 85,35 C95,35 95,50 80,50 Z" />
-            </svg>
-            {/* Heartbeat pulse line */}
-            <svg viewBox="0 0 100 80" className="absolute inset-0 w-full h-full fill-none" aria-hidden="true">
-              <path d="M22 46 h12 l4 -12 l5 20 l4 -14 l3 6 h12" stroke="#72c043" strokeWidth="6.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            {/* "Hm" nested inside the cloud on bottom left area nicely */}
-            <div className="absolute bottom-[13px] left-[17px] flex items-center justify-center font-sans font-black text-[9.5px] tracking-tighter leading-none">
-              <span className={primaryColorClass}>H</span>
-              <span className={secondaryColorClass}>M</span>
-            </div>
-          </div>
-
-          {/* Lettering: Healthmed */}
-          <div className="flex flex-col">
-            <div className="text-[21px] font-sans font-extrabold tracking-tight leading-none flex items-baseline">
-              <span className={primaryColorClass}>Health</span>
-              <span className={secondaryColorClass}>med</span>
-            </div>
-            <span className={`text-[7.5px] font-semibold tracking-wider ${sloganColorClass} leading-[1] uppercase mt-[3px]`} style={{ letterSpacing: '0.4px' }}>
-              Quality Care Simplified by Technology
-            </span>
-          </div>
-        </div>
+    <div className="flex items-center" id="nav-logo">
+      <div className="flex items-center select-none animate-fade-in bg-white py-1 px-2 rounded-lg shadow-[0_1px_3px_rgba(0,0,0,0.05)] border border-gray-100/30">
+        <img
+          src={logoImg}
+          alt="Healthmed Logo"
+          className="h-10 md:h-11 w-auto object-contain"
+          referrerPolicy="no-referrer"
+        />
       </div>
     </div>
   );
@@ -91,7 +65,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center">
             <a
               href="#book-a-call"
-              className="px-5 py-2.5 bg-brand-black hover:bg-brand-gray-800 text-white font-medium text-sm rounded-lg transition-all duration-200 shadow-sm shadow-[#191c1f]/10 hover:shadow-md"
+              className="px-5 py-2.5 bg-brand-black hover:bg-brand-gray-800 text-white font-medium text-sm rounded-lg transition-all duration-200 shadow-sm shadow-brand-black/10 hover:shadow-md"
               id="nav-btn-book"
             >
               Book a Call

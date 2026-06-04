@@ -6,6 +6,9 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
+import { Badge } from '../../components/ui/Badge';
+import { Heading } from '../../components/ui/Heading';
+import { Button } from '../../components/ui/Button';
 
 export default function Products() {
   const cards = [
@@ -36,21 +39,21 @@ export default function Products() {
   ];
 
   return (
-    <section className="bg-[#FAF8F5] py-20 md:py-28 border-b border-brand-gray-100 overflow-hidden" id="products">
+    <section className="bg-brand-bg py-20 md:py-28 border-b border-brand-gray-100 overflow-hidden" id="products">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Headings */}
         <div className="text-center max-w-4xl mx-auto mb-16 md:mb-20">
           <div className="flex justify-center mb-5">
-            <span className="px-4 py-1.5 bg-[#1e2022] text-white text-[11px] font-sans font-bold uppercase tracking-wider rounded-lg shadow-sm">
+            <Badge variant="dark">
               Products
-            </span>
+            </Badge>
           </div>
-          <h2 className="text-4xl md:text-[50px] font-serif text-[#1e2022] leading-[1.12] tracking-tighter" id="products-heading">
+          <Heading level={2} id="products-heading" className="text-brand-charcoal">
             Everything Healthcare Teams Need <br />
             <span className="italic font-normal block mt-2">Connected in One Platform</span>
-          </h2>
-          <p className="mt-5 text-[#5c636a] text-[15px] md:text-[16px] max-w-2xl mx-auto leading-relaxed font-sans" id="products-description">
+          </Heading>
+          <p className="mt-5 text-brand-slate text-body-lg max-w-2xl mx-auto leading-relaxed font-sans" id="products-description">
             HealthMed combines clinical, operational, financial, and patient workflows into one intelligent healthcare management ecosystem.
           </p>
         </div>
@@ -64,7 +67,7 @@ export default function Products() {
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-white rounded-xl border border-gray-200/60 overflow-hidden shadow-sm hover:shadow-xl hover:border-[#2271e8]/30 transition-all duration-300 flex flex-col group cursor-pointer"
+              className="card-custom overflow-hidden hover:border-brand-blue/30 flex flex-col group cursor-pointer"
               id={`product-card-${card.id.toLowerCase()}`}
             >
               
@@ -82,21 +85,21 @@ export default function Products() {
               <div className="p-8 flex flex-col flex-grow">
                 {/* Title and Read More Action Link on the exact same row */}
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-[32px] font-serif font-medium tracking-tight text-[#1e2022] leading-none">
+                  <Heading level={3} className="text-brand-charcoal font-medium leading-none">
                     {card.title}
-                  </h3>
-                  <a
+                  </Heading>
+                  <Button
+                    variant="link"
                     href={`#product-${card.id.toLowerCase()}`}
-                    className="inline-flex items-center gap-1.5 text-[14px] font-sans font-semibold text-[#2271e8] hover:text-[#185bc4] transition-colors"
                     id={`product-link-${card.id.toLowerCase()}`}
                   >
                     Read More
                     <ArrowRight className="h-4 w-4" />
-                  </a>
+                  </Button>
                 </div>
 
                 {/* Body Paragraph description with custom leading and text-sm / text-[13.5px] */}
-                <p className="text-[#5c636a] text-[13.5px] leading-relaxed flex-grow">
+                <p className="text-brand-slate text-body-sm leading-relaxed flex-grow">
                   {card.description}
                 </p>
               </div>

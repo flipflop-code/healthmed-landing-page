@@ -17,7 +17,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#191b1d] text-white/90 border-t border-white/5 font-sans" id="app-footer">
+    <footer className="bg-brand-black text-white/90 border-t border-white/5 font-sans" id="app-footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
           
@@ -28,7 +28,7 @@ export default function Footer() {
               <Logo isDark={true} />
             </div>
             
-            <p className="text-gray-400 text-[14px] max-w-md leading-relaxed">
+            <p className="text-gray-400 text-body-sm max-w-md leading-relaxed">
               Healthmed truly understands the problems of healthcare people and has built usable solutions to help them solve their everyday problems.
             </p>
             
@@ -71,7 +71,7 @@ export default function Footer() {
 
           {/* Column 2: Quick Links with elegant Serif Title */}
           <div className="col-span-1 md:col-span-3 flex flex-col space-y-5">
-            <h3 className="text-[20px] font-serif font-medium text-white tracking-tight">
+            <h3 className="text-h3 font-serif font-medium text-white tracking-tight">
               Quick Links
             </h3>
             <ul className="space-y-3.5">
@@ -79,7 +79,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors text-[14.5px] font-sans"
+                    className="text-gray-400 hover:text-white transition-colors text-body-sm font-sans"
                     id={`footer-link-${link.label.toLowerCase().replace(' ', '-')}`}
                   >
                     {link.label}
@@ -91,17 +91,17 @@ export default function Footer() {
 
           {/* Column 3: Contact details with elegant Serif Title */}
           <div className="col-span-1 md:col-span-3 flex flex-col space-y-5">
-            <h3 className="text-[20px] font-serif font-medium text-white tracking-tight">
+            <h3 className="text-h3 font-serif font-medium text-white tracking-tight">
               Get in Touch
             </h3>
             <div className="space-y-5">
               <div>
-                <span className="block text-[14.5px] font-bold text-white mb-1.5 font-sans">
+                <span className="block text-body-sm font-bold text-white mb-1.5 font-sans">
                   Email
                 </span>
                 <a
                   href="mailto:info@healthmedtechnologies.com"
-                  className="text-gray-400 hover:text-white text-[14px] md:text-[14.5px] break-all font-sans block"
+                  className="text-gray-400 hover:text-white text-body-sm break-all font-sans block"
                   id="footer-link-email"
                 >
                   info@healthmedtechnologies.com
@@ -109,12 +109,12 @@ export default function Footer() {
               </div>
               
               <div>
-                <span className="block text-[14.5px] font-bold text-white mb-1.5 font-sans">
+                <span className="block text-body-sm font-bold text-white mb-1.5 font-sans">
                   Phone
                 </span>
                 <a
                   href="tel:+917550002160"
-                  className="text-gray-400 hover:text-white text-[14px] md:text-[14.5px] font-sans block"
+                  className="text-gray-400 hover:text-white text-body-sm font-sans block"
                   id="footer-link-phone"
                 >
                   +91 7550002160
@@ -127,7 +127,7 @@ export default function Footer() {
 
         {/* Legal bar centered */}
         <div className="mt-16 pt-8 border-t border-white/5 text-center flex flex-col md:flex-row justify-center items-center">
-          <p className="text-[13px] text-gray-500 font-sans">
+          <p className="text-body-xs text-gray-500 font-sans">
             © 2016-2023 Healthmed Technologies India Pvt Ltd. All rights reserved
           </p>
         </div>

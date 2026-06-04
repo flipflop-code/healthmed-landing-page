@@ -6,6 +6,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Plus, Minus } from 'lucide-react';
+import { Badge } from '../../components/ui/Badge';
+import { Heading } from '../../components/ui/Heading';
 
 export default function FAQ() {
   const faqs = [
@@ -38,19 +40,19 @@ export default function FAQ() {
   };
 
   return (
-    <section className="bg-[#FAF8F5] py-20 md:py-28 border-b border-brand-gray-100 overflow-hidden" id="faq">
+    <section className="bg-brand-bg py-20 md:py-28 border-b border-brand-gray-100 overflow-hidden" id="faq">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Headings matching the image */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
           <div className="flex justify-center mb-5">
-            <span className="px-4 py-1.5 bg-[#1e2022] text-white text-[11px] font-sans font-bold uppercase tracking-wider rounded-lg shadow-sm" id="faq-badge">
+            <Badge variant="dark" id="faq-badge">
               FAQ
-            </span>
+            </Badge>
           </div>
-          <h2 className="text-4xl md:text-[50px] font-serif text-[#1e2022] leading-[1.12] tracking-tighter" id="faq-heading">
+          <Heading level={2} id="faq-heading" className="text-brand-charcoal">
             <span className="italic font-normal">Answers to your</span> most common concerns
-          </h2>
+          </Heading>
         </div>
 
         {/* Dynamic Accordion flat list with thin dividers as shown in reference */}
@@ -66,12 +68,12 @@ export default function FAQ() {
                 {/* Accordion header button */}
                 <button
                   onClick={() => toggleFAQ(idx)}
-                  className="w-full text-left py-6 flex items-center justify-between gap-4 font-sans font-medium text-[16px] md:text-[17.5px] text-[#1e2022] hover:text-[#0070f0] transition-colors focus:outline-none cursor-pointer"
+                  className="w-full text-left py-6 flex items-center justify-between gap-4 font-sans font-medium text-body-lg text-brand-charcoal hover:text-brand-blue-accent transition-colors focus:outline-none cursor-pointer"
                   aria-expanded={isOpen}
                   id={`faq-btn-${idx}`}
                 >
                   <span className="tracking-tight">{faq.question}</span>
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#0070f0] hover:bg-[#185bc4] flex items-center justify-center text-white shadow-sm transition-colors duration-200" id={`faq-indicator-${idx}`}>
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-blue-accent hover:bg-brand-blue-accent-hover flex items-center justify-center text-white shadow-sm transition-colors duration-200" id={`faq-indicator-${idx}`}>
                     {isOpen ? (
                       <Minus className="h-4 w-4 text-white stroke-[2.5]" id={`faq-icon-minus-${idx}`} />
                     ) : (
@@ -90,7 +92,7 @@ export default function FAQ() {
                       transition={{ duration: 0.25, ease: 'easeInOut' }}
                       id={`faq-body-${idx}`}
                     >
-                      <div className="pb-6 text-[#5c636a] text-[14px] md:text-[14.5px] leading-relaxed font-sans max-w-2xl bg-transparent">
+                      <div className="pb-6 text-brand-slate text-body leading-relaxed font-sans max-w-2xl bg-transparent">
                         {faq.answer}
                       </div>
                     </motion.div>

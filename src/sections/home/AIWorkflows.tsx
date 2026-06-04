@@ -6,6 +6,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Sparkles, CheckCircle2, RefreshCw } from 'lucide-react';
+import { Badge } from '../../components/ui/Badge';
+import { Heading } from '../../components/ui/Heading';
 
 export default function AIWorkflows() {
   const points = [
@@ -19,7 +21,7 @@ export default function AIWorkflows() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
-          {/* Left Column: Polished Web-Rendered CSS AI Workflows Graphics (Replicating attachment_2.png) */}
+          {/* Left Column: Polished Web-Rendered CSS AI Workflows Graphics */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -29,30 +31,30 @@ export default function AIWorkflows() {
             id="ai-graphic-block"
           >
             {/* White card container representing the radiology suite visualization */}
-            <div className="relative w-full max-w-md aspect-square bg-[#ffffffff] rounded-[32px] border border-brand-gray-200 shadow-xl overflow-hidden flex items-center justify-center p-8">
+            <div className="relative w-full max-w-md aspect-square bg-card-custom rounded-card-lg overflow-hidden flex items-center justify-center p-8">
               
               {/* Central Radar Circles wave pattern */}
               <div className="absolute inset-x-0 inset-y-0 flex items-center justify-center pointer-events-none select-none">
-                <div className="absolute w-[360px] h-[360px] rounded-full border border-brand-blue-100/50"></div>
-                <div className="absolute w-[270px] h-[270px] rounded-full border border-brand-blue-100/75 flex items-center justify-center animate-pulse">
-                  <div className="w-[190px] h-[190px] rounded-full border border-brand-blue-50"></div>
+                <div className="workflow-outer-ring"></div>
+                <div className="workflow-inner-ring animate-pulse">
+                  <div className="workflow-core-ring"></div>
                 </div>
               </div>
 
               {/* Central Glowing Sparkle Icon Node */}
-              <div className="relative z-10 w-28 h-28 rounded-2xl bg-brand-blue-500 flex items-center justify-center shadow-xl border-2 border-white/50 relative overflow-hidden group">
+              <div className="relative z-10 w-28 h-28 rounded-2xl bg-brand-blue-500 flex items-center justify-center shadow-xl border-2 border-white/50 overflow-hidden group">
                 {/* Embedded pulse sparkles */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue-700 to-brand-blue-400"></div>
                 <Sparkles className="h-10 w-10 text-white relative z-10 animate-bounce-subtle" />
               </div>
 
               {/* Floating Badge 1 (Top Right): Analysis Active */}
-              <div className="absolute top-8 right-4 md:right-8 bg-white rounded-full py-2.5 px-4 shadow-lg border border-brand-gray-200 flex items-center gap-2 z-20 animate-wiggle">
+              <div className="absolute top-8 right-4 md:right-8 bg-white rounded-full py-2.5 px-4 shadow-lg border border-brand-gray-200 flex items-center gap-2 z-20">
                 <span className="flex h-2.5 w-2.5 relative">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
                 </span>
-                <span className="text-[11px] font-semibold text-brand-gray-800 font-mono tracking-tight leading-none">
+                <span className="text-body-xs font-semibold text-brand-gray-800 font-mono tracking-tight leading-none">
                   Analysis Active: Radiology Suite
                 </span>
               </div>
@@ -60,7 +62,7 @@ export default function AIWorkflows() {
               {/* Floating Badge 2 (Bottom Left): Processing MRI Data */}
               <div className="absolute bottom-8 left-4 md:left-8 bg-white rounded-full py-2.5 px-4 shadow-lg border border-brand-gray-200 flex items-center gap-2 z-20">
                 <RefreshCw className="h-3 w-3 text-brand-blue-500 animate-spin" />
-                <span className="text-[11px] font-semibold text-brand-gray-800 font-mono tracking-tight leading-none">
+                <span className="text-body-xs font-semibold text-brand-gray-800 font-mono tracking-tight leading-none">
                   Processing MRI Data...
                 </span>
               </div>
@@ -79,16 +81,16 @@ export default function AIWorkflows() {
           >
             {/* Pill Badge */}
             <div className="flex">
-              <span className="px-3.5 py-1.5 bg-brand-black text-white text-xs font-semibold rounded uppercase tracking-wider select-none">
+              <Badge variant="dark">
                 AI-Powered Operations
-              </span>
+              </Badge>
             </div>
 
             {/* Display Headings */}
-            <h2 className="text-4xl md:text-5xl font-serif text-brand-black leading-tight tracking-tight">
+            <Heading level={2} className="text-brand-black">
               Smarter Healthcare Workflows <br />
               <span className="italic font-normal text-brand-blue-500">with AI</span>
-            </h2>
+            </Heading>
 
             {/* Sub description */}
             <p className="text-brand-gray-600 text-sm md:text-base leading-relaxed">
