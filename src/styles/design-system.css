@@ -237,7 +237,7 @@
     @apply bg-brand-black hover:bg-brand-gray-800 text-white text-base md:text-lg py-4 px-8 font-semibold inline-flex items-center justify-center font-sans rounded-lg transition-all duration-200 cursor-pointer select-none;
   }
   .btn-outline {
-    @apply bg-transparent text-base md:text-lg border border-brand-gray-500 py-4 px-8 font-semibold inline-flex items-center justify-center font-sans rounded-lg transition-all duration-200 cursor-pointer select-none text-brand-charcoal hover:bg-brand-gray-50;
+    @apply bg-transparent text-base md:text-lg border border-brand-gray-500 py-4 px-8 font-semibold inline-flex items-center justify-center font-sans rounded-lg transition-all duration-200 cursor-pointer select-none text-brand-charcoal hover:border-brand-gray-50;
   }
   .btn-link {
     @apply bg-transparent text-sm md:text-base text-brand-blue hover:text-brand-blue-hover gap-1.5 p-0 font-bold inline-flex items-center justify-center font-sans transition-all duration-200 cursor-pointer select-none;
