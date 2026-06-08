@@ -4,16 +4,17 @@
  */
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 // @ts-expect-error - image asset type declaration may be missing
 import logoImg from '../../assets/images/logo.png';
 
 export default function Footer() {
   const quickLinks = [
-    { label: 'Home', href: '#home' },
-    { label: 'About Us', href: '#about' },
-    { label: 'Careers', href: '#careers' },
-    { label: 'Products', href: '#products' },
-    { label: 'Contents', href: '#contents' },
+    { label: 'Home', href: '/' },
+    { label: 'About Us', href: '/#about' },
+    { label: 'Careers', href: '/#careers' },
+    { label: 'Products', href: '/#products' },
+    { label: 'Contact Us', href: '/contact' },
   ];
 
   return (
@@ -96,13 +97,23 @@ export default function Footer() {
             <ul className="space-y-4">
               {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-brand-gray-400 hover:text-white transition-colors duration-200 text-sm md:text-base font-sans block"
-                    id={`footer-link-${link.label.toLowerCase().replace(' ', '-')}`}
-                  >
-                    {link.label}
-                  </a>
+                  {link.href.startsWith('/#') || link.href === '/' ? (
+                    <a
+                      href={link.href}
+                      className="text-brand-gray-400 hover:text-white transition-colors duration-200 text-sm md:text-base font-sans block"
+                      id={`footer-link-${link.label.toLowerCase().replace(' ', '-')}`}
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className="text-brand-gray-400 hover:text-white transition-colors duration-200 text-sm md:text-base font-sans block"
+                      id={`footer-link-${link.label.toLowerCase().replace(' ', '-')}`}
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

@@ -6,6 +6,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useLocation, Link } from 'react-router-dom';
 // @ts-expect-error - image asset type declaration may be missing
 import logoImg from '../../assets/images/logo.png';
 
@@ -42,12 +43,15 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
+  const location = useLocation();
+  const isContactPage = location.pathname === '/contact';
+
   const navLinks = [
-    { label: 'Home', href: '#home', active: true },
-    { label: 'About', href: '#about' },
-    { label: 'Products', href: '#products' },
-    { label: 'Careers', href: '#careers' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Home', href: isContactPage ? '/' : '#home', active: !isContactPage },
+    { label: 'About', href: isContactPage ? '/#about' : '#about', active: false },
+    { label: 'Products', href: isContactPage ? '/#products' : '#products', active: false },
+    { label: 'Careers', href: isContactPage ? '/#careers' : '#careers', active: false },
+    { label: 'Contact', href: '/contact', active: isContactPage },
   ];
 
   return (
@@ -56,36 +60,67 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo container */}
           <div className="flex-shrink-0 cursor-pointer">
-            <Logo />
+            <Link to="/" id="nav-logo-link">
+              <Logo />
+            </Link>
           </div>
 
           {/* Desktop Navigation Links (Centered perfectly) */}
           <nav className="hidden md:flex items-center space-x-8" id="desktop-nav-menu">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className={`text-sm font-medium transition-colors duration-200 ${
-                  link.active
-                    ? 'text-brand-blue-500 hover:text-brand-blue-600 font-semibold'
-                    : 'text-brand-gray-600 hover:text-brand-black'
-                }`}
-                id={`nav-link-${link.label.toLowerCase()}`}
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isRoute = link.href.startsWith('/');
+              if (isRoute) {
+                return (
+                  <Link
+                    key={link.label}
+                    to={link.href}
+                    className={`text-sm font-medium transition-colors duration-200 ${
+                      link.active
+                        ? 'text-brand-blue-500 hover:text-brand-blue-600 font-semibold text-shadow-sm'
+                        : 'text-brand-gray-600 hover:text-brand-black'
+                    }`}
+                    id={`nav-link-${link.label.toLowerCase()}`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              }
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className={`text-sm font-medium transition-colors duration-200 ${
+                    link.active
+                      ? 'text-brand-blue-500 hover:text-brand-blue-600 font-semibold text-shadow-sm'
+                      : 'text-brand-gray-600 hover:text-brand-black'
+                  }`}
+                  id={`nav-link-${link.label.toLowerCase()}`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </nav>
 
           {/* Right Action Button (Desktop Only) */}
           <div className="hidden md:flex items-center">
-            <a
-              href="#book-a-call"
-              className="px-5 py-2.5 bg-brand-black hover:bg-brand-gray-800 text-white font-medium text-sm rounded-lg transition-all duration-200 shadow-sm shadow-brand-black/10 hover:shadow-md"
-              id="nav-btn-book"
-            >
-              Book a Call
-            </a>
+            {isContactPage ? (
+              <Link
+                to="/#book-a-call"
+                className="px-5 py-2.5 bg-brand-black hover:bg-brand-gray-800 text-white font-medium text-sm rounded-lg transition-all duration-200 shadow-sm shadow-brand-black/10 hover:shadow-md"
+                id="nav-btn-book"
+              >
+                Book a Call
+              </Link>
+            ) : (
+              <a
+                href="#book-a-call"
+                className="px-5 py-2.5 bg-brand-black hover:bg-brand-gray-800 text-white font-medium text-sm rounded-lg transition-all duration-200 shadow-sm shadow-brand-black/10 hover:shadow-md"
+                id="nav-btn-book"
+              >
+                Book a Call
+              </a>
+            )}
           </div>
 
           {/* Mobile Menu Controls */}
@@ -148,31 +183,49 @@ export default function Navbar() {
             {/* Overlay Navigation list with one-by-one sequential staggered flow */}
             <div className="flex-1 flex flex-col justify-between px-8 sm:px-12 py-16">
               <nav className="flex flex-col space-y-8">
-                {navLinks.map((link, idx) => (
-                  <motion.div
-                    key={link.label}
-                    initial={{ opacity: 0, x: -25 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{
-                      delay: idx * 0.08,
-                      duration: 0.4,
-                      ease: [0.16, 1, 0.3, 1] // Custom refined spring-like easeOut
-                    }}
-                  >
-                    <a
-                      href={link.href}
-                      onClick={() => setIsOpen(false)}
-                      className={`text-2xl font-serif tracking-tight block py-1.5 transition-all duration-300 ${
-                        link.active
-                          ? 'text-brand-blue-500 font-normal italic'
-                          : 'text-brand-gray-800 hover:text-brand-black hover:translate-x-3'
-                      }`}
-                      id={`mobile-nav-link-${link.label.toLowerCase()}`}
+                {navLinks.map((link, idx) => {
+                  const isRoute = link.href.startsWith('/');
+                  return (
+                    <motion.div
+                      key={link.label}
+                      initial={{ opacity: 0, x: -25 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{
+                        delay: idx * 0.08,
+                        duration: 0.4,
+                        ease: [0.16, 1, 0.3, 1] // Custom refined spring-like easeOut
+                      }}
                     >
-                      {link.label}
-                    </a>
-                  </motion.div>
-                ))}
+                      {isRoute ? (
+                        <Link
+                          to={link.href}
+                          onClick={() => setIsOpen(false)}
+                          className={`text-2xl font-serif tracking-tight block py-1.5 transition-all duration-300 ${
+                            link.active
+                              ? 'text-brand-blue-500 font-normal italic'
+                              : 'text-brand-gray-800 hover:text-brand-black hover:translate-x-3'
+                          }`}
+                          id={`mobile-nav-link-${link.label.toLowerCase()}`}
+                        >
+                          {link.label}
+                        </Link>
+                      ) : (
+                        <a
+                          href={link.href}
+                          onClick={() => setIsOpen(false)}
+                          className={`text-2xl font-serif tracking-tight block py-1.5 transition-all duration-300 ${
+                            link.active
+                              ? 'text-brand-blue-500 font-normal italic'
+                              : 'text-brand-gray-800 hover:text-brand-black hover:translate-x-3'
+                          }`}
+                          id={`mobile-nav-link-${link.label.toLowerCase()}`}
+                        >
+                          {link.label}
+                        </a>
+                      )}
+                    </motion.div>
+                  );
+                })}
               </nav>
 
               {/* Staggered action button in mobile navigation panel */}
