@@ -53,25 +53,27 @@ function CounterStat({ value, label, id, labelId }: CounterStatProps) {
     
     const obj = { val: 0 };
     
-    const anim = gsap.to(obj, {
-      val: num,
-      duration: 2.5, // 2-3 seconds as specified
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: elementRef.current,
-        start: 'top 95%', // Detect when it enters viewport from bottom
-        toggleActions: 'play none none none', // Trigger once, do not re-trigger on scroll back
-        once: true,
-      },
-      onUpdate: () => {
-        if (elementRef.current) {
-          elementRef.current.textContent = obj.val.toFixed(decimals) + suffix;
+    const ctx = gsap.context(() => {
+      gsap.to(obj, {
+        val: num,
+        duration: 2.5, // 2-3 seconds as specified
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: elementRef.current,
+          start: 'top 95%', // Detect when it enters viewport from bottom
+          toggleActions: 'play none none none', // Trigger once, do not re-trigger on scroll back
+          once: true,
+        },
+        onUpdate: () => {
+          if (elementRef.current) {
+            elementRef.current.textContent = obj.val.toFixed(decimals) + suffix;
+          }
         }
-      }
+      });
     });
     
     return () => {
-      anim.kill();
+      ctx.revert();
     };
   }, [value]);
 

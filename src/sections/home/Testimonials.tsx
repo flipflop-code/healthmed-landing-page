@@ -12,19 +12,19 @@ export default function Testimonials() {
       text: 'HealthMed significantly improved our hospital coordination and reduced operational delays across departments.',
       author: 'Alex Bean',
       role: 'Hospital Administrator',
-      img: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=150',
+      img: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=100&fm=webp',
     },
     {
       text: 'The EMR workflow and centralized patient access helped our doctors reduce paperwork and improve consultation efficiency.',
       author: 'Roy JK',
       role: 'Senior Physician',
-      img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=150',
+      img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=100&fm=webp',
     },
     {
       text: 'The platform gave us complete visibility into diagnostics, billing, and operational workflows in real time.',
       author: 'Daniel John',
       role: 'Operations Manager',
-      img: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=150',
+      img: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=100&fm=webp',
     }
   ];
 
@@ -33,19 +33,19 @@ export default function Testimonials() {
       text: 'The EMR workflow and centralized patient access helped our doctors reduce paperwork and improve consultation efficiency.',
       author: 'Roy JK',
       role: 'Senior Physician',
-      img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=150',
+      img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=100&fm=webp',
     },
     {
       text: 'The platform gave us complete visibility into diagnostics, billing, and operational workflows in real time.',
       author: 'Daniel John',
       role: 'Operations Manager',
-      img: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=150',
+      img: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=100&fm=webp',
     },
     {
       text: 'HealthMed significantly improved our hospital coordination and reduced operational delays across departments.',
       author: 'Alex Bean',
       role: 'Hospital Administrator',
-      img: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=150',
+      img: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=100&fm=webp',
     }
   ];
 

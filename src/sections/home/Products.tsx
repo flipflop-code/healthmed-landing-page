@@ -16,25 +16,25 @@ export default function Products() {
       id: 'HMIS',
       title: 'HMIS',
       description: 'Hospital Management Information System that connects all your departments and implements all your workflows.',
-      image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800',
+      image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=500&fm=webp',
     },
     {
       id: 'CMS',
       title: 'CMS',
       description: "Multi-user software to cover your clinic's workflow, from patient management and medical records, to scheduling and billing.",
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800',
+      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=500&fm=webp',
     },
     {
       id: 'LAB',
       title: 'LAB',
       description: 'Laboratory is an evolving concept, with new features and functionality being added often the functions of an eLaboratory will also change.',
-      image: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=800',
+      image: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=500&fm=webp',
     },
     {
       id: 'EMR',
       title: 'EMR',
       description: 'Healthmed Electronic Medical Record offers physicians more than just a solution that saves a great deal of time and money.',
-      image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800',
+      image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=500&fm=webp',
     },
   ];
 

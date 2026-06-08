@@ -27,12 +27,14 @@
     <meta name="twitter:image" content="https://healthmed.example.com/assets/images/logo.png" />
 
     <!-- Performance: Preconnect & Preload Critical Google Fonts and Hero Assets -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     
     <!-- Preloading Hero Image directly for faster LCP/FCP rendering -->
-    <link rel="preload" href="/src/assets/images/hero.png" as="image" type="image/png" fetchpriority="high" />
+    <link rel="preload" href="./src/assets/images/hero.png" as="image" type="image/png" fetchpriority="high" />
 
     <!-- Structured Data (JSON-LD Schemas) -->
     <script type="application/ld+json">
