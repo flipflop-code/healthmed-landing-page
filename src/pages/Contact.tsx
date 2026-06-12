@@ -3,14 +3,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
-import { Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import { Mail, Phone, MapPin } from 'lucide-react';
+import SEO from '../components/ui/SEO';
+import { useGsapFadeIn, useGsapScrollReveal } from '../hooks/useGsapAnimation';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -21,158 +19,20 @@ export default function Contact() {
   });
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  // Multi-route state restoration/management
-  useEffect(() => {
-    // Scroll to top on page load
-    window.scrollTo({ top: 0, behavior: 'instant' });
+  // GSAP animation hooks
+  useGsapFadeIn('.contact-hero-anim', { y: 40, duration: 0.8, stagger: 0.15 });
 
-    // SEO Meta updates
-    const prevTitle = document.title;
-    const prevDescMeta = document.querySelector('meta[name="description"]');
-    const prevDesc = prevDescMeta?.getAttribute('content') || '';
-    
-    // Set dynamic values
-    document.title = 'Contact Us | Healthmed';
-    if (prevDescMeta) {
-      prevDescMeta.setAttribute('content', 'Contact Healthmed for healthcare software solutions, support, and healthcare technology consultations.');
-    }
+  useGsapScrollReveal(
+    '#contact-info-card',
+    '#contact-details-form',
+    { y: 0, x: -40, duration: 1, ease: 'power3.out' } as any
+  );
 
-    // Direct Canonical Link tag handling
-    let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-    const prevCanonical = canonicalLink?.getAttribute('href') || '';
-    if (canonicalLink) {
-      canonicalLink.setAttribute('href', 'https://healthmedtechnologies.com/contact');
-    } else {
-      canonicalLink = document.createElement('link');
-      canonicalLink.setAttribute('rel', 'canonical');
-      canonicalLink.setAttribute('href', 'https://healthmedtechnologies.com/contact');
-      document.head.appendChild(canonicalLink);
-    }
-
-    // Open Graph Head Tags
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    const ogDesc = document.querySelector('meta[property="og:description"]');
-    const ogUrl = document.querySelector('meta[property="og:url"]');
-    
-    const prevOgTitle = ogTitle?.getAttribute('content') || '';
-    const prevOgDesc = ogDesc?.getAttribute('content') || '';
-    const prevOgUrl = ogUrl?.getAttribute('content') || '';
-
-    if (ogTitle) ogTitle.setAttribute('content', 'Contact Us | Healthmed');
-    if (ogDesc) ogDesc.setAttribute('content', 'Contact Healthmed for healthcare software solutions, support, and healthcare technology consultations.');
-    if (ogUrl) ogUrl.setAttribute('content', 'https://healthmedtechnologies.com/contact');
-
-    // Schema Markup
-    const schemaScript = document.createElement('script');
-    schemaScript.type = 'application/ld+json';
-    schemaScript.id = 'contact-json-schema';
-    schemaScript.textContent = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'ContactPage',
-      'name': 'Contact Us - Healthmed',
-      'description': 'Contact Healthmed for healthcare software solutions, support, and healthcare technology consultations.',
-      'url': 'https://healthmedtechnologies.com/contact',
-      'mainEntity': {
-        '@type': 'Organization',
-        'name': 'Healthmed Technologies India Pvt Ltd',
-        'telephone': '+91 9500450672',
-        'email': 'info@healthmedtechnologies.com',
-        'address': {
-          '@type': 'PostalAddress',
-          'streetAddress': 'Guindy Industrial Estate, SIDCO Industrial Estate',
-          'addressLocality': 'Guindy, Chennai',
-          'addressRegion': 'Tamil Nadu',
-          'postalCode': '600032',
-          'addressCountry': 'IN'
-        }
-      }
-    });
-    document.head.appendChild(schemaScript);
-
-    // Clean up on component unmount to restore home meta tags perfectly
-    return () => {
-      document.title = prevTitle;
-      if (prevDescMeta) {
-        prevDescMeta.setAttribute('content', prevDesc);
-      }
-      if (canonicalLink) {
-        if (prevCanonical) {
-          canonicalLink.setAttribute('href', prevCanonical);
-        } else {
-          canonicalLink.remove();
-        }
-      }
-      if (ogTitle && prevOgTitle) ogTitle.setAttribute('content', prevOgTitle);
-      if (ogDesc && prevOgDesc) ogDesc.setAttribute('content', prevOgDesc);
-      if (ogUrl && prevOgUrl) ogUrl.setAttribute('content', prevOgUrl);
-      
-      const attachedSchema = document.getElementById('contact-json-schema');
-      if (attachedSchema) {
-        attachedSchema.remove();
-      }
-    };
-  }, []);
-
-  // GSAP Animation setup with context revert on unmount for 0 CLS and safe GPU acceleration
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Hero fade up elements
-      gsap.fromTo(
-        '.contact-hero-anim',
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: 'power3.out',
-          force3D: true,
-        }
-      );
-
-      // Info card slide-in-left
-      gsap.fromTo(
-        '#contact-info-card',
-        { opacity: 0, x: -40 },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 1,
-          ease: 'power3.out',
-          force3D: true,
-          scrollTrigger: {
-            trigger: '#contact-info-card',
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-            once: true,
-          }
-        }
-      );
-
-      // Form card slide-in-right
-      gsap.fromTo(
-        '#contact-form-card',
-        { opacity: 0, x: 40 },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 1,
-          ease: 'power3.out',
-          force3D: true,
-          scrollTrigger: {
-            trigger: '#contact-form-card',
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-            once: true,
-          }
-        }
-      );
-    });
-
-    return () => {
-      ctx.revert();
-    };
-  }, []);
+  useGsapScrollReveal(
+    '#contact-form-card',
+    '#contact-details-form',
+    { y: 0, x: 40, duration: 1, ease: 'power3.out' } as any
+  );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -185,7 +45,6 @@ export default function Contact() {
       setSubmitStatus('error');
       return;
     }
-    // Simple mock success handling
     setSubmitStatus('success');
     setFormData({
       fullName: '',
@@ -198,26 +57,53 @@ export default function Contact() {
     }, 5000);
   };
 
+  const contactSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    'name': 'Contact Us - Healthmed',
+    'description': 'Contact Healthmed for healthcare software solutions, support, and healthcare technology consultations.',
+    'url': 'https://healthmedtechnologies.com/contact',
+    'mainEntity': {
+      '@type': 'Organization',
+      'name': 'Healthmed Technologies India Pvt Ltd',
+      'telephone': '+91 9500450672',
+      'email': 'info@healthmedtechnologies.com',
+      'address': {
+        '@type': 'PostalAddress',
+        'streetAddress': 'Guindy Industrial Estate, SIDCO Industrial Estate',
+        'addressLocality': 'Guindy, Chennai',
+        'addressRegion': 'Tamil Nadu',
+        'postalCode': '600032',
+        'addressCountry': 'IN'
+      }
+    }
+  };
+
   return (
-    <div className="min-h-screen flex flex-col bg-[#f5f3ef]" id="contact-page-root">
+    <div className="contact-page-root flex flex-col min-h-screen" id="contact-page-root">
+      {/* Dynamic SEO Tag */}
+      <SEO 
+        title="Contact Us | Healthmed"
+        description="Contact Healthmed for healthcare software solutions, support, and healthcare technology consultations."
+        canonicalUrl="https://healthmedtechnologies.com/contact"
+        schema={contactSchema}
+      />
+
       {/* Navbar component */}
       <Navbar />
 
-      {/* Hero Section styled with light warm gray background and rich padding details */}
-      <section 
-        className="w-full bg-[#f5f3ef] pt-20 pb-24 md:pt-28 md:pb-32 px-4 sm:px-6 lg:px-8 text-center"
-        id="contact-hero"
-      >
+      {/* Hero Section */}
+      <section className="contact-hero-sect" id="contact-hero">
         <div className="max-w-4xl mx-auto flex flex-col items-center">
           <h1 
-            className="contact-hero-anim text-5xl md:text-[5.5rem] font-serif font-light text-brand-charcoal tracking-tight leading-[1.1] mb-6 select-none"
+            className="contact-hero-anim contact-hero-title-text"
             style={{ willChange: 'transform' }}
           >
             Have a Query?<br />
             <span className="italic">We're Ready to Assist You</span>
           </h1>
           <p 
-            className="contact-hero-anim text-sm md:text-base leading-relaxed text-brand-slate max-w-2xl text-center select-none"
+            className="contact-hero-anim contact-hero-desc"
             style={{ willChange: 'transform' }}
           >
             We're here to help! Whether you have questions or need support, contacting Healthmed is simple. Our team is ready to assist you and ensure a smooth experience.
@@ -226,44 +112,44 @@ export default function Contact() {
       </section>
 
       {/* Main Contact Container */}
-      <section className="w-full py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-[#f5f3ef]" id="contact-details-form">
+      <section className="contact-content-sect" id="contact-details-form">
         <div 
-          className="max-w-6xl mx-auto bg-white rounded-[2rem] border border-brand-gray-200/50 shadow-stage overflow-hidden grid grid-cols-1 md:grid-cols-2 p-6 sm:p-8 md:p-12 gap-10 md:gap-16"
+          className="contact-wrapper-card"
           id="contact-cards-wrapper"
         >
-          {/* Left Column: Get in Touch Cards with natural space layout */}
+          {/* Left Column: Get in Touch Cards */}
           <div 
-            className="flex flex-col space-y-8"
+            className="contact-info-block"
             id="contact-info-card"
             style={{ willChange: 'transform' }}
           >
             <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-serif font-normal text-brand-charcoal tracking-tight">
+              <h2 className="contact-info-title">
                 Get in Touch
               </h2>
-              <p className="text-sm md:text-base text-brand-slate leading-relaxed">
+              <p className="contact-info-desc">
                 Have a question or need support? The Healthmed team is here to help. Reach out and we'll get back to you shortly.
               </p>
             </div>
 
             {/* Interaction informational cards list */}
-            <div className="space-y-4 pt-6 bg-transparent" id="contact-info-list">
+            <div className="space-y-4 pt-6 bg-transparent" id="contact-info-list row">
               {/* Card 1: Address Details */}
               <div 
-                className="flex items-start p-5 rounded-2xl border border-brand-gray-250/60 bg-white transition-all duration-300 hover:border-brand-blue-200 hover:shadow-stage group"
+                className="contact-info-item-card"
                 id="contact-card-address"
               >
                 <div 
-                  className="p-3 bg-brand-gray-50 text-brand-gray-600 rounded-xl flex-shrink-0 mr-4 flex items-center justify-center"
+                  className="contact-info-icon-box"
                   id="address-icon-bg"
                 >
                   <MapPin className="h-6 w-6 stroke-[1.5]" id="icon-map" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-base font-sans font-semibold text-brand-charcoal mb-1 select-none">
+                  <h3 className="contact-info-item-title animate-none">
                     Address
                   </h3>
-                  <p className="text-xs md:text-sm text-brand-slate leading-relaxed font-sans font-light whitespace-pre-line">
+                  <p className="contact-info-item-text whitespace-pre-line">
                     Healthmed Technologies India Pvt Ltd,{"\n"}
                     Guindy Industrial Estate, SIDCO Industrial Estate,{"\n"}
                     Guindy, Chennai, Tamil Nadu 600032.
@@ -271,24 +157,24 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Card 2: Phone details with clean double chevron matching the image */}
+              {/* Card 2: Phone details */}
               <a 
                 href="tel:+919500450672"
-                className="flex items-center justify-between p-5 rounded-2xl border border-brand-gray-250/60 bg-white transition-all duration-300 hover:border-brand-blue-200 hover:shadow-stage group cursor-pointer"
+                className="contact-info-item-card justify-between cursor-pointer"
                 id="contact-card-phone"
               >
                 <div className="flex items-center min-w-0">
                   <div 
-                    className="p-3 bg-brand-gray-50 text-brand-gray-600 rounded-xl flex-shrink-0 mr-4 flex items-center justify-center"
+                    className="contact-info-icon-box"
                     id="phone-icon-bg"
                   >
                     <Phone className="h-6 w-6 stroke-[1.5]" id="icon-phone" />
                   </div>
                   <div className="min-w-0">
-                    <h3 className="text-base font-sans font-semibold text-brand-charcoal mb-1 select-none">
+                    <h3 className="contact-info-item-title">
                       Give Us A Call
                     </h3>
-                    <p className="text-xs md:text-sm text-brand-slate font-sans font-light">
+                    <p className="contact-info-item-text text-brand-slate font-sans font-light">
                       +91 9500450672
                     </p>
                   </div>
@@ -301,24 +187,24 @@ export default function Contact() {
                 </div>
               </a>
 
-              {/* Card 3: Email details with clean double chevron matching the image */}
+              {/* Card 3: Email details */}
               <a 
                 href="mailto:info@healthmedtechnologies.com"
-                className="flex items-center justify-between p-5 rounded-2xl border border-brand-gray-250/60 bg-white transition-all duration-300 hover:border-brand-blue-200 hover:shadow-stage group cursor-pointer"
+                className="contact-info-item-card justify-between cursor-pointer"
                 id="contact-card-email"
               >
                 <div className="flex items-center min-w-0">
                   <div 
-                    className="p-3 bg-brand-gray-50 text-brand-gray-600 rounded-xl flex-shrink-0 mr-4 flex items-center justify-center"
+                    className="contact-info-icon-box"
                     id="email-icon-bg"
                   >
                     <Mail className="h-6 w-6 stroke-[1.5]" id="icon-email" />
                   </div>
                   <div className="min-w-0">
-                    <h3 className="text-base font-sans font-semibold text-brand-charcoal mb-1 select-none">
+                    <h3 className="contact-info-item-title">
                       Let's Talk
                     </h3>
-                    <p className="text-xs md:text-sm text-brand-slate font-sans font-light break-all">
+                    <p className="contact-info-item-text break-all">
                       info@healthmedtechnologies.com
                     </p>
                   </div>
@@ -333,7 +219,7 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right Column: Contact Inquiry/Feedback Form matching image spacing and placeholderless style */}
+          {/* Right Column: Contact Inquiry Form */}
           <div 
             className="flex flex-col bg-white"
             id="contact-form-card"
@@ -353,7 +239,7 @@ export default function Contact() {
                   placeholder=""
                   value={formData.fullName}
                   onChange={handleChange}
-                  className="w-full px-5 py-3.5 bg-[#f8f9fa] border border-brand-gray-200/60 rounded-xl focus:bg-white focus:outline-none focus:border-brand-blue-400 focus:ring-1 focus:ring-brand-blue-400 transition-all text-sm font-sans font-light text-brand-charcoal"
+                  className="contact-form-input"
                 />
               </div>
 
@@ -370,7 +256,7 @@ export default function Contact() {
                   placeholder=""
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-5 py-3.5 bg-[#f8f9fa] border border-brand-gray-200/60 rounded-xl focus:bg-white focus:outline-none focus:border-brand-blue-400 focus:ring-1 focus:ring-brand-blue-400 transition-all text-sm font-sans font-light text-brand-charcoal"
+                  className="contact-form-input"
                 />
               </div>
 
@@ -386,7 +272,7 @@ export default function Contact() {
                   placeholder=""
                   value={formData.howHelp}
                   onChange={handleChange}
-                  className="w-full px-5 py-3.5 bg-[#f8f9fa] border border-brand-gray-200/60 rounded-xl focus:bg-white focus:outline-none focus:border-brand-blue-400 focus:ring-1 focus:ring-brand-blue-400 transition-all text-sm font-sans font-light text-brand-charcoal"
+                  className="contact-form-input"
                 />
               </div>
 
@@ -402,7 +288,7 @@ export default function Contact() {
                   placeholder=""
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-5 py-3.5 bg-[#f8f9fa] border border-brand-gray-200/60 rounded-xl focus:bg-white focus:outline-none focus:border-brand-blue-400 focus:ring-1 focus:ring-brand-blue-400 transition-all text-sm font-sans font-light text-brand-charcoal resize-none"
+                  className="contact-form-input resize-none"
                 />
               </div>
 
@@ -421,7 +307,7 @@ export default function Contact() {
               {/* Submission button */}
               <button
                 type="submit"
-                className="w-full py-4 px-6 bg-[#191C1F] hover:bg-[#343A40] text-white text-base font-sans font-semibold rounded-xl tracking-wide transition-all duration-200 shadow-md transform active:scale-[0.99] select-none cursor-pointer"
+                className="contact-form-submit-btn"
                 id="btn-submit-message"
               >
                 Submit Message

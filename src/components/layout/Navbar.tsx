@@ -45,12 +45,15 @@ export default function Navbar() {
 
   const location = useLocation();
   const isContactPage = location.pathname === '/contact';
+  const isInsightsPage = location.pathname === '/insights' || location.pathname === '/blog';
+  const isRelativeRedirect = isContactPage || isInsightsPage;
 
   const navLinks = [
-    { label: 'Home', href: isContactPage ? '/' : '#home', active: !isContactPage },
-    { label: 'About', href: isContactPage ? '/#about' : '#about', active: false },
-    { label: 'Products', href: isContactPage ? '/#products' : '#products', active: false },
-    { label: 'Careers', href: isContactPage ? '/#careers' : '#careers', active: false },
+    { label: 'Home', href: isRelativeRedirect ? '/' : '#home', active: !isContactPage && !isInsightsPage },
+    { label: 'About', href: isRelativeRedirect ? '/#about' : '#about', active: false },
+    { label: 'Products', href: isRelativeRedirect ? '/#products' : '#products', active: false },
+    { label: 'Careers', href: isRelativeRedirect ? '/#careers' : '#careers', active: false },
+    { label: 'Insights', href: '/insights', active: isInsightsPage },
     { label: 'Contact', href: '/contact', active: isContactPage },
   ];
 
@@ -104,7 +107,7 @@ export default function Navbar() {
 
           {/* Right Action Button (Desktop Only) */}
           <div className="hidden md:flex items-center">
-            {isContactPage ? (
+            {isRelativeRedirect ? (
               <Link
                 to="/#book-a-call"
                 className="px-5 py-2.5 bg-brand-black hover:bg-brand-gray-800 text-white font-medium text-sm rounded-lg transition-all duration-200 shadow-sm shadow-brand-black/10 hover:shadow-md"

@@ -28,7 +28,7 @@ export default function Products() {
       id: 'LAB',
       title: 'LAB',
       description: 'Laboratory is an evolving concept, with new features and functionality being added often the functions of an eLaboratory will also change.',
-      image: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=500&fm=webp',
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=500&fm=webp',
     },
     {
       id: 'EMR',
@@ -87,7 +87,7 @@ export default function Products() {
               {/* Product Info Block */}
               <div className="p-8 flex flex-col flex-grow">
                 {/* Title and Read More Action Link on the exact same row */}
-                <div className="flex items-center justify-between mb-4">
+                 <div className="flex items-center justify-between mb-4">
                   <Heading level={3} className="text-brand-charcoal font-medium leading-none">
                     {card.title}
                   </Heading>
