@@ -132,7 +132,7 @@ export default function Footer() {
                 </span>
                 <a
                   href="mailto:info@healthmedtechnologies.com"
-                  className="text-brand-gray-400 hover:text-white text-sm md:text-base break-all font-sans block transition-colors duration-200"
+                  className="text-brand-gray-400 text-nowrap hover:text-white text-sm md:text-base break-all font-sans block transition-colors duration-200"
                   id="footer-link-email"
                 >
                   info@healthmedtechnologies.com
