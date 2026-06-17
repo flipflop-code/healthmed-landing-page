@@ -6,6 +6,7 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
+import WhatsAppFloat from './components/common/WhatsAppFloat';
 
 const Contact = lazy(() => import('./pages/Contact'));
 const Insights = lazy(() => import('./pages/Insights'));
@@ -43,7 +44,11 @@ export default function App() {
             </Suspense>
           } />
         </Routes>
+        
+        {/* Global floating components */}
+        <WhatsAppFloat />
       </div>
     </BrowserRouter>
   );
 }
+

@@ -123,7 +123,7 @@ export default function Footer() {
           {/* Column 3: Contact details with Elegant Serif Header */}
           <div className="col-span-1 md:col-span-3 flex flex-col space-y-6">
             <h3 className="text-xl md:text-2xl font-serif font-normal text-white tracking-tight" id="footer-getintouch-heading">
-              Get in Touch
+              Get In Touch
             </h3>
             <div className="space-y-6">
               <div>
@@ -144,7 +144,9 @@ export default function Footer() {
                   Phone
                 </span>
                 <a
-                  href="tel:+917550002160"
+                  href="https://wa.me/917550002160"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-brand-gray-400 hover:text-white text-sm md:text-base font-sans block transition-colors duration-200"
                   id="footer-link-phone"
                 >

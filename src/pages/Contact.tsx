@@ -66,7 +66,7 @@ export default function Contact() {
     'mainEntity': {
       '@type': 'Organization',
       'name': 'Healthmed Technologies India Pvt Ltd',
-      'telephone': '+91 9500450672',
+      'telephone': '+91 7550002160',
       'email': 'info@healthmedtechnologies.com',
       'address': {
         '@type': 'PostalAddress',
@@ -117,7 +117,7 @@ export default function Contact() {
           className="contact-wrapper-card"
           id="contact-cards-wrapper"
         >
-          {/* Left Column: Get in Touch Cards */}
+          {/* Left Column: Get In Touch Cards */}
           <div 
             className="contact-info-block"
             id="contact-info-card"
@@ -125,7 +125,7 @@ export default function Contact() {
           >
             <div className="space-y-4">
               <h2 className="contact-info-title">
-                Get in Touch
+                Get In Touch
               </h2>
               <p className="contact-info-desc">
                 Have a question or need support? The Healthmed team is here to help. Reach out and we'll get back to you shortly.
@@ -159,7 +159,9 @@ export default function Contact() {
 
               {/* Card 2: Phone details */}
               <a 
-                href="tel:+919500450672"
+                href="https://wa.me/917550002160"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="contact-info-item-card justify-between cursor-pointer"
                 id="contact-card-phone"
               >
@@ -175,7 +177,7 @@ export default function Contact() {
                       Give Us A Call
                     </h3>
                     <p className="contact-info-item-text text-brand-slate font-sans font-light">
-                      +91 9500450672
+                      +91 7550002160
                     </p>
                   </div>
                 </div>
