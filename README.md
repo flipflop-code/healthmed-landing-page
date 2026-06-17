@@ -1,20 +1,104 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# HealthMed
 
-# Run and deploy your AI Studio app
+## Overview
 
-This contains everything you need to run your app locally.
+HealthMed is a comprehensive and integrated healthcare management platform designed for modern medical operations. It unifies clinical workflows, hospital administration, patient records, diagnostic laboratory operations, and scheduling into a highly responsive, single-page application. Powered by advanced animations and an intuitive editorial layout, HealthMed optimizes daily coordination and reduces workload for healthcare professionals.
 
-View your app in AI Studio: https://ai.studio/apps/e1c6fce5-c1a3-4a81-9cea-2ebbd8e1ef79
+## Tech Stack
 
-## Run Locally
+* React 19
+* Vite 6 (with modern native plugins)
+* Tailwind CSS 4
+* GSAP (GreenSock Animation Platform)
+* React Router 7
+* Lucide React (for scalable iconography)
+* Motion (for fluid modern layout transitions)
 
-**Prerequisites:**  Node.js
+## Prerequisites
 
+Before starting, ensure you have the following installed on your machine:
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+* Node.js (v18.0.0 or higher recommended)
+* npm (v9.0.0 or higher) or yarn
+
+## Installation
+
+To set up the project locally, run the following commands in your terminal:
+
+```bash
+git clone <repository-url>
+cd <project-folder>
+npm install
+```
+
+## Development
+
+To spin up the local development server with Hot Module Replacement (HMR):
+
+```bash
+npm run dev
+```
+
+Once running, the application will be accessible at [http://localhost:3000](http://localhost:3000).
+
+## Production Build
+
+To compile and optimize the application's assets for production deployment:
+
+```bash
+npm run build
+```
+
+This will output a minified, pre-bundled static build in the `dist/` directory.
+
+## Preview Build
+
+To test and preview the production build locally before actual deployment:
+
+```bash
+npm run preview
+```
+
+## Project Structure
+
+The project directory is structured as follows:
+
+```text
+src/
+├── assets/     - Static media assets, vectors, and illustrations
+├── components/ - Modular reusable UI controls, forms, and buttons
+├── data/       - Static databases, blog collections, and mock information
+├── hooks/      - Custom React hooks for animations, triggers, and sizing
+├── pages/      - Main page-level route views (Insights, BlogDetails)
+├── sections/   - Page divisions and modular components (Home, Products)
+├── styles/     - Specific custom style rules and design system layout classes
+├── App.tsx     - Core routing configuration and primary application shell
+└── index.css   - Global styling script and Tailwind integrations
+```
+
+## Available Scripts
+
+In the project directory, you can run the following npm commands:
+
+```bash
+# Starts development server on port 3000
+npm run dev
+
+# Builds the app for production
+npm run build
+
+# Previews the production build locally
+npm run preview
+
+# Clears the previous build artifacts
+npm run clean
+
+# Runs typechecks on TypeScript codebase
+npm run lint
+```
+
+## Notes
+
+* **Production Builds**: All React and CSS assets are bundled and optimized via Vite. No extraneous runtime server configurations are required to serve the frontend; the build results in standard static assets.
+* **Environment Variables**: For any custom APIs or key management, create and define environment values in a local `.env` file based on `.env.example`.
+* **Deployment Readiness**: The built output inside `/dist` is fully static, self-contained, and optimized for instant deployment onto modern cloud providers (including Cloud Run, Vercel, or Netlify).
