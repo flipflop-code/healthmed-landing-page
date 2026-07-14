@@ -33,7 +33,7 @@ export default function WhyChooseUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-8 flex flex-col space-y-6 md:space-y-7"
+            className="lg:col-span-7 flex flex-col space-y-6 md:space-y-7"
             id="whychooseus-text-panel"
           >
             {/* Pill Badge */}
@@ -78,7 +78,7 @@ export default function WhyChooseUs() {
             className="lg:col-span-5 flex"
             id="whychooseus-graphic-panel"
           >
-            <div className="relative w-full overflow-hidden shadow-xl border border-gray-200/50 bg-white group h-full">
+            <div className="relative w-full aspect-square md:aspect-[4/3] lg:aspect-auto lg:h-full min-h-[350px] md:min-h-[450px] lg:min-h-0 overflow-hidden shadow-xl border border-gray-200/50 bg-white group">
               <img
                 src={whyChooseUsDoctorImg}
                 alt="Doctor wearing medical uniform holding glowing neon shield"

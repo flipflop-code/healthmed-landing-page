@@ -1,7 +1,7 @@
 # Healthmed Enterprise AI Memory System - Development Guide
 
 > **IMPORTANT FOR ALL AI ASSISTANTS**
-> Read all files inside the `.ai` folder before making any code changes. This guide outlines local project conventions, directory structures, Tailwind utility restrictions, and implementation rules.
+> Read all files inside the `.ai` folder before making any code changes. This guide outlines local project conventions, directory structures, component architectures, and coding standards. For typography rules, see `.ai/03_TYPOGRAPHY_SYSTEM.md`.
 
 This guide provides the official software engineering rules, folder patterns, and style compilation rules for the Healthmed web platform.
 
@@ -30,29 +30,51 @@ src/
 
 ---
 
-## 2. React Authoring Standards
+## 2. Component Architecture & Guidelines
 
-* **Functional Component Model:** All components must use ES6 arrow syntax and state their typescript interface clearly:
+### When to Create Components
+1. **Reusability:** The element or structure appears in 2 or more distinct pages or layout sections.
+2. **Complexity Isolation:** A local chunk of code exceeds 60 lines of JSX, or handles self-contained user interactions (such as modals, drop-down systems, or tabs navigation).
+
+### Component Authoring Guidelines
+* Always declare components with explicit TypeScript interfaces for props:
   ```tsx
-  export const ClinicalWidget: React.FC<WidgetProps> = ({ id, active }) => {
+  interface CardProps {
+    id: string;
+    title: string;
+    description: string;
+    children?: React.ReactNode;
+  }
+  ```
+* Prefer functional components using standard React arrow syntax with explicit return types:
+  ```tsx
+  export const DiagnosticCard: React.FC<CardProps> = ({ id, title, description, children }) => {
     return (
-      <div id={id} className={`clinical-widget ${active ? 'widget-active' : ''}`}>
-        {/* Content */}
+      <div className="diagnostic-card" id={id}>
+        {/* Component-specific layout and slots */}
+        {children}
       </div>
     );
   };
   ```
-* **Memoization Protocols:** Optimize rendering pipelines on heavy statistics blocks, data views, and mapping lists using `useMemo` and `useCallback`:
+
+---
+
+## 3. React Best Practices & Coding Standards
+
+* **Single Responsibility Principle (SRP):** Components must do one thing well. A card displays data; it does not perform data fetching or heavy business analytics.
+* **Separation of Concerns:** Keep your JSX files focused on component rendering. Extract complex static data structures to the `src/data/` folder and business helper utilities to `src/utils/`.
+* **Hooks & Memoization Protocols:** Optimize rendering pipelines on heavy statistics blocks, data views, and mapping lists using `useMemo` and `useCallback`:
   ```tsx
   const sortedReports = useMemo(() => {
     return [...reports].sort((a, b) => b.timestamp - a.timestamp);
   }, [reports]);
   ```
-* **Separation of Concerns:** Keep your JSX files focused on component rendering. Extract complex static data structures to the `src/data/` folder and business helper utilities to `src/utils/`.
+* **Avoid Infinite Renders:** Never pass reference objects (arrays, inline functions, objects) as dependencies in standard `useEffect` hooks without stabilizing them or using primitive types.
 
 ---
 
-## 3. Strict Tailwind CSS Constraints (CRITICAL)
+## 4. Strict Tailwind CSS Constraints (CRITICAL)
 
 The Healthmed frontend is styled using **semantic CSS stylesheets**. Tailwind utility classes are restricted to **Structural and Layout-only roles**.
 
@@ -73,18 +95,19 @@ The Healthmed frontend is styled using **semantic CSS stylesheets**. Tailwind ut
        ├──────────────────────────────────────────────────────────────┤
        │  - Color classes: bg-[#...], text-[#...], border-[#...]       │
        │  - Typography details: font-serif, leading-*, tracking-*     │
+       │    (Redirect to .ai/03_TYPOGRAPHY_SYSTEM.md for guidance)    │
        │  - Spacing blocks: p-*, m-*, px-*, py-*, pt-*                │
        │  - Corner styles & Shadow elements: rounded-*, shadow-*      │
        └──────────────────────────────────────────────────────────────┘
 ```
 
-### Visual Styling Rules & Class Matching Examples
+### Class Matching Example
 
 * **❌ INCORRECT / FORBIDDEN JSX COMPOSITION:**
   ```tsx
   /* DO NOT use raw Tailwind styling utilities in JSX */
   <div className="bg-white border border-[#E5E7EB] rounded-[24px] p-8 md:p-14 shadow-[0_10px_45px_rgba(0,0,0,0.03)] flex flex-col space-y-6">
-    <h3 className="font-serif text-3xl md:text-[38px] text-brand-charcoal leading-tight">
+    <h3 className="font-serif text-3xl text-brand-charcoal leading-tight">
       Patient Care
     </h3>
   </div>
@@ -98,7 +121,8 @@ The Healthmed frontend is styled using **semantic CSS stylesheets**. Tailwind ut
   export default function HealthcareCard() {
     return (
       <div className="modules-card flex flex-col">
-        <h3 className="modules-card-title">
+        {/* Typography is handled strictly via central tokens. See 03_TYPOGRAPHY_SYSTEM.md */}
+        <h3 className="modules-card-title text-5xl">
           Patient Care
         </h3>
       </div>
@@ -116,25 +140,19 @@ The Healthmed frontend is styled using **semantic CSS stylesheets**. Tailwind ut
   }
 
   .modules-card-title {
-    font-family: var(--font-serif);
-    font-size: 1.875rem;
     color: var(--color-brand-charcoal);
-    line-height: 1.12;
   }
 
   @media (min-width: 768px) {
     .modules-card {
       padding: var(--spacing-xl);
     }
-    .modules-card-title {
-      font-size: 2.375rem;
-    }
   }
   ```
 
 ---
 
-## 4. CSS Organization Rules
+## 5. CSS Organization Rules
 
 * Every component or page section must maintain its own stylesheet inside its local workspace (e.g. `src/sections/home/Modules.css` for `src/sections/home/Modules.tsx`).
 * Components must import their local stylesheet directly at the top of the file.
@@ -142,30 +160,42 @@ The Healthmed frontend is styled using **semantic CSS stylesheets**. Tailwind ut
 
 ---
 
-## 5. State Management System
+## 6. Performance & Lazy Loading Scaffolding
 
-* **Local Component State:** Standardize state management using `useState`. Avoid synchronizing props directly inside redundant `useEffect` triggers.
-* **Derived State Patterns:** Always compute downstream indicators dynamically during rendering:
-  ```ts
-  // ✅ Correct derived state implementation
-  const activeTabsCount = tabs.filter(t => t.enabled).length;
-  ```
-* **Context Utilization:** Leverage shared React context *only* for global configuration settings (such as active user sessions, clinical notification hubs, or workspace view modes).
-
----
-
-## 6. Route Scaffolding
-
-* Pages must reside in `src/pages/`.
-* Below-the-fold heavy modules on key pages must be code-split and loaded using React's lazy loading:
+* **Code Splitting:** Dynamically import heavy below-the-fold modules using React's `lazy` and `Suspense`:
   ```tsx
   import React, { Suspense, lazy } from 'react';
   const Modules = lazy(() => import('../sections/home/Modules'));
   ```
+* **Image Optimization:** Always set explicit aspect ratios, dimensions, and use lazy loading flags for below-the-fold assets:
+  ```tsx
+  <img src={assetUrl} loading="lazy" width="600" height="450" className="lazy-image" referrerPolicy="no-referrer" />
+  ```
 
 ---
 
-## 7. Motion & Interaction Standards
+## 7. Accessibility (a11y) & Interactive Navigation
+
+Every component must satisfy WCAG 2.1 AA requirements:
+
+* **Keyboard Navigation:** All interactive elements (tabs, accordions, dialogs, buttons) must be focusable using `Tab` and activatable via `Enter` or `Space`.
+* **Focus States:** Never use outline-none without providing a visible focus indicator (e.g., `:focus-visible` with a custom ring or contrast shift).
+* **ARIA Roles & Attributes:** Ensure custom widgets have correct roles:
+  * Tab lists must have `role="tablist"`
+  * Tabs must have `role="tab"`, `aria-selected={true/false}`, and `aria-controls="panel-id"`
+  * Tab content containers must have `role="tabpanel"` and `aria-labelledby="tab-id"`
+* **Semantic HTML:** Do not use `div` for buttons. Use the actual `button` element to preserve native screen-reader behaviors and click capabilities.
+* **Reduced Motion Support:** Check for user preferences and skip animation transitions if active:
+  ```ts
+  const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (mediaQuery.matches) {
+    // Render static state or instant values
+  }
+  ```
+
+---
+
+## 8. Motion & Framer Motion Guidelines
 
 All structural transitions must run cleanly on GPU threads using **Framer Motion** or **GSAP**:
 
@@ -197,15 +227,27 @@ All structural transitions must run cleanly on GPU threads using **Framer Motion
 
 ---
 
-## 8. Development Verification Protocols
+## 9. SEO & Metadata Scaffolding
 
-Before committing or pushing any features, verify that your code adheres to these coding guidelines:
+* **Unified Metadata Handling:** Use the central SEO component (`src/components/ui/SEO.tsx`) inside page entry points.
+* **Structured Data:** Use appropriate microdata tags and semantic structured layout models. Do not manually mutate page-level header documents in random JSX routines.
+
+---
+
+## 10. Development Verification Checklist
+
+Before certifying any task as completed, verify that the following assertions hold true:
 
 ```
-[ ] Visual styling uses semantic custom CSS classes, NOT raw utility Tailwind.
-[ ] CSS variables map to official design system tokens.
-[ ] All heavy visual modules load lazily via Suspense.
-[ ] TypeScript declarations are strictly typed, avoiding the use of 'any'.
-[ ] Custom layouts preserve correct accessibility tags, focus rings, and ARIA attributes.
-[ ] Static asset collections (e.g., menus, feature items) reside in data modules inside `src/data/`.
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                    DEVELOPMENT COMPLIANCE CHECKLIST                         │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ [ ] Code uses semantic custom CSS classes, NOT raw utility Tailwind.         │
+│ [ ] Stylesheet rules align with Design System (02_DESIGN_SYSTEM.md).         │
+│ [ ] Typography utilizes central tokens (03_TYPOGRAPHY_SYSTEM.md) completely.  │
+│ [ ] No typography properties (font-size, etc.) are declared in local CSS.    │
+│ [ ] All heavy visual modules load lazily via Suspense.                       │
+│ [ ] TypeScript declarations are strictly typed, avoiding the use of 'any'.    │
+│ [ ] The application passes all linter and compilation checks successfully.   │
+└──────────────────────────────────────────────────────────────────────────────┘
 ```

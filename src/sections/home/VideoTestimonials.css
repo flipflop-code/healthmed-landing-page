@@ -32,31 +32,23 @@
 }
 
 .video-testimonials-title {
-  font-family: var(--font-serif);
-  font-size: 2.25rem; /* ~36px */
-  font-weight: 500;
-  line-height: 1.2;
   color: var(--color-brand-charcoal);
-  letter-spacing: -0.02em;
   margin-bottom: 1.25rem;
 }
 
 @media (min-width: 768px) {
   .video-testimonials-title {
-    font-size: 3rem; /* ~48px */
+    /* Layout properties only */
   }
 }
 
 .video-testimonials-subtitle {
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  line-height: 1.6;
   color: var(--color-brand-gray-600);
 }
 
 @media (min-width: 768px) {
   .video-testimonials-subtitle {
-    font-size: 1.125rem;
+    /* Layout properties only */
   }
 }
 
@@ -80,6 +72,111 @@
   }
 }
 
+/* Silky Smooth Video Player Overlay (Always mounted but crossfading) */
+.video-player-element-hover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 12;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.video-player-element-hover.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Micro hover mute button */
+.video-hover-mute-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 25;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.video-hover-mute-toggle:hover {
+  background-color: rgba(0, 85, 255, 0.95);
+  transform: scale(1.1);
+}
+
+/* 100% Mockup Exactness: Settings Cogwheel Sticker / Bubble Badge on Card 3 */
+.card-badge-bubble {
+  position: absolute;
+  top: 22%;
+  right: 28%;
+  z-index: 18;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.22);
+  pointer-events: none;
+  animation: floatBadge 3s ease-in-out infinite;
+}
+
+.card-badge-red-circle {
+  width: 32px;
+  height: 32px;
+  background-color: #E11D48; /* Premium vivid crimson red from mockup */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.card-badge-bubble-pointer {
+  position: absolute;
+  bottom: -4px;
+  left: 6px;
+  width: 10px;
+  height: 10px;
+  background-color: #FFFFFF;
+  transform: rotate(45deg);
+  border-bottom-right-radius: 2px;
+}
+
+/* Slowly spinning the settings gear for high quality interactive look */
+@keyframes floatBadge {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin 12s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* Individual Video Card */
 .video-testimonial-card {
   position: relative;
@@ -93,17 +190,12 @@
 }
 
 .video-testimonial-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0, 85, 255, 0.08);
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 85, 255, 0.12);
 }
 
 .video-testimonial-card.is-playing {
-  cursor: default;
-}
-
-.video-testimonial-card.is-playing:hover {
-  transform: none;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+  /* Prevent jarring cursor jumps when playing */
 }
 
 /* Thumbnail Image layer */
@@ -115,7 +207,7 @@
 }
 
 .video-testimonial-card:hover .video-card-thumbnail {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
 /* Center Play Button Overlay */
@@ -127,6 +219,12 @@
   justify-content: center;
   z-index: 10;
   pointer-events: none;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.video-play-trigger.hovered {
+  opacity: 0;
+  transform: scale(0.75);
 }
 
 .video-play-circle {
@@ -156,51 +254,6 @@
   margin-left: 4px; /* Perfectly center the triangle offset */
 }
 
-/* Silky Smooth Video Player Wrapper */
-.video-player-wrapper {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 20;
-  background-color: #000000;
-}
-
-.video-player-element {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Controls overlaid in video */
-.video-overlay-controls {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  display: flex;
-  gap: 0.5rem;
-  z-index: 25;
-}
-
-.video-control-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background-color: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.video-control-btn:hover {
-  background-color: rgba(15, 23, 42, 0.85);
-  transform: scale(1.05);
-}
-
 /* Premium Frosted Glass Text Overlay */
 .video-card-frosted-overlay {
   position: absolute;
@@ -214,26 +267,18 @@
   flex-direction: column;
   justify-content: flex-end;
   z-index: 15;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease, background 0.45s ease;
 }
 
-.video-testimonial-card.is-playing .video-card-frosted-overlay {
-  opacity: 0;
-  transform: translateY(100%);
-  pointer-events: none;
+.video-card-frosted-overlay.hovered {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 60%, transparent 100%);
 }
 
 .video-member-name {
-  font-family: var(--font-sans);
-  font-size: 1.25rem;
-  font-weight: 600;
   color: #FFFFFF;
   margin-bottom: 0.25rem;
-  letter-spacing: -0.01em;
 }
 
 .video-member-role {
-  font-family: var(--font-sans);
-  font-size: 0.9375rem;
   color: rgba(255, 255, 255, 0.8);
 }

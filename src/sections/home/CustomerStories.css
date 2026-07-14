@@ -8,16 +8,16 @@
    ========================================================================== */
 
 .customer-stories-section {
-  background-color: var(--color-background);
+  background-color: #F7F5F0; /* Perfect Figma warm light cream color */
   padding-top: var(--space-2xl);
   padding-bottom: var(--space-2xl);
-  border-bottom: 1px solid var(--color-brand-gray-200);
+  border-bottom: 1px solid #E5E7EB;
 }
 
 @media (min-width: 768px) {
   .customer-stories-section {
-    padding-top: var(--space-3xl);
-    padding-bottom: var(--space-3xl);
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 }
 
@@ -40,62 +40,58 @@
   max-width: 48rem; /* max-w-3xl */
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: var(--space-2xl);
+  margin-bottom: 3.5rem;
 }
 
 .customer-stories-title {
-  font-family: var(--font-serif);
-  font-size: 3rem; /* text-5xl equivalent */
-  color: var(--color-brand-charcoal);
+  color: #1E2022;
   margin-top: var(--space-md);
-  margin-bottom: var(--space-md);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  margin-bottom: var(--space-sm);
+}
+
+.customer-stories-title-italic {
+  /* Layout/style handled via inline/token classes */
 }
 
 @media (min-width: 768px) {
   .customer-stories-title {
-    font-size: 3.75rem; /* text-6xl equivalent */
+    /* Responsive overrides strictly via typography tokens */
   }
 }
 
 .customer-stories-subtitle {
-  font-family: var(--font-sans);
-  color: var(--color-brand-gray-600);
-  font-size: 1.125rem; /* text-lg */
-  line-height: 1.5;
-  max-width: 38rem; /* match exact width to match references */
+  color: #656565;
+  max-width: 38rem; 
   margin-left: auto;
   margin-right: auto;
 }
 
 /* ==========================================================================
-   Main Showcase Gradient Box (with Grain Texture Overlay)
+   Main Showcase Gradient Box (Figma Blue Background with Diagonal Light-beams)
    ========================================================================== */
 
 .customer-stories-showcase {
-  border-radius: 36px; /* Beautifully rounded extra-large borders matching the reference image */
+  border-radius: 24px; /* Crisp and modern rounded borders matching reference */
   padding: 1.5rem;
   position: relative;
-  box-shadow: 0 25px 60px rgba(0, 85, 255, 0.15);
-  
-  /* Rich, exact 4-color linear gradient matching the design spec colors */
-  background: linear-gradient(to bottom, #B4D0FF 0%, #478CFF 30%, #FF629E 65%, #FF6220 100%);
-  
-  /* Monotone noise overlay with exactly 14% opacity as per spec */
-  background-image: 
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.14'/%3E%3C/svg%3E"),
-    linear-gradient(to bottom, #B4D0FF 0%, #478CFF 30%, #FF629E 65%, #FF6220 100%);
+  box-shadow: 0 30px 70px rgba(0, 85, 255, 0.12);
+  overflow: hidden;
   width: 100%;
+  
+  /* High fidelity abstract light rays & modern blue-to-deep-blue gradient */
+  background: 
+    radial-gradient(circle at 80% 15%, rgba(135, 210, 255, 0.45) 0%, transparent 45%),
+    radial-gradient(circle at 20% 85%, rgba(20, 110, 255, 0.4) 0%, transparent 55%),
+    linear-gradient(135deg, #0A5CFF 0%, #0044DB 35%, #0084FF 70%, #00C2FF 100%);
 }
 
 @media (min-width: 1024px) {
   .customer-stories-showcase {
-    max-width: 1200px; /* Spec: Layout width 1,200px */
-    height: 770px;     /* Spec: Layout height 770px */
+    max-width: 1200px; /* Layout width 1,200px as shown in visual label */
+    height: 750px;     /* Layout height 750px as labeled in mockup bottom "1200 x 750" */
     margin-left: auto;
     margin-right: auto;
-    padding: 3.5rem 3rem 2.5rem 3rem;
+    padding: 3rem 2rem 2rem 2rem;
   }
 }
 
@@ -113,12 +109,12 @@
 
 @media (min-width: 1024px) {
   .customer-stories-carousel {
-    height: 570px; /* Centered layout containing the larger 546px high card nicely */
+    height: 570px; /* Perfectly houses the 546px card in center */
   }
 }
 
 /* ==========================================================================
-   Customer Story Cards
+   Customer Story Cards (Active: White, Inactive: Translucent Blur)
    ========================================================================== */
 
 .customer-story-card {
@@ -127,18 +123,13 @@
   transform: translateY(-50%);
   width: 290px;
   height: 410px;
-  background-color: var(--color-brand-white);
-  border-radius: 16px; /* Spec: Radius: 16px */
-  padding: 24px;       /* Spec: Padding: 24px */
+  border-radius: 16px; 
+  padding: 24px;       
   display: flex;
   flex-direction: column;
-  gap: 32px;           /* Spec: Gap: 32px */
-  
-  /* Spec shadow: X:0, Y:0, Blur:60, Spread:0, Color: #000000 25% */
-  box-shadow: 0 0 60px rgba(0, 0, 0, 0.25);
-  
+  gap: 28px;           
   cursor: grab;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, background-color 0.4s ease;
 }
 
 .customer-story-card:active {
@@ -154,10 +145,62 @@
 
 @media (min-width: 1024px) {
   .customer-story-card {
-    width: 616px;  /* Spec: Fixed width 616px */
-    height: 546px; /* Spec: Hug height 546px */
-    padding: 32px;
+    width: 616px;  /* Spec width 616px */
+    height: 546px; /* Spec height 546px */
+    padding: 36px;
+    gap: 32px;
   }
+}
+
+/* Active Card (Solid White, high shadow) */
+.customer-story-card.active {
+  background-color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+  pointer-events: auto;
+}
+
+.customer-story-card.active .customer-story-logo-box {
+  background-color: #F8F9FA;
+}
+
+.customer-story-card.active .customer-story-metric-value {
+  color: #111827;
+}
+
+.customer-story-card.active .customer-story-metric-label {
+  color: #4B5563;
+}
+
+/* Inactive Card (Translucent Glass Effect, blending beautifully with the blue background) */
+.customer-story-card.inactive {
+  background-color: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.customer-story-card.inactive .customer-story-logo-box {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.customer-story-card.inactive .customer-story-logo-box * {
+  color: rgba(255, 255, 255, 0.45) !important;
+  opacity: 0.5;
+}
+
+.customer-story-card.inactive .customer-story-metric-value {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.customer-story-card.inactive .customer-story-metric-label {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.customer-story-card.inactive .customer-story-metric-row {
+  border-bottom-color: rgba(255, 255, 255, 0.12);
 }
 
 /* ==========================================================================
@@ -165,18 +208,18 @@
    ========================================================================== */
 
 .customer-story-logo-box {
-  background-color: #F5F6F8; /* Light gray box backdrop from Image 2 */
   border-radius: 12px;
   height: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--space-md);
+  transition: background-color 0.4s ease;
 }
 
 @media (min-width: 1024px) {
   .customer-story-logo-box {
-    height: 140px;
+    height: 132px;
   }
 }
 
@@ -190,9 +233,17 @@
 .customer-story-metric-row {
   display: flex;
   align-items: center;
-  padding-top: 1.125rem;
-  padding-bottom: 1.125rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid #E5E7EB;
+  transition: border-color 0.4s ease;
+}
+
+@media (min-width: 1024px) {
+  .customer-story-metric-row {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
 }
 
 .customer-story-metric-row:last-child {
@@ -200,70 +251,62 @@
 }
 
 .customer-story-metric-value {
-  font-family: var(--font-serif);
-  font-size: 2.25rem; /* text-4xl */
-  font-weight: 400;
-  color: var(--color-brand-charcoal);
-  width: 35%;
+  width: 32%;
   flex-shrink: 0;
-  line-height: 1;
+  transition: color 0.4s ease;
 }
 
 @media (min-width: 1024px) {
   .customer-story-metric-value {
-    font-size: 3.5rem; /* Large beautiful serif stats as in reference image */
+    /* Responsive overrides strictly via typography tokens */
   }
 }
 
 .customer-story-metric-label {
-  font-family: var(--font-sans);
-  font-size: 0.875rem; /* text-sm */
-  color: var(--color-brand-gray-600);
-  line-height: 1.4;
-  width: 65%;
+  width: 68%;
   padding-left: var(--space-md);
+  transition: color 0.4s ease;
 }
 
 @media (min-width: 1024px) {
   .customer-story-metric-label {
-    font-size: 1.05rem;
+    /* Responsive overrides strictly via typography tokens */
   }
 }
 
 /* ==========================================================================
-   Interactive Progress Track (Figma Spec: 196px x 8px)
+   Pill Progress Indicators (Matches mockup perfectly at the bottom center)
    ========================================================================== */
 
-.customer-stories-progress-track {
-  position: relative;
-  width: 196px; /* Spec: 196px track width */
-  height: 8px;  /* Spec: 8px track height */
-  background-color: rgba(255, 255, 255, 0.25);
-  border-radius: 9999px;
-  margin-top: 2rem;
-  margin-left: auto;
-  margin-right: auto;
+.customer-stories-progress-pills {
   display: flex;
-  overflow: hidden;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 1rem;
 }
 
-.customer-stories-track-step {
-  flex: 1;
-  height: 100%;
-  background: transparent;
+@media (min-width: 1024px) {
+  .customer-stories-progress-pills {
+    margin-top: 0.5rem;
+  }
+}
+
+.customer-stories-pill {
+  width: 48px;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.35);
+  border-radius: 9999px;
   border: none;
   cursor: pointer;
-  z-index: 10;
+  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s ease;
   outline: none;
 }
 
-.customer-stories-track-thumb {
-  position: absolute;
-  top: 0;
-  bottom: 0;
+.customer-stories-pill:hover {
+  background-color: rgba(255, 255, 255, 0.65);
+}
+
+.customer-stories-pill.active {
   background-color: #FFFFFF;
-  border-radius: 9999px;
-  z-index: 5;
-  pointer-events: none;
 }

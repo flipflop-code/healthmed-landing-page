@@ -37,19 +37,19 @@ export default function CustomerStories() {
   };
 
   // Maps logoTypes to beautifully rendered, vector-crisp corporate identity headers
-  const renderLogo = (logoType: 'orlando' | 'providence' | 'vanderbilt') => {
+  const renderLogo = (logoType: 'orlando' | 'providence' | 'vanderbilt' | 'mayo' | 'cleveland') => {
     switch (logoType) {
       case 'orlando':
         return (
           <div className="flex flex-col items-center justify-center text-center select-none" id="logo-orlando-svg">
             <span 
-              className="text-3xl font-medium tracking-[0.06em] uppercase text-[#0B1E30] leading-none" 
+              className="text-3xl font-medium tracking-[0.06em] uppercase text-[#0F8241] leading-none" 
               style={{ fontFamily: 'var(--font-serif)' }}
             >
               Orlando
             </span>
             <span 
-              className="text-2xl tracking-[0.15em] uppercase text-[#0B1E30] font-medium mt-1 leading-none relative"
+              className="text-2xl tracking-[0.15em] uppercase text-[#0F8241] font-medium mt-1 leading-none relative"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
               Health<span className="text-[10px] absolute -top-1 -right-2.5 font-sans font-normal">®</span>
@@ -60,17 +60,17 @@ export default function CustomerStories() {
         return (
           <div className="flex flex-col items-center justify-center text-center select-none" id="logo-providence-svg">
             <div className="flex items-center justify-center space-x-1.5 mb-1">
-              <svg className="w-5 h-5 text-[#0B1E30]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <svg className="w-5 h-5 text-[#0055FF]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M12 2v20M5 9h14" />
               </svg>
               <span 
-                className="text-2xl font-medium tracking-[0.04em] uppercase text-[#0B1E30] leading-none"
+                className="text-2xl font-medium tracking-[0.04em] uppercase text-[#111827] leading-none"
                 style={{ fontFamily: 'var(--font-serif)' }}
               >
                 Providence
               </span>
             </div>
-            <span className="text-[10px] uppercase tracking-[0.25em] text-[#555d6b] font-sans mt-0.5 font-semibold">
+            <span className="text-[10px] uppercase tracking-[0.25em] text-[#6B7280] font-sans mt-0.5 font-semibold">
               Health & Services
             </span>
           </div>
@@ -79,15 +79,37 @@ export default function CustomerStories() {
         return (
           <div className="flex flex-col items-center justify-center text-center select-none" id="logo-vanderbilt-svg">
             <span 
-              className="text-3xl font-medium tracking-[0.04em] uppercase text-[#0B1E30] leading-none"
+              className="text-3xl font-medium tracking-[0.04em] uppercase text-[#997F3D] leading-none"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
               Vanderbilt
             </span>
             <span 
-              className="text-xs uppercase tracking-[0.3em] text-[#555d6b] font-sans mt-1 leading-none font-semibold"
+              className="text-xs uppercase tracking-[0.3em] text-[#6B7280] font-sans mt-1 leading-none font-semibold"
             >
               University Medical Center
+            </span>
+          </div>
+        );
+      case 'mayo':
+        return (
+          <div className="flex flex-col items-center justify-center text-center select-none" id="logo-mayo-svg">
+            <span 
+              className="text-3xl font-bold tracking-[0.05em] uppercase text-[#0A2D62] leading-none"
+              style={{ fontFamily: 'var(--font-serif)' }}
+            >
+              Mayo Clinic
+            </span>
+          </div>
+        );
+      case 'cleveland':
+        return (
+          <div className="flex flex-col items-center justify-center text-center select-none" id="logo-cleveland-svg">
+            <span 
+              className="text-2xl font-bold tracking-[0.02em] uppercase text-[#006643] leading-none"
+              style={{ fontFamily: 'var(--font-sans)' }}
+            >
+              Cleveland Clinic
             </span>
           </div>
         );
@@ -108,29 +130,49 @@ export default function CustomerStories() {
     }
     if (diff === -1) {
       return {
-        left: isMobile ? '-15%' : 'calc(50% - 480px)',
+        left: isMobile ? '-15%' : 'calc(50% - 460px)',
         x: '-50%',
-        scale: isMobile ? 0.75 : 0.82,
-        opacity: isMobile ? 0.2 : 0.45,
+        scale: isMobile ? 0.75 : 0.85,
+        opacity: isMobile ? 0.2 : 0.55,
         zIndex: 10,
         pointerEvents: 'auto' as const,
       };
     }
     if (diff === 1) {
       return {
-        left: isMobile ? '115%' : 'calc(50% + 480px)',
+        left: isMobile ? '115%' : 'calc(50% + 460px)',
         x: '-50%',
-        scale: isMobile ? 0.75 : 0.82,
-        opacity: isMobile ? 0.2 : 0.45,
+        scale: isMobile ? 0.75 : 0.85,
+        opacity: isMobile ? 0.2 : 0.55,
         zIndex: 10,
         pointerEvents: 'auto' as const,
       };
     }
+    if (diff === -2) {
+      return {
+        left: isMobile ? '-50%' : 'calc(50% - 780px)',
+        x: '-50%',
+        scale: isMobile ? 0.6 : 0.7,
+        opacity: isMobile ? 0 : 0.25,
+        zIndex: 5,
+        pointerEvents: 'none' as const,
+      };
+    }
+    if (diff === 2) {
+      return {
+        left: isMobile ? '150%' : 'calc(50% + 780px)',
+        x: '-50%',
+        scale: isMobile ? 0.6 : 0.7,
+        opacity: isMobile ? 0 : 0.25,
+        zIndex: 5,
+        pointerEvents: 'none' as const,
+      };
+    }
     // Cards outside the instant preview view are translated completely out of view
     return {
-      left: diff < 0 ? '-100%' : '200%',
+      left: diff < 0 ? '-120%' : '220%',
       x: '-50%',
-      scale: 0.7,
+      scale: 0.6,
       opacity: 0,
       zIndex: 1,
       pointerEvents: 'none' as const,
@@ -148,7 +190,7 @@ export default function CustomerStories() {
 
   return (
     <section 
-      className="customer-stories-section border-b border-brand-gray-200" 
+      className="customer-stories-section" 
       id="customer-stories"
       onKeyDown={handleKeyDown}
       tabIndex={0}
@@ -165,10 +207,10 @@ export default function CustomerStories() {
 
         {/* Section Header */}
         <div className="customer-stories-header">
-          <Heading level={2} className="customer-stories-title" id="customer-stories-heading">
-            Real outcomes from real deployments
-          </Heading>
-          <p className="customer-stories-subtitle" id="customer-stories-subtitle">
+          <h2 className="customer-stories-title text-6xl md:text-7xl" id="customer-stories-heading">
+            <span className="italic">Real outcomes</span> from real deployments
+          </h2>
+          <p className="customer-stories-subtitle text-2xl" id="customer-stories-subtitle">
             See how leading health systems, payers, and programs are transforming themselves.
           </p>
         </div>
@@ -178,10 +220,10 @@ export default function CustomerStories() {
           <div className="customer-stories-carousel" id="customer-stories-carousel-viewport">
             
             {customerStoriesData.map((story, i) => {
-              // Wrap indices to represent previous, current, and next slides
+              // Wrap indices to represent previous 2, current, and next 2 slides
               let diff = i - activeIndex;
-              if (diff < -1) diff += totalStories;
-              if (diff > 1) diff -= totalStories;
+              if (diff < -2) diff += totalStories;
+              if (diff > 2) diff -= totalStories;
 
               const position = getPositionStyles(diff);
               const isActive = diff === 0;
@@ -189,7 +231,7 @@ export default function CustomerStories() {
               return (
                 <motion.div
                   key={story.id}
-                  className="customer-story-card flex flex-col"
+                  className={`customer-story-card flex flex-col ${isActive ? 'active' : 'inactive'}`}
                   style={{
                     position: 'absolute',
                     top: '50%',
@@ -229,10 +271,10 @@ export default function CustomerStories() {
                         key={idx}
                         id={`story-metric-${story.id}-${idx}`}
                       >
-                        <span className="customer-story-metric-value">
+                        <span className="customer-story-metric-value text-5xl md:text-7xl">
                           {metric.value}
                         </span>
-                        <span className="customer-story-metric-label">
+                        <span className="customer-story-metric-label text-xl">
                           {metric.label}
                         </span>
                       </div>
@@ -245,32 +287,17 @@ export default function CustomerStories() {
 
           </div>
 
-          {/* Interactive Progress Track Bar (Figma Spec: 196px x 8px) */}
-          <div className="customer-stories-progress-track" id="customer-stories-progress-track">
+          {/* Interactive Progress Track Bar (Pill Indicators) */}
+          <div className="customer-stories-progress-pills" id="customer-stories-progress-pills">
             {customerStoriesData.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setActiveIndex(i)}
                 aria-label={`Show customer story slide ${i + 1}`}
-                className="customer-stories-track-step"
-                id={`customer-stories-track-step-${i}`}
+                className={`customer-stories-pill ${i === activeIndex ? 'active' : ''}`}
+                id={`customer-stories-pill-${i}`}
               />
             ))}
-            <motion.div
-              className="customer-stories-track-thumb"
-              id="customer-stories-track-thumb"
-              animate={{
-                left: `${(activeIndex / totalStories) * 100}%`,
-              }}
-              style={{
-                width: `${(1 / totalStories) * 100}%`,
-              }}
-              transition={{
-                type: 'spring',
-                stiffness: 300,
-                damping: 28,
-              }}
-            />
           </div>
 
         </div>

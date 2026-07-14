@@ -1,24 +1,24 @@
 # Healthmed Enterprise AI Memory System - Design System Manual
 
 > **IMPORTANT FOR ALL AI ASSISTANTS**
-> Read all files inside the `.ai` folder before making any code changes. This file specifies typography, colors, borders, shadows, spacing, and structural components.
+> Read all files inside the `.ai` folder before making any code changes. This file specifies colors, borders, shadows, spacing, visual standard architectures, and layouts. Typography rules are in `.ai/03_TYPOGRAPHY_SYSTEM.md`.
 
-This manual documents the design token architecture, typography models, and semantic component styles of the Healthmed application.
+This manual documents the design token architecture, layout rules, and semantic component styles of the Healthmed application.
 
 ---
 
 ```
-                       DESIGN SYSTEM TOKENS SYNCHRONIZATION
+                        DESIGN SYSTEM TOKENS SYNCHRONIZATION
       
                CSS VARIABLES [design-system.css] 
                ├── Colors (--color-brand-blue, --color-brand-charcoal, etc.)
-               ├── Typography (--font-sans, --font-serif, --font-mono)
-               └── Layout Elements (--radius-xl, --shadow-sm, etc.)
+               ├── Layout Elements (--radius-xl, --shadow-sm, etc.)
+               └── Spacing/Sizing (--spacing-md, --spacing-lg, etc.)
                                      │
                                      ▼
                SEMANTIC CUSTOM CSS CLASSES [e.g. Modules.css, index.css]
                ├── .modules-section   <-- Maps layout and padding
-               ├── .modules-card      <-- Maps cards and background color
+               ├── .modules-card      <-- Maps cards and backgrounds
                └── .modules-tab-button <-- Maps tab triggers and states
                                      │
                                      ▼
@@ -55,77 +55,34 @@ Healthmed's visual language relies on a robust hierarchy of CSS custom variables
 
 ### Mapping to Components (Alias Mapping)
 Component CSS files must target semantic custom properties, preserving variable linking.
-```css
-/* ✅ CORRECT EXAMPLE (Modules.css) */
-.modules-section {
-  background-color: var(--color-brand-bg);
-  border-bottom: 1px solid var(--color-brand-gray-100);
-}
 
-.modules-tab-underline {
-  background-color: var(--color-brand-blue);
-}
-
-/* ❌ INCORRECT EXAMPLE */
-.modules-section {
-  background-color: #fbfbfc; /* Hardcoded hex colors are FORBIDDEN */
-  border-bottom: 1px solid #eef1f4;
-}
-```
-
----
-
-## 2. Typography Rules
-
-Healthmed utilizes an expressive typography layout balancing clean modernist sans-serif elements with an elegant, traditional serif typeface.
-
-### Approved Typography Hierarchy
-* **Sans-Serif Font:** `Inter`, used for active dashboard interfaces, interactive UI elements, tabular data, metadata, forms, and general body text.
-* **Serif Font:** `Lora` (or local standard serif), used for high-impact display titles, article headings, and editorial accent text.
-* **Mono Font:** `JetBrains Mono`, used for technical outputs, numbers, and system logs.
-
-### Typography Token Constraints
-All typographic elements in components must be mapped using standard semantic CSS classes or dedicated global classes. **Never mix custom styles inside JSX.**
-
-* **❌ INCORRECT / FORBIDDEN JSX COALESCENCE:**
-  ```tsx
-  /* Do not construct custom typography profiles using inline Tailwind utility classes */
-  <h3 className="text-3xl md:text-4xl lg:text-[42px] font-serif leading-tight font-normal tracking-tight text-brand-charcoal">
-    Patient Care
-  </h3>
-  ```
-
-* **✅ CORRECT COMPONENT MAPPING:**
-  ```tsx
-  /* Reference a logical, descriptive class name in JSX */
-  <h3 className="modules-card-title">
-    Patient Care
-  </h3>
-  ```
+* **❌ INCORRECT / FORBIDDEN EXAMPLE:**
   ```css
-  /* Configure the visual profile cleanly inside the component's CSS stylesheet */
-  .modules-card-title {
-    font-family: var(--font-serif);
-    font-size: 1.875rem; /* text-3xl */
-    color: var(--color-brand-charcoal);
-    line-height: 1.12;
-    letter-spacing: -0.015em;
+  .modules-section {
+    background-color: #fbfbfc; /* Hardcoded hex colors are FORBIDDEN */
+    border-bottom: 1px solid #eef1f4;
+  }
+  ```
+
+* **✅ CORRECT EXAMPLE (Modules.css):**
+  ```css
+  .modules-section {
+    background-color: var(--color-brand-bg);
+    border-bottom: 1px solid var(--color-brand-gray-100);
   }
 
-  @media (min-width: 768px) {
-    .modules-card-title {
-      font-size: 2.375rem;
-    }
+  .modules-tab-underline {
+    background-color: var(--color-brand-blue);
   }
   ```
 
 ---
 
-## 3. Layout Spacing System
+## 2. Layout Spacing & Section Boundaries
 
 All spacing (padding, margin, gap) must align with the global spacing standards, mapped via semantic class attributes in CSS stylesheets:
 
-| Variable / Value | Standard Name | Clinical Application |
+| Variable / Value | Standard Name | Clinical Application / Layout Role |
 | :--- | :--- | :--- |
 | `0.25rem` / `4px` | `--spacing-xxs` | Tight badge labels, focus rings, minor borders |
 | `0.5rem` / `8px` | `--spacing-xs` | Component metadata spacing, small grid gaps |
@@ -136,9 +93,13 @@ All spacing (padding, margin, gap) must align with the global spacing standards,
 | `5rem` / `80px` | `--spacing-xxl` | Mobile section top/bottom padding offsets |
 | `7rem` / `112px` | `--spacing-xxxl` | Desktop section boundaries and structural ends |
 
+### Responsive Container Widths & Alignment
+* Container standard size: `max-w-7xl` or `80rem` (approx. 1200px max layout container).
+* Outer page content margin should use responsive centering padding: `px-4 md:px-8 mx-auto`.
+
 ---
 
-## 4. Radii System (Borders)
+## 3. Radii System (Borders)
 
 Use specified CSS custom radius tokens to maintain a consistent rounding style across all component families:
 
@@ -155,9 +116,9 @@ Use specified CSS custom radius tokens to maintain a consistent rounding style a
 
 ---
 
-## 5. Shadows
+## 4. Shadow System
 
-Card elevations and panel depth states must be styled with established shadow variables. **Never compile custom hex shadows inside components.**
+Card elevations and panel depth states must be styled with established shadow variables. **Never compile custom hex shadows inside components or CSS stylesheets.**
 
 ```css
 :root {
@@ -173,27 +134,9 @@ Card elevations and panel depth states must be styled with established shadow va
 
 ---
 
-## 6. Icons & Graphic Elements
+## 5. Visual Standards for Component Families
 
-* **Consistent Library Choice:** Always use `lucide-react` for system icons.
-* **Consistent Sizing Frameworks:**
-  * Inline tags & small links: `h-4 w-4`
-  * Action button labels & standard cards: `h-5 w-5`
-  * Section intros & diagnostic indicators: `h-6 w-6`
-* **Stroke Consistency:** Maintain standard default line weights (`stroke-width: 2` or default Lucide weight).
-
----
-
-## 7. Images & Graphics
-
-* **Fixed / Explicit Aspect Ratios:** Always explicitly constrain media containers using aspect ratios (`aspect-video`, `aspect-square`, `aspect-[4/3]`) to prevent layout shifts.
-* **Referrer Policy & Optimization:** Explicitly include `referrerPolicy="no-referrer"` on images to comply with workspace policies.
-* **Rounded Framing:** Apply standard rounding elements (`rounded-2xl` or `rounded-xl`) and overlay a subtle border to establish boundary contrast against light off-white environments.
-
----
-
-## 8. Card Components
-
+### Card System
 ```
                    ┌────────────────────────────────────────┐
                    │               CARD WRAPPER             │
@@ -210,16 +153,13 @@ Card elevations and panel depth states must be styled with established shadow va
 ```
 
 Every information card follows this layout rule:
-* **Background:** Clean solid white (`var(--color-brand-white)`) or very soft grey.
-* **Borders:** Constant `1px solid #E5E7EB` or `var(--color-brand-gray-100)`.
-* **Radius:** `rounded-[24px]` (3xl token equivalent).
-* **Elevation:** Custom light drop shadow mapping `shadow-[0_10px_45px_-5px_rgba(0,0,0,0.03)]`.
+* **Background:** Clean solid white (`var(--color-brand-white)`) or very soft gray.
+* **Borders:** Constant `1px solid var(--color-brand-gray-100)` (or `#E5E7EB`).
+* **Radius:** `rounded-[24px]` (uses `var(--radius-3xl)` token equivalent).
+* **Elevation:** Custom light drop shadow mapping `var(--shadow-stage)`.
 
----
-
-## 9. Button States & Interactive Controls
-
-Always structure states cleanly, applying transition properties (`transition-all duration-200`):
+### Button System & Interactive Controls
+Always structure interactive states cleanly, applying unified transition properties (`transition-all duration-200`):
 
 ```css
 /* ✅ CORRECT EXAMPLE */
@@ -241,36 +181,68 @@ Always structure states cleanly, applying transition properties (`transition-all
 }
 ```
 
+### Grids & Columns Layouts
+* Use CSS grids with explicit layout constraints rather than arbitrary offsets:
+  ```css
+  .grid-layout-3col {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: var(--spacing-lg);
+  }
+  @media (min-width: 1024px) {
+    .grid-layout-3col {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  ```
+
 ---
 
-## 10. Design Consistency Guidelines
+## 6. Icons & Graphic Elements
 
-### Good Layout vs. Bad Layout Comparison
+* **Consistent Library Choice:** Always use `lucide-react` for system icons.
+* **Consistent Sizing Frameworks:**
+  * Inline tags & small links: `h-4 w-4` (or `16px`)
+  * Action button labels & standard cards: `h-5 w-5` (or `20px`)
+  * Section intros & diagnostic indicators: `h-6 w-6` (or `24px`)
+* **Stroke Consistency:** Maintain standard default line weights (`stroke-width: 2` or default Lucide weight).
 
-```css
-/* ❌ BAD WAY (Pollutes styling across different files using random classes) */
-.some-card {
-  background: white;
-  margin: 15px;
-  border-radius: 10px;
-  font-family: serif;
-  font-weight: normal;
-  font-size: 30px;
-}
+---
 
-/* ✅ GOOD WAY (Uses consistent design system variables and structure) */
-.diagnostic-card {
-  background-color: var(--color-brand-white);
-  border: 1px solid var(--color-brand-gray-100);
-  border-radius: var(--radius-3xl);
-  padding: var(--spacing-lg);
-  box-shadow: var(--shadow-sm);
-}
+## 7. Images & Graphics Rules
 
-.diagnostic-card-title {
-  font-family: var(--font-serif);
-  font-size: 1.875rem;
-  color: var(--color-brand-charcoal);
-  letter-spacing: -0.015em;
-}
+* **Fixed / Explicit Aspect Ratios:** Always explicitly constrain media containers using aspect ratios (`aspect-video`, `aspect-square`, `aspect-[4/3]`) to prevent layout shifts.
+* **Referrer Policy & Optimization:** Explicitly include `referrerPolicy="no-referrer"` on images to comply with workspace policies.
+* **Rounded Framing:** Apply standard rounding elements (`rounded-2xl` or `rounded-xl`) and overlay a subtle border to establish boundary contrast against light off-white environments.
+
+---
+
+## 8. Animation & Hover Transition Rules
+
+* **GPU Acceleratable Animations:** Animations must only transform CSS properties that do not cause layout recalculation: `opacity` and `transform` (`scale`, `translate`, `rotate`).
+* **Interactive Hover Scaling:** Interactive card components may lift slightly on hover. Use a clean, subtle transition:
+  ```css
+  .hover-card-interaction {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  }
+  .hover-card-interaction:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  ```
+
+---
+
+## 9. AI Self-Validation & Wrong vs. Correct Styling
+
+```
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                    DESIGN SYSTEM COMPLIANCE CHECKLIST                        │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ [ ] No raw HEX colors are present in stylesheet or React code files.        │
+│ [ ] Margins and paddings strictly map to standard spacing variables.        │
+│ [ ] Rounded values are mapped to exact radii tokens (--radius-xs to -3xl).   │
+│ [ ] Grid systems are clean and responsive.                                   │
+│ [ ] Zero custom typography definitions are written in this document.         │
+└──────────────────────────────────────────────────────────────────────────────┘
 ```

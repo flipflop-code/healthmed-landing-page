@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
+import { Quote } from 'lucide-react';
 
 export default function Testimonials() {
   const leftReviews = [
@@ -56,30 +57,28 @@ export default function Testimonials() {
   const renderCard = (review: typeof leftReviews[0], idx: number, prefix: string) => (
     <div
       key={`${prefix}-${idx}`}
-      className="bg-white rounded-md p-8 md:p-10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] border border-brand-gray-200/60 transition-all duration-300 flex-shrink-0 flex flex-col justify-between min-h-[260px]"
+      className="bg-white rounded-[16px] p-6 md:p-8 shadow-[0_10px_35px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_45px_rgba(0,0,0,0.06)] border border-[#E5E7EB] transition-all duration-300 flex-shrink-0 flex flex-col justify-between min-h-[250px]"
       id={`testimonial-card-${prefix}-${idx}`}
     >
       <div>
-        {/* Quote Icon indicator */}
-        <div className="text-brand-blue-500 mb-6 flex items-center">
-          <svg className="w-8 h-8 text-brand-blue-500 fill-current" viewBox="0 0 24 24">
-            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-          </svg>
+        {/* Quote Icon indicator (Lucide icon compliant with project system) */}
+        <div className="mb-6 flex items-center" id={`testimonial-quote-box-${prefix}-${idx}`}>
+          <Quote className="w-8 h-8 text-[#0055FF] fill-[#0055FF]" aria-hidden="true" />
         </div>
 
         {/* Quotation block text */}
-        <p className="text-brand-gray-750 text-2xl mb-8">
+        <p className="text-2xl text-[#1E2022] mb-6">
           {review.text}
         </p>
       </div>
 
-      {/* Author profile info line */}
-      <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100/50">
+      {/* Author profile info line (No separator line as per reference screenshot) */}
+      <div className="flex items-center justify-between mt-auto">
         <div className="flex flex-col">
           <span className="text-xl-medium text-brand-black">
             {review.author}
           </span>
-          <span className="text-brand-gray-500 mt-1 text-xl">
+          <span className="text-brand-gray-500 mt-0.5 text-xl">
             {review.role}
           </span>
         </div>
@@ -88,10 +87,11 @@ export default function Testimonials() {
           alt={review.author}
           width={48}
           height={48}
-          className="w-12 h-12 rounded-lg object-cover shadow-sm border border-gray-100"
+          className="w-12 h-12 rounded-xl object-cover border border-[#E5E7EB]"
           loading="lazy"
           decoding="async"
           referrerPolicy="no-referrer"
+          id={`testimonial-avatar-${prefix}-${idx}`}
         />
       </div>
     </div>
@@ -104,7 +104,7 @@ export default function Testimonials() {
         {/* Card head section */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
           <div className="flex justify-center">
-            <span className="px-4 py-1.5 bg-gradient-to-b from-[#343A40] to-[#191C1F] text-white rounded shadow-sm select-none cursor-default border border-brand-gray-700/60" id="testimonial-badge">
+            <span className="px-4 py-1.5 bg-gradient-to-b from-[#343A40] to-[#191C1F] text-white rounded shadow-sm select-none cursor-default border border-brand-gray-700/60 text-xl-medium" id="testimonial-badge">
               Testimonial
             </span>
           </div>
