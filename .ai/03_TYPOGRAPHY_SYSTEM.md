@@ -12,16 +12,16 @@ This guide defines the unified typography tokens, core philosophy, usage models,
       
                  GLOBAL DESIGN SYSTEM [design-system.css]
                  ├── Central Typography Token Presets 
-                 │   ├── text-xl (Font, size, weight, line-height, spacing)
-                 │   ├── text-2xl (Font, size, weight, line-height, spacing)
-                 │   └── ... up to text-9xl
+                 │   ├── brand-text-xl (Font, size, weight, line-height, spacing)
+                 │   ├── brand-text-2xl (Font, size, weight, line-height, spacing)
+                 │   └── ... up to brand-text-9xl
                  └── Global Standard Fallbacks
                                      │
                                      ▼
                 SEMANTIC CLASSES AND CUSTOM JSX IMPLEMENTATION
-                 ├── ✅ CORRECT: className="text-4xl"
-                 ├── ✅ CORRECT: className="modules-header text-6xl" (Layout only in CSS)
-                 └── ❌ FORBIDDEN: className="font-serif text-3xl font-medium leading-tight"
+                 ├── ✅ CORRECT: className="brand-text-4xl"
+                 ├── ✅ CORRECT: className="modules-header brand-text-6xl" (Layout only in CSS)
+                 └── ❌ FORBIDDEN: className="font-serif brand-text-3xl font-medium leading-tight"
 ```
 
 ---
@@ -32,7 +32,7 @@ Typography forms the emotional and structural foundation of the Healthmed visual
 
 ### Key Commandments
 1. **One Text Element = One Typography Token:** Each distinct piece of text must be styled using exactly one central token class.
-2. **Never Recombine Styles:** Never combine a typography token with extra inline font overrides. For example, `className="text-7xl font-serif font-medium leading-tight tracking-tight"` is highly incorrect because the `text-7xl` token already encapsulates its exact font-family, font-weight, line-height, and tracking values.
+2. **Never Recombine Styles:** Never combine a typography token with extra inline font overrides. For example, `className="brand-text-7xl font-serif font-medium leading-tight tracking-tight"` is highly incorrect because the `brand-text-7xl` token already encapsulates its exact font-family, font-weight, line-height, and tracking values.
 3. **No Local Typographic Layout Recalculation:** Do not define properties like `font-size` or `font-family` inside component stylesheets or local React components. Doing so violates token boundaries and introduces design entropy.
 
 ---
@@ -44,47 +44,47 @@ Every preset typography class in Healthmed has been engineered to group all rele
 ### Standard Token Map
 Each token encapsulates a specific grouping of variables:
 
-* **`text-9xl`** / Ultra Display Headline
+* **`brand-text-9xl`** / Ultra Display Headline
   * Font Family: Serif
   * Font Weight: Light / Regular (400)
   * Line Height: 1.05
   * Letter Spacing: `-0.03em`
-* **`text-8xl`** / Large Section Header
+* **`brand-text-8xl`** / Large Section Header
   * Font Family: Serif
   * Font Weight: Regular (400)
   * Line Height: 1.10
   * Letter Spacing: `-0.025em`
-* **`text-7xl`** / Main Section Title
+* **`brand-text-7xl`** / Main Section Title
   * Font Family: Serif
   * Font Weight: Regular (400)
   * Line Height: 1.15
   * Letter Spacing: `-0.02em`
-* **`text-6xl`** / Secondary Section Title
+* **`brand-text-6xl`** / Secondary Section Title
   * Font Family: Serif
   * Font Weight: Regular / Medium
   * Line Height: 1.20
   * Letter Spacing: `-0.015em`
-* **`text-5xl`** / Feature Block Title
+* **`brand-text-5xl`** / Feature Block Title
   * Font Family: Serif / Sans
   * Font Weight: Medium (500)
   * Line Height: 1.25
   * Letter Spacing: `-0.012em`
-* **`text-4xl`** / Standard Subtitle
+* **`brand-text-4xl`** / Standard Subtitle
   * Font Family: Sans
   * Font Weight: Medium (500)
   * Line Height: 1.30
   * Letter Spacing: `-0.01em`
-* **`text-3xl`** / Large Interactive Labels
+* **`brand-text-3xl`** / Large Interactive Labels
   * Font Family: Sans
   * Font Weight: Medium (500)
   * Line Height: 1.35
   * Letter Spacing: `-0.008em`
-* **`text-2xl`** / Standard Body Headline
+* **`brand-text-2xl`** / Standard Body Headline
   * Font Family: Sans
   * Font Weight: Regular (400)
   * Line Height: 1.45
   * Letter Spacing: `-0.005em`
-* **`text-xl`** / Primary Reading Body / Micro Metadata
+* **`brand-text-xl`** / Primary Reading Body / Micro Metadata
   * Font Family: Sans
   * Font Weight: Regular (400)
   * Line Height: 1.50
@@ -136,7 +136,7 @@ Unless explicitly requested by the user, these properties must be handled exclus
   ```
   ```tsx
   /* (Modules.tsx) */
-  <h3 className="modules-card-title text-5xl">
+  <h3 className="modules-card-title brand-text-5xl">
     Patient Care
   </h3>
   ```
@@ -145,7 +145,7 @@ Unless explicitly requested by the user, these properties must be handled exclus
   ```css
   /* (Modules.css) */
   .modules-card-title {
-    @apply text-5xl;
+    @apply brand-text-5xl;
     color: var(--color-brand-charcoal);
   }
   ```
@@ -154,14 +154,14 @@ Unless explicitly requested by the user, these properties must be handled exclus
 
 * **❌ WRONG:** Combining tokens with individual Tailwind inline typography utilities
   ```tsx
-  <h2 className="text-7xl font-serif font-medium leading-tight tracking-tight text-[#111]">
+  <h2 className="brand-text-7xl font-serif font-medium leading-tight tracking-tight text-[#111]">
     Trusted Care
   </h2>
   ```
 
 * **✅ CORRECT:** Letting the token handle the complete visual characteristics
   ```tsx
-  <h2 className="text-7xl text-brand-charcoal">
+  <h2 className="brand-text-7xl text-brand-charcoal">
     Trusted Care
   </h2>
   ```
@@ -170,7 +170,7 @@ Unless explicitly requested by the user, these properties must be handled exclus
 
 ## 5. Common AI Mistakes & Regression Prevention
 
-* **Over-recreation & Redundancy:** A common AI trap is trying to make text responsive by writing `className="text-2xl md:text-3xl lg:text-4xl"`. This breaks tokens. Use a responsive token mapped via the system instead, or use a single token that natively responds inside the global css.
+* **Over-recreation & Redundancy:** A common AI trap is trying to make text responsive by writing `className="brand-text-2xl md:brand-text-3xl lg:brand-text-4xl"`. This breaks tokens. Use a responsive token mapped via the system instead, or use a single token that natively responds inside the global css.
 * **Adding Manual Fonts in CSS:** Adding `font-family: var(--font-sans)` to everything. In Healthmed, the base font is configured at the HTML body level. Components inherit this automatically.
 * **Capitalization overrides:** Avoid adding `uppercase tracking-widest` to headings. Use the designated typography tokens or pre-defined components like `<Heading>` or `<Badge>` to maintain consistency.
 

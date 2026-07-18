@@ -4,20 +4,20 @@
  */
 
 .video-testimonials-section {
-  background-color: #F8F9FA; /* Off-white warm background matching the layout design */
-  padding: 5rem 1.5rem;
-  border-bottom: 1px solid #E5E7EB;
+  background-color: var(--color-surface-secondary); /* Off-white warm background matching the layout design */
+  padding: var(--spacing-5xl) var(--space-lg);
+  border-bottom: 1px solid var(--color-border-subtle);
   position: relative;
 }
 
 @media (min-width: 1024px) {
   .video-testimonials-section {
-    padding: 7rem 2rem;
+    padding: var(--spacing-6xl) var(--space-xl);
   }
 }
 
 .video-testimonials-container {
-  max-width: 1200px;
+  max-width: var(--container-xl);
   margin-left: auto;
   margin-right: auto;
 }
@@ -28,12 +28,12 @@
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 4rem;
+  margin-bottom: var(--spacing-4xl);
 }
 
 .video-testimonials-title {
   color: var(--color-brand-charcoal);
-  margin-bottom: 1.25rem;
+  margin-bottom: var(--space-md-lg);
 }
 
 @media (min-width: 768px) {
@@ -56,19 +56,19 @@
 .video-testimonials-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: var(--space-xl);
 }
 
 @media (min-width: 768px) {
   .video-testimonials-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.75rem;
+    gap: var(--spacing-grid-gap-sm);
   }
 }
 
 @media (min-width: 1024px) {
   .video-testimonials-grid {
-    gap: 2.25rem;
+    gap: var(--spacing-grid-gap-lg);
   }
 }
 
@@ -82,7 +82,7 @@
   z-index: 12;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity var(--transition-duration-extra-slow) var(--transition-bezier-smooth);
 }
 
 .video-player-element-hover.visible {
@@ -93,24 +93,24 @@
 /* Micro hover mute button */
 .video-hover-mute-toggle {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: var(--space-md);
+  right: var(--space-md);
   z-index: 25;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: rgba(15, 23, 42, 0.72);
+  width: var(--size-control-sm);
+  height: var(--size-control-sm);
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-dark-glass);
   backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: background-color var(--transition-duration-default) ease, transform var(--transition-duration-default) ease;
 }
 
 .video-hover-mute-toggle:hover {
-  background-color: rgba(0, 85, 255, 0.95);
+  background-color: var(--color-brand-blue-accent);
   transform: scale(1.1);
 }
 
@@ -123,20 +123,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  background-color: #FFFFFF;
-  border-radius: 50%;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.22);
+  width: var(--size-control-md);
+  height: var(--size-control-md);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-bubble);
   pointer-events: none;
   animation: floatBadge 3s ease-in-out infinite;
 }
 
 .card-badge-red-circle {
-  width: 32px;
-  height: 32px;
-  background-color: #E11D48; /* Premium vivid crimson red from mockup */
-  border-radius: 50%;
+  width: var(--size-control-sm);
+  height: var(--size-control-sm);
+  background-color: var(--color-accent-vivid-red); /* Premium vivid crimson red from mockup */
+  border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -147,9 +147,9 @@
   position: absolute;
   bottom: -4px;
   left: 6px;
-  width: 10px;
-  height: 10px;
-  background-color: #FFFFFF;
+  width: var(--size-dot);
+  height: var(--size-dot);
+  background-color: var(--color-surface);
   transform: rotate(45deg);
   border-bottom-right-radius: 2px;
 }
@@ -180,18 +180,18 @@
 /* Individual Video Card */
 .video-testimonial-card {
   position: relative;
-  height: 440px;
-  border-radius: 20px;
+  height: var(--size-card-height-lg);
+  border-radius: var(--radius-card);
   overflow: hidden;
-  background-color: #EBF1F5;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+  background-color: var(--color-surface-tertiary);
+  box-shadow: var(--shadow-card);
   cursor: pointer;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  transition: transform var(--transition-duration-slow) var(--transition-bezier-smooth), box-shadow var(--transition-duration-slow) ease;
 }
 
 .video-testimonial-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 25px 50px rgba(0, 85, 255, 0.12);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .video-testimonial-card.is-playing {
@@ -203,7 +203,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform var(--transition-duration-zoom) var(--transition-bezier-smooth);
 }
 
 .video-testimonial-card:hover .video-card-thumbnail {
@@ -219,7 +219,7 @@
   justify-content: center;
   z-index: 10;
   pointer-events: none;
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  transition: transform var(--transition-duration-extra-slow) var(--transition-bezier-smooth), opacity var(--transition-duration-slow) ease;
 }
 
 .video-play-trigger.hovered {
@@ -228,29 +228,29 @@
 }
 
 .video-play-circle {
-  width: 72px;
-  height: 72px;
-  background-color: rgba(30, 41, 59, 0.72);
+  width: var(--size-control-lg);
+  height: var(--size-control-lg);
+  background-color: var(--color-bg-dark-glass-play);
   backdrop-filter: blur(4px);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s ease;
+  transition: transform var(--transition-duration-medium) cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color var(--transition-duration-default) ease;
   pointer-events: auto;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-play);
 }
 
 .video-testimonial-card:hover .video-play-circle {
   transform: scale(1.12);
-  background-color: rgba(0, 85, 255, 0.95); /* High contrast action brand blue on hover */
+  background-color: var(--color-brand-blue-accent); /* High contrast action brand blue on hover */
 }
 
 .video-play-icon {
-  width: 28px;
-  height: 28px;
-  color: #FFFFFF;
-  fill: #FFFFFF;
+  width: var(--size-icon-md);
+  height: var(--size-icon-md);
+  color: var(--color-surface);
+  fill: var(--color-surface);
   margin-left: 4px; /* Perfectly center the triangle offset */
 }
 
@@ -259,15 +259,15 @@
   position: absolute;
   bottom: 0;
   inset-x: 0;
-  padding: 2.25rem 1.5rem 1.5rem 1.5rem;
+  padding: var(--space-xl-2xl) var(--space-lg) var(--space-lg) var(--space-lg);
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
   backdrop-filter: blur(8px);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--color-border-glass-light);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   z-index: 15;
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease, background 0.45s ease;
+  transition: transform var(--transition-duration-extra-slow) var(--transition-bezier-smooth), opacity var(--transition-duration-extra-slow) ease, background var(--transition-duration-extra-slow) ease;
 }
 
 .video-card-frosted-overlay.hovered {
@@ -275,8 +275,8 @@
 }
 
 .video-member-name {
-  color: #FFFFFF;
-  margin-bottom: 0.25rem;
+  color: var(--color-surface);
+  margin-bottom: var(--space-xs);
 }
 
 .video-member-role {

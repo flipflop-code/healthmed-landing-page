@@ -25,6 +25,75 @@
   --color-surface: #ffffff;
   --color-border: #e9ecef;
 
+  /* Generic Semantic Theme Colors */
+  --color-surface-secondary: #f8f9fa;
+  --color-surface-tertiary: #ebf1f5;
+  --color-surface-warm: #f7f5f0;
+  --color-surface-hover: #f1f3f5;
+  --color-border-subtle: #e5e7eb;
+  --color-accent-vivid-red: #e11d48;
+  --color-bg-dark-glass: rgba(15, 23, 42, 0.72);
+  --color-bg-dark-glass-play: rgba(30, 41, 59, 0.72);
+  --color-border-glass-light: rgba(255, 255, 255, 0.08);
+
+  /* Layout Containers */
+  --container-md: 38rem;
+  --container-lg: 48rem;
+  --container-xl: 1200px;
+  --container-max-width: 80rem;
+
+  /* Additional Spacing System Tokens */
+  --spacing-4xl: 4rem;    /* 64px */
+  --spacing-5xl: 5rem;    /* 80px */
+  --spacing-6xl: 7rem;    /* 112px */
+  --spacing-grid-gap-sm: 1.75rem;
+  --spacing-grid-gap-md: 2rem;
+  --spacing-grid-gap-lg: 2.25rem;
+
+  /* Additional Border Radii */
+  --radius-card: 1.25rem; /* 20px */
+  --radius-full: 9999px;
+
+  /* Additional Elevation Shadows */
+  --shadow-card: 0 10px 25px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 25px 50px rgba(0, 85, 255, 0.12);
+  --shadow-bubble: 0 4px 15px rgba(0, 0, 0, 0.22);
+  --shadow-play: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+  /* Animation & Transitions */
+  --transition-bezier-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-duration-default: 0.2s;
+  --transition-duration-medium: 0.3s;
+  --transition-duration-slow: 0.4s;
+  --transition-duration-extra-slow: 0.45s;
+  --transition-duration-zoom: 0.6s;
+
+  /* Intermediate Spacing System */
+  --space-sm-md: 0.75rem;   /* 12px */
+  --space-md-lg: 1.25rem;   /* 20px */
+  --space-lg-xl: 1.75rem;   /* 28px */
+  --space-xl-2xl: 2.25rem;  /* 36px */
+  --space-2xl-3xl: 3.5rem;  /* 56px */
+
+  /* Abstract Sizing System */
+  --size-dot: 10px;
+  --size-icon-md: 1.75rem;          /* 28px */
+  --size-control-sm: 2rem;          /* 32px */
+  --size-control-md: 2.75rem;        /* 44px */
+  --size-control-lg: 4.5rem;        /* 72px */
+  --size-card-height-sm: 25.625rem; /* 410px */
+  --size-card-height-md: 26.25rem;  /* 420px */
+  --size-card-height-lg: 27.5rem;   /* 440px */
+  --size-card-height-xl: 34.125rem; /* 546px */
+  --size-card-width-sm: 18.125rem;  /* 290px */
+  --size-card-width-md: 20rem;       /* 320px */
+  --size-card-width-lg: 38.5rem;     /* 616px */
+  --size-showcase-height: 46.875rem;/* 750px */
+  --size-logo-box-height-sm: 5.625rem; /* 90px */
+  --size-logo-box-height-lg: 8.25rem;  /* 132px */
+  --size-progress-pill-width: 3rem;  /* 48px */
+  --size-progress-pill-height: 0.25rem;/* 4px */
+
   /* Healthmed Refactored Aesthetic Theme Variables */
   --brand-bg-cream: #f5f3ef;
   --brand-navy-dark: #041527;
@@ -240,27 +309,27 @@
 
   /* Buttons styling mappings */
   .btn-primary {
-    @apply bg-brand-blue-accent hover:bg-brand-blue-accent-hover text-white shadow-md py-4 px-8 inline-flex items-center justify-center rounded-lg transition-all duration-200 cursor-pointer select-none text-2xl-medium;
+    @apply bg-brand-blue-accent hover:bg-brand-blue-accent-hover text-white shadow-md py-4 px-8 inline-flex items-center justify-center rounded-lg transition-all duration-200 cursor-pointer select-none brand-text-2xl-medium;
   }
   .btn-secondary {
-    @apply bg-brand-black hover:bg-brand-gray-800 text-white py-4 px-8 inline-flex items-center justify-center rounded-lg transition-all duration-200 cursor-pointer select-none text-2xl-medium;
+    @apply bg-brand-black hover:bg-brand-gray-800 text-white py-4 px-8 inline-flex items-center justify-center rounded-lg transition-all duration-200 cursor-pointer select-none brand-text-2xl-medium;
   }
   .btn-outline {
-    @apply bg-transparent border border-brand-gray-500 py-4 px-8 inline-flex items-center justify-center rounded-lg transition-all duration-200 cursor-pointer select-none text-brand-charcoal hover:border-brand-gray-50 text-2xl-medium;
+    @apply bg-transparent border border-brand-gray-500 py-4 px-8 inline-flex items-center justify-center rounded-lg transition-all duration-200 cursor-pointer select-none text-brand-charcoal hover:border-brand-gray-50 brand-text-2xl-medium;
   }
   .btn-link {
-    @apply bg-transparent text-brand-blue hover:text-brand-blue-hover gap-1.5 p-0 inline-flex items-center justify-center transition-all duration-200 cursor-pointer select-none text-xl-medium;
+    @apply bg-transparent text-brand-blue hover:text-brand-blue-hover gap-1.5 p-0 inline-flex items-center justify-center transition-all duration-200 cursor-pointer select-none brand-text-xl-medium;
   }
 
   /* Badges components mappings using standard approved design system tokens */
   .badge-custom-dark {
-    @apply bg-gradient-to-b from-[#151515] to-[#5B5B5B] py-1.5 px-4 text-white rounded-lg shadow-sm border border-brand-gray-700/60 text-xl;
+    @apply bg-gradient-to-b from-[#151515] to-[#5B5B5B] py-1.5 px-4 text-white rounded-lg shadow-sm border border-brand-gray-700/60 brand-text-xl;
   }
   .badge-custom-glass {
-    @apply border border-white/20 py-1.5 px-4 bg-white/10 text-white rounded-lg shadow-sm text-xl;
+    @apply border border-white/20 py-1.5 px-4 bg-white/10 text-white rounded-lg shadow-sm brand-text-xl;
   }
   .badge-custom-white {
-    @apply bg-white text-brand-black py-1.5 px-4 rounded-lg shadow-sm border border-brand-gray-200 text-xl;
+    @apply bg-white text-brand-black py-1.5 px-4 rounded-lg shadow-sm border border-brand-gray-200 brand-text-xl;
   }
 
   /* Custom Functional Layout Classes preventing inline arbitrary metrics */
@@ -282,97 +351,97 @@
 }
 
 /* Figma Typography Tokens */
-@utility text-9xl {
+@utility brand-text-9xl {
   font-family: var(--font-serif);
   font-size: var(--font-size-9xl);
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
-@utility text-8xl {
+@utility brand-text-8xl {
   font-family: var(--font-serif);
   font-size: var(--font-size-8xl);
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
-@utility text-7xl {
+@utility brand-text-7xl {
   font-family: var(--font-serif);
   font-size: var(--font-size-7xl);
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.01em;
 }
-@utility text-6xl {
+@utility brand-text-6xl {
   font-family: var(--font-serif);
   font-size: var(--font-size-6xl);
   font-weight: 400;
   line-height: 1.15;
   letter-spacing: -0.01em;
 }
-@utility text-5xl {
+@utility brand-text-5xl {
   font-family: var(--font-serif);
   font-size: var(--font-size-5xl);
   font-weight: 400;
   line-height: 1.2;
 }
 
-/* text-4xl family */
-@utility text-4xl {
+/* brand-text-4xl family */
+@utility brand-text-4xl {
   font-family: var(--font-sans);
   font-size: var(--font-size-4xl);
   font-weight: 400;
   line-height: 1.3;
 }
-@utility text-4xl-medium {
+@utility brand-text-4xl-medium {
   font-family: var(--font-sans);
   font-size: var(--font-size-4xl);
   font-weight: 500;
   line-height: 1.3;
 }
-@utility text-4xl-semibold {
+@utility brand-text-4xl-semibold {
   font-family: var(--font-sans);
   font-size: var(--font-size-4xl);
   font-weight: 600;
   line-height: 1.3;
 }
 
-/* text-3xl family */
-@utility text-3xl {
+/* brand-text-3xl family */
+@utility brand-text-3xl {
   font-family: var(--font-sans);
   font-size: var(--font-size-3xl);
   font-weight: 400;
   line-height: 1.4;
 }
-@utility text-3xl-medium {
+@utility brand-text-3xl-medium {
   font-family: var(--font-sans);
   font-size: var(--font-size-3xl);
   font-weight: 500;
   line-height: 1.4;
 }
 
-/* text-2xl family */
-@utility text-2xl {
+/* brand-text-2xl family */
+@utility brand-text-2xl {
   font-family: var(--font-sans);
   font-size: var(--font-size-2xl);
   font-weight: 400;
   line-height: 1.45;
 }
-@utility text-2xl-medium {
+@utility brand-text-2xl-medium {
   font-family: var(--font-sans);
   font-size: var(--font-size-2xl);
   font-weight: 500;
   line-height: 1.45;
 }
 
-/* text-xl family */
-@utility text-xl {
+/* brand-text-xl family */
+@utility brand-text-xl {
   font-family: var(--font-sans);
   font-size: var(--font-size-xl);
   font-weight: 400;
   line-height: 1.5;
 }
-@utility text-xl-medium {
+@utility brand-text-xl-medium {
   font-family: var(--font-sans);
   font-size: var(--font-size-xl);
   font-weight: 500;

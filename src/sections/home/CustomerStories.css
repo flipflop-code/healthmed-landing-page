@@ -8,21 +8,21 @@
    ========================================================================== */
 
 .customer-stories-section {
-  background-color: #F7F5F0; /* Perfect Figma warm light cream color */
-  padding-top: var(--space-2xl);
-  padding-bottom: var(--space-2xl);
-  border-bottom: 1px solid #E5E7EB;
+  background-color: var(--color-surface-warm); /* Perfect Figma warm light cream color */
+  padding-top: var(--spacing-5xl);
+  padding-bottom: var(--spacing-5xl);
+  border-bottom: 1px solid var(--color-border-subtle);
 }
 
 @media (min-width: 768px) {
   .customer-stories-section {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: var(--spacing-5xl);
+    padding-bottom: var(--spacing-5xl);
   }
 }
 
 .customer-stories-container {
-  max-w: 80rem; /* max-w-7xl */
+  max-width: var(--container-max-width); /* max-w-7xl */
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--space-lg);
@@ -37,14 +37,14 @@
 
 .customer-stories-header {
   text-align: center;
-  max-width: 48rem; /* max-w-3xl */
+  max-width: var(--container-lg); /* max-w-3xl */
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 3.5rem;
+  margin-bottom: var(--space-2xl-3xl);
 }
 
 .customer-stories-title {
-  color: #1E2022;
+  color: var(--color-text);
   margin-top: var(--space-md);
   margin-bottom: var(--space-sm);
 }
@@ -60,8 +60,8 @@
 }
 
 .customer-stories-subtitle {
-  color: #656565;
-  max-width: 38rem; 
+  color: var(--color-text-muted);
+  max-width: var(--container-md); 
   margin-left: auto;
   margin-right: auto;
 }
@@ -71,27 +71,27 @@
    ========================================================================== */
 
 .customer-stories-showcase {
-  border-radius: 24px; /* Crisp and modern rounded borders matching reference */
-  padding: 1.5rem;
+  border-radius: var(--radius-card-lg); /* Crisp and modern rounded borders matching reference */
+  padding: var(--space-lg);
   position: relative;
-  box-shadow: 0 30px 70px rgba(0, 85, 255, 0.12);
+  box-shadow: var(--shadow-card-hover);
   overflow: hidden;
   width: 100%;
   
-  /* High fidelity abstract light rays & modern blue-to-deep-blue gradient */
+  /* Rich royal blue gradient with dynamic diagonal glossy panels to match the Figma mockup */
   background: 
-    radial-gradient(circle at 80% 15%, rgba(135, 210, 255, 0.45) 0%, transparent 45%),
-    radial-gradient(circle at 20% 85%, rgba(20, 110, 255, 0.4) 0%, transparent 55%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.1) 100%),
+    linear-gradient(55deg, transparent 20%, rgba(255, 255, 255, 0.12) 21%, rgba(255, 255, 255, 0.12) 35%, transparent 36%, transparent 45%, rgba(255, 255, 255, 0.08) 46%, rgba(255, 255, 255, 0.08) 58%, transparent 59%, transparent 70%, rgba(255, 255, 255, 0.15) 71%, rgba(255, 255, 255, 0.15) 85%, transparent 86%),
     linear-gradient(135deg, #0A5CFF 0%, #0044DB 35%, #0084FF 70%, #00C2FF 100%);
 }
 
 @media (min-width: 1024px) {
   .customer-stories-showcase {
-    max-width: 1200px; /* Layout width 1,200px as shown in visual label */
-    height: 750px;     /* Layout height 750px as labeled in mockup bottom "1200 x 750" */
+    max-width: var(--container-xl); /* Layout width 1,200px as shown in visual label */
+    height: var(--size-showcase-height);     /* Layout height 750px as labeled in mockup bottom "1200 x 750" */
     margin-left: auto;
     margin-right: auto;
-    padding: 3rem 2rem 2rem 2rem;
+    padding: var(--space-2xl) var(--space-xl) var(--space-xl) var(--space-xl);
   }
 }
 
@@ -121,15 +121,15 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 290px;
-  height: 410px;
-  border-radius: 16px; 
-  padding: 24px;       
+  width: var(--size-card-width-sm);
+  height: var(--size-card-height-sm);
+  border-radius: var(--radius-2xl); 
+  padding: var(--space-lg);       
   display: flex;
   flex-direction: column;
-  gap: 28px;           
+  gap: var(--space-lg-xl);           
   cursor: grab;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, background-color 0.4s ease;
+  transition: transform var(--transition-duration-slow) var(--transition-bezier-smooth), opacity var(--transition-duration-slow) ease, background-color var(--transition-duration-slow) ease;
 }
 
 .customer-story-card:active {
@@ -138,38 +138,42 @@
 
 @media (min-width: 480px) {
   .customer-story-card {
-    width: 320px;
-    height: 420px;
+    width: var(--size-card-width-md);
+    height: var(--size-card-height-md);
   }
 }
 
 @media (min-width: 1024px) {
   .customer-story-card {
-    width: 616px;  /* Spec width 616px */
-    height: 546px; /* Spec height 546px */
-    padding: 36px;
-    gap: 32px;
+    width: var(--size-card-width-lg);  /* Spec width 616px */
+    height: var(--size-card-height-xl); /* Spec height 546px */
+    padding: var(--space-xl-2xl);
+    gap: var(--space-xl);
   }
 }
 
 /* Active Card (Solid White, high shadow) */
 .customer-story-card.active {
-  background-color: #FFFFFF;
-  border: 1px solid #FFFFFF;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-surface);
+  box-shadow: var(--shadow-xl);
   pointer-events: auto;
 }
 
 .customer-story-card.active .customer-story-logo-box {
-  background-color: #F8F9FA;
+  background-color: var(--color-surface-secondary);
 }
 
 .customer-story-card.active .customer-story-metric-value {
-  color: #111827;
+  color: var(--color-brand-gray-900);
 }
 
 .customer-story-card.active .customer-story-metric-label {
-  color: #4B5563;
+  color: var(--color-brand-gray-700);
+}
+
+.customer-story-card.active .customer-story-metrics {
+  border-top-color: var(--color-border-subtle);
 }
 
 /* Inactive Card (Translucent Glass Effect, blending beautifully with the blue background) */
@@ -203,23 +207,27 @@
   border-bottom-color: rgba(255, 255, 255, 0.12);
 }
 
+.customer-story-card.inactive .customer-story-metrics {
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+
 /* ==========================================================================
    Card Internals
    ========================================================================== */
 
 .customer-story-logo-box {
-  border-radius: 12px;
-  height: 90px;
+  border-radius: var(--radius-xl);
+  height: var(--size-logo-box-height-sm);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--space-md);
-  transition: background-color 0.4s ease;
+  transition: background-color var(--transition-duration-slow) ease;
 }
 
 @media (min-width: 1024px) {
   .customer-story-logo-box {
-    height: 132px;
+    height: var(--size-logo-box-height-lg);
   }
 }
 
@@ -228,21 +236,23 @@
   flex-direction: column;
   justify-content: center;
   flex-grow: 1;
+  border-top: 1px solid var(--color-border-subtle);
+  transition: border-color var(--transition-duration-slow) ease;
 }
 
 .customer-story-metric-row {
   display: flex;
   align-items: center;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #E5E7EB;
-  transition: border-color 0.4s ease;
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-border-subtle);
+  transition: border-color var(--transition-duration-slow) ease;
 }
 
 @media (min-width: 1024px) {
   .customer-story-metric-row {
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
+    padding-top: var(--space-md-lg);
+    padding-bottom: var(--space-md-lg);
   }
 }
 
@@ -253,7 +263,7 @@
 .customer-story-metric-value {
   width: 32%;
   flex-shrink: 0;
-  transition: color 0.4s ease;
+  transition: color var(--transition-duration-slow) ease;
 }
 
 @media (min-width: 1024px) {
@@ -265,7 +275,7 @@
 .customer-story-metric-label {
   width: 68%;
   padding-left: var(--space-md);
-  transition: color 0.4s ease;
+  transition: color var(--transition-duration-slow) ease;
 }
 
 @media (min-width: 1024px) {
@@ -282,24 +292,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
-  margin-top: 1rem;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
 }
 
 @media (min-width: 1024px) {
   .customer-stories-progress-pills {
-    margin-top: 0.5rem;
+    margin-top: var(--space-sm);
   }
 }
 
 .customer-stories-pill {
-  width: 48px;
-  height: 4px;
+  width: var(--size-progress-pill-width);
+  height: var(--size-progress-pill-height);
   background-color: rgba(255, 255, 255, 0.35);
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s ease;
+  transition: background-color var(--transition-duration-medium) var(--transition-bezier-smooth), transform var(--transition-duration-default) ease;
   outline: none;
 }
 
@@ -308,5 +318,5 @@
 }
 
 .customer-stories-pill.active {
-  background-color: #FFFFFF;
+  background-color: var(--color-surface);
 }

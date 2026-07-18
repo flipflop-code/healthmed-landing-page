@@ -13,16 +13,16 @@
   }
 }
 .insights-hero-badge {
-  @apply border bg-white rounded-full select-none uppercase text-center text-xl;
+  @apply border bg-white rounded-full select-none uppercase text-center brand-text-xl;
   padding: 0.375rem 1rem;
   border-color: var(--color-brand-gray-300);
   color: var(--color-brand-gray-600);
 }
 .insights-hero-title {
-  @apply text-9xl text-center text-brand-charcoal;
+  @apply brand-text-9xl text-center text-brand-charcoal;
 }
 .insights-hero-subtitle {
-  @apply text-brand-slate max-w-2xl mx-auto text-center text-2xl;
+  @apply text-brand-slate max-w-2xl mx-auto text-center brand-text-2xl;
 }
 .featured-blog-card-wrapper {
   @apply max-w-6xl mx-auto px-0;
@@ -56,31 +56,31 @@
   border-radius: 1.8rem;
 }
 .featured-tag-badge {
-  @apply uppercase mb-1 block text-left text-xl-medium;
+  @apply uppercase mb-1 block text-left brand-text-xl-medium;
   color: var(--brand-blue-accent-custom);
 }
 .featured-title-text {
-  @apply text-left text-6xl text-white transition-colors;
+  @apply text-left brand-text-6xl text-white transition-colors;
 }
 .featured-desc-text {
-  @apply text-xl text-left max-w-xl;
+  @apply brand-text-xl text-left max-w-xl;
   color: rgba(255, 255, 255, 0.8);
 }
 .featured-read-btn {
-  @apply text-white inline-flex items-center gap-1.5 transition-colors cursor-pointer text-left text-xl-medium;
+  @apply text-white inline-flex items-center gap-1.5 transition-colors cursor-pointer text-left brand-text-xl-medium;
 }
 .featured-read-btn-label {
   @apply pb-0.5 transition-colors;
   border-bottom: 1px solid rgba(255, 255, 255, 0.8);
 }
 .featured-read-btn-arrow {
-  @apply transition-transform text-xl;
+  @apply transition-transform brand-text-xl;
 }
 .categories-title-heading {
-  @apply text-7xl text-brand-charcoal mb-8 text-center;
+  @apply brand-text-7xl text-brand-charcoal mb-8 text-center;
 }
 .categories-pill-base {
-  @apply rounded-full transition-all duration-300 focus:outline-none cursor-pointer text-xl-medium;
+  @apply rounded-full transition-all duration-300 focus:outline-none cursor-pointer brand-text-xl-medium;
   padding: 0.625rem 1.25rem;
 }
 .categories-pill-active {
@@ -109,7 +109,7 @@
   @apply flex items-center justify-between mb-3.5;
 }
 .blog-grid-category-box {
-  @apply flex items-center gap-1.5 uppercase text-left text-xl-medium;
+  @apply flex items-center gap-1.5 uppercase text-left brand-text-xl-medium;
 }
 .blog-grid-category-dot {
   @apply inline-block rounded-xs;
@@ -121,22 +121,22 @@
   @apply text-brand-slate;
 }
 .blog-grid-date-text {
-  @apply text-right text-brand-slate/60 whitespace-nowrap text-xl;
+  @apply text-right text-brand-slate/60 whitespace-nowrap brand-text-xl;
 }
 .blog-grid-title-el {
-  @apply text-brand-charcoal text-left mb-3 transition-colors text-2xl-medium;
+  @apply text-brand-charcoal text-left mb-3 transition-colors brand-text-2xl-medium;
 }
 .blog-grid-title-el:hover {
   color: var(--brand-blue-accent-custom);
 }
 .blog-grid-desc-el {
-  @apply text-brand-slate text-left flex-grow line-clamp-2 text-xl;
+  @apply text-brand-slate text-left flex-grow line-clamp-2 brand-text-xl;
 }
 .blog-load-more-container {
   @apply flex justify-center mt-12 md:mt-16;
 }
 .blog-load-more-btn {
-  @apply text-white rounded-lg transition-all duration-200 cursor-pointer shadow-sm text-center text-xl-medium;
+  @apply text-white rounded-lg transition-all duration-200 cursor-pointer shadow-sm text-center brand-text-xl-medium;
   background-color: var(--color-brand-black);
   padding: 0.625rem 1.5rem;
 }

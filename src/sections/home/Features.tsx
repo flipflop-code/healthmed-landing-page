@@ -94,12 +94,12 @@ export default function Features() {
               </div>
 
               {/* Title heading formatted neatly */}
-              <h3 className="text-3xl-medium mb-2.5 text-white">
+              <h3 className="brand-text-3xl-medium mb-2.5 text-white">
                 {item.title}
               </h3>
 
               {/* Description Paragraph with high opacity & readable spacing */}
-              <p className="text-white/80 text-xl">
+              <p className="text-white/80 brand-text-xl">
                 {item.text}
               </p>
             </motion.div>

@@ -1,4 +1,4 @@
 /* Hero Component-Scoped Typography and Styles */
 .hero-title {
-  @apply text-7xl text-brand-charcoal;
+  @apply brand-text-7xl text-brand-charcoal;
 }

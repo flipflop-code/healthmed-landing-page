@@ -39,7 +39,7 @@ export default function Footer() {
               />
             </div>
             
-            <p className="text-brand-gray-400 max-w-sm text-xl" id="footer-brand-info">
+            <p className="text-brand-gray-400 max-w-sm brand-text-xl" id="footer-brand-info">
               Healthmed truly understands the problems of healthcare people and has built usable solutions to help them solve their everyday problems.
             </p>
             
@@ -92,7 +92,7 @@ export default function Footer() {
 
           {/* Column 2: Quick Links with Elegant Header */}
           <div className="col-span-1 md:col-span-3 flex flex-col space-y-6">
-            <h3 className="text-white text-3xl" id="footer-quicklinks-heading">
+            <h3 className="text-white brand-text-3xl" id="footer-quicklinks-heading">
               Quick Links
             </h3>
             <ul className="space-y-4">
@@ -101,7 +101,7 @@ export default function Footer() {
                   {link.href.startsWith('/#') || link.href === '/' ? (
                     <a
                       href={link.href}
-                      className="text-brand-gray-400 hover:text-white transition-colors duration-200 block text-xl"
+                      className="text-brand-gray-400 hover:text-white transition-colors duration-200 block brand-text-xl"
                       id={`footer-link-${link.label.toLowerCase().replace(' ', '-')}`}
                     >
                       {link.label}
@@ -109,7 +109,7 @@ export default function Footer() {
                   ) : (
                     <Link
                       to={link.href}
-                      className="text-brand-gray-400 hover:text-white transition-colors duration-200 block text-xl"
+                      className="text-brand-gray-400 hover:text-white transition-colors duration-200 block brand-text-xl"
                       id={`footer-link-${link.label.toLowerCase().replace(' ', '-')}`}
                     >
                       {link.label}
@@ -122,17 +122,17 @@ export default function Footer() {
 
           {/* Column 3: Contact details with Elegant Header */}
           <div className="col-span-1 md:col-span-3 flex flex-col space-y-6">
-            <h3 className="text-white text-3xl" id="footer-getintouch-heading">
+            <h3 className="text-white brand-text-3xl" id="footer-getintouch-heading">
               Get In Touch
             </h3>
             <div className="space-y-6">
               <div>
-                <span className="block text-white mb-2 text-xl-medium">
+                <span className="block text-white mb-2 brand-text-xl-medium">
                   Email
                 </span>
                 <a
                   href="mailto:info@healthmedtechnologies.com"
-                  className="text-brand-gray-400 text-nowrap hover:text-white break-all block transition-colors duration-200 text-xl"
+                  className="text-brand-gray-400 text-nowrap hover:text-white break-all block transition-colors duration-200 brand-text-xl"
                   id="footer-link-email"
                 >
                   info@healthmedtechnologies.com
@@ -140,14 +140,14 @@ export default function Footer() {
               </div>
               
               <div>
-                <span className="block text-white mb-2 text-xl-medium">
+                <span className="block text-white mb-2 brand-text-xl-medium">
                   Phone
                 </span>
                 <a
                   href="https://wa.me/917550002160"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-gray-400 hover:text-white block transition-colors duration-200 text-xl"
+                  className="text-brand-gray-400 hover:text-white block transition-colors duration-200 brand-text-xl"
                   id="footer-link-phone"
                 >
                   +91 7550002160
@@ -160,7 +160,7 @@ export default function Footer() {
 
         {/* Legal bar centered precisely matching reference image */}
         <div className="mt-16 md:mt-24 pt-8 border-t border-white/10 text-center flex justify-center items-center">
-          <p className="text-brand-gray-500 text-xl" id="footer-copyright">
+          <p className="text-brand-gray-500 brand-text-xl" id="footer-copyright">
             © 2016-2023 Healthmed Technologies India Pvt Ltd. All rights reserved
           </p>
         </div>

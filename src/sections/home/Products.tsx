@@ -53,7 +53,7 @@ export default function Products() {
             Everything Healthcare Teams Need <br />
             <span className="italic block mt-2">Connected in One Platform</span>
           </Heading>
-          <p className="mt-5 text-brand-slate text-2xl max-w-2xl mx-auto" id="products-description">
+          <p className="mt-5 text-brand-slate brand-text-2xl max-w-2xl mx-auto" id="products-description">
             HealthMed combines clinical, operational, financial, and patient workflows into one intelligent healthcare management ecosystem.
           </p>
         </div>
@@ -102,7 +102,7 @@ export default function Products() {
                 </div>
 
                 {/* Body Paragraph description with custom leading and text-sm / text-[13.5px] */}
-                <p className="text-brand-slate text-xl flex-grow">
+                <p className="text-brand-slate brand-text-xl flex-grow">
                   {card.description}
                 </p>
               </div>

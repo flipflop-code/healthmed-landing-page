@@ -68,7 +68,7 @@ export default function EcosystemHub() {
             One Healthcare Management <br />
             <span className="italic block mt-2">Platform for Every Workflow</span>
           </Heading>
-          <p className="mt-5 text-brand-slate text-2xl max-w-2xl mx-auto" id="ecosystem-description">
+          <p className="mt-5 text-brand-slate brand-text-2xl max-w-2xl mx-auto" id="ecosystem-description">
             Manage clinical, operational, and financial workflows through one scalable hospital management system.
           </p>
         </div>
@@ -92,7 +92,7 @@ export default function EcosystemHub() {
             className="ecosystem-center-badge"
             id="ecosystem-node-core"
           >
-            <span className="text-xl-medium">HealthMed</span>
+            <span className="brand-text-xl-medium">HealthMed</span>
           </motion.div>
 
           {/* Satellite Badge Cards - Arranged Cardinally onto the Orbit perfectly */}
@@ -109,7 +109,7 @@ export default function EcosystemHub() {
               <div className="p-2 rounded-xl bg-brand-blue-light text-brand-blue-accent transition-colors group-hover:bg-brand-blue-50">
                 <Building2 className="h-5 w-5" />
               </div>
-              <span className="text-xl-medium text-brand-charcoal">Hospitals</span>
+              <span className="brand-text-xl-medium text-brand-charcoal">Hospitals</span>
             </motion.div>
 
             {/* 2. Diagnostics (Top-Right Position) */}
@@ -123,7 +123,7 @@ export default function EcosystemHub() {
               <div className="p-2 rounded-xl bg-brand-blue-light text-brand-blue-accent transition-colors group-hover:bg-brand-blue-50">
                 <Activity className="h-5 w-5" />
               </div>
-              <span className="text-xl-medium text-brand-charcoal">Diagnostics</span>
+              <span className="brand-text-xl-medium text-brand-charcoal">Diagnostics</span>
             </motion.div>
 
             {/* 3. Pharmacies (Bottom-Left Position) */}
@@ -137,7 +137,7 @@ export default function EcosystemHub() {
               <div className="p-2 rounded-xl bg-brand-blue-light text-brand-blue-accent transition-colors group-hover:bg-brand-blue-50">
                 <Pill className="h-5 w-5" />
               </div>
-              <span className="text-xl-medium text-brand-charcoal">Pharmacies</span>
+              <span className="brand-text-xl-medium text-brand-charcoal">Pharmacies</span>
             </motion.div>
 
             {/* 4. Care Teams (Bottom-Right Position) */}
@@ -151,7 +151,7 @@ export default function EcosystemHub() {
               <div className="p-2 rounded-xl bg-brand-blue-light text-brand-blue-accent transition-colors group-hover:bg-brand-blue-50">
                 <Users className="h-5 w-5" />
               </div>
-              <span className="text-xl-medium text-brand-charcoal">Care Teams</span>
+              <span className="brand-text-xl-medium text-brand-charcoal">Care Teams</span>
             </motion.div>
 
           </div>

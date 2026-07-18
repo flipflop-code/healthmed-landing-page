@@ -25,10 +25,10 @@ function CounterStat({ value, label, id, labelId }: CounterStatProps) {
     <div className="flex flex-col justify-center px-4">
       <AnimatedCounter
         value={value}
-        className="text-5xl text-white block"
+        className="brand-text-5xl text-white block"
         id={id}
       />
-      <span className="text-white/80 text-xl mt-2 block" id={labelId}>
+      <span className="text-white/80 brand-text-xl mt-2 block" id={labelId}>
         {label}
       </span>
     </div>
@@ -53,7 +53,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-3xl text-brand-blue text-center"
+            className="brand-text-3xl text-brand-blue text-center"
             id="hero-badge"
           >
             AI-Powered Healthcare Infrastructure
@@ -84,7 +84,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 text-brand-gray-700 text-2xl max-w-[1000px] mx-auto"
+            className="mt-6 text-brand-gray-700 brand-text-2xl max-w-[1000px] mx-auto"
             id="hero-description"
           >
             HealthMed helps hospitals, clinics, and healthcare teams manage patient care, diagnostics, billing, pharmacy, and operations through one connected healthcare management system.

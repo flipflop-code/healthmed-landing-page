@@ -111,13 +111,13 @@ export default function AIWorkflows() {
             </div>
 
             {/* Display Headings exactly matching reference image typography */}
-            <h2 className="text-5xl text-brand-black" id="ai-main-title">
+            <h2 className="brand-text-5xl text-brand-black" id="ai-main-title">
               Smarter Healthcare Workflows <br />
               <span className="italic text-brand-gray-700">with</span> AI
             </h2>
 
             {/* Sub description */}
-            <p className="text-brand-gray-600 text-xl max-w-lg" id="ai-paragraph">
+            <p className="text-brand-gray-600 brand-text-xl max-w-lg" id="ai-paragraph">
               HealthMed leverages intelligent automation and AI-powered insights to help healthcare organizations optimize workflows, improve resource planning, and reduce operational inefficiencies.
             </p>
 
@@ -138,7 +138,7 @@ export default function AIWorkflows() {
                       />
                     </svg>
                   </div>
-                  <span className="text-brand-gray-750 text-xl-medium">{point}</span>
+                  <span className="text-brand-gray-750 brand-text-xl-medium">{point}</span>
                 </div>
               ))}
             </div>

@@ -12,16 +12,18 @@ import './CustomerStories.css';
 
 export default function CustomerStories() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
+      setWindowWidth(window.innerWidth);
     };
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  const isMobile = windowWidth < 768;
 
   const totalStories = customerStoriesData.length;
 
@@ -43,13 +45,13 @@ export default function CustomerStories() {
         return (
           <div className="flex flex-col items-center justify-center text-center select-none" id="logo-orlando-svg">
             <span 
-              className="text-3xl font-medium tracking-[0.06em] uppercase text-[#0F8241] leading-none" 
+              className="brand-text-3xl font-medium tracking-[0.06em] uppercase text-[#0F8241] leading-none" 
               style={{ fontFamily: 'var(--font-serif)' }}
             >
               Orlando
             </span>
             <span 
-              className="text-2xl tracking-[0.15em] uppercase text-[#0F8241] font-medium mt-1 leading-none relative"
+              className="brand-text-2xl tracking-[0.15em] uppercase text-[#0F8241] font-medium mt-1 leading-none relative"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
               Health<span className="text-[10px] absolute -top-1 -right-2.5 font-sans font-normal">®</span>
@@ -64,7 +66,7 @@ export default function CustomerStories() {
                 <path d="M12 2v20M5 9h14" />
               </svg>
               <span 
-                className="text-2xl font-medium tracking-[0.04em] uppercase text-[#111827] leading-none"
+                className="brand-text-2xl font-medium tracking-[0.04em] uppercase text-[#111827] leading-none"
                 style={{ fontFamily: 'var(--font-serif)' }}
               >
                 Providence
@@ -79,7 +81,7 @@ export default function CustomerStories() {
         return (
           <div className="flex flex-col items-center justify-center text-center select-none" id="logo-vanderbilt-svg">
             <span 
-              className="text-3xl font-medium tracking-[0.04em] uppercase text-[#997F3D] leading-none"
+              className="brand-text-3xl font-medium tracking-[0.04em] uppercase text-[#997F3D] leading-none"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
               Vanderbilt
@@ -95,7 +97,7 @@ export default function CustomerStories() {
         return (
           <div className="flex flex-col items-center justify-center text-center select-none" id="logo-mayo-svg">
             <span 
-              className="text-3xl font-bold tracking-[0.05em] uppercase text-[#0A2D62] leading-none"
+              className="brand-text-3xl font-bold tracking-[0.05em] uppercase text-[#0A2D62] leading-none"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
               Mayo Clinic
@@ -106,7 +108,7 @@ export default function CustomerStories() {
         return (
           <div className="flex flex-col items-center justify-center text-center select-none" id="logo-cleveland-svg">
             <span 
-              className="text-2xl font-bold tracking-[0.02em] uppercase text-[#006643] leading-none"
+              className="brand-text-2xl font-bold tracking-[0.02em] uppercase text-[#006643] leading-none"
               style={{ fontFamily: 'var(--font-sans)' }}
             >
               Cleveland Clinic
@@ -128,46 +130,100 @@ export default function CustomerStories() {
         pointerEvents: 'auto' as const,
       };
     }
+
+    let offset = 600; // Desktop default (>= 1024px)
+    let scale = 0.85;
+    let opacity = 0.55;
+
+    if (isMobile) {
+      if (diff === -1) {
+        return {
+          left: 'calc(50% - 190px)',
+          x: '-50%',
+          scale: 0.75,
+          opacity: 0.25,
+          zIndex: 10,
+          pointerEvents: 'auto' as const,
+        };
+      }
+      if (diff === 1) {
+        return {
+          left: 'calc(50% + 190px)',
+          x: '-50%',
+          scale: 0.75,
+          opacity: 0.25,
+          zIndex: 10,
+          pointerEvents: 'auto' as const,
+        };
+      }
+      if (diff === -2) {
+        return {
+          left: 'calc(50% - 360px)',
+          x: '-50%',
+          scale: 0.6,
+          opacity: 0,
+          zIndex: 5,
+          pointerEvents: 'none' as const,
+        };
+      }
+      if (diff === 2) {
+        return {
+          left: 'calc(50% + 360px)',
+          x: '-50%',
+          scale: 0.6,
+          opacity: 0,
+          zIndex: 5,
+          pointerEvents: 'none' as const,
+        };
+      }
+    } else if (windowWidth < 1024) {
+      // Tablet view (768px <= width < 1024px)
+      offset = 320;
+      scale = 0.85;
+      opacity = 0.45;
+    }
+
     if (diff === -1) {
       return {
-        left: isMobile ? '-15%' : 'calc(50% - 460px)',
+        left: `calc(50% - ${offset}px)`,
         x: '-50%',
-        scale: isMobile ? 0.75 : 0.85,
-        opacity: isMobile ? 0.2 : 0.55,
+        scale,
+        opacity,
         zIndex: 10,
         pointerEvents: 'auto' as const,
       };
     }
     if (diff === 1) {
       return {
-        left: isMobile ? '115%' : 'calc(50% + 460px)',
+        left: `calc(50% + ${offset}px)`,
         x: '-50%',
-        scale: isMobile ? 0.75 : 0.85,
-        opacity: isMobile ? 0.2 : 0.55,
+        scale,
+        opacity,
         zIndex: 10,
         pointerEvents: 'auto' as const,
       };
     }
     if (diff === -2) {
       return {
-        left: isMobile ? '-50%' : 'calc(50% - 780px)',
+        left: `calc(50% - ${offset * 1.8}px)`,
         x: '-50%',
-        scale: isMobile ? 0.6 : 0.7,
-        opacity: isMobile ? 0 : 0.25,
+        scale: scale * 0.8,
+        opacity: 0,
         zIndex: 5,
         pointerEvents: 'none' as const,
       };
     }
     if (diff === 2) {
       return {
-        left: isMobile ? '150%' : 'calc(50% + 780px)',
+        left: `calc(50% + ${offset * 1.8}px)`,
         x: '-50%',
-        scale: isMobile ? 0.6 : 0.7,
-        opacity: isMobile ? 0 : 0.25,
+        scale: scale * 0.8,
+        opacity: 0,
         zIndex: 5,
         pointerEvents: 'none' as const,
       };
     }
+
     // Cards outside the instant preview view are translated completely out of view
     return {
       left: diff < 0 ? '-120%' : '220%',
@@ -207,10 +263,10 @@ export default function CustomerStories() {
 
         {/* Section Header */}
         <div className="customer-stories-header">
-          <h2 className="customer-stories-title text-6xl md:text-7xl" id="customer-stories-heading">
+          <h2 className="customer-stories-title brand-text-6xl md:brand-text-7xl" id="customer-stories-heading">
             <span className="italic">Real outcomes</span> from real deployments
           </h2>
-          <p className="customer-stories-subtitle text-2xl" id="customer-stories-subtitle">
+          <p className="customer-stories-subtitle brand-text-2xl" id="customer-stories-subtitle">
             See how leading health systems, payers, and programs are transforming themselves.
           </p>
         </div>
@@ -271,10 +327,10 @@ export default function CustomerStories() {
                         key={idx}
                         id={`story-metric-${story.id}-${idx}`}
                       >
-                        <span className="customer-story-metric-value text-5xl md:text-7xl">
+                        <span className="customer-story-metric-value brand-text-5xl md:brand-text-7xl">
                           {metric.value}
                         </span>
-                        <span className="customer-story-metric-label text-xl">
+                        <span className="customer-story-metric-label brand-text-xl">
                           {metric.label}
                         </span>
                       </div>

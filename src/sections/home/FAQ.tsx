@@ -68,7 +68,7 @@ export default function FAQ() {
                 {/* Accordion header button */}
                 <button
                    onClick={() => toggleFAQ(idx)}
-                  className="w-full text-left py-6 flex items-center justify-between gap-4 text-2xl-medium text-brand-charcoal hover:text-brand-blue-accent transition-colors focus:outline-none cursor-pointer"
+                  className="w-full text-left py-6 flex items-center justify-between gap-4 brand-text-2xl-medium text-brand-charcoal hover:text-brand-blue-accent transition-colors focus:outline-none cursor-pointer"
                    aria-expanded={isOpen}
                    id={`faq-btn-${idx}`}
                 >
@@ -92,7 +92,7 @@ export default function FAQ() {
                       transition={{ duration: 0.25, ease: 'easeInOut' }}
                       id={`faq-body-${idx}`}
                     >
-                      <div className="pb-6 text-brand-slate text-xl max-w-2xl bg-transparent">
+                      <div className="pb-6 text-brand-slate brand-text-xl max-w-2xl bg-transparent">
                         {faq.answer}
                       </div>
                     </motion.div>

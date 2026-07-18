@@ -107,7 +107,7 @@ The Healthmed frontend is styled using **semantic CSS stylesheets**. Tailwind ut
   ```tsx
   /* DO NOT use raw Tailwind styling utilities in JSX */
   <div className="bg-white border border-[#E5E7EB] rounded-[24px] p-8 md:p-14 shadow-[0_10px_45px_rgba(0,0,0,0.03)] flex flex-col space-y-6">
-    <h3 className="font-serif text-3xl text-brand-charcoal leading-tight">
+    <h3 className="font-serif brand-text-3xl text-brand-charcoal leading-tight">
       Patient Care
     </h3>
   </div>
@@ -122,7 +122,7 @@ The Healthmed frontend is styled using **semantic CSS stylesheets**. Tailwind ut
     return (
       <div className="modules-card flex flex-col">
         {/* Typography is handled strictly via central tokens. See 03_TYPOGRAPHY_SYSTEM.md */}
-        <h3 className="modules-card-title text-5xl">
+        <h3 className="modules-card-title brand-text-5xl">
           Patient Care
         </h3>
       </div>

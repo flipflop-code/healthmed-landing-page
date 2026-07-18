@@ -54,16 +54,16 @@ export default function WhyChooseUs() {
             </div>
 
             {/* Paragraph body */}
-            <p className="text-brand-gray-800 text-2xl max-w-xl" id="whychooseus-descr">
+            <p className="text-brand-gray-800 brand-text-2xl max-w-xl" id="whychooseus-descr">
               Built to improve operational efficiency, patient management, and healthcare coordination through connected workflows.
             </p>
 
             {/* List checklist items - 2 column grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 pt-4 md:pt-6" id="whychooseus-grid">
               {checkmarks.map((item, idx) => (
-                <div key={idx} className="flex items-center gap-3 text-xl text-brand-slate" id={`whychooseus-item-${idx}`}>
+                <div key={idx} className="flex items-center gap-3 brand-text-xl text-brand-slate" id={`whychooseus-item-${idx}`}>
                   <BadgeCheck className="h-[21px] w-[21px] text-brand-blue flex-shrink-0" fill="currentColor" stroke="white" strokeWidth={2.5} />
-                  <span className="text-xl-medium text-gray-700">{item}</span>
+                  <span className="brand-text-xl-medium text-gray-700">{item}</span>
                 </div>
               ))}
             </div>

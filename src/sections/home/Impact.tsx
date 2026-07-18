@@ -28,10 +28,10 @@ export default function Impact() {
               Impact Created
             </span>
           </div>
-          <h2 className="text-7xl text-brand-black mt-6" id="impact-heading">
+          <h2 className="brand-text-7xl text-brand-black mt-6" id="impact-heading">
             <span className="italic">Delivering</span> Measurable Healthcare Impact
           </h2>
-          <p className="mt-6 text-brand-gray-600 text-xl max-w-2xl mx-auto" id="impact-description">
+          <p className="mt-6 text-brand-gray-600 brand-text-xl max-w-2xl mx-auto" id="impact-description">
             HealthMed helps healthcare organizations improve operational efficiency, reduce manual work, and accelerate patient workflows.
           </p>
         </div>
@@ -52,12 +52,12 @@ export default function Impact() {
                 {/* Visual Number Value */}
                 <AnimatedCounter 
                   value={card.value} 
-                  className="text-6xl text-brand-black select-none" 
+                  className="brand-text-6xl text-brand-black select-none" 
                   id={`impact-stat-value-${i}`}
                 />
 
                 {/* Subtitle label explanation */}
-                <span className="text-xl text-brand-gray-800">
+                <span className="brand-text-xl text-brand-gray-800">
                   {card.label}
                 </span>
               </div>

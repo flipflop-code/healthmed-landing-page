@@ -206,7 +206,7 @@ export default function BlogDetails() {
             <div className="mb-10 article-hero-anim">
               <Link 
                 to="/insights"
-                className="inline-flex items-center gap-1 text-brand-charcoal hover:text-brand-slate text-xl-medium transition-colors select-none"
+                className="inline-flex items-center gap-1 text-brand-charcoal hover:text-brand-slate brand-text-xl-medium transition-colors select-none"
                 id="back-to-insights-btn"
               >
                 <ChevronLeft className="h-4.5 w-4.5" /> Blog
@@ -222,22 +222,22 @@ export default function BlogDetails() {
             </h1>
 
             {/* Main Article Subtitle / Description */}
-            <p className="article-hero-anim text-brand-slate text-3xl mb-12 max-w-3xl" id="article-detail-description">
+            <p className="article-hero-anim text-brand-slate brand-text-3xl mb-12 max-w-3xl" id="article-detail-description">
               {activePost.description}
             </p>
 
             {/* Cleaner borderless Metadata row right above the image */}
             <div 
-              className="article-hero-anim flex items-center justify-between text-brand-slate pb-4 mb-4 text-xl"
+              className="article-hero-anim flex items-center justify-between text-brand-slate pb-4 mb-4 brand-text-xl"
               id="article-metadata-row"
             >
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 bg-brand-blue-accent inline-block"></span>
-                <span className="uppercase text-brand-slate text-xl-medium">
+                <span className="uppercase text-brand-slate brand-text-xl-medium">
                   {activePost.categoryName}
                 </span>
               </div>
-              <div className="text-brand-slate text-xl font-mono">
+              <div className="text-brand-slate brand-text-xl font-mono">
                 {activePost.date}
               </div>
             </div>
@@ -274,7 +274,7 @@ export default function BlogDetails() {
                     >
                       {/* Heading structures dynamic */}
                       {sec.heading && (
-                        <h2 className="text-brand-charcoal mt-10 mb-5 text-4xl">
+                        <h2 className="text-brand-charcoal mt-10 mb-5 brand-text-4xl">
                           {sec.heading}
                         </h2>
                       )}
@@ -283,7 +283,7 @@ export default function BlogDetails() {
                       {sec.paragraphs && sec.paragraphs.map((p, pIdx) => (
                         <p 
                           key={pIdx} 
-                          className="text-brand-slate text-2xl"
+                          className="text-brand-slate brand-text-2xl"
                         >
                           {p}
                         </p>
@@ -292,11 +292,11 @@ export default function BlogDetails() {
                       {/* Quote sections */}
                       {sec.quote && (
                         <blockquote className="border-l-4 border-brand-blue-accent bg-white/50 rounded-r-xl p-6 sm:p-8 my-8 shadow-sm">
-                          <p className="italic text-brand-charcoal text-left text-2xl">
+                          <p className="italic text-brand-charcoal text-left brand-text-2xl">
                             "{sec.quote}"
                           </p>
                           {activePost.author && (
-                            <cite className="block mt-3 uppercase text-brand-blue-accent not-italic text-xl-medium">
+                            <cite className="block mt-3 uppercase text-brand-blue-accent not-italic brand-text-xl-medium">
                               — {activePost.author}
                             </cite>
                           )}
@@ -305,7 +305,7 @@ export default function BlogDetails() {
 
                       {/* Lists dynamically checked */}
                       {sec.listItems && sec.listItems.length > 0 && (
-                        <ul className="list-disc pl-5 sm:pl-6 space-y-3 my-6 text-brand-slate text-2xl">
+                        <ul className="list-disc pl-5 sm:pl-6 space-y-3 my-6 text-brand-slate brand-text-2xl">
                           {sec.listItems.map((item, itemIdx) => (
                             <li 
                               key={itemIdx} 
@@ -322,10 +322,10 @@ export default function BlogDetails() {
               ) : (
                 // Fallback structured description
                 <div className="space-y-6 article-content-block">
-                  <p className="text-brand-slate text-2xl">
+                  <p className="text-brand-slate brand-text-2xl">
                     {activePost.description}
                   </p>
-                  <p className="text-brand-slate text-2xl">
+                  <p className="text-brand-slate brand-text-2xl">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam elementum turpis eget erat hendrerit, id convallis sem facilisis. Curabitur sed erat ligula. Donec ac ipsum eu purus feugiat molestie. Duis vel est sodales, aliquam nisl ut, luctus mauris.
                   </p>
                 </div>
@@ -334,11 +334,11 @@ export default function BlogDetails() {
 
             {/* Elegant End-of-article Author Profile Signature Card */}
             <div className="max-w-3xl mx-auto border-t border-brand-gray-300/40 mt-16 pt-8 flex items-center gap-4 animate-fade-in" id="article-author-signature">
-              <div className="w-10 h-10 rounded-full bg-brand-blue-accent/10 flex items-center justify-center text-brand-blue-accent shadow-sm select-none text-xl-medium">
+              <div className="w-10 h-10 rounded-full bg-brand-blue-accent/10 flex items-center justify-center text-brand-blue-accent shadow-sm select-none brand-text-xl-medium">
                 {activePost.author.charAt(0)}
               </div>
-              <div className="text-xl">
-                <span className="block text-brand-charcoal text-xl-medium">Written by {activePost.author}</span>
+              <div className="brand-text-xl">
+                <span className="block text-brand-charcoal brand-text-xl-medium">Written by {activePost.author}</span>
                 <span className="block text-brand-slate mt-0.5">{activePost.authorRole}</span>
               </div>
             </div>
@@ -414,7 +414,7 @@ export default function BlogDetails() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
-                  className="text-right max-w-3xl mx-auto mt-2 text-emerald-600 text-xl-medium"
+                  className="text-right max-w-3xl mx-auto mt-2 text-emerald-600 brand-text-xl-medium"
                   id="toast-clipboard-success"
                 >
                   Link successfully copied to clipboard!
@@ -430,7 +430,7 @@ export default function BlogDetails() {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div className="text-center mb-14" id="more-explore-trigger">
-              <h2 className="text-5xl text-brand-charcoal" id="explore-main-heading">
+              <h2 className="brand-text-5xl text-brand-charcoal" id="explore-main-heading">
                 <span className="italic">More</span> to Explore
               </h2>
             </div>
@@ -458,8 +458,8 @@ export default function BlogDetails() {
                   </div>
 
                   {/* Meta Label details: Left-aligned Category with square prefix, right-aligned date with leading slash */}
-                  <div className="flex items-center justify-between text-brand-slate mb-3.5 px-0.5 text-xl" id={`explore-blog-meta-${blog.id}`}>
-                    <div className="flex items-center gap-1.5 text-brand-slate text-xl-medium">
+                  <div className="flex items-center justify-between text-brand-slate mb-3.5 px-0.5 brand-text-xl" id={`explore-blog-meta-${blog.id}`}>
+                    <div className="flex items-center gap-1.5 text-brand-slate brand-text-xl-medium">
                       <span className="inline-block w-1.5 h-1.5 bg-brand-gray-400"></span>
                       <span>{blog.categoryName}</span>
                     </div>
@@ -469,12 +469,12 @@ export default function BlogDetails() {
                   </div>
 
                   {/* Title details with snug line height */}
-                  <h3 className="text-brand-charcoal mb-3 px-0.5 group-hover:text-brand-blue-accent transition-colors duration-200 text-3xl-medium" id={`explore-blog-title-${blog.id}`}>
+                  <h3 className="text-brand-charcoal mb-3 px-0.5 group-hover:text-brand-blue-accent transition-colors duration-200 brand-text-3xl-medium" id={`explore-blog-title-${blog.id}`}>
                     {blog.title}
                   </h3>
 
                   {/* Excerpt details */}
-                  <p className="text-brand-slate flex-grow line-clamp-3 px-0.5 text-xl" id={`explore-blog-desc-${blog.id}`}>
+                  <p className="text-brand-slate flex-grow line-clamp-3 px-0.5 brand-text-xl" id={`explore-blog-desc-${blog.id}`}>
                     {blog.description}
                   </p>
                 </Link>

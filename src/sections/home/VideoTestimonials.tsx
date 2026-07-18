@@ -115,10 +115,10 @@ export default function VideoTestimonials() {
         
         {/* Section Header */}
         <div className="video-testimonials-header" id="video-testimonials-header">
-          <h2 className="video-testimonials-title text-6xl md:text-7xl" id="video-testimonials-title">
+          <h2 className="video-testimonials-title brand-text-6xl md:brand-text-7xl" id="video-testimonials-title">
             Trusted by Healthcare Teams That Deliver Better Care
           </h2>
-          <p className="video-testimonials-subtitle text-2xl" id="video-testimonials-subtitle">
+          <p className="video-testimonials-subtitle brand-text-2xl" id="video-testimonials-subtitle">
             Hear directly from hospital administrators, doctors, laboratory teams, and operations leaders who
             transformed their daily workflows with Healthmed HMIS.
           </p>
@@ -183,8 +183,8 @@ export default function VideoTestimonials() {
 
                 {/* Premium Frosted Glass Text Overlay (Figma inspired) */}
                 <div className={`video-card-frosted-overlay ${isHovered ? 'hovered' : ''}`} id={`card-frosted-overlay-${member.id}`}>
-                  <h3 className="video-member-name text-2xl-medium" id={`member-name-${member.id}`}>{member.name}</h3>
-                  <p className="video-member-role text-xl" id={`member-role-${member.id}`}>{member.role}</p>
+                  <h3 className="video-member-name brand-text-2xl-medium" id={`member-name-${member.id}`}>{member.name}</h3>
+                  <p className="video-member-role brand-text-xl" id={`member-role-${member.id}`}>{member.role}</p>
                 </div>
               </div>
             );

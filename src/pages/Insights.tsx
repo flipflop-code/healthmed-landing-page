@@ -309,7 +309,7 @@ export default function Insights() {
                   FAQ
                 </Badge>
               </div>
-              <Heading level={2} id="faq-main-heading" className="insights-faq-anim text-brand-charcoal text-4xl md:text-5xl font-serif leading-snug">
+              <Heading level={2} id="faq-main-heading" className="insights-faq-anim text-brand-charcoal brand-text-4xl md:brand-text-5xl font-serif leading-snug">
                 <span className="italic font-normal">Answers to your</span> most common concerns
               </Heading>
             </div>
@@ -328,7 +328,7 @@ export default function Insights() {
                     <button
                       onClick={() => toggleFaq(idx)}
                       aria-expanded={isOpen}
-                      className="w-full text-left py-6 flex items-center justify-between gap-4 font-sans font-medium text-xl md:text-2xl text-brand-charcoal hover:text-brand-blue-accent transition-colors focus:outline-none cursor-pointer"
+                      className="w-full text-left py-6 flex items-center justify-between gap-4 font-sans font-medium brand-text-xl md:brand-text-2xl text-brand-charcoal hover:text-brand-blue-accent transition-colors focus:outline-none cursor-pointer"
                       id={`insights-faq-button-${idx}`}
                     >
                       <span className="tracking-tight">{faq.question}</span>
@@ -351,7 +351,7 @@ export default function Insights() {
                           transition={{ duration: 0.28, ease: 'easeInOut' }}
                           id={`insights-faq-panel-${idx}`}
                         >
-                          <div className="pb-6 text-brand-slate text-xl leading-relaxed font-sans max-w-2xl bg-transparent">
+                          <div className="pb-6 text-brand-slate brand-text-xl leading-relaxed font-sans max-w-2xl bg-transparent">
                             {faq.answer}
                           </div>
                         </motion.div>

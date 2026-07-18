@@ -16,16 +16,16 @@ export function Heading({ children, level = 2, className = '', id }: HeadingProp
   let levelStyles = '';
   switch (level) {
     case 1:
-      levelStyles = 'text-7xl';
+      levelStyles = 'brand-text-7xl';
       break;
     case 2:
-      levelStyles = 'text-5xl';
+      levelStyles = 'brand-text-5xl';
       break;
     case 3:
-      levelStyles = 'text-3xl';
+      levelStyles = 'brand-text-3xl';
       break;
     case 4:
-      levelStyles = 'text-2xl-medium';
+      levelStyles = 'brand-text-2xl-medium';
       break;
   }
 

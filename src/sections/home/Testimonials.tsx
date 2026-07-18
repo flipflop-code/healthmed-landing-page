@@ -67,7 +67,7 @@ export default function Testimonials() {
         </div>
 
         {/* Quotation block text */}
-        <p className="text-2xl text-[#1E2022] mb-6">
+        <p className="brand-text-2xl text-[#1E2022] mb-6">
           {review.text}
         </p>
       </div>
@@ -75,10 +75,10 @@ export default function Testimonials() {
       {/* Author profile info line (No separator line as per reference screenshot) */}
       <div className="flex items-center justify-between mt-auto">
         <div className="flex flex-col">
-          <span className="text-xl-medium text-brand-black">
+          <span className="brand-text-xl-medium text-brand-black">
             {review.author}
           </span>
-          <span className="text-brand-gray-500 mt-0.5 text-xl">
+          <span className="text-brand-gray-500 mt-0.5 brand-text-xl">
             {review.role}
           </span>
         </div>
@@ -104,12 +104,12 @@ export default function Testimonials() {
         {/* Card head section */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
           <div className="flex justify-center">
-            <span className="px-4 py-1.5 bg-gradient-to-b from-[#343A40] to-[#191C1F] text-white rounded shadow-sm select-none cursor-default border border-brand-gray-700/60 text-xl-medium" id="testimonial-badge">
+            <span className="px-4 py-1.5 bg-gradient-to-b from-[#343A40] to-[#191C1F] text-white rounded shadow-sm select-none cursor-default border border-brand-gray-700/60 brand-text-xl-medium" id="testimonial-badge">
               Testimonial
             </span>
           </div>
           {/* Typo Match: "What our Client Say" with elegant italicized serif start */}
-          <h2 className="text-7xl text-brand-black mt-6" id="testimonial-heading">
+          <h2 className="brand-text-7xl text-brand-black mt-6" id="testimonial-heading">
             <span className="italic">What</span> our Client Say
           </h2>
         </div>

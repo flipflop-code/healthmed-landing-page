@@ -7,10 +7,10 @@
   background-color: var(--brand-bg-cream);
 }
 .contact-hero-title-text {
-  @apply text-9xl text-brand-charcoal mb-6 select-none;
+  @apply brand-text-9xl text-brand-charcoal mb-6 select-none;
 }
 .contact-hero-desc {
-  @apply text-brand-slate max-w-2xl text-center select-none text-2xl;
+  @apply text-brand-slate max-w-2xl text-center select-none brand-text-2xl;
 }
 .contact-content-sect {
   @apply w-full py-16 md:py-24 px-4 sm:px-6 lg:px-8;
@@ -31,10 +31,10 @@
   @apply flex flex-col space-y-8;
 }
 .contact-info-title {
-  @apply text-6xl text-brand-charcoal;
+  @apply brand-text-6xl text-brand-charcoal;
 }
 .contact-info-desc {
-  @apply text-brand-slate text-2xl;
+  @apply text-brand-slate brand-text-2xl;
 }
 .contact-info-item-card {
   @apply flex items-start bg-white transition-all duration-300;
@@ -52,16 +52,16 @@
   color: var(--color-brand-gray-600);
 }
 .contact-info-item-title {
-  @apply text-brand-charcoal mb-1 select-none text-xl-medium;
+  @apply text-brand-charcoal mb-1 select-none brand-text-xl-medium;
 }
 .contact-info-item-text {
-  @apply text-brand-slate text-xl;
+  @apply text-brand-slate brand-text-xl;
 }
 .contact-form-title {
-  @apply text-5xl text-brand-charcoal mb-2 select-none;
+  @apply brand-text-5xl text-brand-charcoal mb-2 select-none;
 }
 .contact-form-input {
-  @apply w-full transition-all text-brand-charcoal text-xl;
+  @apply w-full transition-all text-brand-charcoal brand-text-xl;
   padding: 0.875rem 1.25rem;
   background-color: var(--brand-input-bg);
   border: 1px solid rgba(233, 236, 239, 0.6);
@@ -73,7 +73,7 @@
   --tw-ring-color: var(--color-brand-blue-400);
 }
 .contact-form-submit-btn {
-  @apply w-full text-white transition-all duration-200 shadow-md transform active:scale-[0.99] select-none cursor-pointer text-xl-medium;
+  @apply w-full text-white transition-all duration-200 shadow-md transform active:scale-[0.99] select-none cursor-pointer brand-text-xl-medium;
   padding: 1rem 1.5rem;
   background-color: var(--brand-charcoal-dark);
   border-radius: 0.75rem;

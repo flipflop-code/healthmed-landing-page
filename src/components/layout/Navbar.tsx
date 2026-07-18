@@ -85,7 +85,7 @@ export default function Navbar() {
             {isRelativeRedirect ? (
               <Link
                 to="/"
-                className={`text-xl font-sans font-medium transition-colors duration-200 ${
+                className={`brand-text-xl font-sans font-medium transition-colors duration-200 ${
                   isHomeActive
                     ? 'text-brand-blue-500'
                     : 'text-brand-gray-700 hover:text-brand-black'
@@ -97,7 +97,7 @@ export default function Navbar() {
             ) : (
               <a
                 href="#home"
-                className={`text-xl font-sans font-medium transition-colors duration-200 ${
+                className={`brand-text-xl font-sans font-medium transition-colors duration-200 ${
                   isHomeActive
                     ? 'text-brand-blue-500'
                     : 'text-brand-gray-700 hover:text-brand-black'
@@ -112,7 +112,7 @@ export default function Navbar() {
             {isRelativeRedirect ? (
               <Link
                 to="/#about"
-                className={`text-xl font-sans font-medium transition-colors duration-200 ${
+                className={`brand-text-xl font-sans font-medium transition-colors duration-200 ${
                   isAboutActive
                     ? 'text-brand-blue-500'
                     : 'text-brand-gray-700 hover:text-brand-black'
@@ -124,7 +124,7 @@ export default function Navbar() {
             ) : (
               <a
                 href="#about"
-                className={`text-xl font-sans font-medium transition-colors duration-200 ${
+                className={`brand-text-xl font-sans font-medium transition-colors duration-200 ${
                   isAboutActive
                     ? 'text-brand-blue-500'
                     : 'text-brand-gray-700 hover:text-brand-black'
@@ -144,7 +144,7 @@ export default function Navbar() {
             >
               <button
                 type="button"
-                className="flex items-center gap-1.5 text-xl font-sans font-medium text-brand-gray-700 hover:text-brand-black transition-colors focus:outline-none cursor-pointer"
+                className="flex items-center gap-1.5 brand-text-xl font-sans font-medium text-brand-gray-700 hover:text-brand-black transition-colors focus:outline-none cursor-pointer"
                 id="nav-link-modules-trigger"
                 aria-haspopup="true"
                 aria-expanded={isModulesOpen}
@@ -173,7 +173,7 @@ export default function Navbar() {
                           key={m.label}
                           to={m.href}
                           onClick={() => setIsModulesOpen(false)}
-                          className="block text-xl font-sans font-medium text-brand-charcoal hover:text-brand-blue-500 hover:bg-brand-gray-50/60 py-2.5 px-4 rounded-xl transition-all duration-200 cursor-pointer"
+                          className="block brand-text-xl font-sans font-medium text-brand-charcoal hover:text-brand-blue-500 hover:bg-brand-gray-50/60 py-2.5 px-4 rounded-xl transition-all duration-200 cursor-pointer"
                           id={`dropdown-item-${m.label.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
                         >
                           {m.label}
@@ -188,7 +188,7 @@ export default function Navbar() {
             {/* Blog link */}
             <Link
               to="/insights"
-              className={`text-xl font-sans font-medium transition-colors duration-200 ${
+              className={`brand-text-xl font-sans font-medium transition-colors duration-200 ${
                 isInsightsPage
                   ? 'text-brand-blue-500'
                   : 'text-brand-gray-700 hover:text-brand-black'
@@ -204,7 +204,7 @@ export default function Navbar() {
             {isRelativeRedirect ? (
               <Link
                 to="/#book-a-call"
-                className="px-5 py-2.5 bg-brand-black hover:bg-brand-gray-800 text-white font-medium text-xl rounded-lg transition-all duration-200 shadow-sm hover:shadow-md cursor-pointer inline-block"
+                className="px-5 py-2.5 bg-brand-black hover:bg-brand-gray-800 text-white font-medium brand-text-xl rounded-lg transition-all duration-200 shadow-sm hover:shadow-md cursor-pointer inline-block"
                 id="nav-btn-book"
                 onClick={handleBookClick}
               >
@@ -213,7 +213,7 @@ export default function Navbar() {
             ) : (
               <Link
                 to="/contact"
-                className="px-5 py-2.5 bg-brand-black hover:bg-brand-gray-800 text-white font-medium text-xl rounded-lg transition-all duration-200 shadow-sm hover:shadow-md cursor-pointer inline-block"
+                className="px-5 py-2.5 bg-brand-black hover:bg-brand-gray-800 text-white font-medium brand-text-xl rounded-lg transition-all duration-200 shadow-sm hover:shadow-md cursor-pointer inline-block"
                 id="nav-btn-book"
                 onClick={handleBookClick}
               >
@@ -293,7 +293,7 @@ export default function Navbar() {
                     <Link
                       to="/"
                       onClick={() => setIsOpen(false)}
-                      className={`text-2xl font-serif tracking-tight block py-1 transition-colors ${
+                      className={`brand-text-2xl font-serif tracking-tight block py-1 transition-colors ${
                         isHomeActive ? 'text-brand-blue-500 font-semibold' : 'text-brand-gray-800 hover:text-brand-black'
                       }`}
                       id="mobile-nav-link-home"
@@ -304,7 +304,7 @@ export default function Navbar() {
                     <a
                       href="#home"
                       onClick={() => setIsOpen(false)}
-                      className={`text-2xl font-serif tracking-tight block py-1 transition-colors ${
+                      className={`brand-text-2xl font-serif tracking-tight block py-1 transition-colors ${
                         isHomeActive ? 'text-brand-blue-500 font-semibold' : 'text-brand-gray-800 hover:text-brand-black'
                       }`}
                       id="mobile-nav-link-home"
@@ -324,7 +324,7 @@ export default function Navbar() {
                     <Link
                       to="/#about"
                       onClick={() => setIsOpen(false)}
-                      className={`text-2xl font-serif tracking-tight block py-1 transition-colors ${
+                      className={`brand-text-2xl font-serif tracking-tight block py-1 transition-colors ${
                         isAboutActive ? 'text-brand-blue-500 font-semibold' : 'text-brand-gray-800 hover:text-brand-black'
                       }`}
                       id="mobile-nav-link-about"
@@ -335,7 +335,7 @@ export default function Navbar() {
                     <a
                       href="#about"
                       onClick={() => setIsOpen(false)}
-                      className={`text-2xl font-serif tracking-tight block py-1 transition-colors ${
+                      className={`brand-text-2xl font-serif tracking-tight block py-1 transition-colors ${
                         isAboutActive ? 'text-brand-blue-500 font-semibold' : 'text-brand-gray-800 hover:text-brand-black'
                       }`}
                       id="mobile-nav-link-about"
@@ -355,7 +355,7 @@ export default function Navbar() {
                   <button
                     onClick={() => setIsMobileAccordionOpen(!isMobileAccordionOpen)}
                     type="button"
-                    className="w-full flex items-center justify-between text-2xl font-serif tracking-tight text-brand-gray-800 hover:text-brand-black py-1 focus:outline-none cursor-pointer"
+                    className="w-full flex items-center justify-between brand-text-2xl font-serif tracking-tight text-brand-gray-800 hover:text-brand-black py-1 focus:outline-none cursor-pointer"
                     id="mobile-accordion-trigger"
                   >
                     <span>Our Modules</span>
@@ -380,7 +380,7 @@ export default function Navbar() {
                               setIsOpen(false);
                               setIsMobileAccordionOpen(false);
                             }}
-                            className="text-xl font-sans text-brand-gray-600 hover:text-brand-blue-500 transition-colors block py-0.5"
+                            className="brand-text-xl font-sans text-brand-gray-600 hover:text-brand-blue-500 transition-colors block py-0.5"
                             id={`mobile-accordion-item-${m.label.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
                           >
                             {m.label}
@@ -400,7 +400,7 @@ export default function Navbar() {
                   <Link
                     to="/insights"
                     onClick={() => setIsOpen(false)}
-                    className={`block py-1 transition-colors text-2xl ${
+                    className={`block py-1 transition-colors brand-text-2xl ${
                       isInsightsPage ? 'text-brand-blue-500' : 'text-brand-gray-800 hover:text-brand-black'
                     }`}
                     id="mobile-nav-link-blog"
@@ -421,7 +421,7 @@ export default function Navbar() {
                   <Link
                     to="/#book-a-call"
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-center w-full px-6 py-3.5 bg-brand-black hover:bg-brand-gray-800 text-white rounded-lg shadow-sm transition-all duration-200 cursor-pointer text-xl-medium"
+                    className="flex items-center justify-center w-full px-6 py-3.5 bg-brand-black hover:bg-brand-gray-800 text-white rounded-lg shadow-sm transition-all duration-200 cursor-pointer brand-text-xl-medium"
                     id="mobile-nav-btn-book"
                   >
                     Book a Call
@@ -430,7 +430,7 @@ export default function Navbar() {
                   <Link
                     to="/contact"
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-center w-full px-6 py-3.5 bg-brand-black hover:bg-brand-gray-800 text-white rounded-lg shadow-sm transition-all duration-200 cursor-pointer text-xl-medium"
+                    className="flex items-center justify-center w-full px-6 py-3.5 bg-brand-black hover:bg-brand-gray-800 text-white rounded-lg shadow-sm transition-all duration-200 cursor-pointer brand-text-xl-medium"
                     id="mobile-nav-btn-book"
                   >
                     Book a Call
