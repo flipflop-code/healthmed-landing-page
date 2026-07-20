@@ -5,13 +5,13 @@
 
 // Import generated dashboard mockup images
 // @ts-expect-error - image asset type declaration may be missing
-import patientCareImg from '../assets/images/modules_patient_care_1783429984875.jpg';
+import patientCareImg from '../assets/images/modules_patient_care_new_1784375688520.jpg';
 // @ts-expect-error - image asset type declaration may be missing
-import hospitalOpsImg from '../assets/images/modules_hospital_ops_1783430001719.jpg';
+import hospitalOpsImg from '../assets/images/modules_hospital_ops_new_1784375704320.jpg';
 // @ts-expect-error - image asset type declaration may be missing
-import financialMgmtImg from '../assets/images/modules_financial_mgmt_1783430017514.jpg';
+import financialMgmtImg from '../assets/images/modules_financial_mgmt_new_1784375718447.jpg';
 // @ts-expect-error - image asset type declaration may be missing
-import platformInsightsImg from '../assets/images/modules_platform_insights_1783430037742.jpg';
+import platformInsightsImg from '../assets/images/modules_platform_insights_new_1784375733866.jpg';
 
 export interface ModuleAction {
   label: string;

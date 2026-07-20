@@ -54,7 +54,7 @@ export default function WhyChooseUs() {
             </div>
 
             {/* Paragraph body */}
-            <p className="text-brand-gray-800 brand-text-2xl max-w-xl" id="whychooseus-descr">
+            <p className="text-brand-gray-800 brand-text-3xl max-w-xl" id="whychooseus-descr">
               Built to improve operational efficiency, patient management, and healthcare coordination through connected workflows.
             </p>
 

@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
+import { Heading } from '../../components/ui/Heading';
 
 export default function AIWorkflows() {
   const points = [
@@ -100,7 +101,7 @@ export default function AIWorkflows() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="col-span-1 lg:col-span-6 flex flex-col space-y-6"
+            className="col-span-1 lg:col-span-6 flex flex-col space-y-10"
             id="ai-content-block"
           >
             {/* Pill Badge */}
@@ -110,19 +111,24 @@ export default function AIWorkflows() {
               </span>
             </div>
 
-            {/* Display Headings exactly matching reference image typography */}
-            <h2 className="brand-text-5xl text-brand-black" id="ai-main-title">
-              Smarter Healthcare Workflows <br />
-              <span className="italic text-brand-gray-700">with</span> AI
-            </h2>
+              <Heading
+              level={3}
+              id="hero-heading"
+              className="hero-title "
+            >
+              <span className="italic block">
+                Smarter Healthcare
+              </span>
+              Workflows with AI.
+            </Heading>
 
             {/* Sub description */}
-            <p className="text-brand-gray-600 brand-text-xl max-w-lg" id="ai-paragraph">
+            <p className="text-brand-gray-800 brand-text-3xl max-w-lg" id="ai-paragraph">
               HealthMed leverages intelligent automation and AI-powered insights to help healthcare organizations optimize workflows, improve resource planning, and reduce operational inefficiencies.
             </p>
 
             {/* Point listings checkmarks */}
-            <div className="flex flex-col space-y-4 pt-2" id="ai-list">
+            <div className="flex flex-col space-y-8 pt-2" id="ai-list">
               {points.map((point, index) => (
                 <div key={index} className="flex items-center gap-3 text-brand-black" id={`ai-point-${index}`}>
                   <div className="text-[#0066FF] flex-shrink-0" id={`ai-check-icon-${index}`}>

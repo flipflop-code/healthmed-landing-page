@@ -39,11 +39,11 @@ export default function Products() {
   ];
 
   return (
-    <section className="bg-brand-bg py-20 md:py-28 border-b border-brand-gray-100 overflow-hidden" id="products">
+    <section className="products-section py-20 md:py-28 overflow-hidden" id="products">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Headings */}
-        <div className="text-center max-w-4xl mx-auto mb-16 md:mb-20">
+         {/* Section Headings */}
+        <div className="text-center max-w-4xl mx-auto products-header-container">
           <div className="flex justify-center mb-5">
             <Badge variant="dark">
               Products
@@ -53,7 +53,7 @@ export default function Products() {
             Everything Healthcare Teams Need <br />
             <span className="italic block mt-2">Connected in One Platform</span>
           </Heading>
-          <p className="mt-5 text-brand-slate brand-text-2xl max-w-2xl mx-auto" id="products-description">
+          <p className="mt-5 text-brand-slate brand-text-3xl max-w-2xl mx-auto" id="products-description">
             HealthMed combines clinical, operational, financial, and patient workflows into one intelligent healthcare management ecosystem.
           </p>
         </div>
@@ -67,30 +67,30 @@ export default function Products() {
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="card-custom overflow-hidden hover:border-brand-blue/30 flex flex-col group cursor-pointer"
+              className="products-card flex flex-col group cursor-pointer"
               id={`product-card-${card.id.toLowerCase()}`}
             >
               
-              {/* Product Card Image Banner */}
-              <div className="aspect-[16/10] w-full overflow-hidden relative bg-gray-100">
+              {/* Product Card Image Banner with Zoom Effect */}
+              <div className="products-img-container" id={`product-img-container-${card.id.toLowerCase()}`}>
                 <img
                   src={card.image}
                   alt={`${card.title} - ${card.description}`}
                   width={600}
                   height={375}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-[1s]"
+                  className="products-card-img"
                   loading="lazy"
                   decoding="async"
                 />
               </div>
 
               {/* Product Info Block */}
-              <div className="p-8 flex flex-col flex-grow">
+              <div className="flex flex-col flex-grow" id={`product-info-${card.id.toLowerCase()}`}>
                 {/* Title and Read More Action Link on the exact same row */}
                  <div className="flex items-center justify-between mb-4">
-                  <Heading level={3} className="text-brand-charcoal">
+                  <h3 className="brand-text-5xl products-info-title" id={`product-title-${card.id.toLowerCase()}`}>
                     {card.title}
-                  </Heading>
+                  </h3>
                   <Button
                     variant="link"
                     href={`#product-${card.id.toLowerCase()}`}
@@ -102,7 +102,7 @@ export default function Products() {
                 </div>
 
                 {/* Body Paragraph description with custom leading and text-sm / text-[13.5px] */}
-                <p className="text-brand-slate brand-text-xl flex-grow">
+                <p className="brand-text-2xl products-info-desc flex-grow">
                   {card.description}
                 </p>
               </div>

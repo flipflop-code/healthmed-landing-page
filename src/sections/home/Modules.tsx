@@ -52,11 +52,11 @@ export default function Modules() {
             Modules
           </Badge>
           
-          <Heading level={1} id="modules-section-title" className="modules-section-title">
+          <Heading level={2} id="modules-section-title text-" className="modules-section-title">
             The complete agent stack for healthcare
           </Heading>
           
-          <p className="modules-section-subtitle text-center" id="modules-section-subtitle">
+          <p className="modules-section-subtitle brand-text-3xl" id="modules-section-subtitle">
             Build, govern, and scale AI across the enterprise
           </p>
         </div>
@@ -84,7 +84,7 @@ export default function Modules() {
                   tabIndex={isActive ? 0 : -1}
                   onKeyDown={(e) => handleKeyDown(e, i)}
                   onClick={() => setActiveTabId(tab.id)}
-                  className={`modules-tab-button flex relative ${
+                  className={`modules-tab-button brand-text-xl-medium flex relative ${
                     isActive ? 'modules-tab-button-active' : ''
                   }`}
                 >
@@ -120,28 +120,28 @@ export default function Modules() {
             aria-labelledby={`tab-${activeTab.id}`}
           >
             <motion.div
-              key={activeTab.id}
+              key={activeTab.id} 
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35, ease: 'easeOut' }}
               className="modules-card-content-grid"
             >
               {/* Left Column: Content */}
-              <div className="modules-card-left lg:col-span-5 flex flex-col justify-between" id="modules-card-left">
+              <div className="modules-card-left lg:col-span-6 flex flex-col justify-between" id="modules-card-left">
                 <div className="modules-card-left-inner flex flex-col">
                   {/* Category Badge */}
-                  <div className="modules-category-badge" id={`category-badge-${activeTab.id}`}>
+                  <div className="modules-category-badge brand-text-xl-medium" id={`category-badge-${activeTab.id}`}>
                     {activeTab.badge}
                   </div>
 
                   {/* Title with Serif Italics */}
-                  <h3 className="modules-card-title" id={`heading-${activeTab.id}`}>
+                  <h3 className="modules-card-title brand-text-6xl" id={`heading-${activeTab.id}`}>
                     {activeTab.headingPrefix}
                     <span className="modules-card-title-italic">{activeTab.headingItalic}</span>
                   </h3>
 
                   {/* Paragraph Description */}
-                  <p className="modules-card-desc" id={`desc-${activeTab.id}`}>
+                  <p className="modules-card-desc brand-text-xl md:brand-text-2xl" id={`desc-${activeTab.id}`}>
                     {activeTab.description}
                   </p>
                 </div>
@@ -152,7 +152,7 @@ export default function Modules() {
                     <a
                       key={index}
                       href={act.href}
-                      className="modules-action-link flex items-center justify-between"
+                      className="modules-action-link brand-text-xl-medium md:brand-text-2xl-medium flex items-center justify-between"
                       id={`action-button-${activeTab.id}-${index}`}
                     >
                       <span className="modules-action-text">{act.label}</span>
@@ -163,7 +163,7 @@ export default function Modules() {
               </div>
 
               {/* Right Column: Image */}
-              <div className="modules-card-right lg:col-span-7 flex items-center justify-center" id="modules-card-right">
+              <div className="modules-card-right lg:col-span-6 flex items-center justify-center" id="modules-card-right">
                 <div className="modules-image-container relative overflow-hidden" id="modules-image-container">
                   <img
                     src={activeTab.image}

@@ -31,7 +31,7 @@ export default function Impact() {
           <h2 className="brand-text-7xl text-brand-black mt-6" id="impact-heading">
             <span className="italic">Delivering</span> Measurable Healthcare Impact
           </h2>
-          <p className="mt-6 text-brand-gray-600 brand-text-xl max-w-2xl mx-auto" id="impact-description">
+          <p className="mt-6 text-brand-gray-600 brand-text-3xl max-w-2xl mx-auto" id="impact-description">
             HealthMed helps healthcare organizations improve operational efficiency, reduce manual work, and accelerate patient workflows.
           </p>
         </div>
@@ -57,7 +57,7 @@ export default function Impact() {
                 />
 
                 {/* Subtitle label explanation */}
-                <span className="brand-text-xl text-brand-gray-800">
+                <span className="brand-text-2xl text-brand-gray-800">
                   {card.label}
                 </span>
               </div>

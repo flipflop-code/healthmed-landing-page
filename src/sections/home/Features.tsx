@@ -57,11 +57,11 @@ export default function Features() {
   ];
 
   return (
-    <section className="bg-brand-blue-accent text-white py-20 md:py-28 border-b border-brand-blue-600 overflow-hidden" id="features">
+    <section className="features-section py-20 md:py-28 overflow-hidden" id="features">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header content and Badges */}
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+        <div className="text-center mx-auto mb-16 md:mb-20">
           <div className="flex justify-center mb-5">
             <Badge variant="glass">
               Features
@@ -73,7 +73,7 @@ export default function Features() {
         </div>
 
         {/* 3-Column Chessboard/Staggered Responsive Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto" id="features-grid">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto" id="features-grid">
           {items.map((item, idx) => (
             <motion.div
               key={idx}
@@ -81,25 +81,23 @@ export default function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.08 }}
-              className={`rounded-2xl p-8 md:p-10 transition-all duration-300 cursor-pointer group flex flex-col justify-start text-left min-h-[240px] ${
-                item.hasBg 
-                  ? 'bg-white/8 backdrop-blur-md border border-white/15 hover:bg-white/12 hover:border-white/25 shadow-sm' 
-                  : 'bg-transparent border border-transparent'
+              className={`features-card flex flex-col justify-start text-left ${
+                item.hasBg ? 'features-card-with-bg' : 'features-card-transparent'
               }`}
               id={`feature-card-${idx}`}
             >
               {/* Feature Icon container alignment */}
-              <div className="w-12 h-12 rounded-xl flex items-center justify-start mb-6">
+              <div className="features-card-icon-wrapper flex items-center justify-start">
                 {item.icon}
               </div>
 
               {/* Title heading formatted neatly */}
-              <h3 className="brand-text-3xl-medium mb-2.5 text-white">
+              <h3 className="brand-text-3xl-medium features-card-title">
                 {item.title}
               </h3>
 
               {/* Description Paragraph with high opacity & readable spacing */}
-              <p className="text-white/80 brand-text-xl">
+              <p className="features-card-desc">
                 {item.text}
               </p>
             </motion.div>

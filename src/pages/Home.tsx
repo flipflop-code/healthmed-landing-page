@@ -65,9 +65,6 @@ export default function Home() {
           <Impact />
         </Suspense>
 
-        <Suspense fallback={<div className="bg-brand-bg w-full min-h-[500px] border-b border-brand-gray-200" />}>
-          <CustomerStories />
-        </Suspense>
 
         <Suspense fallback={<div className="bg-brand-gray-50 w-full min-h-[500px] border-b border-brand-gray-200" />}>
           <Testimonials />

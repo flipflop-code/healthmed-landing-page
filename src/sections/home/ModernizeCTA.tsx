@@ -38,7 +38,7 @@ export default function ModernizeCTA() {
           <div className="relative z-10 text-center max-w-4xl mx-auto flex flex-col items-center">
             
             {/* Title display matching the exact styling with italics */}
-            <Heading level={2} className="brand-text-6xl text-white mb-6 max-w-3xl">
+            <Heading level={2} className="brand-text-7xl text-white mb-6 max-w-3xl">
               Ready to modernize your <br />
               <span className="italic block mt-2 text-white">
                 healthcare infrastructure?
@@ -46,7 +46,7 @@ export default function ModernizeCTA() {
             </Heading>
 
             {/* Paragraph body subtitle */}
-            <p className="text-slate-300 brand-text-xl max-w-2xl mb-10">
+            <p className="text-slate-300 brand-text-3xl max-w-2xl mb-10">
               Deliver faster care and smarter operations through one connected healthcare ecosystem.
             </p>
 

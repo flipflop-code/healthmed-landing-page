@@ -22,13 +22,13 @@ interface CounterStatProps {
 
 function CounterStat({ value, label, id, labelId }: CounterStatProps) {
   return (
-    <div className="flex flex-col justify-center px-4">
+    <div className="flex flex-col items-start text-left px-6 md:px-10">
       <AnimatedCounter
         value={value}
-        className="brand-text-5xl text-white block"
+        className="brand-text-5xl text-white block text-left"
         id={id}
       />
-      <span className="text-white/80 brand-text-xl mt-2 block" id={labelId}>
+      <span className="text-white/80 brand-text-xl mt-2 block text-left" id={labelId}>
         {label}
       </span>
     </div>
@@ -84,7 +84,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 text-brand-gray-700 brand-text-2xl max-w-[1000px] mx-auto"
+            className="mt-6 text-brand-gray-700 brand-text-3xl max-w-[1000px] mx-auto"
             id="hero-description"
           >
             HealthMed helps hospitals, clinics, and healthcare teams manage patient care, diagnostics, billing, pharmacy, and operations through one connected healthcare management system.
@@ -142,8 +142,8 @@ export default function Hero() {
 
           {/* Integrated Statistics Container holding figures */}
           <div className="absolute bottom-0 left-0 right-0 w-full" id="hero-stats-panel">
-            <div className="max-w-6xl mx-auto px-6 py-6 md:py-10">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-y-6 md:gap-y-0 text-center text-white  md:divide-x md:divide-brand-gray-400">
+            <div className="max-w-6xl mx-auto px-4 py-6 md:py-10">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-y-6 md:gap-y-0 text-left text-white  md:divide-x md:divide-brand-gray-400">
                 {stats.map((stat, i) => (
                   <CounterStat
                     key={i}

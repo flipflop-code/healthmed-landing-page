@@ -1,0 +1,48 @@
+/* Features Section Specific Styles */
+
+.features-section {
+  background-color: var(--color-primary);
+  color: var(--color-brand-white);
+  border-bottom: 1px solid var(--color-primary-hover);
+}
+
+.features-card {
+  padding: var(--space-lg);
+  min-height: 240px;
+  backdrop-filter: blur(12px);
+}
+
+@media (min-width: 768px) {
+  .features-card {
+    padding: var(--space-xl);
+  }
+}
+
+.features-card-with-bg {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+
+.features-card-transparent {
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+.features-card-icon-wrapper {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: var(--space-lg);
+}
+
+.features-card-title {
+  color: var(--color-brand-white);
+  margin-bottom: var(--space-sm);
+}
+
+.features-card-desc {
+  color: #94beff;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.4;
+}

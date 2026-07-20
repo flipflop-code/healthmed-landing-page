@@ -55,20 +55,20 @@ export default function EcosystemHub() {
 
   return (
     <section className="bg-brand-bg py-20 md:py-28 border-b border-brand-gray-100 overflow-hidden" id="ecosystem">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Caption Header & Badging matching the reference image */}
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+        <div className="text-center  mx-auto mb-16 md:mb-20">
           <div className="flex justify-center mb-5">
             <Badge variant="dark">
               Unified Healthcare Ecosystem
             </Badge>
           </div>
-          <Heading level={2} id="ecosystem-heading" className="text-brand-charcoal">
-            One Healthcare Management <br />
-            <span className="italic block mt-2">Platform for Every Workflow</span>
+          <Heading level={2} id="ecosystem-heading" className="text-brand-charcoal inline-flex gap-2">
+            <span className="italic">One Healthcare Management</span>
+             Platform for Every Workflow
           </Heading>
-          <p className="mt-5 text-brand-slate brand-text-2xl max-w-2xl mx-auto" id="ecosystem-description">
+          <p className="mt-5 text-brand-slate brand-text-2xl  mx-auto" id="ecosystem-description">
             Manage clinical, operational, and financial workflows through one scalable hospital management system.
           </p>
         </div>

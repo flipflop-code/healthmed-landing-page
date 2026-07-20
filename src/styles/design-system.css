@@ -1,9 +1,12 @@
 @import "tailwindcss";
 @import "../sections/home/Hero.css";
 @import "../sections/home/EcosystemHub.css";
+@import "../sections/home/Products.css";
+@import "../sections/home/Features.css";
 @import "../pages/Insights.css";
 @import "../pages/Contact.css";
 @import "../pages/BlogDetails.css";
+@import "../components/layout/Footer.css";
 
 :root {
   /* Font Families */
