@@ -17,6 +17,7 @@ import AIWorkflows from '../sections/home/AIWorkflows';
 import Impact from '../sections/home/Impact';
 import Testimonials from '../sections/home/Testimonials';
 import VideoTestimonials from '../sections/home/VideoTestimonials';
+import CustomerStories from '../sections/home/CustomerStories';
 import FAQ from '../sections/home/FAQ';
 import ModernizeCTA from '../sections/home/ModernizeCTA';
 
@@ -37,6 +38,7 @@ export default function Home() {
         <Features />
         <AIWorkflows />
         <Impact />
+        <CustomerStories />
         <Testimonials />
         <VideoTestimonials />
         <FAQ />

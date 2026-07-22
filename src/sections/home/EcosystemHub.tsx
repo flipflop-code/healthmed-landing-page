@@ -64,8 +64,8 @@ export default function EcosystemHub() {
               Unified Healthcare Ecosystem
             </Badge>
           </div>
-          <Heading level={2} id="ecosystem-heading" className="text-brand-charcoal inline-flex gap-2">
-            <span className="italic">One Healthcare Management</span>
+          <Heading level={2} id="ecosystem-heading" className="text-brand-charcoal inline-block">
+            <span className="italic pr-1">One Healthcare Management</span>
              Platform for Every Workflow
           </Heading>
           <p className="mt-5 text-brand-slate brand-text-2xl  mx-auto" id="ecosystem-description">

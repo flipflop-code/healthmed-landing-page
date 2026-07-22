@@ -154,7 +154,7 @@ export default function Partners() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
          {/* Caption Title */}
-        <p className="text-center uppercase text-brand-gray-600 mb-10">
+        <p className="text-center brand-text-3xl text-brand-gray-600 mb-10">
           Trusted by 30+ Modern Healthcare Organizations
         </p>
 

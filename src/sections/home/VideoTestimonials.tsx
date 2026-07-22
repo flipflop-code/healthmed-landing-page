@@ -13,32 +13,69 @@ export const VideoTestimonials: React.FC = () => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
   const [isMuted, setIsMuted] = useState(true);
   const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({});
-  const [videoSources] = useState<{ [key: number]: string }>({
+
+  const [thumbnailSources, setThumbnailSources] = useState<{ [key: number]: string }>({
+    1: '/images/testimonials/sarah-mitchell.jpg',
+    2: '/images/testimonials/michael-rodriguez.jpg',
+    3: '/images/testimonials/emily-chen.jpg',
+  });
+
+  const [videoSources, setVideoSources] = useState<{ [key: number]: string }>({
     1: '/videos/doctor-consultation.mp4',
     2: '/videos/hospital-dashboard.mp4',
-    3: '/videos/laboratory-work.mp4'
+    3: '/videos/laboratory-work.mp4',
   });
+
+  const fallbackThumbnails: { [key: number]: string } = {
+    1: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80',
+    2: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80',
+    3: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80',
+  };
+
+  const fallbackVideos: { [key: number]: string } = {
+    1: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c0/Big_Buck_Bunny_4K.webm/Big_Buck_Bunny_4K.webm.480p.vp9.webm',
+    2: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f1/Sintel_movie_4K.webm/Sintel_movie_4K.webm.480p.vp9.webm',
+    3: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/8/88/Tears_of_Steel_in_4k_Teaser.webm/Tears_of_Steel_in_4k_Teaser.webm.480p.vp9.webm',
+  };
+
+  const handleThumbnailError = (id: number) => {
+    if (thumbnailSources[id] !== fallbackThumbnails[id]) {
+      setThumbnailSources((prev) => ({
+        ...prev,
+        [id]: fallbackThumbnails[id],
+      }));
+    }
+  };
+
+  const handleVideoError = (id: number) => {
+    if (videoSources[id] !== fallbackVideos[id]) {
+      setVideoSources((prev) => ({
+        ...prev,
+        [id]: fallbackVideos[id],
+      }));
+    }
+  };
 
   const teamVideos: VideoTeamMember[] = [
     {
       id: 1,
       name: 'Dr. Sarah Mitchell',
       role: 'Chief Medical Officer',
-      thumbnail: '/images/testimonials/sarah-mitchell.jpg',
+      thumbnail: thumbnailSources[1],
       videoUrl: videoSources[1],
     },
     {
       id: 2,
       name: 'Michael Rodriguez',
       role: 'Hospital Operations Director',
-      thumbnail: '/images/testimonials/michael-rodriguez.jpg',
+      thumbnail: thumbnailSources[2],
       videoUrl: videoSources[2],
     },
     {
       id: 3,
       name: 'Emily Chen',
       role: 'Clinical Laboratory Manager',
-      thumbnail: '/images/testimonials/emily-chen.jpg',
+      thumbnail: thumbnailSources[3],
       videoUrl: videoSources[3],
     },
   ];
@@ -66,6 +103,20 @@ export const VideoTestimonials: React.FC = () => {
       videoEl.pause();
       // Instantly rewind to beginning so it restarts cleanly next time
       videoEl.currentTime = 0;
+    }
+  };
+
+  const handleCardClick = (id: number) => {
+    if (hoveredId === id) {
+      const videoEl = videoRefs.current[id];
+      if (videoEl && !videoEl.paused) {
+        videoEl.pause();
+        setHoveredId(null);
+      } else if (videoEl) {
+        videoEl.play().catch(() => {});
+      }
+    } else {
+      handleMouseEnter(id);
     }
   };
 
@@ -124,6 +175,7 @@ export const VideoTestimonials: React.FC = () => {
                 className="group relative h-[var(--size-card-height-lg)] rounded-[var(--radius-lg)] overflow-hidden bg-[var(--color-surface-tertiary)] shadow-[var(--shadow-card)] cursor-pointer transition-all duration-[var(--transition-duration-slow)] ease-[var(--transition-bezier-smooth)] hover:shadow-[var(--shadow-card-hover)]"
                 onMouseEnter={() => handleMouseEnter(member.id)}
                 onMouseLeave={() => handleMouseLeave(member.id)}
+                onClick={() => handleCardClick(member.id)}
                 id={`video-testimonial-card-${member.id}`}
               >
                 {/* Card Background / Thumbnail Image */}
@@ -133,6 +185,7 @@ export const VideoTestimonials: React.FC = () => {
                   className="w-full h-full object-cover transition-transform duration-[var(--transition-duration-zoom)] ease-[var(--transition-bezier-smooth)] group-hover:scale-[1.04]"
                   id={`video-card-thumbnail-${member.id}`}
                   referrerPolicy="no-referrer"
+                  onError={() => handleThumbnailError(member.id)}
                 />
 
                 {/* Always-mounted Video element for instantaneous playback without loading delays */}
@@ -149,6 +202,7 @@ export const VideoTestimonials: React.FC = () => {
                   muted={isMuted}
                   controls={false}
                   preload="auto"
+                  onError={() => handleVideoError(member.id)}
                   id={`video-player-element-${member.id}`}
                 />
 
@@ -182,7 +236,7 @@ export const VideoTestimonials: React.FC = () => {
 
                 {/* Premium Frosted Glass Text Overlay (Figma inspired) */}
                 <div
-                  className="absolute bottom-0 inset-x-0 px-6 py-4 backdrop-blur-[30px] flex flex-col justify-end z-15 transition-all duration-[var(--transition-duration-extra-slow)] ease-out"
+                  className="absolute bottom-0 inset-x-0 px-6 py-4  bg-[rgba(141,141,141,0.4)]  backdrop-blur-[30px] flex flex-col justify-end z-15 transition-all duration-[var(--transition-duration-extra-slow)] ease-out"
                   id={`card-frosted-overlay-${member.id}`}
                 >
                   <h3
