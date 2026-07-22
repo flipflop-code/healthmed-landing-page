@@ -5,7 +5,6 @@
 
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
-import { Sparkles, Calendar, ArrowRight } from 'lucide-react';
 import { Heading } from '../../components/ui/Heading';
 import { Button } from '../../components/ui/Button';
 // @ts-expect-error - image asset type declaration may be missing

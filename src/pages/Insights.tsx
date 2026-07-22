@@ -6,13 +6,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Plus, Minus } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import { Badge } from '../components/ui/Badge';
 import { Heading } from '../components/ui/Heading';
 import SEO from '../components/ui/SEO';
+import FAQ from '../components/common/FAQ';
 import { useGsapFadeIn, useGsapScrollReveal } from '../hooks/useGsapAnimation';
 
 // Shared structured data
@@ -22,8 +23,7 @@ import { faqData } from '../data/faq';
 
 export default function Insights() {
   const [activeCategory, setActiveCategory] = useState('all');
-  const [visibleCount, setVisibleCount] = useState(3);
-  const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
+  const [visibleCount, setVisibleCount] = useState(6);
 
   const heroRef = useRef<HTMLDivElement>(null);
   const featuredRef = useRef<HTMLDivElement>(null);
@@ -62,10 +62,6 @@ export default function Insights() {
     '#insights-faq-header',
     { y: 30, duration: 0.8, stagger: 0.15 }
   );
-
-  const toggleFaq = (idx: number) => {
-    setActiveFaqIndex(activeFaqIndex === idx ? null : idx);
-  };
 
   // Structured breadcrumb, blog and FAQ schemas
   const nestedSchema = [
@@ -117,7 +113,7 @@ export default function Insights() {
   ];
 
   return (
-    <div className="insights-page-root flex flex-col min-h-screen" id="insights-page-root">
+    <div className="bg-[var(--brand-bg-cream)] flex flex-col min-h-screen" id="insights-page-root">
       {/* Reusable SEO configuration component */}
       <SEO 
         title="Healthcare Insights & Industry Updates | Healthmed" 
@@ -132,36 +128,36 @@ export default function Insights() {
       <main className="flex-grow">
         
         {/* SECTION 2: BLOG HERO & HEADERS */}
-        <section className="blog-hero-section" id="blog-hero" ref={heroRef}>
+        <section className="w-full px-4 sm:px-6 lg:px-8 pt-20 pb-24 md:pt-28 md:pb-36 bg-[var(--brand-bg-cream)]" id="blog-hero" ref={heroRef}>
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <div className="insights-hero-anim flex justify-center">
-              <Badge variant="white" className="insights-hero-badge" id="insights-hero-badge">
+              <Badge variant="page" className="mb-6" id="insights-hero-badge">
                 Blog
               </Badge>
             </div>
 
-            <h1 className="insights-hero-anim insights-hero-title" id="insights-main-title">
+            <h1 className="insights-hero-anim brand-text-9xl text-center text-brand-charcoal" id="insights-main-title">
               Insights Shaping the Future <br />
               of Healthcare Operations
             </h1>
 
-            <p className="insights-hero-anim insights-hero-subtitle" id="insights-subtitle">
+            <p className="insights-hero-anim text-brand-gray-800 mx-auto text-center brand-text-3xl" id="insights-subtitle">
               Explore expert perspectives, industry trends, product updates, and best practices for modern healthcare management.
             </p>
           </div>
 
           {/* FEATURED ARTICLE CARD */}
-          <div className="featured-blog-card-wrapper" id="featured-article-container" ref={featuredRef}>
+          <div className="max-w-6xl mx-auto px-0 mt-20 md:mt-24" id="featured-article-container" ref={featuredRef}>
             <div 
-              className="featured-blog-card-grid"
+              className="grid grid-cols-1 md:grid-cols-12 overflow-hidden border border-white/5 shadow-xl bg-[var(--brand-navy-dark)] gap-10 sm:gap-14 rounded-[2.5rem] p-6 sm:p-10 md:p-2.5"
               id="featured-blog-card-element"
             >
               {/* Left Column: Image with covered sizing */}
-              <Link to="/insights/hms-workloads-35" className="featured-image-link">
+              <Link to="/insights/hms-workloads-35" className="md:col-span-6 aspect-square sm:aspect-video md:aspect-auto h-auto md:h-full rounded-[1.8rem] overflow-hidden relative block">
                 <img 
                   src={featuredBlog.imageUrl} 
                   alt={featuredBlog.title}
-                  className="featured-image-canvas"
+                  className="w-full h-full object-cover scale-[1.01] transition-transform duration-500 hover:scale-[1.04] rounded-[1.8rem]"
                   referrerPolicy="no-referrer"
                   loading="eager"
                   width="800"
@@ -170,15 +166,15 @@ export default function Insights() {
               </Link>
 
               {/* Right Column: Descriptions */}
-              <div className="md:col-span-7 flex flex-col justify-center py-4 md:pr-4 space-y-6" id="featured-content-wrapper">
-                <span className="featured-tag-badge">
+              <div className="md:col-span-6 flex flex-col justify-center py-4 md:pr-4 space-y-6" id="featured-content-wrapper">
+                <span className=" mb-6 block text-left brand-text-xl-medium text-[var(--brand-blue-accent-custom)]">
                   Featured Post
                 </span>
 
                 <Link to="/insights/hms-workloads-35" className="block text-left">
                   <Heading 
                     level={2} 
-                    className="featured-title-text"
+                    className="text-left brand-text-6xl text-white transition-colors"
                     id="featured-title"
                   >
                     How HMIS Platforms <br className="hidden sm:block" />
@@ -187,18 +183,18 @@ export default function Insights() {
                   </Heading>
                 </Link>
 
-                <p className="featured-desc-text" id="featured-description">
+                <p className="brand-text-xl text-left max-w-xl text-brand-blue-100" id="featured-description">
                   {featuredBlog.description}
                 </p>
 
                 <div className="pt-4 text-left">
                   <Link 
                     to="/insights/hms-workloads-35"
-                    className="featured-read-btn"
+                    className="text-white hover:text-[var(--brand-blue-accent-custom)] border-b border-white inline-flex items-center gap-1.5 transition-colors cursor-pointer text-left brand-text-xl-medium group"
                     id="featured-read-action"
                   >
-                    <span className="featured-read-btn-label">Read More</span>
-                    <span className="featured-read-btn-arrow">&gt;</span>
+                    <span className=" group-hover:border-current pb-0.5 transition-colors">Read More</span>
+                    <ChevronRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>
               </div>
@@ -208,9 +204,9 @@ export default function Insights() {
 
         {/* SECTION 3: CATEGORIES FILTERS & GRID */}
         <section className="w-full py-16 md:py-24 px-4 sm:px-6 lg:px-8 border-t bg-white border-brand-gray-200/50" id="blog-grid-section-container" ref={gridRef}>
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-[80rem] mx-auto">
             {/* Action Title */}
-            <h2 className="categories-title-heading" id="categories-heading">
+            <h2 className="brand-text-7xl text-brand-charcoal mb-8 text-center" id="categories-heading">
               Categories
             </h2>
 
@@ -222,10 +218,10 @@ export default function Insights() {
                   <button
                     key={cat.id}
                     onClick={() => setActiveCategory(cat.id)}
-                    className={`categories-pill-base ${
+                    className={`rounded-full transition-all duration-300 focus:outline-none cursor-pointer brand-text-xl-medium py-2.5 px-5 ${
                       isActive 
-                        ? 'categories-pill-active'
-                        : 'categories-pill-inactive'
+                        ? 'text-white bg-[var(--color-brand-black)] shadow-sm'
+                        : 'text-brand-slate bg-white border border-[rgba(233,236,239,0.8)] hover:text-brand-black hover:bg-white/90 hover:border-[var(--color-brand-gray-400)]'
                     }`}
                     id={`filter-pill-${cat.id}`}
                   >
@@ -236,46 +232,46 @@ export default function Insights() {
             </div>
 
             {/* Grid display layout */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12" id="blogs-grid-layout">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-8 md:gap-8" id="blogs-grid-layout">
               <AnimatePresence mode="popLayout">
                 {filteredBlogs.slice(0, visibleCount).map((blog) => (
                   <Link 
                     key={blog.id} 
                     to={`/insights/${blog.slug}`}
-                    className="blog-grid-card-item blog-grid-card-inner group"
+                    className="blog-grid-card-item flex flex-col w-full bg-transparent focus:outline-none group"
                     id={`blog-card-${blog.id}`}
                   >
                     {/* Image Area */}
-                    <div className="blog-grid-card-image-wrapper">
+                    <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden relative mb-4 block bg-brand-gray-100 shadow-sm">
                       <img 
                         src={blog.imageUrl} 
                         alt={blog.title} 
-                        className="blog-grid-card-image-el"
+                        className="w-full h-full object-cover rounded-2xl transition-transform duration-500 scale-[1.01] group-hover:scale-105"
                         referrerPolicy="no-referrer"
                         loading="lazy"
                         width="400"
-                        height="340"
+                        height="320"
                       />
                     </div>
 
                     {/* Meta Row */}
-                    <div className="blog-grid-meta-row flex" id={`blog-card-meta-${blog.id}`}>
-                      <div className="blog-grid-category-box">
-                        <span className="blog-grid-category-dot" />
-                        <span className="blog-grid-category-text">{blog.categoryName}</span>
+                    <div className="flex items-center justify-between mb-3 border-b pb-3 border-brand-gray-300 " id={`blog-card-meta-${blog.id}`}>
+                      <div className="flex items-center gap-1.5 text-left brand-text-xl">
+                        <span className="inline-block rounded-xs w-[0.375rem] h-[0.375rem] bg-brand-gray-400" />
+                        <span className="text-brand-gray-800">{blog.categoryName}</span>
                       </div>
-                      <span className="blog-grid-date-text">
+                      <span className="text-right text-brand-gray-800 whitespace-nowrap brand-text-xl">
                         /{blog.date}
                       </span>
                     </div>
 
                     {/* Header Title */}
-                    <h3 className="blog-grid-title-el" id={`blog-card-title-${blog.id}`}>
+                    <h3 className="text-brand-charcoal text-left mb-2.5 transition-colors brand-text-3xl hover:text-[var(--brand-blue-accent-custom)]" id={`blog-card-title-${blog.id}`}>
                       {blog.title}
                     </h3>
 
                     {/* Description Excerpt */}
-                    <p className="blog-grid-desc-el" id={`blog-card-desc-${blog.id}`}>
+                    <p className="text-brand-gray-700 text-left line-clamp-2 brand-text-xl" id={`blog-card-desc-${blog.id}`}>
                       {blog.description}
                     </p>
                   </Link>
@@ -285,10 +281,10 @@ export default function Insights() {
 
             {/* Loader Trigger button */}
             {visibleCount < filteredBlogs.length && (
-              <div className="blog-load-more-container" id="blog-grid-loadmore-container">
+              <div className="flex justify-center mt-12 md:mt-16" id="blog-grid-loadmore-container">
                 <button
                   onClick={() => setVisibleCount((prev) => prev + 3)}
-                  className="blog-load-more-btn"
+                  className="text-white rounded-lg transition-all duration-200 cursor-pointer shadow-sm text-center brand-text-xl-medium bg-[var(--color-brand-black)] py-2.5 px-6 hover:bg-[var(--brand-navy-hover)]"
                   id="btn-load-more"
                 >
                   Load more posts
@@ -299,71 +295,24 @@ export default function Insights() {
         </section>
 
         {/* SECTION 4: FAQ SECTION */}
-        <section className="blog-faq-section-wrapper" id="insights-faq-section" ref={faqRef}>
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            {/* Centered Heading */}
-            <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20" id="insights-faq-header">
-              <div className="insights-faq-anim flex justify-center mb-5">
-                <Badge variant="dark" id="faq-badge-pill">
-                  FAQ
-                </Badge>
-              </div>
-              <Heading level={2} id="faq-main-heading" className="insights-faq-anim text-brand-charcoal brand-text-4xl md:brand-text-5xl font-serif leading-snug">
-                <span className="italic font-normal">Answers to your</span> most common concerns
-              </Heading>
-            </div>
-
-            {/* Accordion List with dividers */}
-            <div className="border-t border-brand-gray-300 max-w-3xl mx-auto" id="insights-faq-accordion">
-              {faqData.slice(0, 5).map((faq, idx) => {
-                const isOpen = activeFaqIndex === idx;
-                return (
-                  <div 
-                    key={idx} 
-                    className="border-b border-brand-gray-300 overflow-hidden"
-                    id={`insights-faq-row-${idx}`}
-                  >
-                    {/* Header Trigger bar */}
-                    <button
-                      onClick={() => toggleFaq(idx)}
-                      aria-expanded={isOpen}
-                      className="w-full text-left py-6 flex items-center justify-between gap-4 font-sans font-medium brand-text-xl md:brand-text-2xl text-brand-charcoal hover:text-brand-blue-accent transition-colors focus:outline-none cursor-pointer"
-                      id={`insights-faq-button-${idx}`}
-                    >
-                      <span className="tracking-tight">{faq.question}</span>
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-blue-accent hover:bg-brand-blue-accent-hover flex items-center justify-center text-white shadow-sm transition-colors duration-200">
-                        {isOpen ? (
-                          <Minus className="h-4 w-4 text-white stroke-[2.5]" />
-                        ) : (
-                          <Plus className="h-4 w-4 text-white stroke-[2.5]" />
-                        )}
-                      </div>
-                    </button>
-
-                    {/* Collapsible Answer Pane */}
-                    <AnimatePresence initial={false}>
-                      {isOpen && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.28, ease: 'easeInOut' }}
-                          id={`insights-faq-panel-${idx}`}
-                        >
-                          <div className="pb-6 text-brand-slate brand-text-xl leading-relaxed font-sans max-w-2xl bg-transparent">
-                            {faq.answer}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                );
-              })}
-            </div>
-
-          </div>
-        </section>
+        <FAQ
+          id="insights-faq-section"
+          sectionRef={faqRef}
+          className="w-full py-20 md:py-28 border-t border-brand-gray-200/50 bg-[var(--brand-bg-cream)] overflow-hidden"
+          headerId="insights-faq-header"
+          badge="FAQ"
+          badgeId="faq-badge-pill"
+          badgeClassName="insights-faq-anim"
+          headingId="faq-main-heading"
+          headingClassName="insights-faq-anim"
+          title={
+            <>
+              <span className="italic font-normal">Answers to your</span> most common concerns
+            </>
+          }
+          accordionId="insights-faq-accordion"
+          items={faqData.slice(0, 5)}
+        />
 
       </main>
 

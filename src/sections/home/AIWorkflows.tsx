@@ -101,7 +101,7 @@ export default function AIWorkflows() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="col-span-1 lg:col-span-6 flex flex-col space-y-10"
+            className="col-span-1 lg:col-span-6 flex flex-col space-y-8"
             id="ai-content-block"
           >
             {/* Pill Badge */}

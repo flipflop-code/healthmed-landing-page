@@ -5,16 +5,16 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { ShieldCheck, Shield, Globe, Cloud } from 'lucide-react';
+import { BadgeCheck, Shield, Globe, CloudUpload } from 'lucide-react';
 import { Heading } from '../../components/ui/Heading';
 import { Button } from '../../components/ui/Button';
 
 export default function ModernizeCTA() {
   const complianceItems = [
-    { label: 'HIPAA COMPLIANT', icon: <ShieldCheck className="h-5 w-5 text-white/90" strokeWidth={1.8} /> },
-    { label: 'SOC2 TYPE II', icon: <Shield className="h-5 w-5 text-white/90" strokeWidth={1.8} /> },
-    { label: 'GLOBAL SUPPORT', icon: <Globe className="h-5 w-5 text-white/90" strokeWidth={1.8} /> },
-    { label: 'CLOUD NATIVE', icon: <Cloud className="h-5 w-5 text-white/90" strokeWidth={1.8} /> },
+    { label: 'HIPAA COMPLIANT', icon: <BadgeCheck className="h-6 w-6 text-slate-300" strokeWidth={1.6} /> },
+    { label: 'SOC2 TYPE II', icon: <Shield className="h-6 w-6 text-slate-300" strokeWidth={1.6} /> },
+    { label: 'GLOBAL SUPPORT', icon: <Globe className="h-6 w-6 text-slate-300" strokeWidth={1.6} /> },
+    { label: 'CLOUD NATIVE', icon: <CloudUpload className="h-6 w-6 text-slate-300" strokeWidth={1.6} /> },
   ];
 
   return (
@@ -27,7 +27,7 @@ export default function ModernizeCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative bg-brand-blue-900 text-white px-8 py-16 md:py-20 overflow-hidden shadow-2xl border border-white/5"
+          className="relative bg-brand-blue-900 text-white py-16 md:py-20 overflow-hidden shadow-2xl border border-white/5"
           id="modernize-cta-banner"
          >
           {/* Subtle glowing dark blue/cyan radial lights */}
@@ -38,7 +38,7 @@ export default function ModernizeCTA() {
           <div className="relative z-10 text-center max-w-4xl mx-auto flex flex-col items-center">
             
             {/* Title display matching the exact styling with italics */}
-            <Heading level={2} className="brand-text-7xl text-white mb-6 max-w-3xl">
+            <Heading level={1} className="brand-text-7xl text-white mb-6 max-w-3xl">
               Ready to modernize your <br />
               <span className="italic block mt-2 text-white">
                 healthcare infrastructure?
@@ -46,7 +46,7 @@ export default function ModernizeCTA() {
             </Heading>
 
             {/* Paragraph body subtitle */}
-            <p className="text-slate-300 brand-text-3xl max-w-2xl mb-10">
+            <p className="brand-text-3xl mb-10">
               Deliver faster care and smarter operations through one connected healthcare ecosystem.
             </p>
 
@@ -69,22 +69,22 @@ export default function ModernizeCTA() {
               </Button>
             </div>
 
-            {/* Compliance Shields bottom line inside banner */}
-            <div className="w-full pt-10 border-t border-white/10" id="cta-compliance-grid">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 items-center justify-center">
-                {complianceItems.map((item, idx) => (
-                  <div key={idx} className="flex flex-col items-center justify-center text-center" id={`cta-compliance-item-${idx}`}>
-                    <div className="mb-3 text-brand-blue flex items-center justify-center">
-                      {item.icon}
-                    </div>
-                    <span className="text-slate-400 uppercase select-none">
-                      {item.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
+          </div>
 
+          {/* Compliance Shields bottom line inside banner - Full Width Line */}
+          <div className="relative z-10 w-full pt-16 border-t border-blue-700" id="cta-compliance-grid">
+            <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 items-center justify-center">
+              {complianceItems.map((item, idx) => (
+                <div key={idx} className="flex flex-col items-center justify-center text-center" id={`cta-compliance-item-${idx}`}>
+                  <div className="mb-3 text-brand-blue flex items-center justify-center">
+                    {item.icon}
+                  </div>
+                  <span className="text-gray-400 brand-text-xl uppercase select-none">
+                    {item.label}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
 
         </motion.div>

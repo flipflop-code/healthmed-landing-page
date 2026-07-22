@@ -39,11 +39,11 @@ export default function Products() {
   ];
 
   return (
-    <section className="products-section py-20 md:py-28 overflow-hidden" id="products">
+    <section className="bg-[var(--color-background)] border-b border-[var(--color-brand-gray-100)] py-20 md:py-28 overflow-hidden" id="products">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
          {/* Section Headings */}
-        <div className="text-center max-w-4xl mx-auto products-header-container">
+        <div className="text-center max-w-4xl mx-auto mb-[var(--space-2xl)]">
           <div className="flex justify-center mb-5">
             <Badge variant="dark">
               Products
@@ -67,18 +67,18 @@ export default function Products() {
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="products-card flex flex-col group cursor-pointer"
+              className="bg-[var(--color-surface)] border border-[var(--color-brand-gray-200)] p-[20px] shadow-none hover:shadow-none transition-all duration-200 ease-out flex flex-col group cursor-pointer"
               id={`product-card-${card.id.toLowerCase()}`}
             >
               
               {/* Product Card Image Banner with Zoom Effect */}
-              <div className="products-img-container" id={`product-img-container-${card.id.toLowerCase()}`}>
+              <div className="overflow-hidden relative bg-[var(--color-surface-secondary)] mb-[var(--space-lg)] aspect-[16/10] w-full" id={`product-img-container-${card.id.toLowerCase()}`}>
                 <img
                   src={card.image}
                   alt={`${card.title} - ${card.description}`}
                   width={600}
                   height={375}
-                  className="products-card-img"
+                  className="w-full h-full object-cover transition-transform duration-600 ease-[var(--transition-bezier-smooth)] group-hover:scale-[1.06]"
                   loading="lazy"
                   decoding="async"
                 />
@@ -88,7 +88,7 @@ export default function Products() {
               <div className="flex flex-col flex-grow" id={`product-info-${card.id.toLowerCase()}`}>
                 {/* Title and Read More Action Link on the exact same row */}
                  <div className="flex items-center justify-between mb-4">
-                  <h3 className="brand-text-5xl products-info-title" id={`product-title-${card.id.toLowerCase()}`}>
+                  <h3 className="brand-text-5xl text-[var(--color-brand-charcoal-dark)]" id={`product-title-${card.id.toLowerCase()}`}>
                     {card.title}
                   </h3>
                   <Button
@@ -102,7 +102,7 @@ export default function Products() {
                 </div>
 
                 {/* Body Paragraph description with custom leading and text-sm / text-[13.5px] */}
-                <p className="brand-text-2xl products-info-desc flex-grow">
+                <p className="brand-text-2xl text-[var(--color-text-muted)] flex-grow">
                   {card.description}
                 </p>
               </div>

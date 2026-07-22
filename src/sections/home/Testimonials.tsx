@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
+import { Badge } from '../../components/ui/Badge';
 import { Quote } from 'lucide-react';
 
 export default function Testimonials() {
@@ -63,7 +64,7 @@ export default function Testimonials() {
       <div>
         {/* Quote Icon indicator (Lucide icon compliant with project system) */}
         <div className="mb-6 flex items-center" id={`testimonial-quote-box-${prefix}-${idx}`}>
-          <Quote className="w-8 h-8 text-[#0055FF] fill-[#0055FF]" aria-hidden="true" />
+          <Quote className="w-8 h-8 text-[#0055FF] fill-[#0055FF] rotate-180" aria-hidden="true" />
         </div>
 
         {/* Quotation block text */}
@@ -103,11 +104,9 @@ export default function Testimonials() {
         
         {/* Card head section */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
-          <div className="flex justify-center">
-            <span className="px-4 py-1.5 bg-gradient-to-b from-[#343A40] to-[#191C1F] text-white rounded shadow-sm select-none cursor-default border border-brand-gray-700/60 brand-text-xl-medium" id="testimonial-badge">
+             <Badge variant="dark" id="impact-badge">
               Testimonial
-            </span>
-          </div>
+            </Badge>
           {/* Typo Match: "What our Client Say" with elegant italicized serif start */}
           <h2 className="brand-text-7xl text-brand-black mt-6" id="testimonial-heading">
             <span className="italic">What</span> our Client Say

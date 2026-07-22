@@ -1,12 +1,5 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
-import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Play, Volume2, VolumeX } from 'lucide-react';
-import './VideoTestimonials.css';
+import React, { useState, useRef } from 'react';
+import { Volume2, VolumeX, Play } from 'lucide-react';
 
 interface VideoTeamMember {
   id: number;
@@ -16,40 +9,36 @@ interface VideoTeamMember {
   videoUrl: string;
 }
 
-export default function VideoTestimonials() {
+export const VideoTestimonials: React.FC = () => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
   const [isMuted, setIsMuted] = useState(true);
   const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({});
-  const [videoSources, setVideoSources] = useState<{ [key: number]: string }>({
-    1: 'https://assets.mixkit.co/videos/preview/mixkit-female-doctor-welcoming-a-patient-at-her-office-40340-large.mp4',
-    2: 'https://assets.mixkit.co/videos/preview/mixkit-doctor-explaining-something-on-a-tablet-40341-large.mp4',
-    3: 'https://assets.mixkit.co/videos/preview/mixkit-medical-professional-working-in-a-lab-40337-large.mp4'
+  const [videoSources] = useState<{ [key: number]: string }>({
+    1: '/videos/doctor-consultation.mp4',
+    2: '/videos/hospital-dashboard.mp4',
+    3: '/videos/laboratory-work.mp4'
   });
 
-  // To match the exact UI in the reference mockup:
-  // - All 3 cards feature the same female doctor on a bright teal/blue background.
-  // - All 3 cards are labeled "Alex Bean" / "Hospital Administrator".
-  // - The 3rd card has a white circular sticker with a red gear/cog symbol over her head.
   const teamVideos: VideoTeamMember[] = [
     {
       id: 1,
-      name: 'Alex Bean',
-      role: 'Hospital Administrator',
-      thumbnail: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=600&h=750&fm=webp',
+      name: 'Dr. Sarah Mitchell',
+      role: 'Chief Medical Officer',
+      thumbnail: '/images/testimonials/sarah-mitchell.jpg',
       videoUrl: videoSources[1],
     },
     {
       id: 2,
-      name: 'Alex Bean',
-      role: 'Hospital Administrator',
-      thumbnail: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=600&h=750&fm=webp',
+      name: 'Michael Rodriguez',
+      role: 'Hospital Operations Director',
+      thumbnail: '/images/testimonials/michael-rodriguez.jpg',
       videoUrl: videoSources[2],
     },
     {
       id: 3,
-      name: 'Alex Bean',
-      role: 'Hospital Administrator',
-      thumbnail: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=600&h=750&fm=webp',
+      name: 'Emily Chen',
+      role: 'Clinical Laboratory Manager',
+      thumbnail: '/images/testimonials/emily-chen.jpg',
       videoUrl: videoSources[3],
     },
   ];
@@ -85,7 +74,7 @@ export default function VideoTestimonials() {
     e.stopPropagation();
     const nextMuted = !isMuted;
     setIsMuted(nextMuted);
-    
+
     // Apply to all pre-rendered video refs
     Object.keys(videoRefs.current).forEach((key) => {
       const videoEl = videoRefs.current[Number(key)];
@@ -95,44 +84,44 @@ export default function VideoTestimonials() {
     });
   };
 
-  // Fallback handler if primary video source fails to load
-  const handleVideoError = (id: number) => {
-    console.warn(`Video ${id} failed to load. Initiating fast Google CDN fallback.`);
-    const fallbackUrls = [
-      'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
-      'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
-      'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4'
-    ];
-    setVideoSources(prev => ({
-      ...prev,
-      [id]: fallbackUrls[id - 1] || fallbackUrls[0]
-    }));
-  };
-
   return (
-    <section className="video-testimonials-section" id="video-testimonials">
-      <div className="video-testimonials-container">
-        
+    <section
+      className="bg-[var(--color-surface-secondary)] py-[var(--spacing-5xl)] lg:py-[var(--spacing-6xl)] px-[var(--space-lg)] lg:px-[var(--space-xl)] border-b border-[var(--color-border-subtle)] relative"
+      id="video-testimonials"
+    >
+      <div className="max-w-[var(--container-xl)] mx-auto">
         {/* Section Header */}
-        <div className="video-testimonials-header" id="video-testimonials-header">
-          <h2 className="video-testimonials-title brand-text-6xl md:brand-text-7xl" id="video-testimonials-title">
+        <div
+          className="text-center max-w-[800px] mx-auto mb-[var(--spacing-4xl)]"
+          id="video-testimonials-header"
+        >
+          <h2
+            className="text-[var(--color-brand-charcoal)] mb-[var(--space-md-lg)] brand-text-6xl md:brand-text-7xl"
+            id="video-testimonials-title"
+          >
             Trusted by Healthcare Teams That Deliver Better Care
           </h2>
-          <p className="video-testimonials-subtitle brand-text-2xl" id="video-testimonials-subtitle">
+          <p
+            className="text-[var(--color-brand-gray-600)] brand-text-2xl"
+            id="video-testimonials-subtitle"
+          >
             Hear directly from hospital administrators, doctors, laboratory teams, and operations leaders who
             transformed their daily workflows with Healthmed HMIS.
           </p>
         </div>
 
         {/* Video Cards Grid */}
-        <div className="video-testimonials-grid" id="video-testimonials-grid">
+        <div
+          className="grid grid-cols-1 md:grid-cols-3 gap-[var(--space-xl)] md:gap-[var(--spacing-grid-gap-sm)] lg:gap-[var(--spacing-grid-gap-lg)]"
+          id="video-testimonials-grid"
+        >
           {teamVideos.map((member) => {
             const isHovered = hoveredId === member.id;
 
             return (
               <div
                 key={member.id}
-                className={`video-testimonial-card ${isHovered ? 'is-playing' : ''}`}
+                className="group relative h-[var(--size-card-height-lg)] rounded-[var(--radius-lg)] overflow-hidden bg-[var(--color-surface-tertiary)] shadow-[var(--shadow-card)] cursor-pointer transition-all duration-[var(--transition-duration-slow)] ease-[var(--transition-bezier-smooth)] hover:shadow-[var(--shadow-card-hover)]"
                 onMouseEnter={() => handleMouseEnter(member.id)}
                 onMouseLeave={() => handleMouseLeave(member.id)}
                 id={`video-testimonial-card-${member.id}`}
@@ -141,7 +130,7 @@ export default function VideoTestimonials() {
                 <img
                   src={member.thumbnail}
                   alt={member.name}
-                  className="video-card-thumbnail"
+                  className="w-full h-full object-cover transition-transform duration-[var(--transition-duration-zoom)] ease-[var(--transition-bezier-smooth)] group-hover:scale-[1.04]"
                   id={`video-card-thumbnail-${member.id}`}
                   referrerPolicy="no-referrer"
                 />
@@ -152,46 +141,70 @@ export default function VideoTestimonials() {
                     videoRefs.current[member.id] = el;
                   }}
                   src={member.videoUrl}
-                  className={`video-player-element-hover ${isHovered ? 'visible' : ''}`}
+                  className={`absolute inset-0 w-full h-full object-cover z-12 transition-opacity duration-[var(--transition-duration-extra-slow)] ease-[var(--transition-bezier-smooth)] ${
+                    isHovered ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+                  }`}
                   playsInline
                   loop
                   muted={isMuted}
                   controls={false}
                   preload="auto"
-                  onError={() => handleVideoError(member.id)}
                   id={`video-player-element-${member.id}`}
                 />
 
                 {/* Micro unmute controller during hover playback */}
                 {isHovered && (
                   <button
-                    className="video-hover-mute-toggle"
+                    className="absolute top-[var(--space-md)] right-[var(--space-md)] z-25 w-[var(--size-control-sm)] h-[var(--size-control-sm)] rounded-[var(--radius-full)] bg-[var(--color-bg-dark-glass)] backdrop-blur-[6px] flex items-center justify-center border-none cursor-pointer transition-all duration-[var(--transition-duration-default)] hover:bg-[var(--color-brand-blue-accent)] hover:scale-110"
                     onClick={(e) => toggleMute(e, member.id)}
-                    aria-label={isMuted ? "Unmute sound" : "Mute sound"}
+                    aria-label={isMuted ? 'Unmute sound' : 'Mute sound'}
                     id={`video-hover-mute-toggle-${member.id}`}
                   >
-                    {isMuted ? <VolumeX className="w-4 h-4 text-white" /> : <Volume2 className="w-4 h-4 text-white" />}
+                    {isMuted ? (
+                      <VolumeX className="w-4 h-4 text-white" />
+                    ) : (
+                      <Volume2 className="w-4 h-4 text-white" />
+                    )}
                   </button>
                 )}
 
                 {/* Centered Play Button overlay (visible when not hovered, or gently scaling) */}
-                <div className={`video-play-trigger ${isHovered ? 'hovered' : ''}`} id={`play-trigger-${member.id}`}>
-                  <div className="video-play-circle">
-                    <Play className="video-play-icon" />
+                <div
+                  className={`absolute inset-0 flex items-center justify-center z-10 pointer-events-none transition-all duration-[var(--transition-duration-extra-slow)] ease-[var(--transition-bezier-smooth)] ${
+                    isHovered ? 'opacity-0 scale-75' : ''
+                  }`}
+                  id={`play-trigger-${member.id}`}
+                >
+                  <div className="w-[56px] h-[44px] bg-[rgba(55,70,82,0.75)] backdrop-blur-[8px] rounded-[12px] flex items-center justify-center transition-all duration-[var(--transition-duration-medium)] ease-out pointer-events-auto shadow-[0_4px_16px_rgba(0,0,0,0.2)] border border-white/12 group-hover:scale-[1.08] group-hover:bg-[rgba(0,85,255,0.85)]">
+                    <Play className="w-5 h-5 text-white fill-white ml-[2px]" />
                   </div>
                 </div>
 
                 {/* Premium Frosted Glass Text Overlay (Figma inspired) */}
-                <div className={`video-card-frosted-overlay ${isHovered ? 'hovered' : ''}`} id={`card-frosted-overlay-${member.id}`}>
-                  <h3 className="video-member-name brand-text-2xl-medium" id={`member-name-${member.id}`}>{member.name}</h3>
-                  <p className="video-member-role brand-text-xl" id={`member-role-${member.id}`}>{member.role}</p>
+                <div
+                  className="absolute bottom-0 inset-x-0 px-6 py-4 backdrop-blur-[30px] flex flex-col justify-end z-15 transition-all duration-[var(--transition-duration-extra-slow)] ease-out"
+                  id={`card-frosted-overlay-${member.id}`}
+                >
+                  <h3
+                    className="text-white brand-text-3xl-medium"
+                    id={`member-name-${member.id}`}
+                  >
+                    {member.name}
+                  </h3>
+                  <p
+                    className="text-brand-gray-200 brand-text-xl"
+                    id={`member-role-${member.id}`}
+                  >
+                    {member.role}
+                  </p>
                 </div>
               </div>
             );
           })}
         </div>
-
       </div>
     </section>
   );
-}
+};
+
+export default VideoTestimonials;

@@ -3,15 +3,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
+import Contact from './pages/Contact';
+import Insights from './pages/Insights';
+import BlogDetails from './pages/BlogDetails';
 import WhatsAppFloat from './components/common/WhatsAppFloat';
 import ScrollToTop from './components/common/ScrollToTop';
-
-const Contact = lazy(() => import('./pages/Contact'));
-const Insights = lazy(() => import('./pages/Insights'));
-const BlogDetails = lazy(() => import('./pages/BlogDetails'));
 
 export default function App() {
   return (
@@ -20,31 +19,11 @@ export default function App() {
       <div id="app-root">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/contact" element={
-            <Suspense fallback={<div className="min-h-screen bg-[#f5f3ef]" />}>
-              <Contact />
-            </Suspense>
-          } />
-          <Route path="/insights" element={
-            <Suspense fallback={<div className="min-h-screen bg-[#f5f3ef]" />}>
-              <Insights />
-            </Suspense>
-          } />
-          <Route path="/insights/:slug" element={
-            <Suspense fallback={<div className="min-h-screen bg-[#f5f3ef]" />}>
-              <BlogDetails />
-            </Suspense>
-          } />
-          <Route path="/blog" element={
-            <Suspense fallback={<div className="min-h-screen bg-[#f5f3ef]" />}>
-              <Insights />
-            </Suspense>
-          } />
-          <Route path="/blog/:slug" element={
-            <Suspense fallback={<div className="min-h-screen bg-[#f5f3ef]" />}>
-              <BlogDetails />
-            </Suspense>
-          } />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/insights" element={<Insights />} />
+          <Route path="/insights/:slug" element={<BlogDetails />} />
+          <Route path="/blog" element={<Insights />} />
+          <Route path="/blog/:slug" element={<BlogDetails />} />
         </Routes>
         
         {/* Global floating components */}

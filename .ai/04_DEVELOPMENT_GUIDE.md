@@ -24,13 +24,25 @@ src/
 ├── pages/              # High-level page routing files (Home, Product, Solutions)
 ├── sections/           # Modular page-specific sub-sections (organized by route)
 │   └── home/           # Home-page specific blocks (Hero, Modules, Partners, WhyChooseUs)
-├── styles/             # Stylesheet configuration, CSS modules, variables
+├── styles/             # Global stylesheet configuration, CSS variables, typography classes
 └── utils/              # Independent formatting engines and clinical utility libraries
 ```
 
 ---
 
 ## 2. Component Architecture & Guidelines
+
+### Self-Contained Components
+Every component in the project must be completely self-contained (`Component.tsx` only).
+Do NOT create or generate individual CSS files such as:
+- `Hero.css`
+- `Features.css`
+- `Modules.css`
+- `Testimonials.css`
+- `Footer.css`
+- `Contact.css`
+
+Do NOT import component CSS files. All styling lives directly inside the React component using Tailwind utility classes.
 
 ### When to Create Components
 1. **Reusability:** The element or structure appears in 2 or more distinct pages or layout sections.
@@ -50,8 +62,7 @@ src/
   ```tsx
   export const DiagnosticCard: React.FC<CardProps> = ({ id, title, description, children }) => {
     return (
-      <div className="diagnostic-card" id={id}>
-        {/* Component-specific layout and slots */}
+      <div className="bg-[var(--color-surface-primary)] border border-[var(--color-border-subtle)] rounded-[var(--radius-3xl)] p-[var(--spacing-lg)] shadow-[var(--shadow-stage)] flex flex-col" id={id}>
         {children}
       </div>
     );
@@ -74,89 +85,83 @@ src/
 
 ---
 
-## 4. Strict Tailwind CSS Constraints (CRITICAL)
+## 4. Tailwind-First Architecture & Design Tokens (CRITICAL)
 
-The Healthmed frontend is styled using **semantic CSS stylesheets**. Tailwind utility classes are restricted to **Structural and Layout-only roles**.
+The Healthmed frontend is strictly **Tailwind-first**. Tailwind utility classes are used for all component styling (layout, colors, backgrounds, borders, radius, shadows, spacing, sizing, flexbox, grid, responsive design, transitions, hover effects, and animations).
 
 ```
-                        STRICT WORKSPACE STYLING RULES
+                        TAILWIND-FIRST STYLING RULES
        ┌──────────────────────────────────────────────────────────────┐
-       │   ALLOWED TAILWIND UTILITIES (Layout Engine Only)            │
+       │   DESIGN TOKENS VIA CSS VARIABLES IN TAILWIND UTILITIES      │
        ├──────────────────────────────────────────────────────────────┤
-       │  - flex, grid, gap, items-*, justify-*                       │
-       │  - block, inline-block, hidden                               │
-       │  - relative, absolute, sticky, fixed, inset-*                │
-       │  - overflow-*, z-*                                           │
+       │  - Backgrounds:  bg-[var(--color-surface-primary)]           │
+       │  - Text colors:  text-[var(--color-brand-charcoal)]          │
+       │  - Borders:      border border-[var(--color-border-subtle)]  │
+       │  - Radius:       rounded-[var(--radius-3xl)]                 │
+       │  - Spacing:      p-[var(--spacing-lg)] gap-[var(--spacing-md)]│
+       │  - Sizing:       max-w-[var(--container-xl)]                 │
+       │  - Elevation:    shadow-[var(--shadow-stage)]                │
        └──────────────────────────────┬───────────────────────────────┘
                                       │
                                       ▼
        ┌──────────────────────────────────────────────────────────────┐
-       │   STRICTLY FORBIDDEN TAILWIND UTILITIES (Must go in CSS)     │
+       │   TYPOGRAPHY SYSTEM COMPLIANCE (MUST USE CENTRAL TOKENS)     │
        ├──────────────────────────────────────────────────────────────┤
-       │  - Color classes: bg-[#...], text-[#...], border-[#...]       │
-       │  - Typography details: font-serif, leading-*, tracking-*     │
-       │    (Redirect to .ai/03_TYPOGRAPHY_SYSTEM.md for guidance)    │
-       │  - Spacing blocks: p-*, m-*, px-*, py-*, pt-*                │
-       │  - Corner styles & Shadow elements: rounded-*, shadow-*      │
+       │  - Typography MUST use utility tokens: brand-text-9xl,       │
+       │    brand-text-7xl, brand-text-6xl, brand-text-3xl, etc.      │
+       │  - STRICTLY FORBIDDEN: text-xl, text-2xl, font-bold,         │
+       │    font-serif, leading-*, tracking-*                         │
        └──────────────────────────────────────────────────────────────┘
 ```
 
-### Class Matching Example
+### Design Token Arbitrary Values
 
-* **❌ INCORRECT / FORBIDDEN JSX COMPOSITION:**
+Never hardcode raw hex colors, pixel paddings, hardcoded radii, or arbitrary drop shadows in Tailwind classes. Always use CSS variables from the Design System with Tailwind arbitrary values:
+
+* `bg-[var(--color-surface-primary)]`
+* `text-[var(--color-text-primary)]`
+* `border-[var(--color-border-subtle)]`
+* `rounded-[var(--radius-xl)]`
+* `p-[var(--spacing-lg)]` / `px-[var(--spacing-lg)]` / `py-[var(--spacing-xl)]`
+* `shadow-[var(--shadow-card)]`
+* `gap-[var(--spacing-grid-gap)]`
+* `max-w-[var(--container-xl)]`
+
+### Component Composition Example
+
+* **❌ INCORRECT (Hardcoded values & CSS file imports):**
   ```tsx
-  /* DO NOT use raw Tailwind styling utilities in JSX */
-  <div className="bg-white border border-[#E5E7EB] rounded-[24px] p-8 md:p-14 shadow-[0_10px_45px_rgba(0,0,0,0.03)] flex flex-col space-y-6">
-    <h3 className="font-serif brand-text-3xl text-brand-charcoal leading-tight">
-      Patient Care
-    </h3>
+  /* DO NOT import component CSS files or use hardcoded values */
+  import './HealthcareCard.css';
+
+  <div className="bg-white border border-[#E5E7EB] rounded-[24px] p-8 md:p-14 shadow-[0_10px_45px_rgba(0,0,0,0.03)] text-xl font-serif leading-tight">
+    Patient Care
   </div>
   ```
 
 * **✅ CORRECT EXECUTABLE COMPOSITION:**
   ```tsx
-  /* DO use descriptive class names and reference structural layouts */
-  import './Modules.css';
-
+  /* All styling lives inside the React component using Tailwind & Design Tokens */
   export default function HealthcareCard() {
     return (
-      <div className="modules-card flex flex-col">
-        {/* Typography is handled strictly via central tokens. See 03_TYPOGRAPHY_SYSTEM.md */}
-        <h3 className="modules-card-title brand-text-5xl">
+      <div className="bg-[var(--color-brand-white)] border border-[var(--color-brand-gray-100)] rounded-[var(--radius-3xl)] p-[var(--spacing-lg)] md:p-[var(--spacing-xl)] shadow-[var(--shadow-stage)] flex flex-col">
+        {/* Typography comes strictly from the Typography System (.ai/03_TYPOGRAPHY_SYSTEM.md) */}
+        <h3 className="brand-text-5xl text-[var(--color-brand-charcoal)]">
           Patient Care
         </h3>
       </div>
     );
   }
   ```
-  ```css
-  /* (Modules.css) Define all layout styles inside the stylesheet */
-  .modules-card {
-    background-color: var(--color-brand-white);
-    border: 1px solid var(--color-brand-gray-100);
-    border-radius: var(--radius-3xl);
-    padding: var(--spacing-lg);
-    box-shadow: var(--shadow-stage);
-  }
-
-  .modules-card-title {
-    color: var(--color-brand-charcoal);
-  }
-
-  @media (min-width: 768px) {
-    .modules-card {
-      padding: var(--spacing-xl);
-    }
-  }
-  ```
 
 ---
 
-## 5. CSS Organization Rules
+## 5. Component Architecture & File Rules
 
-* Every component or page section must maintain its own stylesheet inside its local workspace (e.g. `src/sections/home/Modules.css` for `src/sections/home/Modules.tsx`).
-* Components must import their local stylesheet directly at the top of the file.
-* Keep class structures modular and flat. Do not build overly deep nesting loops, as this complicates future code adjustments.
+* **Self-Contained Files:** Every component consists of a single `Component.tsx` file.
+* **No CSS Files:** Do NOT create `Component.css` files unless there is an exceptional, explicitly approved project-wide requirement.
+* **No CSS Imports:** Do NOT write `import './Component.css'` inside component files.
+* **Tailwind Utility Styling:** Utilize Tailwind CSS utility classes with Design Token CSS variables for layout, colors, borders, shadows, spacing, and animations.
 
 ---
 
@@ -169,7 +174,7 @@ The Healthmed frontend is styled using **semantic CSS stylesheets**. Tailwind ut
   ```
 * **Image Optimization:** Always set explicit aspect ratios, dimensions, and use lazy loading flags for below-the-fold assets:
   ```tsx
-  <img src={assetUrl} loading="lazy" width="600" height="450" className="lazy-image" referrerPolicy="no-referrer" />
+  <img src={assetUrl} loading="lazy" width="600" height="450" className="w-full h-auto rounded-[var(--radius-2xl)]" referrerPolicy="no-referrer" />
   ```
 
 ---
@@ -203,7 +208,7 @@ All structural transitions must run cleanly on GPU threads using **Framer Motion
   ```tsx
   <motion.div 
     layoutId="activeTabUnderline" 
-    className="modules-tab-underline absolute bottom-0 left-0 right-0 z-10" 
+    className="absolute bottom-0 left-0 right-0 z-10 bg-[var(--color-brand-blue)] h-[2px]" 
     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
   />
   ```
@@ -211,7 +216,7 @@ All structural transitions must run cleanly on GPU threads using **Framer Motion
   ```tsx
   <motion.div
     layoutId="activeTabBackground"
-    className="modules-tab-bg-gradient absolute inset-x-0 top-0 bottom-0"
+    className="absolute inset-x-0 top-0 bottom-0 bg-[var(--color-brand-gray-50)]"
     transition={{ type: 'tween', duration: 0.25 }}
   />
   ```
@@ -242,10 +247,11 @@ Before certifying any task as completed, verify that the following assertions ho
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                    DEVELOPMENT COMPLIANCE CHECKLIST                         │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ [ ] Code uses semantic custom CSS classes, NOT raw utility Tailwind.         │
-│ [ ] Stylesheet rules align with Design System (02_DESIGN_SYSTEM.md).         │
+│ [ ] Component is completely self-contained in a single Component.tsx file.   │
+│ [ ] No component-specific CSS files are generated or imported.               │
+│ [ ] Styling uses Tailwind CSS utility classes with Design Tokens (vars).    │
 │ [ ] Typography utilizes central tokens (03_TYPOGRAPHY_SYSTEM.md) completely.  │
-│ [ ] No typography properties (font-size, etc.) are declared in local CSS.    │
+│ [ ] No raw text sizing (text-xl) or font weight (font-bold) classes used.    │
 │ [ ] All heavy visual modules load lazily via Suspense.                       │
 │ [ ] TypeScript declarations are strictly typed, avoiding the use of 'any'.    │
 │ [ ] The application passes all linter and compilation checks successfully.   │

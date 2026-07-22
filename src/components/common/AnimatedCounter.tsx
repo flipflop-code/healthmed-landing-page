@@ -47,7 +47,7 @@ function parseValueAndSuffix(value: number | string, propSuffix?: string) {
 export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   value,
   suffix: propSuffix,
-  duration = 1.8, // Default duration between 1.5 and 2.0 seconds
+  duration = 4, // Default duration between 1.5 and 2.0 seconds
   decimals,
   className = '',
   id

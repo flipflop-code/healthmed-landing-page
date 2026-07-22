@@ -57,7 +57,7 @@ export default function Features() {
   ];
 
   return (
-    <section className="features-section py-20 md:py-28 overflow-hidden" id="features">
+    <section className="bg-[var(--color-primary)] text-[var(--color-brand-white)] border-b border-[var(--color-primary-hover)] py-20 md:py-28 overflow-hidden" id="features">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header content and Badges */}
@@ -81,23 +81,23 @@ export default function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.08 }}
-              className={`features-card flex flex-col justify-start text-left ${
-                item.hasBg ? 'features-card-with-bg' : 'features-card-transparent'
+              className={`p-[var(--space-lg)] md:p-[var(--space-xl)] min-h-[240px] backdrop-blur-[12px] flex flex-col justify-start text-left ${
+                item.hasBg ? 'bg-white/8' : 'bg-transparent border border-transparent'
               }`}
               id={`feature-card-${idx}`}
             >
               {/* Feature Icon container alignment */}
-              <div className="features-card-icon-wrapper flex items-center justify-start">
+              <div className="w-12 h-12 mb-[var(--space-lg)] flex items-center justify-start">
                 {item.icon}
               </div>
 
               {/* Title heading formatted neatly */}
-              <h3 className="brand-text-3xl-medium features-card-title">
+              <h3 className="brand-text-3xl-medium text-[var(--color-brand-white)] mb-[var(--space-sm)]">
                 {item.title}
               </h3>
 
               {/* Description Paragraph with high opacity & readable spacing */}
-              <p className="features-card-desc">
+              <p className="brand-text-2xl text-[#94beff]">
                 {item.text}
               </p>
             </motion.div>

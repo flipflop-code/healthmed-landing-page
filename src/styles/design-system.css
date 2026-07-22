@@ -1,12 +1,4 @@
 @import "tailwindcss";
-@import "../sections/home/Hero.css";
-@import "../sections/home/EcosystemHub.css";
-@import "../sections/home/Products.css";
-@import "../sections/home/Features.css";
-@import "../pages/Insights.css";
-@import "../pages/Contact.css";
-@import "../pages/BlogDetails.css";
-@import "../components/layout/Footer.css";
 
 :root {
   /* Font Families */
@@ -33,7 +25,7 @@
   --color-surface-tertiary: #ebf1f5;
   --color-surface-warm: #f7f5f0;
   --color-surface-hover: #f1f3f5;
-  --color-border-subtle: #e5e7eb;
+  --color-border-subtle: #CED4DA;
   --color-accent-vivid-red: #e11d48;
   --color-bg-dark-glass: rgba(15, 23, 42, 0.72);
   --color-bg-dark-glass-play: rgba(30, 41, 59, 0.72);
@@ -98,7 +90,7 @@
   --size-progress-pill-height: 0.25rem;/* 4px */
 
   /* Healthmed Refactored Aesthetic Theme Variables */
-  --brand-bg-cream: #f5f3ef;
+  --brand-bg-cream: #F7F6F3;
   --brand-navy-dark: #041527;
   --brand-blue-accent-custom: #0088cc;
   --brand-navy-hover: #1a2935;
@@ -140,7 +132,7 @@
   --font-mono: var(--font-mono);
 
   --color-brand-blue-50: #eff6ff;
-  --color-brand-blue-100: #eaf2ff;
+  --color-brand-blue-100: #EAF2FF;
   --color-brand-blue-200: #c9ddff;
   --color-brand-blue-300: #94beff;
   --color-brand-blue-400: #5f98f3;
@@ -333,6 +325,9 @@
   }
   .badge-custom-white {
     @apply bg-white text-brand-black py-1.5 px-4 rounded-lg shadow-sm border border-brand-gray-200 brand-text-xl;
+  }
+  .badge-custom-page {
+    @apply inline-flex items-center justify-center gap-[8px] h-[46px] py-[12px] px-[24px] rounded-[999px] border border-[#CED4DA] bg-transparent text-brand-charcoal brand-text-xl select-none;
   }
 
   /* Custom Functional Layout Classes preventing inline arbitrary metrics */

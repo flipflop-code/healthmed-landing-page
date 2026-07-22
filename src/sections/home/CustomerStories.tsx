@@ -8,7 +8,6 @@ import { motion } from 'motion/react';
 import { Badge } from '../../components/ui/Badge';
 import { Heading } from '../../components/ui/Heading';
 import { customerStoriesData, CustomerStory } from '../../data/customerStories';
-import './CustomerStories.css';
 
 export default function CustomerStories() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -246,34 +245,34 @@ export default function CustomerStories() {
 
   return (
     <section 
-      className="customer-stories-section" 
+      className="bg-[var(--color-surface-warm)] pt-[var(--spacing-5xl)] pb-[var(--spacing-5xl)] border-b border-[var(--color-border-subtle)]" 
       id="customer-stories"
       onKeyDown={handleKeyDown}
       tabIndex={0}
       aria-label="Customer Success Stories Carousel"
     >
-      <div className="customer-stories-container">
+      <div className="max-w-[var(--container-max-width)] mx-auto px-[var(--space-lg)]">
         
         {/* Centered Badge Indicator */}
-        <div className="customer-stories-badge-wrapper">
+        <div className="flex justify-center mb-[var(--space-md)]">
           <Badge variant="dark" id="customer-stories-badge">
             Customer Stories
           </Badge>
         </div>
 
         {/* Section Header */}
-        <div className="customer-stories-header">
-          <h2 className="customer-stories-title brand-text-6xl md:brand-text-7xl" id="customer-stories-heading">
+        <div className="text-center max-w-[var(--container-lg)] mx-auto mb-[var(--space-2xl-3xl)]">
+          <h2 className="text-[var(--color-text)] mt-[var(--space-md)] mb-[var(--space-sm)] brand-text-6xl md:brand-text-7xl" id="customer-stories-heading">
             <span className="italic">Real outcomes</span> from real deployments
           </h2>
-          <p className="customer-stories-subtitle brand-text-2xl" id="customer-stories-subtitle">
+          <p className="text-[var(--color-text-muted)] max-w-[var(--container-md)] mx-auto brand-text-2xl" id="customer-stories-subtitle">
             See how leading health systems, payers, and programs are transforming themselves.
           </p>
         </div>
 
         {/* Dynamic Showcase Area with Custom Gradient Frame */}
-        <div className="customer-stories-showcase" id="customer-stories-showcase-box">
-          <div className="customer-stories-carousel" id="customer-stories-carousel-viewport">
+        <div className="rounded-[var(--radius-card-lg)] p-[var(--space-lg)] lg:p-[var(--space-2xl)] lg:px-[var(--space-xl)] lg:pb-[var(--space-xl)] relative shadow-[var(--shadow-card-hover)] overflow-hidden w-full lg:max-w-[var(--container-xl)] lg:h-[var(--size-showcase-height)] lg:mx-auto bg-[linear-gradient(135deg,rgba(255,255,255,0.15)_0%,rgba(255,255,255,0)_50%,rgba(255,255,255,0.1)_100%),linear-gradient(55deg,transparent_20%,rgba(255,255,255,0.12)_21%,rgba(255,255,255,0.12)_35%,transparent_36%,transparent_45%,rgba(255,255,255,0.08)_46%,rgba(255,255,255,0.08)_58%,transparent_59%,transparent_70%,rgba(255,255,255,0.15)_71%,rgba(255,255,255,0.15)_85%,transparent_86%),linear-gradient(135deg,#0A5CFF_0%,#0044DB_35%,#0084FF_70%,#00C2FF_100%)]" id="customer-stories-showcase-box">
+          <div className="relative w-full h-[480px] lg:h-[570px] overflow-hidden select-none" id="customer-stories-carousel-viewport">
             
             {customerStoriesData.map((story, i) => {
               // Wrap indices to represent previous 2, current, and next 2 slides
@@ -287,7 +286,11 @@ export default function CustomerStories() {
               return (
                 <motion.div
                   key={story.id}
-                  className={`customer-story-card flex flex-col ${isActive ? 'active' : 'inactive'}`}
+                  className={`absolute top-1/2 -translate-y-1/2 w-[var(--size-card-width-sm)] min-[480px]:w-[var(--size-card-width-md)] lg:w-[var(--size-card-width-lg)] h-[var(--size-card-height-sm)] min-[480px]:h-[var(--size-card-height-md)] lg:h-[var(--size-card-height-xl)] rounded-[var(--radius-2xl)] p-[var(--space-lg)] lg:p-[var(--space-xl-2xl)] flex flex-col gap-[var(--space-lg-xl)] lg:gap-[var(--space-xl)] cursor-grab active:cursor-grabbing transition-[transform,opacity,background-color] duration-[var(--transition-duration-slow)] ease-[var(--transition-bezier-smooth)] ${
+                    isActive 
+                      ? 'bg-[var(--color-surface)] border border-[var(--color-surface)] shadow-[var(--shadow-xl)] pointer-events-auto' 
+                      : 'bg-white/12 backdrop-blur-[14px] border border-white/18 shadow-none cursor-pointer'
+                  }`}
                   style={{
                     position: 'absolute',
                     top: '50%',
@@ -315,22 +318,32 @@ export default function CustomerStories() {
                   id={`customer-story-card-${story.id}`}
                 >
                   {/* Brand Logo Container */}
-                  <div className="customer-story-logo-box">
+                  <div className={`rounded-[var(--radius-xl)] h-[var(--size-logo-box-height-sm)] lg:h-[var(--size-logo-box-height-lg)] flex items-center justify-center p-[var(--space-md)] transition-colors duration-[var(--transition-duration-slow)] ease-out ${
+                    isActive ? 'bg-[var(--color-surface-secondary)]' : 'bg-white/5'
+                  }`}>
                     {renderLogo(story.logoType)}
                   </div>
 
                   {/* Core Customer Metrics Panel */}
-                  <div className="customer-story-metrics">
+                  <div className={`flex flex-col justify-center flex-grow border-t transition-colors duration-[var(--transition-duration-slow)] ease-out ${
+                    isActive ? 'border-[var(--color-border-subtle)]' : 'border-white/12'
+                  }`}>
                     {story.metrics.map((metric, idx) => (
                       <div 
-                        className="customer-story-metric-row" 
+                        className={`flex items-center py-[var(--space-md)] lg:py-[var(--space-md-lg)] border-b last:border-b-0 transition-colors duration-[var(--transition-duration-slow)] ease-out ${
+                          isActive ? 'border-[var(--color-border-subtle)]' : 'border-white/12'
+                        }`} 
                         key={idx}
                         id={`story-metric-${story.id}-${idx}`}
                       >
-                        <span className="customer-story-metric-value brand-text-5xl md:brand-text-7xl">
+                        <span className={`w-[32%] shrink-0 transition-colors duration-[var(--transition-duration-slow)] ease-out brand-text-5xl md:brand-text-7xl ${
+                          isActive ? 'text-[var(--color-brand-gray-900)]' : 'text-white/85'
+                        }`}>
                           {metric.value}
                         </span>
-                        <span className="customer-story-metric-label brand-text-xl">
+                        <span className={`w-[68%] pl-[var(--space-md)] transition-colors duration-[var(--transition-duration-slow)] ease-out brand-text-xl ${
+                          isActive ? 'text-[var(--color-brand-gray-700)]' : 'text-white/55'
+                        }`}>
                           {metric.label}
                         </span>
                       </div>
@@ -344,13 +357,15 @@ export default function CustomerStories() {
           </div>
 
           {/* Interactive Progress Track Bar (Pill Indicators) */}
-          <div className="customer-stories-progress-pills" id="customer-stories-progress-pills">
+          <div className="flex justify-center items-center gap-[var(--space-sm)] mt-[var(--space-md)] lg:mt-[var(--space-sm)]" id="customer-stories-progress-pills">
             {customerStoriesData.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setActiveIndex(i)}
                 aria-label={`Show customer story slide ${i + 1}`}
-                className={`customer-stories-pill ${i === activeIndex ? 'active' : ''}`}
+                className={`w-[var(--size-progress-pill-width)] h-[var(--size-progress-pill-height)] rounded-[var(--radius-full)] border-none cursor-pointer transition-[background-color,transform] duration-[var(--transition-duration-medium)] ease-[var(--transition-bezier-smooth)] outline-none ${
+                  i === activeIndex ? 'bg-[var(--color-surface)]' : 'bg-white/35 hover:bg-white/65'
+                }`}
                 id={`customer-stories-pill-${i}`}
               />
             ))}

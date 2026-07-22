@@ -74,22 +74,22 @@ export default function EcosystemHub() {
         </div>
 
         {/* Central Interactive Ecosystem Stage on cream background without container borders */}
-        <div ref={stageRef} className="ecosystem-stage-container" id="ecosystem-stage">
+        <div ref={stageRef} className="relative max-w-3xl mx-auto flex items-center justify-center h-[30rem] md:h-[34rem]" id="ecosystem-stage">
           
           {/* Concentric Orbital dashed circle line passing exactly through the cards */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
             {/* Soft, beautiful radial highlight matching the reference image */}
-            <div className="ecosystem-ring-outer-elem" />
+            <div className="absolute rounded-full bg-gradient-to-tr from-brand-blue/10 to-transparent filter blur-[40px] opacity-70 animate-pulse-slow w-[22.5rem] h-[22.5rem] md:w-[31.25rem] md:h-[31.25rem]" />
             
             {/* The primary dashed orbit track line */}
-            <div className="ecosystem-ring-inner-elem" />
+            <div className="absolute rounded-full border border-dashed border-brand-blue-200 w-[17.5rem] h-[17.5rem] md:w-[26.25rem] md:h-[26.25rem]" />
           </div>
 
           {/* Central Blue Orb representing HealthMed Core Node */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             transition={{ type: 'spring', stiffness: 300, damping: 15 }}
-            className="ecosystem-center-badge"
+            className="relative z-20 flex flex-col items-center justify-center text-white text-center bg-brand-blue-accent rounded-full shadow-lg border-4 border-white cursor-pointer select-none w-[9rem] h-[9rem] md:w-[11rem] md:h-[11rem]"
             id="ecosystem-node-core"
           >
             <span className="brand-text-xl-medium">HealthMed</span>
@@ -103,7 +103,7 @@ export default function EcosystemHub() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="absolute top-4 left-2 md:top-[12%] md:left-[8%] satellite-card group select-none"
+              className="absolute top-4 left-2 md:top-[12%] md:left-[8%] bg-white rounded-2xl py-3 px-5 shadow-sm border border-brand-gray-100/50 flex items-center gap-3.5 cursor-pointer group select-none"
               id="node-hospitals"
             >
               <div className="p-2 rounded-xl bg-brand-blue-light text-brand-blue-accent transition-colors group-hover:bg-brand-blue-50">
@@ -117,7 +117,7 @@ export default function EcosystemHub() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="absolute top-4 right-2 md:top-[12%] md:right-[8%] satellite-card group select-none"
+              className="absolute top-4 right-2 md:top-[12%] md:right-[8%] bg-white rounded-2xl py-3 px-5 shadow-sm border border-brand-gray-100/50 flex items-center gap-3.5 cursor-pointer group select-none"
               id="node-diagnostics"
             >
               <div className="p-2 rounded-xl bg-brand-blue-light text-brand-blue-accent transition-colors group-hover:bg-brand-blue-50">
@@ -131,7 +131,7 @@ export default function EcosystemHub() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="absolute bottom-4 left-2 md:bottom-[12%] md:left-[8%] satellite-card group select-none"
+              className="absolute bottom-4 left-2 md:bottom-[12%] md:left-[8%] bg-white rounded-2xl py-3 px-5 shadow-sm border border-brand-gray-100/50 flex items-center gap-3.5 cursor-pointer group select-none"
               id="node-pharmacies"
             >
               <div className="p-2 rounded-xl bg-brand-blue-light text-brand-blue-accent transition-colors group-hover:bg-brand-blue-50">
@@ -145,7 +145,7 @@ export default function EcosystemHub() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="absolute bottom-4 right-2 md:bottom-[12%] md:right-[8%] satellite-card group select-none"
+              className="absolute bottom-4 right-2 md:bottom-[12%] md:right-[8%] bg-white rounded-2xl py-3 px-5 shadow-sm border border-brand-gray-100/50 flex items-center gap-3.5 cursor-pointer group select-none"
               id="node-careteams"
             >
               <div className="p-2 rounded-xl bg-brand-blue-light text-brand-blue-accent transition-colors group-hover:bg-brand-blue-50">

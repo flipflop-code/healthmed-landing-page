@@ -7,7 +7,7 @@ import React from 'react';
 
 export interface BadgeProps {
   children: React.ReactNode;
-  variant?: 'dark' | 'glass' | 'white';
+  variant?: 'dark' | 'glass' | 'white' | 'page' | 'outline';
   className?: string;
   id?: string;
 }
@@ -24,6 +24,10 @@ export function Badge({ children, variant = 'dark', className = '', id }: BadgeP
     case 'white':
       variantStyles = 'badge-custom-white';
       break;
+    case 'page':
+    case 'outline':
+      variantStyles = 'badge-custom-page';
+      break;
   }
 
   return (
@@ -33,5 +37,13 @@ export function Badge({ children, variant = 'dark', className = '', id }: BadgeP
     >
       {children}
     </span>
+  );
+}
+
+export function PageBadge({ children, className = '', id }: { children: React.ReactNode; className?: string; id?: string }) {
+  return (
+    <Badge variant="page" id={id} className={className}>
+      {children}
+    </Badge>
   );
 }

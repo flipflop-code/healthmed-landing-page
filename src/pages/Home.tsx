@@ -3,25 +3,22 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import Hero from '../sections/home/Hero';
 import Partners from '../sections/home/Partners';
-
-// Below-the-fold sections are dynamically imported to maximize LightHouse performance scores and page initialization
-const Modules = lazy(() => import('../sections/home/Modules'));
-const WhyChooseUs = lazy(() => import('../sections/home/WhyChooseUs'));
-const EcosystemHub = lazy(() => import('../sections/home/EcosystemHub'));
-const Products = lazy(() => import('../sections/home/Products'));
-const Features = lazy(() => import('../sections/home/Features'));
-const AIWorkflows = lazy(() => import('../sections/home/AIWorkflows'));
-const Impact = lazy(() => import('../sections/home/Impact'));
-const CustomerStories = lazy(() => import('../sections/home/CustomerStories'));
-const Testimonials = lazy(() => import('../sections/home/Testimonials'));
-const VideoTestimonials = lazy(() => import('../sections/home/VideoTestimonials'));
-const FAQ = lazy(() => import('../sections/home/FAQ'));
-const ModernizeCTA = lazy(() => import('../sections/home/ModernizeCTA'));
+import Modules from '../sections/home/Modules';
+import WhyChooseUs from '../sections/home/WhyChooseUs';
+import EcosystemHub from '../sections/home/EcosystemHub';
+import Products from '../sections/home/Products';
+import Features from '../sections/home/Features';
+import AIWorkflows from '../sections/home/AIWorkflows';
+import Impact from '../sections/home/Impact';
+import Testimonials from '../sections/home/Testimonials';
+import VideoTestimonials from '../sections/home/VideoTestimonials';
+import FAQ from '../sections/home/FAQ';
+import ModernizeCTA from '../sections/home/ModernizeCTA';
 
 export default function Home() {
   return (
@@ -32,55 +29,18 @@ export default function Home() {
       {/* Main Sections Fold Flow */}
       <main className="flex-grow">
         <Hero />
-        
-        <Suspense fallback={<div className="bg-brand-bg w-full min-h-[500px] border-b border-brand-gray-100" />}>
-          <Partners />
-        </Suspense>
-        
-        <Suspense fallback={<div className="bg-brand-bg w-full min-h-[500px] border-b border-brand-gray-100" />}>
-          <Modules />
-        </Suspense>
-        
-        <Suspense fallback={<div className="bg-brand-bg w-full min-h-[500px] border-b border-brand-gray-100" />}>
-          <WhyChooseUs />
-        </Suspense>
-
-        <Suspense fallback={<div className="bg-brand-bg w-full min-h-[500px] border-b border-brand-gray-100" />}>
-          <EcosystemHub />
-        </Suspense>
-
-        <Suspense fallback={<div className="bg-brand-bg w-full min-h-[500px] border-b border-brand-gray-100" />}>
-          <Products />
-        </Suspense>
-
-        <Suspense fallback={<div className="bg-brand-blue-accent w-full min-h-[400px] border-b border-brand-blue-600" />}>
-          <Features />
-        </Suspense>
-
-        <Suspense fallback={<div className="bg-[#FAF9F6] w-full min-h-[500px] border-b border-brand-gray-200" />}>
-          <AIWorkflows />
-        </Suspense>
-
-        <Suspense fallback={<div className="bg-white w-full min-h-[400px] border-b border-brand-gray-200" />}>
-          <Impact />
-        </Suspense>
-
-
-        <Suspense fallback={<div className="bg-brand-gray-50 w-full min-h-[500px] border-b border-brand-gray-200" />}>
-          <Testimonials />
-        </Suspense>
-
-        <Suspense fallback={<div className="bg-[#F8F9FA] w-full min-h-[500px] border-b border-brand-gray-200" />}>
-          <VideoTestimonials />
-        </Suspense>
-
-        <Suspense fallback={<div className="bg-brand-bg w-full min-h-[500px] border-b border-brand-gray-100" />}>
-          <FAQ />
-        </Suspense>
-
-        <Suspense fallback={<div className="bg-brand-bg w-full min-h-[400px] border-b border-brand-gray-100" />}>
-          <ModernizeCTA />
-        </Suspense>
+        <Partners />
+        <Modules />
+        <WhyChooseUs />
+        <EcosystemHub />
+        <Products />
+        <Features />
+        <AIWorkflows />
+        <Impact />
+        <Testimonials />
+        <VideoTestimonials />
+        <FAQ />
+        <ModernizeCTA />
       </main>
 
       {/* Footer Layout */}

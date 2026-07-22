@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Twitter, Facebook, Linkedin, Instagram } from 'lucide-react';
 // @ts-expect-error - image asset type declaration may be missing
 import logoImg from '../../assets/images/logo.png';
 
@@ -28,86 +29,76 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="app-footer" id="app-footer">
-      <div className="footer-container">
-        <div className="footer-grid">
+    <footer className="bg-brand-charcoal border-t border-white/8 " id="app-footer">
+      <div className="w-full max-w-[var(--container-max-width)] mx-auto px-[var(--space-lg)] md:px-[var(--space-xl)] py-[var(--space-2xl)] md:py-[var(--space-3xl)]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2.3fr_1fr_1.6fr_1.3fr] gap-[var(--space-2xl)] lg:gap-[var(--space-3xl)]">
           
           {/* Column 1: Brand Info */}
-          <div className="footer-brand-column">
-            <div className="footer-logo-box" id="footer-logo-container">
+          <div className="flex flex-col">
+            <div className="inline-block select-none pointer-events-none mb-[var(--space-xl)]" id="footer-logo-container">
               <img
                 src={logoImg}
                 alt="Healthmed Logo"
-                className="footer-logo-img"
+                className="h-[2.875rem] w-auto object-contain"
                 decoding="async"
                 loading="lazy"
                 referrerPolicy="no-referrer"
               />
             </div>
             
-            <p className="footer-brand-desc" id="footer-brand-info">
+            <p className="brand-text-xl text-brand-gray-400 mb-[2.25rem] max-w-[21rem]" id="footer-brand-info">
               Healthmed truly understands the problems of healthcare people and has built usable solutions to help them solve their everyday problems.
             </p>
             
-            {/* Social Icons exactly matching reference image design */}
-            <div className="footer-social-box" id="footer-social-links">
+            {/* Social Icons from lucide-react */}
+            <div className="flex items-center gap-[1.5rem]" id="footer-social-links">
               <a
                 href="#twitter-x"
-                className="footer-social-link"
+                className="text-white/90 inline-flex items-center justify-center transition-colors duration-[var(--transition-duration-default)] hover:text-[#0088cc]"
                 aria-label="Follow us on Twitter X"
                 id="footer-social-x"
               >
-                <svg className="footer-social-img" style={{ width: '20px', height: '20px' }} fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
+                <Twitter className="w-5 h-5" />
               </a>
               <a
                 href="#facebook"
-                className="footer-social-link"
+                className="text-white/90 inline-flex items-center justify-center transition-colors duration-[var(--transition-duration-default)] hover:text-[#0088cc]"
                 aria-label="Follow us on Facebook"
                 id="footer-social-fb"
               >
-                <svg className="footer-social-img" style={{ width: '21px', height: '21px' }} fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
-                </svg>
+                <Facebook className="w-5 h-5" />
               </a>
               <a
                 href="#linkedin"
-                className="footer-social-link"
+                className="text-white/90 inline-flex items-center justify-center transition-colors duration-[var(--transition-duration-default)] hover:text-[#0088cc]"
                 aria-label="Follow us on LinkedIn"
                 id="footer-social-in"
               >
-                <svg className="footer-social-img" style={{ width: '21px', height: '21px' }} fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                </svg>
+                <Linkedin className="w-5 h-5" />
               </a>
               <a
                 href="#instagram"
-                className="footer-social-link"
+                className="text-white/90 inline-flex items-center justify-center transition-colors duration-[var(--transition-duration-default)] hover:text-[#0088cc]"
                 aria-label="Follow us on Instagram"
                 id="footer-social-ig"
               >
-                <svg className="footer-social-img" style={{ width: '21px', height: '21px' }} stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
+                <Instagram className="w-5 h-5" />
               </a>
             </div>
           </div>
 
           {/* Column 2: Quick Links */}
-          <div className="footer-column">
-            <h3 className="footer-column-title" id="footer-quicklinks-heading">
+          <div className="flex flex-col">
+            <h3 className="brand-text-3xl-medium text-white  mb-[1.75rem] " id="footer-quicklinks-heading">
               Quick Links
             </h3>
-            <ul className="footer-links-list">
+            <ul className="list-none p-0 m-0 flex flex-col gap-[1.0625rem]">
               {quickLinks.map((link) => (
                 <li key={link.label}>
                   {link.href.startsWith('/#') || link.href === '/' ? (
                     <a
                       href={link.href}
-                      className="footer-link"
+                      className="brand-text-xl text-brand-gray-400 no-underline transition-colors duration-[var(--transition-duration-default)] inline-block hover:text-white"
                       id={`footer-link-${link.label.toLowerCase().replace(' ', '-')}`}
                     >
                       {link.label}
@@ -115,7 +106,7 @@ export default function Footer() {
                   ) : (
                     <Link
                       to={link.href}
-                      className="footer-link"
+                      className="brand-text-xl text-brand-gray-400 no-underline transition-colors duration-[var(--transition-duration-default)] inline-block hover:text-white"
                       id={`footer-link-${link.label.toLowerCase().replace(' ', '-')}`}
                     >
                       {link.label}
@@ -127,16 +118,16 @@ export default function Footer() {
           </div>
 
           {/* Column 3: Our Modules */}
-          <div className="footer-column">
-            <h3 className="footer-column-title" id="footer-modules-heading">
+          <div className="flex flex-col">
+            <h3 className="brand-text-3xl-medium text-white  mb-[1.75rem] " id="footer-modules-heading">
               Our Modules
             </h3>
-            <ul className="footer-links-list">
+            <ul className="list-none p-0 m-0 flex flex-col gap-[1.0625rem]">
               {modulesLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="footer-link"
+                    className="brand-text-xl text-brand-gray-400 no-underline transition-colors duration-[var(--transition-duration-default)] inline-block hover:text-white"
                     id={`footer-module-link-${link.label.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
                   >
                     {link.label}
@@ -147,33 +138,33 @@ export default function Footer() {
           </div>
 
           {/* Column 4: Get In Touch */}
-          <div className="footer-column">
-            <h3 className="footer-column-title" id="footer-getintouch-heading">
+          <div className="flex flex-col">
+            <h3 className="brand-text-3xl-medium text-white  mb-[1.75rem] " id="footer-getintouch-heading">
               Get in Touch
             </h3>
-            <div className="footer-contact-group">
-              <div className="footer-contact-block">
-                <span className="footer-contact-label">
+            <div className="flex flex-col gap-[1.75rem]">
+              <div className="flex flex-col gap-[0.625rem]">
+                <span className="brand-text-xl-medium text-white  ">
                   Email
                 </span>
                 <a
                   href="mailto:info@healthmedtechnologies.com"
-                  className="footer-contact-value"
+                  className="brand-text-xl text-nowrap text-brand-gray-400 no-underline transition-colors duration-[var(--transition-duration-default)] break-all inline-block hover:text-white"
                   id="footer-link-email"
                 >
                   info@healthmedtechnologies.com
                 </a>
               </div>
               
-              <div className="footer-contact-block">
-                <span className="footer-contact-label">
+              <div className="flex flex-col gap-[0.625rem]">
+                <span className="brand-text-xl-medium text-white  ">
                   Phone
                 </span>
                 <a
                   href="https://wa.me/917550002160"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="footer-contact-value"
+                  className="brand-text-xl text-brand-gray-400 no-underline transition-colors duration-[var(--transition-duration-default)] break-all inline-block hover:text-white"
                   id="footer-link-phone"
                 >
                   +91 7550002160
@@ -183,14 +174,16 @@ export default function Footer() {
           </div>
 
         </div>
+      </div>
 
-        {/* Legal bar */}
-        <hr className="footer-divider" />
-        <div className="footer-copyright-box">
-          <p className="footer-copyright-text" id="footer-copyright">
-            © 2016-2023 Healthmed Technologies India Pvt Ltd. All rights reserved
-          </p>
-        </div>
+      {/* Full width divider line */}
+      <hr className="w-full border-0 border-t border-white/8 mt-[var(--space-2xl)] md:mt-[var(--space-3xl)]" />
+
+      {/* Legal bar */}
+      <div className="w-full max-w-[var(--container-max-width)] mx-auto px-[var(--space-lg)] md:px-[var(--space-xl)] py-[var(--space-lg)] text-center flex justify-center items-center">
+        <p className="brand-text-xl text-brand-gray-300 " id="footer-copyright">
+          © 2016-2023 Healthmed Technologies India Pvt Ltd. All rights reserved
+        </p>
       </div>
     </footer>
   );
