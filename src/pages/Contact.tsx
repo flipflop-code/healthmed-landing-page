@@ -72,10 +72,10 @@ export default function Contact() {
       'email': 'info@healthmedtechnologies.com',
       'address': {
         '@type': 'PostalAddress',
-        'streetAddress': 'Guindy Industrial Estate, SIDCO Industrial Estate',
-        'addressLocality': 'Guindy, Chennai',
+        'streetAddress': '2/741B, Kazura Garden 6th Cross Street',
+        'addressLocality': 'Neelankarai, Chennai',
         'addressRegion': 'Tamil Nadu',
-        'postalCode': '600032',
+        'postalCode': '600115',
         'addressCountry': 'IN'
       }
     }
@@ -148,8 +148,8 @@ export default function Contact() {
                   </h3>
                   <p className="brand-text-xl text-[var(--color-brand-gray-600)] whitespace-pre-line break-words">
                     Healthmed Technologies India Pvt Ltd.{"\n"}
-                    Guindy Industrial Estate, SIDCO Industrial Estate,{"\n"}
-                    Guindy, Chennai, Tamil Nadu 600032.
+                    2/741B, Kazura Garden 6th Cross Street,{"\n"}
+                    Neelankarai, Chennai 600115.
                   </p>
                 </div>
               </div>
