@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { Twitter, Facebook, Linkedin, Instagram } from 'lucide-react';
 // @ts-expect-error - image asset type declaration may be missing
 import logoImg from '../../assets/images/logo.webp';
+import { ProtectedEmailLink } from '../common/ProtectedEmail';
 
 export default function Footer() {
   const quickLinks = [
@@ -149,13 +150,10 @@ export default function Footer() {
                 <span className="brand-text-xl-medium text-white  ">
                   Email
                 </span>
-                <a
-                  href="mailto:info@healthmedtechnologies.com"
+                <ProtectedEmailLink
                   className="brand-text-xl md:text-nowrap text-brand-gray-400 no-underline transition-colors duration-[var(--transition-duration-default)] break-words inline-block hover:text-white"
                   id="footer-link-email"
-                >
-                  info@healthmedtechnologies.com
-                </a>
+                />
               </div>
               
               <div className="flex flex-col gap-[0.625rem]">

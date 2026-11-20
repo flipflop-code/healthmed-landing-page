@@ -11,6 +11,7 @@ interface SEOProps {
   canonicalUrl?: string;
   ogType?: string;
   ogImage?: string;
+  robots?: string;
   schema?: any;
 }
 
@@ -20,6 +21,7 @@ export default function SEO({
   canonicalUrl,
   ogType = 'website',
   ogImage,
+  robots,
   schema
 }: SEOProps) {
   useEffect(() => {
@@ -38,6 +40,13 @@ export default function SEO({
       meta.name = 'description';
       meta.content = description;
       document.head.appendChild(meta);
+    }
+
+    // Update robots meta tag if specified
+    const robotsMeta = document.querySelector('meta[name="robots"]');
+    const prevRobots = robotsMeta?.getAttribute('content') || '';
+    if (robots && robotsMeta) {
+      robotsMeta.setAttribute('content', robots);
     }
 
     // Update canonical link tag
@@ -89,6 +98,9 @@ export default function SEO({
       if (prevDescMeta) {
         prevDescMeta.setAttribute('content', prevDesc);
       }
+      if (robots && robotsMeta && prevRobots) {
+        robotsMeta.setAttribute('content', prevRobots);
+      }
       if (canonicalLink) {
         if (prevCanonical) {
           canonicalLink.setAttribute('href', prevCanonical);
@@ -106,7 +118,7 @@ export default function SEO({
         schemaScript.remove();
       }
     };
-  }, [title, description, canonicalUrl, ogType, ogImage, schema]);
+  }, [title, description, canonicalUrl, ogType, ogImage, robots, schema]);
 
   return null;
 }

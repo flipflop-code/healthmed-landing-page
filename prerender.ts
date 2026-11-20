@@ -58,6 +58,20 @@ async function prerender() {
     }
   }
 
+  // Prerender custom 404 page
+  try {
+    const notFoundAppHtml = render('/404');
+    const notFoundHtml = template
+      .replace('<div id="root"></div>', `<div id="root">${notFoundAppHtml}</div>`)
+      .replace(/<title>[\s\S]*?<\/title>/i, '<title>Page Not Found (404) | HealthMed</title>')
+      .replace(/content="index,\s*follow"/i, 'content="noindex, follow"');
+    const notFoundPath = path.resolve(distDir, '404.html');
+    fs.writeFileSync(notFoundPath, notFoundHtml, 'utf-8');
+    console.log(`  ✓ Prerendered /404 -> ${path.relative(process.cwd(), notFoundPath)}`);
+  } catch (err) {
+    console.error('  ✗ Error prerendering /404:', err);
+  }
+
   console.log('Prerendering complete!');
 }
 

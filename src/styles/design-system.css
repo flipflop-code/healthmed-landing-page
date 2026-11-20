@@ -234,6 +234,9 @@
   .text-shadow-md {
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
+  .email-mask::before {
+    content: attr(data-u) "\0040" attr(data-d);
+  }
 }
 
 /* Custom Infinite Scrolling & Ambient Animations */

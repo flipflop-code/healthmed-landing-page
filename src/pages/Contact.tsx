@@ -11,8 +11,10 @@ import SEO from '../components/ui/SEO';
 import { Badge } from '../components/ui/Badge';
 import { useGsapFadeIn, useGsapScrollReveal } from '../hooks/useGsapAnimation';
 import { Heading } from '../components/ui/Heading';
+import { ProtectedEmailText, useProtectedEmail } from '../components/common/ProtectedEmail';
 
 export default function Contact() {
+  const { href: emailHref, handleEmailClick } = useProtectedEmail();
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -69,7 +71,6 @@ export default function Contact() {
       '@type': 'Organization',
       'name': 'Healthmed Technologies India Pvt Ltd',
       'telephone': '+91 7550002160',
-      'email': 'info@healthmedtechnologies.com',
       'address': {
         '@type': 'PostalAddress',
         'streetAddress': '2/741B, Kazura Garden 6th Cross Street',
@@ -182,7 +183,9 @@ export default function Contact() {
 
               {/* Card 3: Email details */}
               <a 
-                href="mailto:info@healthmedtechnologies.com"
+                href={emailHref}
+                onClick={handleEmailClick}
+                rel="nofollow"
                 className="flex items-center justify-between bg-[var(--color-brand-white)] p-3.5 sm:p-[var(--space-md)] rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] hover:border-[var(--color-brand-gray-400)] transition-colors duration-200 group cursor-pointer gap-2"
                 id="contact-card-email"
               >
@@ -195,7 +198,7 @@ export default function Contact() {
                       Let's Talk
                     </h3>
                     <p className="brand-text-xl text-[var(--color-brand-gray-600)] break-all">
-                      info@healthmedtechnologies.com
+                      <ProtectedEmailText />
                     </p>
                   </div>
                 </div>

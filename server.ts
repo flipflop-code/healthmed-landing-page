@@ -38,6 +38,7 @@ async function createServer() {
     try {
       let template: string;
       let render: (url: string) => string;
+      let isValidRoute: ((url: string) => boolean) | undefined;
 
       if (!isProduction) {
         // In development: read index.html from root, apply Vite HTML transforms, and load entry-server module
@@ -46,6 +47,7 @@ async function createServer() {
         template = await vite.transformIndexHtml(url, template);
         const serverModule = await vite.ssrLoadModule('/src/entry-server.tsx');
         render = serverModule.render;
+        isValidRoute = serverModule.isValidRoute;
       } else {
         // In production: read built index.html from dist and load compiled SSR bundle
         const indexPath = path.resolve(process.cwd(), 'dist/index.html');
@@ -53,17 +55,26 @@ async function createServer() {
         const serverBundlePath = path.resolve(process.cwd(), 'dist/server/entry-server.js');
         const serverModule = await import(serverBundlePath);
         render = serverModule.render;
+        isValidRoute = serverModule.isValidRoute;
       }
 
+      const valid = isValidRoute ? isValidRoute(url) : true;
+      const statusCode = valid ? 200 : 404;
       const appHtml = render(url);
 
       // Inject rendered HTML into root container
-      const html = template.replace(
+      let html = template.replace(
         '<div id="root"></div>',
         `<div id="root">${appHtml}</div>`
       );
 
-      res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
+      if (!valid) {
+        html = html
+          .replace(/<title>[\s\S]*?<\/title>/i, '<title>Page Not Found (404) | HealthMed</title>')
+          .replace(/content="index,\s*follow"/i, 'content="noindex, follow"');
+      }
+
+      res.status(statusCode).set({ 'Content-Type': 'text/html' }).end(html);
     } catch (e: any) {
       if (!isProduction && vite) {
         vite.ssrFixStacktrace(e);

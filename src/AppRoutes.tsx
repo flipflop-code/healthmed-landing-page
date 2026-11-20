@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import Contact from './pages/Contact';
 import Insights from './pages/Insights';
 import BlogDetails from './pages/BlogDetails';
+import NotFound from './pages/NotFound';
 import WhatsAppFloat from './components/common/WhatsAppFloat';
 import ScrollToTop from './components/common/ScrollToTop';
 
@@ -24,6 +25,7 @@ export default function AppRoutes() {
           <Route path="/insights/:slug" element={<BlogDetails />} />
           <Route path="/blog" element={<Insights />} />
           <Route path="/blog/:slug" element={<BlogDetails />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         
         {/* Global floating components */}

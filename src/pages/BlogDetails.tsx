@@ -22,6 +22,7 @@ import Footer from '../components/layout/Footer';
 import { Badge } from '../components/ui/Badge';
 import { Heading } from '../components/ui/Heading';
 import SEO from '../components/ui/SEO';
+import NotFound from './NotFound';
 import { getBlogBySlug, blogs as allBlogs, getSizedBlogImage, getBlogSrcSet } from '../data/blogs';
 import { useGsapFadeIn, useGsapScrollReveal } from '../hooks/useGsapAnimation';
 
@@ -182,6 +183,10 @@ export default function BlogDetails() {
       }
     }
   ];
+
+  if (slug && !post) {
+    return <NotFound />;
+  }
 
   return (
     <div className="flex flex-col min-h-screen" id="blog-details-root">
