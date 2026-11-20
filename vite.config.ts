@@ -1,11 +1,36 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-import {defineConfig} from 'vite';
+import {defineConfig, type Plugin} from 'vite';
+
+function inlineCssPlugin(): Plugin {
+  return {
+    name: 'inline-css',
+    apply: 'build',
+    enforce: 'post',
+    transformIndexHtml(html, ctx) {
+      if (!ctx.bundle) return html;
+      return html.replace(/<link\b[^>]*rel=["']stylesheet["'][^>]*>/gi, (tag) => {
+        const hrefMatch = tag.match(/\bhref=["']([^"']+\.css)["']/i);
+        if (!hrefMatch) return tag;
+        const assetKey = hrefMatch[1].replace(/^\//, '');
+        const asset = ctx.bundle?.[assetKey];
+        if (asset && asset.type === 'asset') {
+          const css =
+            typeof asset.source === 'string'
+              ? asset.source
+              : Buffer.from(asset.source).toString('utf-8');
+          return `<style>${css}</style>`;
+        }
+        return tag;
+      });
+    },
+  };
+}
 
 export default defineConfig(() => {
   return {
-    plugins: [react(), tailwindcss()],
+    plugins: [react(), tailwindcss(), inlineCssPlugin()],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),

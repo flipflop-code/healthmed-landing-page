@@ -36,12 +36,21 @@
     <meta name="twitter:description" content="Optimize clinical and administrative workflows using HealthMed's unified cloud-based intelligent system." />
     <meta name="twitter:image" content="https://healthmedtechnologies.com/logo.png" />
 
-    <!-- Performance: Preconnect & Preload Critical Google Fonts and Hero Assets -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <!-- Performance: Preconnect & Non-Blocking Google Fonts and Hero Assets -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
     
     <!-- Preloading Hero Image directly for faster LCP/FCP rendering -->
     <link rel="preload" href="/hero.png" as="image" type="image/png" fetchpriority="high" />
