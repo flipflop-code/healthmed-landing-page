@@ -2,12 +2,12 @@
 <html lang="en" class="scroll-smooth">
   <head>
     <!-- Google Tag Manager -->
-    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-P3CMBBWR"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
     </script>
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-P3CMBBWR"></script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,6 +20,7 @@
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#2271e8" />
     
+    <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" href="/logo-1.png" />
 
     <!-- Open Graph Graph Tags -->
@@ -61,7 +62,7 @@
         "@id": "https://healthmedtechnologies.com/#organization",
         "name": "HealthMed",
         "url": "https://healthmedtechnologies.com/",
-        "logo": "https://healthmedtechnologies.com/assets/images/logo.png",
+        "logo": "https://healthmedtechnologies.com/logo.png",
         "description": "HealthMed is an AI-powered, connected healthcare intelligence and operations platform designed to optimize medical workflows, patient records, billing, and diagnostics.",
         "sameAs": [
           "https://twitter.com/healthmed_hq",

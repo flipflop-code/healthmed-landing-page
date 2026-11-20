@@ -94,7 +94,7 @@ export default function Insights() {
         'name': 'Healthmed Technologies India Pvt Ltd',
         'logo': {
           '@type': 'ImageObject',
-          'url': 'https://healthmedtechnologies.com/images/favicon.ico'
+          'url': 'https://healthmedtechnologies.com/logo.png'
         }
       }
     },

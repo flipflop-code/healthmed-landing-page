@@ -3,9 +3,14 @@
   "name": "HealthMed Healthcare Management System",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "/favicon.ico",
+      "sizes": "35x37",
       "type": "image/x-icon"
+    },
+    {
+      "src": "/logo-1.png",
+      "sizes": "35x37",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
