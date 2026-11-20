@@ -139,17 +139,17 @@ export const VideoTestimonials: React.FC = () => {
 
   return (
     <section
-      className="bg-[var(--color-surface-secondary)] py-[var(--spacing-5xl)] lg:py-[var(--spacing-6xl)] px-[var(--space-lg)] lg:px-[var(--space-xl)] border-b border-[var(--color-border-subtle)] relative"
+      className="bg-[var(--color-surface-secondary)] py-12 sm:py-[var(--spacing-5xl)] lg:py-[var(--spacing-6xl)] px-4 sm:px-[var(--space-lg)] lg:px-[var(--space-xl)] border-b border-[var(--color-border-subtle)] relative"
       id="video-testimonials"
     >
       <div className="max-w-[var(--container-xl)] mx-auto">
         {/* Section Header */}
         <div
-          className="text-center max-w-[800px] mx-auto mb-[var(--spacing-4xl)]"
+          className="text-center max-w-[800px] mx-auto mb-8 sm:mb-[var(--spacing-4xl)]"
           id="video-testimonials-header"
         >
           <h2
-            className="text-[var(--color-brand-charcoal)] mb-[var(--space-md-lg)] brand-text-6xl md:brand-text-7xl"
+            className="text-[var(--color-brand-charcoal)] mb-4 sm:mb-[var(--space-md-lg)] brand-text-6xl md:brand-text-7xl"
             id="video-testimonials-title"
           >
             Trusted by Healthcare Teams That Deliver Better Care
@@ -165,7 +165,7 @@ export const VideoTestimonials: React.FC = () => {
 
         {/* Video Cards Grid */}
         <div
-          className="grid grid-cols-1 md:grid-cols-3 gap-[var(--space-xl)] md:gap-[var(--spacing-grid-gap-sm)] lg:gap-[var(--spacing-grid-gap-lg)]"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-[var(--space-xl)] md:gap-[var(--spacing-grid-gap-sm)] lg:gap-[var(--spacing-grid-gap-lg)]"
           id="video-testimonials-grid"
         >
           {teamVideos.map((member) => {
@@ -174,7 +174,7 @@ export const VideoTestimonials: React.FC = () => {
             return (
               <div
                 key={member.id}
-                className="group relative h-[var(--size-card-height-lg)] rounded-[var(--radius-lg)] overflow-hidden bg-[var(--color-surface-tertiary)] shadow-[var(--shadow-card)] cursor-pointer transition-all duration-[var(--transition-duration-slow)] ease-[var(--transition-bezier-smooth)] hover:shadow-[var(--shadow-card-hover)]"
+                className="group relative h-[340px] sm:h-[var(--size-card-height-lg)] rounded-[var(--radius-lg)] overflow-hidden bg-[var(--color-surface-tertiary)] shadow-[var(--shadow-card)] cursor-pointer transition-all duration-[var(--transition-duration-slow)] ease-[var(--transition-bezier-smooth)] hover:shadow-[var(--shadow-card-hover)]"
                 onMouseEnter={() => handleMouseEnter(member.id)}
                 onMouseLeave={() => handleMouseLeave(member.id)}
                 onClick={() => handleCardClick(member.id)}

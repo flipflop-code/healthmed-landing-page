@@ -15,9 +15,9 @@ export default function AIWorkflows() {
   ];
 
   return (
-    <section className="bg-[#FAF9F6] py-24 md:py-32 border-b border-brand-gray-200 overflow-hidden" id="ai-workflows">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <section className="bg-[#FAF9F6] py-12 sm:py-16 md:py-32 border-b border-brand-gray-200 overflow-hidden" id="ai-workflows">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Visual AI Graphic Mockup */}
           <motion.div
@@ -25,27 +25,27 @@ export default function AIWorkflows() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="col-span-1 lg:col-span-6 flex items-center justify-center p-2"
+            className="col-span-1 lg:col-span-6 flex items-center justify-center p-1 sm:p-2"
             id="ai-graphic-block"
           >
             {/* White card container representing the radiology suite visualization */}
-            <div className="relative w-full max-w-[440px] aspect-square bg-white rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.03)] border border-brand-gray-100 flex items-center justify-center p-8 overflow-hidden z-10">
+            <div className="relative w-full max-w-[440px] aspect-square bg-white rounded-[28px] sm:rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.03)] border border-brand-gray-100 flex items-center justify-center p-5 sm:p-8 overflow-hidden z-10">
               
               {/* Concentric Circles Background Pattern */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0">
-                <div className="w-[320px] h-[320px] rounded-full border border-brand-gray-100/40 flex items-center justify-center">
-                  <div className="w-[240px] h-[240px] rounded-full border border-brand-gray-100/60 flex items-center justify-center">
-                    <div className="w-[160px] h-[160px] rounded-full border border-brand-gray-100/80 flex items-center justify-center"></div>
+                <div className="w-[230px] h-[230px] sm:w-[320px] sm:h-[320px] rounded-full border border-brand-gray-100/40 flex items-center justify-center">
+                  <div className="w-[170px] h-[170px] sm:w-[240px] sm:h-[240px] rounded-full border border-brand-gray-100/60 flex items-center justify-center">
+                    <div className="w-[115px] h-[115px] sm:w-[160px] sm:h-[160px] rounded-full border border-brand-gray-100/80 flex items-center justify-center"></div>
                   </div>
                 </div>
               </div>
 
               {/* Central Premium Squircle Hub */}
-              <div className="relative z-10 p-2 bg-gradient-to-b from-brand-blue-50/10 to-brand-blue-100/20 rounded-[44px] border border-brand-blue-100/30">
-                <div className="p-1 bg-white rounded-[38px] shadow-[0_12px_40px_rgba(0,102,255,0.12)]">
-                  <div className="w-[105px] h-[105px] rounded-[32px] bg-[#0066FF] flex items-center justify-center shadow-[inset_0_2px_6px_rgba(255,255,255,0.2)]">
+              <div className="relative z-10 p-1.5 sm:p-2 bg-gradient-to-b from-brand-blue-50/10 to-brand-blue-100/20 rounded-[32px] sm:rounded-[44px] border border-brand-blue-100/30">
+                <div className="p-1 bg-white rounded-[28px] sm:rounded-[38px] shadow-[0_12px_40px_rgba(0,102,255,0.12)]">
+                  <div className="w-[80px] h-[80px] sm:w-[105px] sm:h-[105px] rounded-[24px] sm:rounded-[32px] bg-[#0066FF] flex items-center justify-center shadow-[inset_0_2px_6px_rgba(255,255,255,0.2)]">
                     {/* Custom high-fidelity Sparkles mirroring reference image */}
-                    <svg className="h-[46px] w-[46px] text-white fill-current" viewBox="0 0 24 24" id="central-sparkle-svg">
+                    <svg className="h-9 w-9 sm:h-[46px] sm:w-[46px] text-white fill-current" viewBox="0 0 24 24" id="central-sparkle-svg">
                       {/* Left/Main Sparkle */}
                       <path d="M9.5 3c0 3.59-2.91 6.5-6.5 6.5 3.59 0 6.5 2.91 6.5 6.5 0-3.59 2.91-6.5 6.5-6.5-3.59-0-6.5-2.91-6.5-6.5z" />
                       {/* Top Right Sparkle */}
@@ -62,14 +62,14 @@ export default function AIWorkflows() {
                 initial={false}
                 animate={{ opacity: 1, y: 0, x: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
-                className="absolute top-12 right-[-10px] md:right-3 bg-white rounded-2xl py-3 px-4.5 shadow-[0_12px_36px_rgba(0,0,0,0.06)] border border-brand-gray-100 flex items-center gap-2.5 z-20 cursor-default select-none rotate-[4deg]"
+                className="absolute top-5 right-2 sm:top-12 sm:right-3 bg-white rounded-xl sm:rounded-2xl py-2 px-3 sm:py-3 sm:px-4.5 shadow-[0_12px_36px_rgba(0,0,0,0.06)] border border-brand-gray-100 flex items-center gap-2 sm:gap-2.5 z-20 cursor-default select-none rotate-[3deg] sm:rotate-[4deg] text-xs sm:text-sm md:text-base"
                 id="floating-badge-top"
               >
-                <span className="flex h-2.5 w-2.5 relative">
+                <span className="flex h-2 w-2 sm:h-2.5 sm:w-2.5 relative shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#10B981]"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-[#10B981]"></span>
                 </span>
-                <span className="text-brand-black">
+                <span className="text-brand-black font-medium whitespace-nowrap">
                   Analysis Active: Radiology Suite
                 </span>
               </motion.div>
@@ -79,15 +79,15 @@ export default function AIWorkflows() {
                 initial={false}
                 animate={{ opacity: 1, y: 0, x: 0 }}
                 transition={{ delay: 0.45, duration: 0.6 }}
-                className="absolute bottom-12 left-[-10px] md:left-3 bg-white rounded-2xl py-3 px-4.5 shadow-[0_12px_36px_rgba(0,0,0,0.06)] border border-brand-gray-100 flex items-center gap-2.5 z-20 cursor-default select-none rotate-[-2deg]"
+                className="absolute bottom-5 left-2 sm:bottom-12 sm:left-3 bg-white rounded-xl sm:rounded-2xl py-2 px-3 sm:py-3 sm:px-4.5 shadow-[0_12px_36px_rgba(0,0,0,0.06)] border border-brand-gray-100 flex items-center gap-2 sm:gap-2.5 z-20 cursor-default select-none rotate-[-2deg] text-xs sm:text-sm md:text-base"
                 id="floating-badge-bottom"
               >
-                <div className="flex items-center justify-center w-5 h-5 rounded-full bg-brand-blue-50">
-                  <svg className="h-3 w-3 text-[#0066FF] stroke-current stroke-[2.5]" fill="none" viewBox="0 0 24 24">
+                <div className="flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-brand-blue-50 shrink-0">
+                  <svg className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-[#0066FF] stroke-current stroke-[2.5]" fill="none" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                   </svg>
                 </div>
-                <span className="text-brand-black">
+                <span className="text-brand-black font-medium whitespace-nowrap">
                   Processing MRI Data...
                 </span>
               </motion.div>
@@ -101,7 +101,7 @@ export default function AIWorkflows() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="col-span-1 lg:col-span-6 flex flex-col space-y-8"
+            className="col-span-1 lg:col-span-6 flex flex-col space-y-5 sm:space-y-8"
             id="ai-content-block"
           >
             {/* Pill Badge */}
@@ -128,7 +128,7 @@ export default function AIWorkflows() {
             </p>
 
             {/* Point listings checkmarks */}
-            <div className="flex flex-col space-y-8 pt-2" id="ai-list">
+            <div className="flex flex-col space-y-4 sm:space-y-8 pt-1 sm:pt-2" id="ai-list">
               {points.map((point, index) => (
                 <div key={index} className="flex items-center gap-3 text-brand-black" id={`ai-point-${index}`}>
                   <div className="text-[#0066FF] flex-shrink-0" id={`ai-check-icon-${index}`}>

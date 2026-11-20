@@ -76,7 +76,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full bg-brand-gray-100/70 backdrop-blur-md border-b border-brand-gray-200" id="main-header">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20" id="navbar-inner-container">
+        <div className="flex items-center justify-between h-16 md:h-20" id="navbar-inner-container">
           
           {/* LEFT: Logo */}
           <div className="flex-shrink-0 cursor-pointer" id="nav-logo-container">
@@ -267,7 +267,7 @@ export default function Navbar() {
             id="mobile-menu"
           >
             {/* Header section in Mobile Menu to align with header height */}
-            <div className="h-20 border-b border-brand-gray-200/50 px-4 sm:px-6 flex items-center justify-between flex-shrink-0">
+            <div className="h-16 md:h-20 border-b border-brand-gray-200/50 px-4 sm:px-6 flex items-center justify-between flex-shrink-0">
               <Logo />
               <button
                 onClick={() => setIsOpen(false)}
@@ -286,8 +286,8 @@ export default function Navbar() {
             </div>
 
             {/* Menu options with sequential flow */}
-            <div className="flex-1 flex flex-col justify-between px-6 sm:px-10 py-10 overflow-y-auto">
-              <nav className="flex flex-col space-y-6">
+            <div className="flex-1 flex flex-col justify-between px-6 sm:px-10 py-8 overflow-y-auto">
+              <nav className="flex flex-col space-y-5">
                 
                 {/* Home link */}
                 <motion.div
@@ -299,7 +299,7 @@ export default function Navbar() {
                     <Link
                       to="/"
                       onClick={() => setIsOpen(false)}
-                      className={`brand-text-2xl font-serif tracking-tight block py-1 transition-colors ${
+                      className={`text-xl font-serif tracking-tight block py-1 transition-colors ${
                         isHomeActive ? 'text-brand-blue-500 font-semibold' : 'text-brand-gray-800 hover:text-brand-black'
                       }`}
                       id="mobile-nav-link-home"
@@ -310,7 +310,7 @@ export default function Navbar() {
                     <a
                       href="#home"
                       onClick={() => setIsOpen(false)}
-                      className={`brand-text-2xl font-serif tracking-tight block py-1 transition-colors ${
+                      className={`text-xl font-serif tracking-tight block py-1 transition-colors ${
                         isHomeActive ? 'text-brand-blue-500 font-semibold' : 'text-brand-gray-800 hover:text-brand-black'
                       }`}
                       id="mobile-nav-link-home"
@@ -330,7 +330,7 @@ export default function Navbar() {
                     <Link
                       to="/#about"
                       onClick={() => setIsOpen(false)}
-                      className={`brand-text-2xl font-serif tracking-tight block py-1 transition-colors ${
+                      className={`text-xl font-serif tracking-tight block py-1 transition-colors ${
                         isAboutActive ? 'text-brand-blue-500 font-semibold' : 'text-brand-gray-800 hover:text-brand-black'
                       }`}
                       id="mobile-nav-link-about"
@@ -341,7 +341,7 @@ export default function Navbar() {
                     <a
                       href="#about"
                       onClick={() => setIsOpen(false)}
-                      className={`brand-text-2xl font-serif tracking-tight block py-1 transition-colors ${
+                      className={`text-xl font-serif tracking-tight block py-1 transition-colors ${
                         isAboutActive ? 'text-brand-blue-500 font-semibold' : 'text-brand-gray-800 hover:text-brand-black'
                       }`}
                       id="mobile-nav-link-about"
@@ -361,7 +361,7 @@ export default function Navbar() {
                   <button
                     onClick={() => setIsMobileAccordionOpen(!isMobileAccordionOpen)}
                     type="button"
-                    className="w-full flex items-center justify-between brand-text-2xl font-serif tracking-tight text-brand-gray-800 hover:text-brand-black py-1 focus:outline-none cursor-pointer"
+                    className="w-full flex items-center justify-between text-xl font-serif tracking-tight text-brand-gray-800 hover:text-brand-black py-1 focus:outline-none cursor-pointer"
                     id="mobile-accordion-trigger"
                   >
                     <span>Our Modules</span>
@@ -406,8 +406,8 @@ export default function Navbar() {
                   <Link
                     to="/insights"
                     onClick={() => setIsOpen(false)}
-                    className={`block py-1 transition-colors brand-text-2xl ${
-                      isInsightsPage ? 'text-brand-blue-500' : 'text-brand-gray-800 hover:text-brand-black'
+                    className={`block py-1 transition-colors text-xl font-serif tracking-tight ${
+                      isInsightsPage ? 'text-brand-blue-500 font-semibold' : 'text-brand-gray-800 hover:text-brand-black'
                     }`}
                     id="mobile-nav-link-blog"
                   >

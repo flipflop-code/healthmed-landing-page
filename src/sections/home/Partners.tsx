@@ -150,11 +150,11 @@ export default function Partners() {
   );
 
   return (
-    <section className="py-14  bg-brand-bg  overflow-hidden" id="partners">
+    <section className="py-10 md:py-14 bg-brand-bg overflow-hidden" id="partners">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
          {/* Caption Title */}
-        <p className="text-center brand-text-3xl text-brand-gray-600 mb-10">
+        <p className="text-center brand-text-3xl text-brand-gray-600 mb-6 md:mb-10">
           Trusted by 30+ Modern Healthcare Organizations
         </p>
 

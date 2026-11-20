@@ -51,13 +51,13 @@ export default function CustomerStories() {
         return (
           <div className="flex flex-col items-center justify-center text-center select-none" id="logo-orlando-svg">
             <span 
-              className="text-[32px] font-medium tracking-[0.06em] uppercase text-[#0F8241] leading-none" 
+              className="text-[24px] sm:text-[32px] font-medium tracking-[0.06em] uppercase text-[#0F8241] leading-none" 
               style={{ fontFamily: 'var(--font-serif)' }}
             >
               Orlando
             </span>
             <span 
-              className="text-[24px] tracking-[0.15em] uppercase text-[#0F8241] font-medium mt-1 leading-none relative"
+              className="text-[18px] sm:text-[24px] tracking-[0.15em] uppercase text-[#0F8241] font-medium mt-1 leading-none relative"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
               Health<span className="text-[10px] absolute -top-1 -right-2.5 font-sans font-normal">®</span>
@@ -68,17 +68,17 @@ export default function CustomerStories() {
         return (
           <div className="flex flex-col items-center justify-center text-center select-none" id="logo-providence-svg">
             <div className="flex items-center justify-center space-x-2 mb-1">
-              <svg className="w-6 h-6 text-[#0055FF]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 text-[#0055FF]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M12 2v20M5 9h14" />
               </svg>
               <span 
-                className="text-[28px] font-medium tracking-[0.04em] uppercase text-[#111827] leading-none"
+                className="text-[22px] sm:text-[28px] font-medium tracking-[0.04em] uppercase text-[#111827] leading-none"
                 style={{ fontFamily: 'var(--font-serif)' }}
               >
                 Providence
               </span>
             </div>
-            <span className="text-[10px] uppercase tracking-[0.25em] text-[#6B7280] font-sans mt-0.5 font-semibold">
+            <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#6B7280] font-sans mt-0.5 font-semibold">
               Health & Services
             </span>
           </div>
@@ -87,13 +87,13 @@ export default function CustomerStories() {
         return (
           <div className="flex flex-col items-center justify-center text-center select-none" id="logo-vanderbilt-svg">
             <span 
-              className="text-[30px] font-medium tracking-[0.04em] uppercase text-[#997F3D] leading-none"
+              className="text-[24px] sm:text-[30px] font-medium tracking-[0.04em] uppercase text-[#997F3D] leading-none"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
               Vanderbilt
             </span>
             <span 
-              className="text-[11px] uppercase tracking-[0.3em] text-[#6B7280] font-sans mt-1 leading-none font-semibold"
+              className="text-[9px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.3em] text-[#6B7280] font-sans mt-1 leading-none font-semibold"
             >
               University Medical Center
             </span>
@@ -103,7 +103,7 @@ export default function CustomerStories() {
         return (
           <div className="flex flex-col items-center justify-center text-center select-none" id="logo-mayo-svg">
             <span 
-              className="text-[32px] font-bold tracking-[0.05em] uppercase text-[#0A2D62] leading-none"
+              className="text-[24px] sm:text-[32px] font-bold tracking-[0.05em] uppercase text-[#0A2D62] leading-none"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
               Mayo Clinic
@@ -114,7 +114,7 @@ export default function CustomerStories() {
         return (
           <div className="flex flex-col items-center justify-center text-center select-none" id="logo-cleveland-svg">
             <span 
-              className="text-[28px] font-bold tracking-[0.02em] uppercase text-[#006643] leading-none"
+              className="text-[22px] sm:text-[28px] font-bold tracking-[0.02em] uppercase text-[#006643] leading-none"
               style={{ fontFamily: 'var(--font-sans)' }}
             >
               Cleveland Clinic
@@ -140,7 +140,7 @@ export default function CustomerStories() {
     let offset = 590; // Desktop offset for 560px cards + gap
 
     if (isMobile) {
-      offset = windowWidth - 32;
+      offset = windowWidth;
     } else if (isTablet) {
       offset = 510;
     } else if (isLargeDesktop) {
@@ -208,24 +208,24 @@ export default function CustomerStories() {
 
   return (
     <section 
-      className="bg-[var(--color-surface-warm)] pt-[var(--spacing-5xl)] pb-[var(--spacing-5xl)] border-b border-[var(--color-border-subtle)]" 
+      className="bg-[var(--color-surface-warm)] py-12 sm:pt-[var(--spacing-5xl)] sm:pb-[var(--spacing-5xl)] border-b border-[var(--color-border-subtle)]" 
       id="customer-stories"
       onKeyDown={handleKeyDown}
       tabIndex={0}
       aria-label="Customer Success Stories Carousel"
     >
-      <div className="max-w-[var(--container-max-width)] mx-auto px-[var(--space-lg)]">
+      <div className="max-w-[var(--container-max-width)] mx-auto px-4 sm:px-[var(--space-lg)]">
         
         {/* Centered Badge Indicator */}
-        <div className="flex justify-center mb-[var(--space-md)]">
+        <div className="flex justify-center mb-4 sm:mb-[var(--space-md)]">
           <Badge variant="dark" id="customer-stories-badge">
             Customer Stories
           </Badge>
         </div>
 
         {/* Section Header */}
-        <div className="text-center max-w-[var(--container-lg)] mx-auto mt-10 mb-20">
-          <h2 className="text-[var(--color-text)] mt-[var(--space-md)] mb-10 brand-text-7xl " id="customer-stories-heading">
+        <div className="text-center max-w-[var(--container-lg)] mx-auto mt-6 mb-10 sm:mt-10 sm:mb-20">
+          <h2 className="text-[var(--color-text)] mt-[var(--space-md)] mb-4 sm:mb-10 brand-text-7xl " id="customer-stories-heading">
             <span className="italic">Real outcomes</span> from real deployments
           </h2>
           <p className="text-brand-gray-800 max-w-[var(--container-md)] mx-auto brand-text-3xl" id="customer-stories-subtitle">
@@ -234,9 +234,9 @@ export default function CustomerStories() {
         </div>
 
         {/* Dynamic Showcase Area with Custom Gradient Frame */}
-        <div className="rounded-[32px] py-4 sm:py-6 lg:py-8 px-0 relative overflow-hidden w-full lg:max-w-[1280px] mx-auto bg-[linear-gradient(135deg,rgba(255,255,255,0.15)_0%,rgba(255,255,255,0)_50%,rgba(255,255,255,0.1)_100%),linear-gradient(55deg,transparent_20%,rgba(255,255,255,0.12)_21%,rgba(255,255,255,0.12)_35%,transparent_36%,transparent_45%,rgba(255,255,255,0.08)_46%,rgba(255,255,255,0.08)_58%,transparent_59%,transparent_70%,rgba(255,255,255,0.15)_71%,rgba(255,255,255,0.15)_85%,transparent_86%),linear-gradient(135deg,#0A5CFF_0%,#0044DB_35%,#0084FF_70%,#00C2FF_100%)]" id="customer-stories-showcase-box">
+        <div className="rounded-[24px] sm:rounded-[32px] py-4 sm:py-6 lg:py-8 px-0 relative overflow-hidden w-full lg:max-w-[1280px] mx-auto bg-[linear-gradient(135deg,rgba(255,255,255,0.15)_0%,rgba(255,255,255,0)_50%,rgba(255,255,255,0.1)_100%),linear-gradient(55deg,transparent_20%,rgba(255,255,255,0.12)_21%,rgba(255,255,255,0.12)_35%,transparent_36%,transparent_45%,rgba(255,255,255,0.08)_46%,rgba(255,255,255,0.08)_58%,transparent_59%,transparent_70%,rgba(255,255,255,0.15)_71%,rgba(255,255,255,0.15)_85%,transparent_86%),linear-gradient(135deg,#0A5CFF_0%,#0044DB_35%,#0084FF_70%,#00C2FF_100%)]" id="customer-stories-showcase-box">
           
-          <div className="relative w-full h-[580px] sm:h-[590px] lg:h-[600px] overflow-hidden select-none" id="customer-stories-carousel-viewport">
+          <div className="relative w-full h-[450px] sm:h-[590px] lg:h-[600px] overflow-hidden select-none" id="customer-stories-carousel-viewport">
             
             {customerStoriesData.map((story, i) => {
               let diff = i - activeIndex;
@@ -249,7 +249,7 @@ export default function CustomerStories() {
               return (
                 <motion.div
                   key={story.id}
-                  className={`absolute top-1/2 w-[calc(100vw-64px)] sm:w-[480px] lg:w-[560px] h-[546px] rounded-[16px] p-[24px] flex flex-col justify-between gap-[32px] cursor-grab active:cursor-grabbing transition-all duration-300 ease-out ${
+                  className={`absolute top-1/2 w-[calc(100%-24px)] sm:w-[480px] lg:w-[560px] h-[420px] sm:h-[546px] rounded-[16px] p-4 sm:p-[24px] flex flex-col justify-between gap-4 sm:gap-[32px] cursor-grab active:cursor-grabbing transition-all duration-300 ease-out ${
                     isActive 
                       ? 'bg-white shadow-[0_0_60px_rgba(0,0,0,0.25)] border border-white/80 pointer-events-auto opacity-100' 
                       : 'bg-white/80 backdrop-blur-md shadow-[0_0_60px_rgba(0,0,0,0.25)] border border-white/60 cursor-pointer hover:bg-white/90 opacity-80'
@@ -286,7 +286,7 @@ export default function CustomerStories() {
                   id={`customer-story-card-${story.id}`}
                 >
                   {/* Brand Logo Container */}
-                  <div className="rounded-[12px] h-[148px] flex items-center justify-center p-6 bg-[#F4F6F9] border border-black/5 shrink-0">
+                  <div className="rounded-[12px] h-[104px] sm:h-[148px] flex items-center justify-center p-4 sm:p-6 bg-[#F4F6F9] border border-black/5 shrink-0">
                     {renderLogo(story.logoType, isActive)}
                   </div>
 
@@ -294,14 +294,14 @@ export default function CustomerStories() {
                   <div className="flex flex-col justify-between flex-grow">
                     {story.metrics.map((metric, idx) => (
                       <div 
-                        className="flex items-center py-[16px] sm:py-[18px] border-t border-[#E5E7EB] transition-colors duration-300 ease-out" 
+                        className="flex items-center py-3 sm:py-[18px] border-t border-[#E5E7EB] transition-colors duration-300 ease-out" 
                         key={idx}
                         id={`story-metric-${story.id}-${idx}`}
                       >
-                        <span className="w-[120px] sm:w-[140px] shrink-0 font-serif text-[42px] sm:text-[48px] leading-none font-normal text-[#111827]">
+                        <span className="w-[88px] sm:w-[140px] shrink-0 font-serif text-[30px] sm:text-[48px] leading-none font-normal text-[#111827]">
                           {metric.value}
                         </span>
-                        <span className="pl-4 text-[15px] sm:text-[16px] leading-snug font-sans text-[#4B5563]">
+                        <span className="pl-3 sm:pl-4 text-[13px] sm:text-[16px] leading-snug font-sans text-[#4B5563]">
                           {metric.label}
                         </span>
                       </div>

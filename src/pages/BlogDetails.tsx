@@ -202,11 +202,11 @@ export default function BlogDetails() {
         {/* SECTION 1: HEADER & ARTICLE INTRO */}
         <article className="w-full" id="article-section-body">
           {/* Article Header & Hero Banner */}
-          <header className="w-full py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-[var(--brand-bg-cream)]" id="article-header-wrapper">
+          <header className="w-full py-10 sm:py-14 md:py-20 px-4 sm:px-6 lg:px-8 bg-[var(--brand-bg-cream)]" id="article-header-wrapper">
             <div className="max-w-[1040px] mx-auto">
               
               {/* Back Button */}
-              <div className="mb-10 article-hero-anim">
+              <div className="mb-6 md:mb-10 article-hero-anim">
                 <Link 
                   to="/insights"
                   className="inline-flex items-center gap-1 text-brand-charcoal hover:text-brand-slate brand-text-xl-medium transition-colors select-none"
@@ -218,14 +218,14 @@ export default function BlogDetails() {
 
               {/* Main Article Title */}
               <h1 
-                className="article-hero-anim brand-text-9xl text-brand-charcoal text-left mb-6"
+                className="article-hero-anim brand-text-9xl text-brand-charcoal text-left mb-4 sm:mb-6"
                 id="article-detail-title"
               >
                 {getStyledTitle(activePost.slug, activePost.title)}
               </h1>
 
               {/* Main Article Subtitle / Description */}
-              <p className="article-hero-anim text-brand-slate brand-text-3xl mb-12" id="article-detail-description">
+              <p className="article-hero-anim text-brand-slate brand-text-3xl mb-8 md:mb-12" id="article-detail-description">
                 {activePost.description}
               </p>
 
@@ -275,7 +275,7 @@ export default function BlogDetails() {
           </header>
 
           {/* ARTICLE WRITTEN CONTENT SECTION (WHITE BACKGROUND) */}
-          <div className="w-full py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white border-t border-brand-gray-200/60" id="article-content-wrapper">
+          <div className="w-full py-10 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white border-t border-brand-gray-200/60" id="article-content-wrapper">
             <div className="max-w-4xl mx-auto">
 
               <div 
@@ -284,16 +284,16 @@ export default function BlogDetails() {
                 id="article-rendered-prose"
               >
                 {activePost.sections && activePost.sections.length > 0 ? (
-                  <div className="space-y-12">
+                  <div className="space-y-8 md:space-y-12">
                     {activePost.sections.map((sec, index) => (
                       <div 
                         key={index} 
-                        className="article-content-block space-y-5"
+                        className="article-content-block space-y-4 sm:space-y-5"
                         id={`article-section-${index}`}
                       >
                         {/* Heading structures dynamic */}
                         {sec.heading && (
-                          <h2 className="text-brand-charcoal mt-10 mb-5 brand-text-4xl">
+                          <h2 className="text-brand-charcoal mt-6 mb-3 md:mt-10 md:mb-5 brand-text-4xl">
                             {sec.heading}
                           </h2>
                         )}
@@ -310,7 +310,7 @@ export default function BlogDetails() {
 
                         {/* Quote sections */}
                         {sec.quote && (
-                          <blockquote className="border-l-4 border-brand-blue-accent bg-brand-gray-50/80 rounded-r-xl p-6 sm:p-8 my-8 shadow-sm">
+                          <blockquote className="border-l-4 border-brand-blue-accent bg-brand-gray-50/80 rounded-r-xl p-4 sm:p-8 my-6 md:my-8 shadow-sm">
                             <p className="italic text-brand-charcoal text-left brand-text-2xl">
                               "{sec.quote}"
                             </p>
@@ -352,7 +352,7 @@ export default function BlogDetails() {
               </div>
 
               {/* Elegant End-of-article Author Profile Signature Card */}
-              <div className="max-w-3xl mx-auto border-t border-brand-gray-300/40 mt-16 pt-8 flex items-center gap-4 animate-fade-in" id="article-author-signature">
+              <div className="max-w-3xl mx-auto border-t border-brand-gray-300/40 mt-10 pt-6 md:mt-16 md:pt-8 flex items-center gap-4 animate-fade-in" id="article-author-signature">
                 <div className="w-10 h-10 rounded-full bg-brand-blue-accent/10 flex items-center justify-center text-brand-blue-accent shadow-sm select-none brand-text-xl-medium">
                   {activePost.author.charAt(0)}
                 </div>
@@ -364,7 +364,7 @@ export default function BlogDetails() {
 
               {/* SOCIAL SHARE SECTION */}
               <div 
-                className="max-w-3xl mx-auto border-t border-brand-gray-300/60 pt-8 mt-16 flex items-center justify-end gap-5"
+                className="max-w-3xl mx-auto border-t border-brand-gray-300/60 pt-6 mt-10 md:pt-8 md:mt-16 flex items-center justify-end gap-5"
                 id="article-social-share-strip"
               >
                 <span className="brand-text-xl font-medium text-brand-charcoal mr-1 select-none">
@@ -430,10 +430,10 @@ export default function BlogDetails() {
         </article>
 
         {/* SECTION 2: MORE TO EXPLORE */}
-        <section className="w-full py-20 md:py-24 bg-transparent border-t border-brand-gray-300/30" id="more-explore-section">
+        <section className="w-full py-12 md:py-24 bg-transparent border-t border-brand-gray-300/30" id="more-explore-section">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div className="text-center mb-14" id="more-explore-trigger">
+            <div className="text-center mb-8 sm:mb-14" id="more-explore-trigger">
               <h2 className="brand-text-7xl text-brand-charcoal" id="explore-main-heading">
                 <span className="italic">More</span> to Explore
               </h2>

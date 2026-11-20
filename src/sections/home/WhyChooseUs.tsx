@@ -29,9 +29,9 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="bg-brand-bg py-20 md:py-28 border-b border-brand-gray-100" id="about">
+    <section className="bg-brand-bg py-12 sm:py-16 md:py-28 border-b border-brand-gray-100" id="about">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-stretch">
           
           {/* Left Column: Text and bullet listings (takes 7 columns in desktop for beautiful spacing) */}
           <motion.div
@@ -52,8 +52,8 @@ export default function WhyChooseUs() {
              {/* Display Headings with custom serif italics */}
             <div className="space-y-3">
               <Heading level={2} className="text-brand-charcoal">
-                Why Healthcare Teams Choose <br />
-                <span className="italic block mt-2 text-brand-charcoal">
+                Why Healthcare Teams Choose <br className="hidden sm:inline" />
+                <span className="italic block mt-1 sm:mt-2 text-brand-charcoal">
                   HealthMed
                 </span>
               </Heading>
@@ -65,7 +65,7 @@ export default function WhyChooseUs() {
             </p>
 
             {/* List checklist items - 2 column grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 pt-4 md:pt-6" id="whychooseus-grid">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 sm:gap-y-4 pt-2 sm:pt-4 md:pt-6" id="whychooseus-grid">
               {checkmarks.map((item, idx) => (
                 <div key={idx} className="flex items-center gap-3 brand-text-xl text-brand-slate" id={`whychooseus-item-${idx}`}>
                   <BadgeCheck className="h-[21px] w-[21px] text-brand-blue flex-shrink-0" fill="currentColor" stroke="white" strokeWidth={2.5} />
@@ -84,7 +84,7 @@ export default function WhyChooseUs() {
             className="lg:col-span-5 flex"
             id="whychooseus-graphic-panel"
           >
-            <div className="relative w-full aspect-square md:aspect-[4/3] lg:aspect-auto lg:h-full min-h-[350px] md:min-h-[450px] lg:min-h-0 overflow-hidden shadow-xl border border-gray-200/50 bg-white group">
+            <div className="relative w-full aspect-square md:aspect-[4/3] lg:aspect-auto lg:h-full min-h-[280px] sm:min-h-[350px] md:min-h-[450px] lg:min-h-0 overflow-hidden shadow-xl border border-gray-200/50 bg-white group">
               <picture className="block w-full h-full">
                 <source
                   media="(min-width: 768px) and (max-width: 1023px)"

@@ -30,25 +30,25 @@ export default function Footer() {
 
   return (
     <footer className="bg-brand-charcoal border-t border-white/8 " id="app-footer">
-      <div className="w-full max-w-[var(--container-max-width)] mx-auto px-[var(--space-lg)] md:px-[var(--space-xl)] py-[var(--space-2xl)] md:py-[var(--space-3xl)]">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2.3fr_1fr_1.6fr_1.3fr] gap-[var(--space-2xl)] lg:gap-[var(--space-3xl)]">
+      <div className="w-full max-w-[var(--container-max-width)] mx-auto px-4 sm:px-[var(--space-lg)] md:px-[var(--space-xl)] py-10 sm:py-[var(--space-2xl)] md:py-[var(--space-3xl)]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2.3fr_1fr_1.6fr_1.3fr] gap-8 sm:gap-[var(--space-2xl)] lg:gap-[var(--space-3xl)]">
           
           {/* Column 1: Brand Info */}
           <div className="flex flex-col">
-            <div className="inline-block select-none pointer-events-none mb-[var(--space-xl)]" id="footer-logo-container">
+            <div className="inline-block select-none pointer-events-none mb-5 sm:mb-[var(--space-xl)]" id="footer-logo-container">
               <img
                 src={logoImg}
                 alt="Healthmed Logo"
                 width={190}
                 height={37}
-                className="h-[2.875rem] w-auto object-contain"
+                className="h-9 sm:h-[2.875rem] w-auto object-contain"
                 decoding="async"
                 loading="lazy"
                 referrerPolicy="no-referrer"
               />
             </div>
             
-            <p className="brand-text-xl text-brand-gray-400 mb-[2.25rem] max-w-[21rem]" id="footer-brand-info">
+            <p className="brand-text-xl text-brand-gray-400 mb-6 sm:mb-[2.25rem] max-w-[21rem]" id="footer-brand-info">
               Healthmed truly understands the problems of healthcare people and has built usable solutions to help them solve their everyday problems.
             </p>
             
@@ -91,10 +91,10 @@ export default function Footer() {
 
           {/* Column 2: Quick Links */}
           <div className="flex flex-col">
-            <h3 className="brand-text-3xl-medium text-white  mb-[1.75rem] " id="footer-quicklinks-heading">
+            <h3 className="brand-text-3xl-medium text-white mb-4 sm:mb-[1.75rem]" id="footer-quicklinks-heading">
               Quick Links
             </h3>
-            <ul className="list-none p-0 m-0 flex flex-col gap-[1.0625rem]">
+            <ul className="list-none p-0 m-0 flex flex-col gap-3 sm:gap-[1.0625rem]">
               {quickLinks.map((link) => (
                 <li key={link.label}>
                   {link.href.startsWith('/#') || link.href === '/' ? (
@@ -121,10 +121,10 @@ export default function Footer() {
 
           {/* Column 3: Our Modules */}
           <div className="flex flex-col">
-            <h3 className="brand-text-3xl-medium text-white  mb-[1.75rem] " id="footer-modules-heading">
+            <h3 className="brand-text-3xl-medium text-white mb-4 sm:mb-[1.75rem]" id="footer-modules-heading">
               Our Modules
             </h3>
-            <ul className="list-none p-0 m-0 flex flex-col gap-[1.0625rem]">
+            <ul className="list-none p-0 m-0 flex flex-col gap-3 sm:gap-[1.0625rem]">
               {modulesLinks.map((link) => (
                 <li key={link.label}>
                   <a
@@ -141,17 +141,17 @@ export default function Footer() {
 
           {/* Column 4: Get In Touch */}
           <div className="flex flex-col">
-            <h3 className="brand-text-3xl-medium text-white  mb-[1.75rem] " id="footer-getintouch-heading">
+            <h3 className="brand-text-3xl-medium text-white mb-4 sm:mb-[1.75rem]" id="footer-getintouch-heading">
               Get in Touch
             </h3>
-            <div className="flex flex-col gap-[1.75rem]">
+            <div className="flex flex-col gap-4 sm:gap-[1.75rem]">
               <div className="flex flex-col gap-[0.625rem]">
                 <span className="brand-text-xl-medium text-white  ">
                   Email
                 </span>
                 <a
                   href="mailto:info@healthmedtechnologies.com"
-                  className="brand-text-xl text-nowrap text-brand-gray-400 no-underline transition-colors duration-[var(--transition-duration-default)] break-all inline-block hover:text-white"
+                  className="brand-text-xl md:text-nowrap text-brand-gray-400 no-underline transition-colors duration-[var(--transition-duration-default)] break-words inline-block hover:text-white"
                   id="footer-link-email"
                 >
                   info@healthmedtechnologies.com
@@ -166,7 +166,7 @@ export default function Footer() {
                   href="https://wa.me/917550002160"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="brand-text-xl text-brand-gray-400 no-underline transition-colors duration-[var(--transition-duration-default)] break-all inline-block hover:text-white"
+                  className="brand-text-xl text-brand-gray-400 no-underline transition-colors duration-[var(--transition-duration-default)] break-words inline-block hover:text-white"
                   id="footer-link-phone"
                 >
                   +91 7550002160
@@ -179,10 +179,10 @@ export default function Footer() {
       </div>
 
       {/* Full width divider line */}
-      <hr className="w-full border-0 border-t border-white/8 mt-[var(--space-2xl)] md:mt-[var(--space-3xl)]" />
+      <hr className="w-full border-0 border-t border-white/8 mt-8 sm:mt-[var(--space-2xl)] md:mt-[var(--space-3xl)]" />
 
       {/* Legal bar */}
-      <div className="w-full max-w-[var(--container-max-width)] mx-auto px-[var(--space-lg)] md:px-[var(--space-xl)] py-[var(--space-lg)] text-center flex justify-center items-center">
+      <div className="w-full max-w-[var(--container-max-width)] mx-auto px-4 sm:px-[var(--space-lg)] md:px-[var(--space-xl)] py-[var(--space-lg)] text-center flex justify-center items-center">
         <p className="brand-text-xl text-brand-gray-300 " id="footer-copyright">
           © 2016-2023 Healthmed Technologies India Pvt Ltd. All rights reserved
         </p>

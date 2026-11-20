@@ -192,6 +192,41 @@
   --shadow-stage: var(--shadow-stage);
 }
 
+@layer base {
+  html, body {
+    overflow-x: clip;
+  }
+
+  /* Responsive Typography Scale: keeps exact Figma desktop sizes (>= 1024px) while scaling cleanly on tablet & mobile */
+  @media (max-width: 1023px) {
+    :root {
+      --font-size-9xl: 3.25rem;   /* 52px */
+      --font-size-8xl: 2.875rem;  /* 46px */
+      --font-size-7xl: 2.625rem;  /* 42px */
+      --font-size-6xl: 2.25rem;   /* 36px */
+      --font-size-5xl: 1.75rem;   /* 28px */
+      --font-size-4xl: 1.375rem;  /* 22px */
+      --font-size-3xl: 1.125rem;  /* 18px */
+      --font-size-2xl: 1rem;      /* 16px */
+      --font-size-xl: 0.9375rem;  /* 15px */
+    }
+  }
+
+  @media (max-width: 639px) {
+    :root {
+      --font-size-9xl: 2.375rem;  /* 38px */
+      --font-size-8xl: 2.125rem;  /* 34px */
+      --font-size-7xl: 1.875rem;  /* 30px */
+      --font-size-6xl: 1.625rem;  /* 26px */
+      --font-size-5xl: 1.375rem;  /* 22px */
+      --font-size-4xl: 1.25rem;   /* 20px */
+      --font-size-3xl: 1rem;      /* 16px */
+      --font-size-2xl: 0.9375rem; /* 15px */
+      --font-size-xl: 0.875rem;   /* 14px */
+    }
+  }
+}
+
 @layer utilities {
   .text-shadow-sm {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -304,13 +339,13 @@
 
   /* Buttons styling mappings */
   .btn-primary {
-    @apply bg-brand-blue-accent hover:bg-brand-blue-accent-hover text-white shadow-md py-4 px-8 inline-flex items-center justify-center rounded-lg transition-all duration-200 cursor-pointer select-none brand-text-2xl-medium;
+    @apply bg-brand-blue-accent hover:bg-brand-blue-accent-hover text-white shadow-md py-3 px-6 sm:py-4 sm:px-8 inline-flex items-center justify-center rounded-lg transition-all duration-200 cursor-pointer select-none brand-text-2xl-medium;
   }
   .btn-secondary {
-    @apply bg-brand-black hover:bg-brand-gray-800 text-white py-4 px-8 inline-flex items-center justify-center rounded-lg transition-all duration-200 cursor-pointer select-none brand-text-2xl-medium;
+    @apply bg-brand-black hover:bg-brand-gray-800 text-white py-3 px-6 sm:py-4 sm:px-8 inline-flex items-center justify-center rounded-lg transition-all duration-200 cursor-pointer select-none brand-text-2xl-medium;
   }
   .btn-outline {
-    @apply bg-transparent border border-brand-gray-500 py-4 px-8 inline-flex items-center justify-center rounded-lg transition-all duration-200 cursor-pointer select-none text-brand-charcoal hover:border-brand-gray-50 brand-text-2xl-medium;
+    @apply bg-transparent border border-brand-gray-500 py-3 px-6 sm:py-4 sm:px-8 inline-flex items-center justify-center rounded-lg transition-all duration-200 cursor-pointer select-none text-brand-charcoal hover:border-brand-gray-50 brand-text-2xl-medium;
   }
   .btn-link {
     @apply bg-transparent text-brand-blue hover:text-brand-blue-hover gap-1.5 p-0 inline-flex items-center justify-center transition-all duration-200 cursor-pointer select-none brand-text-xl-medium;
@@ -318,16 +353,16 @@
 
   /* Badges components mappings using standard approved design system tokens */
   .badge-custom-dark {
-    @apply bg-gradient-to-b from-[#151515] to-[#5B5B5B] py-1.5 px-4 text-white rounded-lg shadow-sm border border-brand-gray-700/60 brand-text-xl;
+    @apply bg-gradient-to-b from-[#151515] to-[#5B5B5B] py-1 px-3 sm:py-1.5 sm:px-4 text-white rounded-lg shadow-sm border border-brand-gray-700/60 brand-text-xl;
   }
   .badge-custom-glass {
-    @apply border border-white/20 py-1.5 px-4 bg-white/10 text-white rounded-lg shadow-sm brand-text-xl;
+    @apply border border-white/20 py-1 px-3 sm:py-1.5 sm:px-4 bg-white/10 text-white rounded-lg shadow-sm brand-text-xl;
   }
   .badge-custom-white {
-    @apply bg-white text-brand-black py-1.5 px-4 rounded-lg shadow-sm border border-brand-gray-200 brand-text-xl;
+    @apply bg-white text-brand-black py-1 px-3 sm:py-1.5 sm:px-4 rounded-lg shadow-sm border border-brand-gray-200 brand-text-xl;
   }
   .badge-custom-page {
-    @apply inline-flex items-center justify-center gap-[8px] h-[46px] py-[12px] px-[24px] rounded-[999px] border border-[#CED4DA] bg-transparent text-brand-charcoal brand-text-xl select-none;
+    @apply inline-flex items-center justify-center gap-[8px] h-auto py-2 px-4 sm:h-[46px] sm:py-[12px] sm:px-[24px] rounded-[999px] border border-[#CED4DA] bg-transparent text-brand-charcoal brand-text-xl select-none;
   }
 
   /* Custom Functional Layout Classes preventing inline arbitrary metrics */

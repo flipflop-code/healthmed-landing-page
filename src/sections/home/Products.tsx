@@ -39,27 +39,27 @@ export default function Products() {
   ];
 
   return (
-    <section className="bg-[var(--color-background)] border-b border-[var(--color-brand-gray-100)] py-20 md:py-28 overflow-hidden" id="products">
+    <section className="bg-[var(--color-background)] border-b border-[var(--color-brand-gray-100)] py-12 sm:py-16 md:py-28 overflow-hidden" id="products">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
          {/* Section Headings */}
-        <div className="text-center max-w-4xl mx-auto mb-[var(--space-2xl)]">
-          <div className="flex justify-center mb-5">
+        <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-[var(--space-2xl)]">
+          <div className="flex justify-center mb-4 sm:mb-5">
             <Badge variant="dark">
               Products
             </Badge>
           </div>
           <Heading level={2} id="products-heading" className="text-brand-charcoal">
-            Everything Healthcare Teams Need <br />
-            <span className="italic block mt-2">Connected in One Platform</span>
+            Everything Healthcare Teams Need <br className="hidden sm:inline" />
+            <span className="italic block mt-1 sm:mt-2">Connected in One Platform</span>
           </Heading>
-          <p className="mt-5 text-brand-slate brand-text-3xl max-w-2xl mx-auto" id="products-description">
+          <p className="mt-4 sm:mt-5 text-brand-slate brand-text-3xl max-w-2xl mx-auto" id="products-description">
             HealthMed combines clinical, operational, financial, and patient workflows into one intelligent healthcare management ecosystem.
           </p>
         </div>
 
         {/* 2x2 Grid of Product Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-6xl mx-auto" id="products-grid">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 max-w-6xl mx-auto" id="products-grid">
           {cards.map((card, idx) => (
             <motion.div
               key={card.id}
@@ -67,12 +67,12 @@ export default function Products() {
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-[var(--color-surface)] border border-[var(--color-brand-gray-200)] p-[20px] shadow-none hover:shadow-none transition-all duration-200 ease-out flex flex-col group cursor-pointer"
+              className="bg-[var(--color-surface)] border border-[var(--color-brand-gray-200)] p-4 sm:p-[20px] shadow-none hover:shadow-none transition-all duration-200 ease-out flex flex-col group cursor-pointer"
               id={`product-card-${card.id.toLowerCase()}`}
             >
               
               {/* Product Card Image Banner with Zoom Effect */}
-              <div className="overflow-hidden relative bg-[var(--color-surface-secondary)] mb-[var(--space-lg)] aspect-[16/10] w-full" id={`product-img-container-${card.id.toLowerCase()}`}>
+              <div className="overflow-hidden relative bg-[var(--color-surface-secondary)] mb-4 sm:mb-[var(--space-lg)] aspect-[16/10] w-full" id={`product-img-container-${card.id.toLowerCase()}`}>
                 <img
                   src={`${card.imageBase}&w=600&h=375`}
                   srcSet={`${card.imageBase}&w=400&h=250 400w, ${card.imageBase}&w=600&h=375 600w, ${card.imageBase}&w=800&h=500 800w`}

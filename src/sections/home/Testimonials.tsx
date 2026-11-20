@@ -58,7 +58,7 @@ export default function Testimonials() {
   const renderCard = (review: typeof leftReviews[0], idx: number, prefix: string) => (
     <div
       key={`${prefix}-${idx}`}
-      className="bg-white rounded-[16px] p-6 md:p-8 shadow-[0_10px_35px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_45px_rgba(0,0,0,0.06)] border border-[#E5E7EB] transition-all duration-300 flex-shrink-0 flex flex-col justify-between min-h-[250px]"
+      className="bg-white rounded-[16px] p-5 sm:p-6 md:p-8 shadow-[0_10px_35px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_45px_rgba(0,0,0,0.06)] border border-[#E5E7EB] transition-all duration-300 flex-shrink-0 flex flex-col justify-between min-h-[200px] sm:min-h-[250px]"
       id={`testimonial-card-${prefix}-${idx}`}
     >
       <div>
@@ -99,22 +99,22 @@ export default function Testimonials() {
   );
 
   return (
-    <section className="bg-brand-gray-50 py-24 md:py-32 border-b border-brand-gray-200" id="testimonials">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section className="bg-brand-gray-50 py-12 sm:py-16 md:py-32 border-b border-brand-gray-200" id="testimonials">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         
         {/* Card head section */}
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 md:mb-20">
              <Badge variant="dark" id="impact-badge">
               Testimonial
             </Badge>
           {/* Typo Match: "What our Client Say" with elegant italicized serif start */}
-          <h2 className="brand-text-7xl text-brand-black mt-6" id="testimonial-heading">
+          <h2 className="brand-text-7xl text-brand-black mt-4 sm:mt-6" id="testimonial-heading">
             <span className="italic">What</span> our Client Say
           </h2>
         </div>
 
         {/* 2-Column Infinite Vertical Marquee Container with fade blurs on edges */}
-        <div className="relative max-w-5xl mx-auto h-[720px] overflow-hidden" id="testimonials-scroller-box">
+        <div className="relative max-w-5xl mx-auto h-[500px] sm:h-[620px] md:h-[720px] overflow-hidden" id="testimonials-scroller-box">
           
           {/* Fade blurs to hide edge entries cleanly */}
           <div className="absolute inset-x-0 top-0 h-24 md:h-32 bg-gradient-to-b from-brand-gray-50 via-brand-gray-50/80 to-transparent z-10 pointer-events-none" />

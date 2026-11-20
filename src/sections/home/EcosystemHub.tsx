@@ -54,12 +54,12 @@ export default function EcosystemHub() {
   }, []);
 
   return (
-    <section className="bg-brand-bg py-20 md:py-28 border-b border-brand-gray-100 overflow-hidden" id="ecosystem">
+    <section className="bg-brand-bg py-12 sm:py-16 md:py-28 border-b border-brand-gray-100 overflow-hidden" id="ecosystem">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Caption Header & Badging matching the reference image */}
-        <div className="text-center  mx-auto mb-16 md:mb-20">
-          <div className="flex justify-center mb-5">
+        <div className="text-center mx-auto mb-10 sm:mb-14 md:mb-20">
+          <div className="flex justify-center mb-4 sm:mb-5">
             <Badge variant="dark">
               Unified Healthcare Ecosystem
             </Badge>
@@ -68,28 +68,28 @@ export default function EcosystemHub() {
             <span className="italic pr-1">One Healthcare Management</span>
              Platform for Every Workflow
           </Heading>
-          <p className="mt-5 text-brand-slate brand-text-2xl  mx-auto" id="ecosystem-description">
+          <p className="mt-4 sm:mt-5 text-brand-slate brand-text-2xl mx-auto" id="ecosystem-description">
             Manage clinical, operational, and financial workflows through one scalable hospital management system.
           </p>
         </div>
 
         {/* Central Interactive Ecosystem Stage on cream background without container borders */}
-        <div ref={stageRef} className="relative max-w-3xl mx-auto flex items-center justify-center h-[30rem] md:h-[34rem]" id="ecosystem-stage">
+        <div ref={stageRef} className="relative max-w-3xl mx-auto flex items-center justify-center h-[21rem] sm:h-[26rem] md:h-[34rem]" id="ecosystem-stage">
           
           {/* Concentric Orbital dashed circle line passing exactly through the cards */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
             {/* Soft, beautiful radial highlight matching the reference image */}
-            <div className="absolute rounded-full bg-gradient-to-tr from-brand-blue/10 to-transparent filter blur-[40px] opacity-70 animate-pulse-slow w-[22.5rem] h-[22.5rem] md:w-[31.25rem] md:h-[31.25rem]" />
+            <div className="absolute rounded-full bg-gradient-to-tr from-brand-blue/10 to-transparent filter blur-[40px] opacity-70 animate-pulse-slow w-[16rem] h-[16rem] sm:w-[22.5rem] sm:h-[22.5rem] md:w-[31.25rem] md:h-[31.25rem]" />
             
             {/* The primary dashed orbit track line */}
-            <div className="absolute rounded-full border border-dashed border-brand-blue-200 w-[17.5rem] h-[17.5rem] md:w-[26.25rem] md:h-[26.25rem]" />
+            <div className="absolute rounded-full border border-dashed border-brand-blue-200 w-[13.5rem] h-[13.5rem] sm:w-[19rem] sm:h-[19rem] md:w-[26.25rem] md:h-[26.25rem]" />
           </div>
 
           {/* Central Blue Orb representing HealthMed Core Node */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             transition={{ type: 'spring', stiffness: 300, damping: 15 }}
-            className="relative z-20 flex flex-col items-center justify-center text-white text-center bg-brand-blue-accent rounded-full shadow-lg border-4 border-white cursor-pointer select-none w-[9rem] h-[9rem] md:w-[11rem] md:h-[11rem]"
+            className="relative z-20 flex flex-col items-center justify-center text-white text-center bg-brand-blue-accent rounded-full shadow-lg border-4 border-white cursor-pointer select-none w-[6.5rem] h-[6.5rem] sm:w-[8.5rem] sm:h-[8.5rem] md:w-[11rem] md:h-[11rem]"
             id="ecosystem-node-core"
           >
             <span className="brand-text-xl-medium">HealthMed</span>
@@ -103,13 +103,13 @@ export default function EcosystemHub() {
               initial={false}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="absolute top-4 left-2 md:top-[12%] md:left-[8%] bg-white rounded-2xl py-3 px-5 shadow-sm border border-brand-gray-100/50 flex items-center gap-3.5 cursor-pointer group select-none"
+              className="absolute top-3 left-0 sm:top-4 sm:left-2 md:top-[12%] md:left-[8%] bg-white rounded-xl md:rounded-2xl py-2 px-3 sm:py-2.5 sm:px-4 md:py-3 md:px-5 shadow-sm border border-brand-gray-100/50 flex items-center gap-2 sm:gap-3 md:gap-3.5 cursor-pointer group select-none"
               id="node-hospitals"
             >
-              <div className="p-2 rounded-xl bg-brand-blue-light text-brand-blue-accent transition-colors group-hover:bg-brand-blue-50">
-                <Building2 className="h-5 w-5" />
+              <div className="p-1.5 md:p-2 rounded-lg md:rounded-xl bg-brand-blue-light text-brand-blue-accent transition-colors group-hover:bg-brand-blue-50">
+                <Building2 className="h-4 w-4 md:h-5 md:w-5" />
               </div>
-              <span className="brand-text-xl-medium text-brand-charcoal">Hospitals</span>
+              <span className="text-xs sm:text-sm md:brand-text-xl-medium font-medium text-brand-charcoal">Hospitals</span>
             </motion.div>
 
             {/* 2. Diagnostics (Top-Right Position) */}
@@ -117,13 +117,13 @@ export default function EcosystemHub() {
               initial={false}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="absolute top-4 right-2 md:top-[12%] md:right-[8%] bg-white rounded-2xl py-3 px-5 shadow-sm border border-brand-gray-100/50 flex items-center gap-3.5 cursor-pointer group select-none"
+              className="absolute top-3 right-0 sm:top-4 sm:right-2 md:top-[12%] md:right-[8%] bg-white rounded-xl md:rounded-2xl py-2 px-3 sm:py-2.5 sm:px-4 md:py-3 md:px-5 shadow-sm border border-brand-gray-100/50 flex items-center gap-2 sm:gap-3 md:gap-3.5 cursor-pointer group select-none"
               id="node-diagnostics"
             >
-              <div className="p-2 rounded-xl bg-brand-blue-light text-brand-blue-accent transition-colors group-hover:bg-brand-blue-50">
-                <Activity className="h-5 w-5" />
+              <div className="p-1.5 md:p-2 rounded-lg md:rounded-xl bg-brand-blue-light text-brand-blue-accent transition-colors group-hover:bg-brand-blue-50">
+                <Activity className="h-4 w-4 md:h-5 md:w-5" />
               </div>
-              <span className="brand-text-xl-medium text-brand-charcoal">Diagnostics</span>
+              <span className="text-xs sm:text-sm md:brand-text-xl-medium font-medium text-brand-charcoal">Diagnostics</span>
             </motion.div>
 
             {/* 3. Pharmacies (Bottom-Left Position) */}
@@ -131,13 +131,13 @@ export default function EcosystemHub() {
               initial={false}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="absolute bottom-4 left-2 md:bottom-[12%] md:left-[8%] bg-white rounded-2xl py-3 px-5 shadow-sm border border-brand-gray-100/50 flex items-center gap-3.5 cursor-pointer group select-none"
+              className="absolute bottom-3 left-0 sm:bottom-4 sm:left-2 md:bottom-[12%] md:left-[8%] bg-white rounded-xl md:rounded-2xl py-2 px-3 sm:py-2.5 sm:px-4 md:py-3 md:px-5 shadow-sm border border-brand-gray-100/50 flex items-center gap-2 sm:gap-3 md:gap-3.5 cursor-pointer group select-none"
               id="node-pharmacies"
             >
-              <div className="p-2 rounded-xl bg-brand-blue-light text-brand-blue-accent transition-colors group-hover:bg-brand-blue-50">
-                <Pill className="h-5 w-5" />
+              <div className="p-1.5 md:p-2 rounded-lg md:rounded-xl bg-brand-blue-light text-brand-blue-accent transition-colors group-hover:bg-brand-blue-50">
+                <Pill className="h-4 w-4 md:h-5 md:w-5" />
               </div>
-              <span className="brand-text-xl-medium text-brand-charcoal">Pharmacies</span>
+              <span className="text-xs sm:text-sm md:brand-text-xl-medium font-medium text-brand-charcoal">Pharmacies</span>
             </motion.div>
 
             {/* 4. Care Teams (Bottom-Right Position) */}
@@ -145,13 +145,13 @@ export default function EcosystemHub() {
               initial={false}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="absolute bottom-4 right-2 md:bottom-[12%] md:right-[8%] bg-white rounded-2xl py-3 px-5 shadow-sm border border-brand-gray-100/50 flex items-center gap-3.5 cursor-pointer group select-none"
+              className="absolute bottom-3 right-0 sm:bottom-4 sm:right-2 md:bottom-[12%] md:right-[8%] bg-white rounded-xl md:rounded-2xl py-2 px-3 sm:py-2.5 sm:px-4 md:py-3 md:px-5 shadow-sm border border-brand-gray-100/50 flex items-center gap-2 sm:gap-3 md:gap-3.5 cursor-pointer group select-none"
               id="node-careteams"
             >
-              <div className="p-2 rounded-xl bg-brand-blue-light text-brand-blue-accent transition-colors group-hover:bg-brand-blue-50">
-                <Users className="h-5 w-5" />
+              <div className="p-1.5 md:p-2 rounded-lg md:rounded-xl bg-brand-blue-light text-brand-blue-accent transition-colors group-hover:bg-brand-blue-50">
+                <Users className="h-4 w-4 md:h-5 md:w-5" />
               </div>
-              <span className="brand-text-xl-medium text-brand-charcoal">Care Teams</span>
+              <span className="text-xs sm:text-sm md:brand-text-xl-medium font-medium text-brand-charcoal">Care Teams</span>
             </motion.div>
 
           </div>

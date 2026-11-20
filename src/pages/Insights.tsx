@@ -128,16 +128,16 @@ export default function Insights() {
       <main className="flex-grow">
         
         {/* SECTION 2: BLOG HERO & HEADERS */}
-        <section className="w-full px-4 sm:px-6 lg:px-8 pt-20 pb-24 md:pt-28 md:pb-36 bg-[var(--brand-bg-cream)]" id="blog-hero" ref={heroRef}>
-          <div className="max-w-4xl mx-auto text-center space-y-6">
+        <section className="w-full px-4 sm:px-6 lg:px-8 pt-10 pb-12 sm:pt-16 sm:pb-20 md:pt-28 md:pb-36 bg-[var(--brand-bg-cream)]" id="blog-hero" ref={heroRef}>
+          <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6">
             <div className="insights-hero-anim flex justify-center">
-              <Badge variant="page" className="mb-6" id="insights-hero-badge">
+              <Badge variant="page" className="mb-2 sm:mb-6" id="insights-hero-badge">
                 Blog
               </Badge>
             </div>
 
             <h1 className="insights-hero-anim brand-text-9xl text-center text-brand-charcoal" id="insights-main-title">
-              Insights Shaping the Future <br />
+              Insights Shaping the Future <br className="hidden sm:inline" />
               of Healthcare Operations
             </h1>
 
@@ -147,9 +147,9 @@ export default function Insights() {
           </div>
 
           {/* FEATURED ARTICLE CARD */}
-          <div className="max-w-6xl mx-auto px-0 mt-20 md:mt-24" id="featured-article-container" ref={featuredRef}>
+          <div className="max-w-6xl mx-auto px-0 mt-10 sm:mt-16 md:mt-24" id="featured-article-container" ref={featuredRef}>
             <div 
-              className="grid grid-cols-1 md:grid-cols-12 overflow-hidden border border-white/5 shadow-xl bg-[var(--brand-navy-dark)] gap-10 sm:gap-14 rounded-[2.5rem] p-6 sm:p-10 md:p-2.5"
+              className="grid grid-cols-1 md:grid-cols-12 overflow-hidden border border-white/5 shadow-xl bg-[var(--brand-navy-dark)] gap-6 sm:gap-10 md:gap-14 rounded-2xl sm:rounded-[2.5rem] p-4 sm:p-8 md:p-2.5"
               id="featured-blog-card-element"
             >
               {/* Left Column: Image with covered sizing */}
@@ -181,8 +181,8 @@ export default function Insights() {
               </Link>
 
               {/* Right Column: Descriptions */}
-              <div className="md:col-span-6 flex flex-col justify-center py-4 md:pr-4 space-y-6" id="featured-content-wrapper">
-                <span className=" mb-6 block text-left brand-text-xl-medium text-[var(--brand-blue-accent-custom)]">
+              <div className="md:col-span-6 flex flex-col justify-center py-2 sm:py-4 md:pr-4 space-y-4 sm:space-y-6" id="featured-content-wrapper">
+                <span className="mb-1 sm:mb-6 block text-left brand-text-xl-medium text-[var(--brand-blue-accent-custom)]">
                   Featured Post
                 </span>
 
@@ -202,14 +202,14 @@ export default function Insights() {
                   {featuredBlog.description}
                 </p>
 
-                <div className="pt-4 text-left">
+                <div className="pt-2 sm:pt-4 text-left">
                   <Link 
                     to="/insights/hms-workloads-35"
                     className="text-white hover:text-[var(--brand-blue-accent-custom)] border-b border-white inline-flex items-center gap-1.5 transition-colors cursor-pointer text-left brand-text-xl-medium group"
                     id="featured-read-action"
                   >
                     <span className=" group-hover:border-current pb-0.5 transition-colors">Read More</span>
-                    <ChevronRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
+                    <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>
               </div>
@@ -218,22 +218,22 @@ export default function Insights() {
         </section>
 
         {/* SECTION 3: CATEGORIES FILTERS & GRID */}
-        <section className="w-full py-16 md:py-24 px-4 sm:px-6 lg:px-8 border-t bg-white border-brand-gray-200/50" id="blog-grid-section-container" ref={gridRef}>
+        <section className="w-full py-12 md:py-24 px-4 sm:px-6 lg:px-8 border-t bg-white border-brand-gray-200/50" id="blog-grid-section-container" ref={gridRef}>
           <div className="max-w-[80rem] mx-auto">
             {/* Action Title */}
-            <h2 className="brand-text-7xl text-brand-charcoal mb-8 text-center" id="categories-heading">
+            <h2 className="brand-text-7xl text-brand-charcoal mb-6 sm:mb-8 text-center" id="categories-heading">
               Categories
             </h2>
 
             {/* Category selection row */}
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-4xl mx-auto mb-16" id="categories-filter-bar">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-4xl mx-auto mb-10 sm:mb-16" id="categories-filter-bar">
               {categories.map((cat) => {
                 const isActive = activeCategory === cat.id;
                 return (
                   <button
                     key={cat.id}
                     onClick={() => setActiveCategory(cat.id)}
-                    className={`rounded-full transition-all duration-300 focus:outline-none cursor-pointer brand-text-xl-medium py-2.5 px-5 ${
+                    className={`rounded-full transition-all duration-300 focus:outline-none cursor-pointer brand-text-xl-medium py-2 px-4 sm:py-2.5 sm:px-5 ${
                       isActive 
                         ? 'text-white bg-[var(--color-brand-black)] shadow-sm'
                         : 'text-brand-slate bg-white border border-[rgba(233,236,239,0.8)] hover:text-brand-black hover:bg-white/90 hover:border-[var(--color-brand-gray-400)]'
@@ -316,7 +316,7 @@ export default function Insights() {
         <FAQ
           id="insights-faq-section"
           sectionRef={faqRef}
-          className="w-full py-20 md:py-28 border-t border-brand-gray-200/50 bg-[var(--brand-bg-cream)] overflow-hidden"
+          className="w-full py-12 sm:py-16 md:py-28 border-t border-brand-gray-200/50 bg-[var(--brand-bg-cream)] overflow-hidden"
           headerId="insights-faq-header"
           badge="FAQ"
           badgeId="faq-badge-pill"

@@ -18,7 +18,7 @@ export default function ModernizeCTA() {
   ];
 
   return (
-    <section className="bg-brand-bg py-16 md:py-24 border-b border-brand-gray-100 overflow-hidden" id="book-a-call">
+    <section className="bg-brand-bg py-12 md:py-24 border-b border-brand-gray-100 overflow-hidden" id="book-a-call">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Dark nested banner card framed inside the warm cream background */}
@@ -27,7 +27,7 @@ export default function ModernizeCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative bg-brand-blue-900 text-white py-16 md:py-20 overflow-hidden shadow-2xl border border-white/5"
+          className="relative bg-brand-blue-900 text-white py-10 px-5 sm:py-14 sm:px-8 md:py-20 md:px-10 rounded-2xl md:rounded-none overflow-hidden shadow-2xl border border-white/5"
           id="modernize-cta-banner"
          >
           {/* Subtle glowing dark blue/cyan radial lights */}
@@ -38,20 +38,20 @@ export default function ModernizeCTA() {
           <div className="relative z-10 text-center max-w-4xl mx-auto flex flex-col items-center">
             
             {/* Title display matching the exact styling with italics */}
-            <Heading level={1} className="brand-text-7xl text-white mb-6 max-w-3xl">
-              Ready to modernize your <br />
-              <span className="italic block mt-2 text-white">
+            <Heading level={1} className="brand-text-7xl text-white mb-4 sm:mb-6 max-w-3xl">
+              Ready to modernize your <br className="hidden sm:inline" />
+              <span className="italic block mt-1 sm:mt-2 text-white">
                 healthcare infrastructure?
               </span>
             </Heading>
 
             {/* Paragraph body subtitle */}
-            <p className="brand-text-3xl mb-10">
+            <p className="brand-text-3xl mb-8 sm:mb-10">
               Deliver faster care and smarter operations through one connected healthcare ecosystem.
             </p>
 
             {/* Navigation buttons */}
-            <div className="flex flex-wrap justify-center gap-4 mb-16" id="cta-actions">
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-10 sm:mb-16" id="cta-actions">
               <Button
                 variant="primary"
                 href="/contact"
@@ -72,8 +72,8 @@ export default function ModernizeCTA() {
           </div>
 
           {/* Compliance Shields bottom line inside banner - Full Width Line */}
-          <div className="relative z-10 w-full pt-16 border-t border-blue-700" id="cta-compliance-grid">
-            <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 items-center justify-center">
+          <div className="relative z-10 w-full pt-8 sm:pt-12 md:pt-16 border-t border-blue-700" id="cta-compliance-grid">
+            <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 items-center justify-center">
               {complianceItems.map((item, idx) => (
                 <div key={idx} className="flex flex-col items-center justify-center text-center" id={`cta-compliance-item-${idx}`}>
                   <div className="mb-3 text-brand-blue flex items-center justify-center">

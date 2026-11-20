@@ -61,7 +61,7 @@ export const FAQ: React.FC<FAQProps> = ({
   description,
   items,
   id = "faq",
-  className = "bg-brand-bg py-20 md:py-28 border-b border-brand-gray-100 overflow-hidden",
+  className = "bg-brand-bg py-12 sm:py-16 md:py-28 border-b border-brand-gray-100 overflow-hidden",
   sectionRef,
   headerClassName,
   headerId = "faq-header",
@@ -71,9 +71,9 @@ export const FAQ: React.FC<FAQProps> = ({
   headingId = "faq-heading",
   accordionId = "faq-accordion-container",
   accordionClassName = "max-w-3xl mx-auto",
-  itemClassName = "border-b px-4 border-gray-400 overflow-hidden",
-  buttonClassName = "w-full text-left pt-10 pb-4 flex items-center justify-between gap-4 brand-text-3xl hover:text-brand-blue-accent transition-colors focus:outline-none cursor-pointer",
-  answerClassName = "pb-6 text-brand-slate brand-text-xl max-w-2xl bg-transparent",
+  itemClassName = "border-b px-2 sm:px-4 border-gray-400 overflow-hidden",
+  buttonClassName = "w-full text-left py-5 sm:pt-8 sm:pb-4 md:pt-10 md:pb-4 flex items-center justify-between gap-4 brand-text-3xl hover:text-brand-blue-accent transition-colors focus:outline-none cursor-pointer",
+  answerClassName = "pb-5 sm:pb-6 text-brand-slate brand-text-xl max-w-2xl bg-transparent",
 }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -87,7 +87,7 @@ export const FAQ: React.FC<FAQProps> = ({
         
         {/* Headings */}
         {(badge || title || description) && (
-          <div className={`text-center max-w-3xl mx-auto mb-16 md:mb-20 ${headerClassName || ''}`} id={headerId}>
+          <div className={`text-center max-w-3xl mx-auto mb-8 sm:mb-14 md:mb-20 ${headerClassName || ''}`} id={headerId}>
             {badge && (
               <div className={`flex justify-center mb-5 ${badgeClassName || ''}`}>
                 <Badge variant="dark" id={badgeId}>

@@ -57,12 +57,12 @@ export default function Features() {
   ];
 
   return (
-    <section className="bg-[var(--color-primary)] text-[var(--color-brand-white)] border-b border-[var(--color-primary-hover)] py-20 md:py-28 overflow-hidden" id="features">
+    <section className="bg-[var(--color-primary)] text-[var(--color-brand-white)] border-b border-[var(--color-primary-hover)] py-12 sm:py-16 md:py-28 overflow-hidden" id="features">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header content and Badges */}
-        <div className="text-center mx-auto mb-16 md:mb-20">
-          <div className="flex justify-center mb-5">
+        <div className="text-center mx-auto mb-10 sm:mb-14 md:mb-20">
+          <div className="flex justify-center mb-4 sm:mb-5">
             <Badge variant="glass">
               Features
             </Badge>
@@ -73,7 +73,7 @@ export default function Features() {
         </div>
 
         {/* 3-Column Chessboard/Staggered Responsive Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto" id="features-grid">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mx-auto" id="features-grid">
           {items.map((item, idx) => (
             <motion.div
               key={idx}
@@ -81,13 +81,13 @@ export default function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.08 }}
-              className={`p-[var(--space-lg)] md:p-[var(--space-xl)] min-h-[240px] backdrop-blur-[12px] flex flex-col justify-start text-left ${
+              className={`p-5 sm:p-[var(--space-lg)] md:p-[var(--space-xl)] min-h-0 sm:min-h-[220px] md:min-h-[240px] backdrop-blur-[12px] flex flex-col justify-start text-left ${
                 item.hasBg ? 'bg-white/8' : 'bg-transparent border border-transparent'
               }`}
               id={`feature-card-${idx}`}
             >
               {/* Feature Icon container alignment */}
-              <div className="w-12 h-12 mb-[var(--space-lg)] flex items-center justify-start">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 mb-4 sm:mb-[var(--space-lg)] flex items-center justify-start">
                 {item.icon}
               </div>
 

@@ -95,21 +95,21 @@ export default function Contact() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="w-full pt-[var(--space-2xl)] pb-[var(--space-xl)] md:pt-[var(--space-3xl)] md:pb-[var(--space-2xl)] px-[var(--space-md)] text-center bg-[var(--brand-bg-cream)]" id="contact-hero">
+      <section className="w-full pt-10 pb-6 md:pt-[var(--space-3xl)] md:pb-[var(--space-2xl)] px-[var(--space-md)] text-center bg-[var(--brand-bg-cream)]" id="contact-hero">
         <div className="max-w-4xl mx-auto flex flex-col items-center">
-          <Badge variant="page" id="contact-page-badge" className="mb-6 contact-hero-anim">
+          <Badge variant="page" id="contact-page-badge" className="mb-4 sm:mb-6 contact-hero-anim">
             Contact Us
           </Badge>
            <Heading
               level={1}
               id="hero-heading"
-              className="contact-hero-anim mb-[var(--space-xl)] select-none"
+              className="contact-hero-anim mb-4 sm:mb-[var(--space-xl)] select-none"
             >
               <span className="italic">Have a Query?</span><br />
             We're Ready to Assist You
             </Heading>
           <p 
-            className="contact-hero-anim brand-text-3xl text-[var(--color-brand-gray-800)] max-w-7xl text-center select-none"
+            className="contact-hero-anim brand-text-3xl text-[var(--color-brand-gray-800)] max-w-3xl text-center select-none"
             style={{ willChange: 'transform' }}
           >
             We're here to help! Whether you have questions or need support, contacting Healthmed is simple. Our team is ready to assist you and ensure a smooth experience.
@@ -118,11 +118,11 @@ export default function Contact() {
       </section>
 
       {/* Main Contact Container */}
-      <section className="w-full py-40 " id="contact-details-form">
-        <div className="max-w-[80rem] p-4 gap-4 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[var(--space-lg)] items-stretch bg-[var(--color-brand-white)] rounded-[var(--radius-2xl)]" id="contact-cards-wrapper">
+      <section className="w-full py-8 sm:py-16 md:py-24 lg:py-40 px-4 sm:px-6 lg:px-8" id="contact-details-form">
+        <div className="max-w-[80rem] p-3 sm:p-4 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-[var(--space-lg)] items-stretch bg-[var(--color-brand-white)] rounded-[var(--radius-2xl)]" id="contact-cards-wrapper">
           {/* Left Column: Get in Touch Card */}
           <div 
-            className="bg-[var(--color-brand-white)] border border-[var(--color-border-subtle)] rounded-[var(--radius-2xl)] p-[var(--space-lg)] sm:p-[var(--space-xl)] flex flex-col justify-between shadow-[var(--shadow-sm)] gap-[var(--space-lg)]"
+            className="bg-[var(--color-brand-white)] border border-[var(--color-border-subtle)] rounded-[var(--radius-2xl)] p-4 sm:p-[var(--space-xl)] flex flex-col justify-between shadow-[var(--shadow-sm)] gap-5 sm:gap-[var(--space-lg)]"
             id="contact-info-card"
             style={{ willChange: 'transform' }}
           >
@@ -136,11 +136,11 @@ export default function Contact() {
             </div>
 
             {/* Interaction informational cards list */}
-            <div className="flex flex-col gap-[var(--space-md)]" id="contact-info-list">
+            <div className="flex flex-col gap-3 sm:gap-[var(--space-md)]" id="contact-info-list">
               {/* Card 1: Address Details */}
-              <div className="flex items-center bg-[var(--color-brand-white)] p-[var(--space-md)] rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] gap-[var(--space-md)]" id="contact-card-address">
-                <div className="w-12 h-12 rounded-[var(--radius-full)] bg-[var(--color-surface-tertiary)] flex items-center justify-center text-[var(--color-brand-black)] shrink-0" id="address-icon-bg">
-                  <MapPin className="h-5 w-5 stroke-[1.75]" id="icon-map" />
+              <div className="flex items-center bg-[var(--color-brand-white)] p-3.5 sm:p-[var(--space-md)] rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] gap-3 sm:gap-[var(--space-md)]" id="contact-card-address">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-[var(--radius-full)] bg-[var(--color-surface-tertiary)] flex items-center justify-center text-[var(--color-brand-black)] shrink-0" id="address-icon-bg">
+                  <MapPin className="h-4 w-4 sm:h-5 sm:w-5 stroke-[1.75]" id="icon-map" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <h3 className="brand-text-2xl text-[var(--color-brand-gray-900)] select-none mb-[var(--space-xs)]">
@@ -159,12 +159,12 @@ export default function Contact() {
                 href="https://wa.me/919940066572"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between bg-[var(--color-brand-white)] p-[var(--space-md)] rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] hover:border-[var(--color-brand-gray-400)] transition-colors duration-200 group cursor-pointer"
+                className="flex items-center justify-between bg-[var(--color-brand-white)] p-3.5 sm:p-[var(--space-md)] rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] hover:border-[var(--color-brand-gray-400)] transition-colors duration-200 group cursor-pointer gap-2"
                 id="contact-card-phone"
               >
-                <div className="flex items-center gap-[var(--space-md)] min-w-0">
-                  <div className="w-12 h-12 rounded-[var(--radius-full)] bg-[var(--color-surface-tertiary)] flex items-center justify-center text-[var(--color-brand-black)] shrink-0" id="phone-icon-bg">
-                    <Phone className="h-5 w-5 stroke-[1.75]" id="icon-phone" />
+                <div className="flex items-center gap-3 sm:gap-[var(--space-md)] min-w-0">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-[var(--radius-full)] bg-[var(--color-surface-tertiary)] flex items-center justify-center text-[var(--color-brand-black)] shrink-0" id="phone-icon-bg">
+                    <Phone className="h-4 w-4 sm:h-5 sm:w-5 stroke-[1.75]" id="icon-phone" />
                   </div>
                   <div className="min-w-0 flex-1">
                     <h3 className="brand-text-2xl text-[var(--color-brand-gray-900)] select-none mb-[var(--space-xs)]">
@@ -175,7 +175,7 @@ export default function Contact() {
                     </p>
                   </div>
                 </div>
-                <div className="w-10 h-10 rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] flex items-center justify-center text-[var(--color-brand-gray-700)] group-hover:bg-[var(--color-surface-secondary)] transition-colors duration-200 shrink-0" id="phone-card-arrow-bg">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] flex items-center justify-center text-[var(--color-brand-gray-700)] group-hover:bg-[var(--color-surface-secondary)] transition-colors duration-200 shrink-0" id="phone-card-arrow-bg">
                   <ChevronsRight className="h-4 w-4" />
                 </div>
               </a>
@@ -183,12 +183,12 @@ export default function Contact() {
               {/* Card 3: Email details */}
               <a 
                 href="mailto:info@healthmedtechnologies.com"
-                className="flex items-center justify-between bg-[var(--color-brand-white)] p-[var(--space-md)] rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] hover:border-[var(--color-brand-gray-400)] transition-colors duration-200 group cursor-pointer"
+                className="flex items-center justify-between bg-[var(--color-brand-white)] p-3.5 sm:p-[var(--space-md)] rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] hover:border-[var(--color-brand-gray-400)] transition-colors duration-200 group cursor-pointer gap-2"
                 id="contact-card-email"
               >
-                <div className="flex items-center gap-[var(--space-md)] min-w-0">
-                  <div className="w-12 h-12 rounded-[var(--radius-full)] bg-[var(--color-surface-tertiary)] flex items-center justify-center text-[var(--color-brand-black)] shrink-0" id="email-icon-bg">
-                    <Mail className="h-5 w-5 stroke-[1.75]" id="icon-email" />
+                <div className="flex items-center gap-3 sm:gap-[var(--space-md)] min-w-0">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-[var(--radius-full)] bg-[var(--color-surface-tertiary)] flex items-center justify-center text-[var(--color-brand-black)] shrink-0" id="email-icon-bg">
+                    <Mail className="h-4 w-4 sm:h-5 sm:w-5 stroke-[1.75]" id="icon-email" />
                   </div>
                   <div className="min-w-0 flex-1">
                     <h3 className="brand-text-2xl text-[var(--color-brand-gray-900)] select-none mb-[var(--space-xs)]">
@@ -199,7 +199,7 @@ export default function Contact() {
                     </p>
                   </div>
                 </div>
-                <div className="w-10 h-10 rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] flex items-center justify-center text-[var(--color-brand-gray-700)] group-hover:bg-[var(--color-surface-secondary)] transition-colors duration-200 shrink-0" id="email-card-arrow-bg">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] flex items-center justify-center text-[var(--color-brand-gray-700)] group-hover:bg-[var(--color-surface-secondary)] transition-colors duration-200 shrink-0" id="email-card-arrow-bg">
                   <ChevronsRight className="h-4 w-4" />
                 </div>
               </a>
@@ -208,7 +208,7 @@ export default function Contact() {
 
           {/* Right Column: Contact Inquiry Form Card */}
           <div 
-            className="bg-[var(--color-brand-white)] border border-[var(--color-border-subtle)] rounded-[var(--radius-2xl)] p-[var(--space-lg)] sm:p-[var(--space-xl)] flex flex-col justify-between shadow-[var(--shadow-sm)]"
+            className="bg-[var(--color-brand-white)] border border-[var(--color-border-subtle)] rounded-[var(--radius-2xl)] p-4 sm:p-[var(--space-xl)] flex flex-col justify-between shadow-[var(--shadow-sm)]"
             id="contact-form-card"
             style={{ willChange: 'transform' }}
           >
