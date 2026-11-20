@@ -11,6 +11,8 @@ import { Heading } from '../../components/ui/Heading';
 // @ts-expect-error - image asset type declaration may be missing
 import doctor1x1_480 from '../../assets/images/why_choose_us_doctor-1x1-480.webp';
 // @ts-expect-error - image asset type declaration may be missing
+import doctor1x1_500 from '../../assets/images/why_choose_us_doctor-1x1-500.webp';
+// @ts-expect-error - image asset type declaration may be missing
 import doctor1x1_768 from '../../assets/images/why_choose_us_doctor-1x1-768.webp';
 // @ts-expect-error - image asset type declaration may be missing
 import doctor4x3_640 from '../../assets/images/why_choose_us_doctor-4x3-640.webp';
@@ -93,12 +95,12 @@ export default function WhyChooseUs() {
                   type="image/webp"
                 />
                 <img
-                  src={doctor1x1_768}
-                  srcSet={`${doctor1x1_480} 480w, ${doctor1x1_768} 768w`}
-                  sizes="(max-width: 767px) 92vw, 500px"
+                  src={doctor1x1_500}
+                  srcSet={`${doctor1x1_480} 480w, ${doctor1x1_500} 500w, ${doctor1x1_768} 768w`}
+                  sizes="(max-width: 767px) 92vw, 475px"
                   alt="Doctor wearing medical uniform holding glowing neon shield"
-                  width={500}
-                  height={500}
+                  width={475}
+                  height={475}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
                   referrerPolicy="no-referrer"
                   loading="lazy"
