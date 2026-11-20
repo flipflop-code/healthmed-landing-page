@@ -37,7 +37,7 @@ export const featuredBlog: Blog = {
   categoryName: 'Healthcare Technology',
   date: 'June 12, 2026',
   readTime: '8 min read',
-  imageUrl: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1200&q=80',
+  imageUrl: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1200&q=80&fm=webp',
   author: 'Dr. Michael Chen',
   authorRole: 'Chief Medical Information Officer',
   sections: [
@@ -115,7 +115,7 @@ export const blogs: Blog[] = [
     categoryName: 'Healthcare Technology',
     date: 'Jun 9, 2026',
     readTime: '5 min read',
-    imageUrl: 'https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&w=600&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&w=600&q=80&fm=webp',
     author: 'Sarah Jenkins',
     authorRole: 'Director of Healthcare AI Research',
     sections: [
@@ -145,7 +145,7 @@ export const blogs: Blog[] = [
     categoryName: 'Hospital Operations',
     date: 'Jun 9, 2026',
     readTime: '4 min read',
-    imageUrl: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80&fm=webp',
     author: 'Amit Sharma',
     authorRole: 'Product Lead, Healthmed Kiosk Systems',
     sections: [
@@ -168,7 +168,7 @@ export const blogs: Blog[] = [
     categoryName: 'Patient Experience',
     date: 'Jun 9, 2026',
     readTime: '6 min read',
-    imageUrl: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80&fm=webp',
     author: 'Elena Rostova',
     authorRole: 'Operations Analyst',
     sections: [
@@ -190,7 +190,7 @@ export const blogs: Blog[] = [
     categoryName: 'Industry Insight',
     date: 'Jun 9, 2026',
     readTime: '7 min read',
-    imageUrl: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80&fm=webp',
     author: 'Marcus Vance',
     authorRole: 'Healthcare Strategy Advisor',
     sections: [
@@ -212,7 +212,7 @@ export const blogs: Blog[] = [
     categoryName: 'Case Study',
     date: 'Jun 9, 2026',
     readTime: '6 min read',
-    imageUrl: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80&fm=webp',
     author: 'Dr. Jane Foster',
     authorRole: 'Director of Pathology and Diagnostics',
     sections: [
@@ -234,7 +234,7 @@ export const blogs: Blog[] = [
     categoryName: 'Case Study',
     date: 'Jun 9, 2026',
     readTime: '8 min read',
-    imageUrl: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&q=80&fm=webp',
     author: 'Robert Sterling',
     authorRole: 'Human Capital Consultant',
     sections: [

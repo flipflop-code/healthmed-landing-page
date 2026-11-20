@@ -7,7 +7,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Twitter, Facebook, Linkedin, Instagram } from 'lucide-react';
 // @ts-expect-error - image asset type declaration may be missing
-import logoImg from '../../assets/images/logo.png';
+import logoImg from '../../assets/images/logo.webp';
 
 export default function Footer() {
   const quickLinks = [

@@ -9,7 +9,11 @@ import { BadgeCheck } from 'lucide-react';
 import { Badge } from '../../components/ui/Badge';
 import { Heading } from '../../components/ui/Heading';
 // @ts-expect-error - image asset type declaration may be missing
-import whyChooseUsDoctorImg from '../../assets/images/why_choose_us_doctor_1780580122593.png';
+import whyChooseUsDoctor640 from '../../assets/images/why_choose_us_doctor-640.webp';
+// @ts-expect-error - image asset type declaration may be missing
+import whyChooseUsDoctor900 from '../../assets/images/why_choose_us_doctor-900.webp';
+// @ts-expect-error - image asset type declaration may be missing
+import whyChooseUsDoctor1200 from '../../assets/images/why_choose_us_doctor-1200.webp';
 
 export default function WhyChooseUs() {
   const checkmarks = [
@@ -80,7 +84,9 @@ export default function WhyChooseUs() {
           >
             <div className="relative w-full aspect-square md:aspect-[4/3] lg:aspect-auto lg:h-full min-h-[350px] md:min-h-[450px] lg:min-h-0 overflow-hidden shadow-xl border border-gray-200/50 bg-white group">
               <img
-                src={whyChooseUsDoctorImg}
+                src={whyChooseUsDoctor900}
+                srcSet={`${whyChooseUsDoctor640} 640w, ${whyChooseUsDoctor900} 900w, ${whyChooseUsDoctor1200} 1200w`}
+                sizes="(max-width: 767px) 92vw, (max-width: 1023px) 92vw, 500px"
                 alt="Doctor wearing medical uniform holding glowing neon shield"
                 width={500}
                 height={500}

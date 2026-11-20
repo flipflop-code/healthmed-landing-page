@@ -8,7 +8,11 @@ import { motion } from 'motion/react';
 import { Heading } from '../../components/ui/Heading';
 import { Button } from '../../components/ui/Button';
 // @ts-expect-error - image asset type declaration may be missing
-import heroSurgeonsImg from '../../assets/images/hero_image.png';
+import heroSurgeons640 from '../../assets/images/hero_image-640.webp';
+// @ts-expect-error - image asset type declaration may be missing
+import heroSurgeons960 from '../../assets/images/hero_image-960.webp';
+// @ts-expect-error - image asset type declaration may be missing
+import heroSurgeons1200 from '../../assets/images/hero_image-1200.webp';
 import { AnimatedCounter } from '../../components/common/AnimatedCounter';
 
 interface CounterStatProps {
@@ -125,7 +129,9 @@ export default function Hero() {
           {/* Main surgery professionals photo */}
           <div className="aspect-[4/3] md:aspect-[16/10] w-full relative">
             <img
-              src={heroSurgeonsImg}
+              src={heroSurgeons1200}
+              srcSet={`${heroSurgeons640} 640w, ${heroSurgeons960} 960w, ${heroSurgeons1200} 1200w`}
+              sizes="(max-width: 640px) 94vw, (max-width: 1280px) 92vw, 1152px"
               alt="Healthcare professionals team standing in modern clinical suite"
               width={1120}
               height={700}

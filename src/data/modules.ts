@@ -5,13 +5,13 @@
 
 // Import generated dashboard mockup images
 // @ts-expect-error - image asset type declaration may be missing
-import patientCareImg from '../assets/images/tab/1.png';
+import patientCareImg from '../assets/images/tab/1.webp';
 // @ts-expect-error - image asset type declaration may be missing
-import hospitalOpsImg from '../assets/images/tab/2.png';
+import hospitalOpsImg from '../assets/images/tab/2.webp';
 // @ts-expect-error - image asset type declaration may be missing
-import financialMgmtImg from '../assets/images/tab/3.png';
+import financialMgmtImg from '../assets/images/tab/3.webp';
 // @ts-expect-error - image asset type declaration may be missing
-import platformInsightsImg from '../assets/images/tab/4.png';
+import platformInsightsImg from '../assets/images/tab/4.webp';
 
 export interface ModuleAction {
   label: string;

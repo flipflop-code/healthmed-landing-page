@@ -169,6 +169,10 @@ export default function Modules() {
                   <img
                     src={activeTab.image}
                     alt={`${activeTab.tabTitle} Dashboard Mockup`}
+                    width={524}
+                    height={584}
+                    loading="lazy"
+                    decoding="async"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover "
                   />

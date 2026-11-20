@@ -27,9 +27,9 @@ export const VideoTestimonials: React.FC = () => {
   });
 
   const fallbackThumbnails: { [key: number]: string } = {
-    1: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80',
-    2: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80',
-    3: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80',
+    1: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80&fm=webp',
+    2: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80&fm=webp',
+    3: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80&fm=webp',
   };
 
   const fallbackVideos: { [key: number]: string } = {
@@ -182,6 +182,8 @@ export const VideoTestimonials: React.FC = () => {
                 <img
                   src={member.thumbnail}
                   alt={member.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-[var(--transition-duration-zoom)] ease-[var(--transition-bezier-smooth)] group-hover:scale-[1.04]"
                   id={`video-card-thumbnail-${member.id}`}
                   referrerPolicy="no-referrer"
