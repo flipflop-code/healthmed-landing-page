@@ -28,6 +28,21 @@ export interface Blog {
   sections?: BlogSection[];
 }
 
+export function getSizedBlogImage(url: string, width: number, height: number): string {
+  const cleanUrl = url
+    .replace(/([?&])w=\d+/g, '')
+    .replace(/([?&])h=\d+/g, '')
+    .replace(/\?&/, '?');
+  const sep = cleanUrl.includes('?') ? '&' : '?';
+  return `${cleanUrl}${sep}w=${width}&h=${height}`;
+}
+
+export function getBlogSrcSet(url: string, aspectRatio: number, widths: number[]): string {
+  return widths
+    .map((w) => `${getSizedBlogImage(url, w, Math.round(w / aspectRatio))} ${w}w`)
+    .join(', ');
+}
+
 export const featuredBlog: Blog = {
   id: 'hms-workloads-35',
   slug: 'hms-workloads-35',

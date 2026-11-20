@@ -9,11 +9,13 @@ import { BadgeCheck } from 'lucide-react';
 import { Badge } from '../../components/ui/Badge';
 import { Heading } from '../../components/ui/Heading';
 // @ts-expect-error - image asset type declaration may be missing
-import whyChooseUsDoctor640 from '../../assets/images/why_choose_us_doctor-640.webp';
+import doctor1x1_480 from '../../assets/images/why_choose_us_doctor-1x1-480.webp';
 // @ts-expect-error - image asset type declaration may be missing
-import whyChooseUsDoctor900 from '../../assets/images/why_choose_us_doctor-900.webp';
+import doctor1x1_768 from '../../assets/images/why_choose_us_doctor-1x1-768.webp';
 // @ts-expect-error - image asset type declaration may be missing
-import whyChooseUsDoctor1200 from '../../assets/images/why_choose_us_doctor-1200.webp';
+import doctor4x3_640 from '../../assets/images/why_choose_us_doctor-4x3-640.webp';
+// @ts-expect-error - image asset type declaration may be missing
+import doctor4x3_960 from '../../assets/images/why_choose_us_doctor-4x3-960.webp';
 
 export default function WhyChooseUs() {
   const checkmarks = [
@@ -83,18 +85,26 @@ export default function WhyChooseUs() {
             id="whychooseus-graphic-panel"
           >
             <div className="relative w-full aspect-square md:aspect-[4/3] lg:aspect-auto lg:h-full min-h-[350px] md:min-h-[450px] lg:min-h-0 overflow-hidden shadow-xl border border-gray-200/50 bg-white group">
-              <img
-                src={whyChooseUsDoctor900}
-                srcSet={`${whyChooseUsDoctor640} 640w, ${whyChooseUsDoctor900} 900w, ${whyChooseUsDoctor1200} 1200w`}
-                sizes="(max-width: 767px) 92vw, (max-width: 1023px) 92vw, 500px"
-                alt="Doctor wearing medical uniform holding glowing neon shield"
-                width={500}
-                height={500}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
-                referrerPolicy="no-referrer"
-                loading="lazy"
-                decoding="async"
-              />
+              <picture className="block w-full h-full">
+                <source
+                  media="(min-width: 768px) and (max-width: 1023px)"
+                  srcSet={`${doctor4x3_640} 640w, ${doctor4x3_960} 960w`}
+                  sizes="92vw"
+                  type="image/webp"
+                />
+                <img
+                  src={doctor1x1_768}
+                  srcSet={`${doctor1x1_480} 480w, ${doctor1x1_768} 768w`}
+                  sizes="(max-width: 767px) 92vw, 500px"
+                  alt="Doctor wearing medical uniform holding glowing neon shield"
+                  width={500}
+                  height={500}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
+                  referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
               {/* Overlay with matching soft lighting */}
               <div className="absolute inset-0 bg-gradient-to-tr from-brand-black/25 via-transparent to-white/5"></div>
             </div>

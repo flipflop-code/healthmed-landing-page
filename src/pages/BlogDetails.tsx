@@ -22,7 +22,7 @@ import Footer from '../components/layout/Footer';
 import { Badge } from '../components/ui/Badge';
 import { Heading } from '../components/ui/Heading';
 import SEO from '../components/ui/SEO';
-import { getBlogBySlug, blogs as allBlogs } from '../data/blogs';
+import { getBlogBySlug, blogs as allBlogs, getSizedBlogImage, getBlogSrcSet } from '../data/blogs';
 import { useGsapFadeIn, useGsapScrollReveal } from '../hooks/useGsapAnimation';
 
 // Premium editorial title parser/styler
@@ -250,15 +250,25 @@ export default function BlogDetails() {
                 className="w-full max-w-[1040px] h-[280px] sm:h-[420px] md:h-[570px] overflow-hidden relative rounded-[16px] shadow-sm select-none bg-brand-gray-100 mx-auto"
                 id="article-featured-image-canvas"
               >
-                <img 
-                  src={activePost.imageUrl} 
-                  alt={activePost.title}
-                  className="w-full h-full object-cover rounded-[16px]"
-                  referrerPolicy="no-referrer"
-                  loading="eager"
-                  width="1040"
-                  height="570"
-                />
+                <picture className="block w-full h-full">
+                  <source
+                    media="(max-width: 639px)"
+                    srcSet={getBlogSrcSet(activePost.imageUrl, 4 / 3, [380, 600])}
+                    sizes="94vw"
+                  />
+                  <img 
+                    src={getSizedBlogImage(activePost.imageUrl, 1040, 570)}
+                    srcSet={getBlogSrcSet(activePost.imageUrl, 1040 / 570, [600, 1040, 1400])}
+                    sizes="(max-width: 1080px) 94vw, 1040px"
+                    alt={activePost.title}
+                    className="w-full h-full object-cover rounded-[16px]"
+                    referrerPolicy="no-referrer"
+                    loading="eager"
+                    decoding="async"
+                    width="1040"
+                    height="570"
+                  />
+                </picture>
               </div>
 
             </div>
@@ -441,13 +451,16 @@ export default function BlogDetails() {
                   {/* Image Block with crisp corners and scale-hover anim */}
                   <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden relative mb-4 block bg-brand-gray-100 shadow-sm">
                     <img 
-                      src={blog.imageUrl} 
+                      src={getSizedBlogImage(blog.imageUrl, 400, 300)}
+                      srcSet={getBlogSrcSet(blog.imageUrl, 4 / 3, [400, 600, 800])}
+                      sizes="(max-width: 767px) 92vw, (max-width: 1023px) 45vw, 380px"
                       alt={blog.title} 
                       className="w-full h-full object-cover rounded-2xl transition-transform duration-500 scale-[1.01] group-hover:scale-105"
                       referrerPolicy="no-referrer"
                       loading="lazy"
+                      decoding="async"
                       width="400"
-                      height="320"
+                      height="300"
                     />
                   </div>
 

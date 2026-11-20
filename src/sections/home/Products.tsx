@@ -16,25 +16,25 @@ export default function Products() {
       id: 'HMIS',
       title: 'HMIS',
       description: 'Hospital Management Information System that connects all your departments and implements all your workflows.',
-      image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=500&fm=webp',
+      imageBase: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&fm=webp',
     },
     {
       id: 'CMS',
       title: 'CMS',
       description: "Multi-user software to cover your clinic's workflow, from patient management and medical records, to scheduling and billing.",
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=500&fm=webp',
+      imageBase: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&fm=webp',
     },
     {
       id: 'LAB',
       title: 'LAB',
       description: 'Laboratory is an evolving concept, with new features and functionality being added often the functions of an eLaboratory will also change.',
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=500&fm=webp',
+      imageBase: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&fm=webp',
     },
     {
       id: 'EMR',
       title: 'EMR',
       description: 'Healthmed Electronic Medical Record offers physicians more than just a solution that saves a great deal of time and money.',
-      image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=500&fm=webp',
+      imageBase: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&fm=webp',
     },
   ];
 
@@ -74,7 +74,9 @@ export default function Products() {
               {/* Product Card Image Banner with Zoom Effect */}
               <div className="overflow-hidden relative bg-[var(--color-surface-secondary)] mb-[var(--space-lg)] aspect-[16/10] w-full" id={`product-img-container-${card.id.toLowerCase()}`}>
                 <img
-                  src={card.image}
+                  src={`${card.imageBase}&w=600&h=375`}
+                  srcSet={`${card.imageBase}&w=400&h=250 400w, ${card.imageBase}&w=600&h=375 600w, ${card.imageBase}&w=800&h=500 800w`}
+                  sizes="(max-width: 767px) 92vw, 540px"
                   alt={`${card.title} - ${card.description}`}
                   width={600}
                   height={375}

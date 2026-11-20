@@ -18,7 +18,7 @@ import { useGsapFadeIn, useGsapScrollReveal } from '../hooks/useGsapAnimation';
 
 // Shared structured data
 import { categories } from '../data/categories';
-import { blogs, featuredBlog } from '../data/blogs';
+import { blogs, featuredBlog, getSizedBlogImage, getBlogSrcSet } from '../data/blogs';
 import { faqData } from '../data/faq';
 
 export default function Insights() {
@@ -154,15 +154,30 @@ export default function Insights() {
             >
               {/* Left Column: Image with covered sizing */}
               <Link to="/insights/hms-workloads-35" className="md:col-span-6 aspect-square sm:aspect-video md:aspect-auto h-auto md:h-full rounded-[1.8rem] overflow-hidden relative block">
-                <img 
-                  src={featuredBlog.imageUrl} 
-                  alt={featuredBlog.title}
-                  className="w-full h-full object-cover scale-[1.01] transition-transform duration-500 hover:scale-[1.04] rounded-[1.8rem]"
-                  referrerPolicy="no-referrer"
-                  loading="eager"
-                  width="800"
-                  height="450"
-                />
+                <picture className="block w-full h-full">
+                  <source
+                    media="(max-width: 639px)"
+                    srcSet={getBlogSrcSet(featuredBlog.imageUrl, 1, [400, 640])}
+                    sizes="92vw"
+                  />
+                  <source
+                    media="(min-width: 640px) and (max-width: 767px)"
+                    srcSet={getBlogSrcSet(featuredBlog.imageUrl, 16 / 9, [640, 800])}
+                    sizes="92vw"
+                  />
+                  <img 
+                    src={getSizedBlogImage(featuredBlog.imageUrl, 600, 750)}
+                    srcSet={getBlogSrcSet(featuredBlog.imageUrl, 4 / 5, [480, 600, 800])}
+                    sizes="(max-width: 767px) 92vw, 540px"
+                    alt={featuredBlog.title}
+                    className="w-full h-full object-cover scale-[1.01] transition-transform duration-500 hover:scale-[1.04] rounded-[1.8rem]"
+                    referrerPolicy="no-referrer"
+                    loading="eager"
+                    decoding="async"
+                    width="600"
+                    height="750"
+                  />
+                </picture>
               </Link>
 
               {/* Right Column: Descriptions */}
@@ -244,13 +259,16 @@ export default function Insights() {
                     {/* Image Area */}
                     <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden relative mb-4 block bg-brand-gray-100 shadow-sm">
                       <img 
-                        src={blog.imageUrl} 
+                        src={getSizedBlogImage(blog.imageUrl, 400, 300)}
+                        srcSet={getBlogSrcSet(blog.imageUrl, 4 / 3, [400, 600, 800])}
+                        sizes="(max-width: 767px) 92vw, (max-width: 1023px) 45vw, 380px"
                         alt={blog.title} 
                         className="w-full h-full object-cover rounded-2xl transition-transform duration-500 scale-[1.01] group-hover:scale-105"
                         referrerPolicy="no-referrer"
                         loading="lazy"
+                        decoding="async"
                         width="400"
-                        height="320"
+                        height="300"
                       />
                     </div>
 

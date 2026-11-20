@@ -165,16 +165,18 @@ export default function Modules() {
 
               {/* Right Column: Image */}
               <div className="lg:col-span-6 flex items-center justify-center" id="modules-card-right">
-              <div className="h-[584px] rounded-2xl overflow-hidden">
+              <div className="w-full max-w-[524px] aspect-[524/584] lg:h-[584px] rounded-2xl overflow-hidden">
                   <img
                     src={activeTab.image}
+                    srcSet={`${activeTab.imageSmall} 360w, ${activeTab.image} 524w`}
+                    sizes="(max-width: 640px) 88vw, 524px"
                     alt={`${activeTab.tabTitle} Dashboard Mockup`}
                     width={524}
                     height={584}
                     loading="lazy"
                     decoding="async"
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover "
+                    className="w-full h-full object-cover"
                   />
               </div>
               </div>

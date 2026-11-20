@@ -14,10 +14,16 @@ export const VideoTestimonials: React.FC = () => {
   const [isMuted, setIsMuted] = useState(true);
   const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({});
 
+  const baseThumbnails: { [key: number]: string } = {
+    1: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&fm=webp',
+    2: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&fm=webp',
+    3: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&fm=webp',
+  };
+
   const [thumbnailSources, setThumbnailSources] = useState<{ [key: number]: string }>({
-    1: '/images/testimonials/sarah-mitchell.jpg',
-    2: '/images/testimonials/michael-rodriguez.jpg',
-    3: '/images/testimonials/emily-chen.jpg',
+    1: baseThumbnails[1],
+    2: baseThumbnails[2],
+    3: baseThumbnails[3],
   });
 
   const [videoSources, setVideoSources] = useState<{ [key: number]: string }>({
@@ -26,11 +32,7 @@ export const VideoTestimonials: React.FC = () => {
     3: '/videos/laboratory-work.mp4',
   });
 
-  const fallbackThumbnails: { [key: number]: string } = {
-    1: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80&fm=webp',
-    2: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80&fm=webp',
-    3: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80&fm=webp',
-  };
+  const fallbackThumbnails: { [key: number]: string } = baseThumbnails;
 
   const fallbackVideos: { [key: number]: string } = {
     1: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c0/Big_Buck_Bunny_4K.webm/Big_Buck_Bunny_4K.webm.480p.vp9.webm',
@@ -179,16 +181,27 @@ export const VideoTestimonials: React.FC = () => {
                 id={`video-testimonial-card-${member.id}`}
               >
                 {/* Card Background / Thumbnail Image */}
-                <img
-                  src={member.thumbnail}
-                  alt={member.name}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-[var(--transition-duration-zoom)] ease-[var(--transition-bezier-smooth)] group-hover:scale-[1.04]"
-                  id={`video-card-thumbnail-${member.id}`}
-                  referrerPolicy="no-referrer"
-                  onError={() => handleThumbnailError(member.id)}
-                />
+                <picture className="block w-full h-full">
+                  <source
+                    media="(min-width: 500px) and (max-width: 767px)"
+                    srcSet={`${member.thumbnail}&w=600&h=440`}
+                    sizes="92vw"
+                  />
+                  <img
+                    src={`${member.thumbnail}&w=380&h=440`}
+                    srcSet={`${member.thumbnail}&w=380&h=440 380w, ${member.thumbnail}&w=600&h=695 600w`}
+                    sizes="(max-width: 767px) 92vw, 380px"
+                    alt={member.name}
+                    width={380}
+                    height={440}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover transition-transform duration-[var(--transition-duration-zoom)] ease-[var(--transition-bezier-smooth)] group-hover:scale-[1.04]"
+                    id={`video-card-thumbnail-${member.id}`}
+                    referrerPolicy="no-referrer"
+                    onError={() => handleThumbnailError(member.id)}
+                  />
+                </picture>
 
                 {/* Always-mounted Video element for instantaneous playback without loading delays */}
                 <video

@@ -8,11 +8,13 @@ import { motion } from 'motion/react';
 import { Heading } from '../../components/ui/Heading';
 import { Button } from '../../components/ui/Button';
 // @ts-expect-error - image asset type declaration may be missing
-import heroSurgeons640 from '../../assets/images/hero_image-640.webp';
+import hero4x3_480 from '../../assets/images/hero_image-4x3-480.webp';
 // @ts-expect-error - image asset type declaration may be missing
-import heroSurgeons960 from '../../assets/images/hero_image-960.webp';
+import hero4x3_768 from '../../assets/images/hero_image-4x3-768.webp';
 // @ts-expect-error - image asset type declaration may be missing
-import heroSurgeons1200 from '../../assets/images/hero_image-1200.webp';
+import hero16x10_960 from '../../assets/images/hero_image-16x10-960.webp';
+// @ts-expect-error - image asset type declaration may be missing
+import hero16x10_1200 from '../../assets/images/hero_image-16x10-1200.webp';
 import { AnimatedCounter } from '../../components/common/AnimatedCounter';
 
 interface CounterStatProps {
@@ -128,19 +130,27 @@ export default function Hero() {
         >
           {/* Main surgery professionals photo */}
           <div className="aspect-[4/3] md:aspect-[16/10] w-full relative">
-            <img
-              src={heroSurgeons1200}
-              srcSet={`${heroSurgeons640} 640w, ${heroSurgeons960} 960w, ${heroSurgeons1200} 1200w`}
-              sizes="(max-width: 640px) 94vw, (max-width: 1280px) 92vw, 1152px"
-              alt="Healthcare professionals team standing in modern clinical suite"
-              width={1120}
-              height={700}
-              className="absolute inset-0 w-full h-full object-cover"
-              loading="eager"
-              fetchPriority="high"
-              decoding="async"
-              referrerPolicy="no-referrer"
-            />
+            <picture className="block w-full h-full">
+              <source
+                media="(max-width: 767px)"
+                srcSet={`${hero4x3_480} 480w, ${hero4x3_768} 768w`}
+                sizes="94vw"
+                type="image/webp"
+              />
+              <img
+                src={hero16x10_1200}
+                srcSet={`${hero16x10_960} 960w, ${hero16x10_1200} 1200w`}
+                sizes="(max-width: 1280px) 92vw, 1152px"
+                alt="Healthcare professionals team standing in modern clinical suite"
+                width={1200}
+                height={750}
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                referrerPolicy="no-referrer"
+              />
+            </picture>
             {/* Elegant dark overlay at bottom only to match reference */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-black/15 to-transparent"></div>
           </div>

@@ -16,8 +16,8 @@ export function Logo() {
       <img
         src={logoImg}
         alt="Healthmed Logo"
-        width={165}
-        height={44}
+        width={190}
+        height={37}
         className="h-8 sm:h-9 md:h-10 lg:h-11 w-auto object-contain max-h-11 select-none transition-all duration-300"
         decoding="async"
         referrerPolicy="no-referrer"

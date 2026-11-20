@@ -7,11 +7,19 @@
 // @ts-expect-error - image asset type declaration may be missing
 import patientCareImg from '../assets/images/tab/1.webp';
 // @ts-expect-error - image asset type declaration may be missing
+import patientCareImg360 from '../assets/images/tab/1-360.webp';
+// @ts-expect-error - image asset type declaration may be missing
 import hospitalOpsImg from '../assets/images/tab/2.webp';
+// @ts-expect-error - image asset type declaration may be missing
+import hospitalOpsImg360 from '../assets/images/tab/2-360.webp';
 // @ts-expect-error - image asset type declaration may be missing
 import financialMgmtImg from '../assets/images/tab/3.webp';
 // @ts-expect-error - image asset type declaration may be missing
+import financialMgmtImg360 from '../assets/images/tab/3-360.webp';
+// @ts-expect-error - image asset type declaration may be missing
 import platformInsightsImg from '../assets/images/tab/4.webp';
+// @ts-expect-error - image asset type declaration may be missing
+import platformInsightsImg360 from '../assets/images/tab/4-360.webp';
 
 export interface ModuleAction {
   label: string;
@@ -27,6 +35,7 @@ export interface ModuleData {
   description: string;
   actions: ModuleAction[];
   image: string;
+  imageSmall: string;
 }
 
 export const modulesData: ModuleData[] = [
@@ -41,7 +50,8 @@ export const modulesData: ModuleData[] = [
       { label: 'Explore Clinical Operations', href: '/#clinical' },
       { label: 'Explore Diagnostics', href: '/#diagnostics' }
     ],
-    image: patientCareImg
+    image: patientCareImg,
+    imageSmall: patientCareImg360
   },
   {
     id: 'hospital-operations',
@@ -54,7 +64,8 @@ export const modulesData: ModuleData[] = [
       { label: 'Explore Bed Management', href: '/#beds' },
       { label: 'Explore Ward Operations', href: '/#ward' }
     ],
-    image: hospitalOpsImg
+    image: hospitalOpsImg,
+    imageSmall: hospitalOpsImg360
   },
   {
     id: 'financial-management',
@@ -67,7 +78,8 @@ export const modulesData: ModuleData[] = [
       { label: 'Explore Claims Processing', href: '/#claims' },
       { label: 'Explore Revenue Cycle', href: '/#revenue' }
     ],
-    image: financialMgmtImg
+    image: financialMgmtImg,
+    imageSmall: financialMgmtImg360
   },
   {
     id: 'platform-insights',
@@ -80,6 +92,7 @@ export const modulesData: ModuleData[] = [
       { label: 'Explore AI Insights', href: '/#ai-insights' },
       { label: 'Explore Platform Analytics', href: '/#analytics' }
     ],
-    image: platformInsightsImg
+    image: platformInsightsImg,
+    imageSmall: platformInsightsImg360
   }
 ];

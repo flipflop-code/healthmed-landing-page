@@ -39,6 +39,8 @@ export default function Footer() {
               <img
                 src={logoImg}
                 alt="Healthmed Logo"
+                width={190}
+                height={37}
                 className="h-[2.875rem] w-auto object-contain"
                 decoding="async"
                 loading="lazy"
